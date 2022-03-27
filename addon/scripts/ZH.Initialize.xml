@@ -9,6 +9,9 @@
 	<arguments />
 	<sourcetext>
 		<line linenr="001" indent="">
+			<comment>* on/off; with this setting factions can tell their defense fleets to properly focus on threats which don't officially claim sectors (like the OCV or Khaak Queens)</comment>
+		</line>
+		<line linenr="002" indent="">
 			<var>$RearguardsIgnoreClaims</var>
 			<text> </text>
 			<text>=</text>
@@ -17,10 +20,10 @@
 			<text> </text>
 			<text>alloc</text>
 		</line>
-		<line linenr="002" indent="">
-			<comment>*on/off; with this setting factions can tell their defense fleets to properly focus on threats which don't officially claim sectors (like the OCV or Khaak Queens)</comment>
-		</line>
 		<line linenr="003" indent="">
+			<comment>* -1=full defense ; 0=cautious ; 1=baseline (vanilla Mayhem 3) ; 2=confident ; 3=reckless</comment>
+		</line>
+		<line linenr="004" indent="">
 			<var>$OffensiveStrategy</var>
 			<text> </text>
 			<text>=</text>
@@ -29,11 +32,56 @@
 			<text> </text>
 			<text>alloc</text>
 		</line>
-		<line linenr="004" indent="">
-			<comment>*1=vanilla/base ; -1=full defense (isolation) ; 0=cautious (grinding fleets, low invasion range) ; 2=reckless/aggressive (sometimes stupid, late retreats, high invasion range)</comment>
+		<line linenr="005" indent="">
+			<comment>*factions who want to make peace with each other and will also offer it to the player</comment>
 		</line>
-		<line linenr="005" indent="" />
-		<line linenr="006" indent="" interruptable="@">
+		<line linenr="006" indent="">
+			<var>$TruceDesire</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>alloc</text>
+		</line>
+		<line linenr="007" indent="">
+			<comment>* 0= Terraformers are no problem for us ; 1=we want the global anti Xenon alliance ; 2=we feel obligated to protect the galaxy on our own</comment>
+		</line>
+		<line linenr="008" indent="">
+			<var>$ZeroHourDesire</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>alloc</text>
+		</line>
+		<line linenr="009" indent="">
+			<comment>* how many freighters factions had before last cycle</comment>
+		</line>
+		<line linenr="010" indent="">
+			<var>$FreighterCount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>alloc</text>
+		</line>
+		<line linenr="011" indent="">
+			<comment>* how many freighters factions lost during last cycle</comment>
+		</line>
+		<line linenr="012" indent="">
+			<var>$FreighterKills</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>alloc</text>
+		</line>
+		<line linenr="013" indent="" />
+		<line linenr="014" indent="" interruptable="@">
 			<var>$commonwealth</var>
 			<text> </text>
 			<text>=</text>
@@ -49,7 +97,7 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="007" indent="">
+		<line linenr="015" indent="">
 			<text>append</text>
 			<text> </text>
 			<var>[Yaki]</var>
@@ -60,11 +108,11 @@
 			<text> </text>
 			<var>$commonwealth</var>
 		</line>
-		<line linenr="008" indent="">
+		<line linenr="016" indent="">
 			<comment>* append [Player] to array $commonwealth</comment>
 		</line>
-		<line linenr="009" indent="" />
-		<line linenr="010" indent="">
+		<line linenr="017" indent="" />
+		<line linenr="018" indent="">
 			<var>$XS.Iterator1</var>
 			<text> </text>
 			<text>=</text>
@@ -77,17 +125,17 @@
 			<text> </text>
 			<var>$commonwealth</var>
 		</line>
-		<line linenr="011" indent="&#160;">
+		<line linenr="019" indent="&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="012" indent="&#160;">
+		<line linenr="020" indent="&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="013" indent="&#160;">
+		<line linenr="021" indent="&#160;">
 			<var>$race</var>
 			<text> </text>
 			<text>=</text>
@@ -97,7 +145,7 @@
 			<var>$XS.Iterator1</var>
 			<text>]</text>
 		</line>
-		<line linenr="014" indent="" interruptable="@">
+		<line linenr="022" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -106,7 +154,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="015" indent="">
+		<line linenr="023" indent="&#160;">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -123,7 +171,7 @@
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="016" indent="">
+		<line linenr="024" indent="&#160;">
 			<text>table</text>
 			<text> </text>
 			<text>set</text>
@@ -140,11 +188,79 @@
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="017" indent="">
+		<line linenr="025" indent="&#160;">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$TruceDesire</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
+			<var>$race</var>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="026" indent="">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$ZeroHourDesire</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
+			<var>$race</var>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="027" indent="">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$FreighterCount</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
+			<var>$race</var>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="028" indent="">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$FreighterKills</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
+			<var>$race</var>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="029" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="018" indent="" />
-		<line linenr="019" indent="">
+		<line linenr="030" indent="" />
+		<line linenr="031" indent="">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -160,7 +276,7 @@
 			<text>=</text>
 			<var>$RearguardsIgnoreClaims</var>
 		</line>
-		<line linenr="020" indent="">
+		<line linenr="032" indent="">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -170,15 +286,79 @@
 			<text> </text>
 			<text>name</text>
 			<text>=</text>
-			<text>'RearguardsIgnoreClaims'</text>
+			<text>'OffensiveStrategy'</text>
 			<text> </text>
 			<text>value</text>
 			<text>=</text>
 			<var>$OffensiveStrategy</var>
 		</line>
-		<line linenr="021" indent="" />
-		<line linenr="022" indent="" />
-		<line linenr="023" indent="">
+		<line linenr="033" indent="">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'TruceDesire'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$TruceDesire</var>
+		</line>
+		<line linenr="034" indent="">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'ZeroHourDesire'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$ZeroHourDesire</var>
+		</line>
+		<line linenr="035" indent="">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'FreighterCount'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$FreighterCount</var>
+		</line>
+		<line linenr="036" indent="">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'FreighterKills'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$FreighterKills</var>
+		</line>
+		<line linenr="037" indent="" />
+		<line linenr="038" indent="" />
+		<line linenr="039" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
@@ -191,14 +371,18 @@
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="5">
+			<sval type="array" size="9">
 				<sval type="string" val="RearguardsIgnoreClaims" />
 				<sval type="string" val="OffensiveStrategy" />
+				<sval type="string" val="TruceDesire" />
+				<sval type="string" val="ZeroHourDesire" />
+				<sval type="string" val="FreighterCount" />
+				<sval type="string" val="FreighterKills" />
 				<sval type="string" val="commonwealth" />
 				<sval type="string" val="race" />
 				<sval type="string" val="XS.Iterator1" />
 			</sval>
-			<sval type="array" size="15">
+			<sval type="array" size="27">
 				<sval type="array" size="2">
 					<sval type="int" val="1706" />
 					<sval type="int" val="0" />
@@ -207,10 +391,26 @@
 					<sval type="int" val="1706" />
 					<sval type="int" val="1" />
 				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1706" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1706" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1706" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1706" />
+					<sval type="int" val="5" />
+				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.GetCommonwealth" />
-					<sval type="int" val="2" />
+					<sval type="int" val="6" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="0" />
@@ -218,36 +418,36 @@
 				<sval type="array" size="5">
 					<sval type="int" val="135" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="2" />
+					<sval type="int" val="6" />
 					<sval type="int" val="10" />
 					<sval type="int" val="19" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="4" />
+					<sval type="int" val="8" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="2" />
+					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610609655" />
+					<sval type="int" val="-1610607607" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="4" />
+					<sval type="int" val="8" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="3" />
+					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="2" />
+					<sval type="int" val="6" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
+					<sval type="int" val="8" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
@@ -260,7 +460,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="3" />
+					<sval type="int" val="7" />
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
 				</sval>
@@ -269,13 +469,49 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="3" />
+					<sval type="int" val="7" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="5" />
+					<sval type="int" val="9" />
 				</sval>
 				<sval type="array" size="5">
 					<sval type="int" val="157" />
@@ -287,9 +523,37 @@
 				<sval type="array" size="5">
 					<sval type="int" val="157" />
 					<sval type="int" val="5" />
-					<sval type="string" val="RearguardsIgnoreClaims" />
+					<sval type="string" val="OffensiveStrategy" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="5" />
+					<sval type="string" val="TruceDesire" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="5" />
+					<sval type="string" val="ZeroHourDesire" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="5" />
+					<sval type="string" val="FreighterCount" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="5" />
+					<sval type="string" val="FreighterKills" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
@@ -298,44 +562,64 @@
 				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="9">
+			<sval type="array" size="13">
 				<sval type="array" size="3">
-					<sval type="int" val="1" />
+					<sval type="int" val="0" />
 					<sval type="int" val="1" />
 					<sval type="string" val="on/off; with this setting factions can tell their defense fleets to properly focus on threats which don't officially claim sectors (like the OCV or Khaak Queens)" />
 				</sval>
 				<sval type="array" size="3">
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="string" val="-1=full defense ; 0=cautious ; 1=baseline (vanilla Mayhem 3) ; 2=confident ; 3=reckless" />
+				</sval>
+				<sval type="array" size="3">
 					<sval type="int" val="2" />
 					<sval type="int" val="1" />
-					<sval type="string" val="1=vanilla/base ; -1=full defense (isolation) ; 0=cautious (grinding fleets, low invasion range) ; 2=reckless/aggressive (sometimes stupid, late retreats, high invasion range)" />
+					<sval type="string" val="factions who want to make peace with each other and will also offer it to the player" />
 				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="2" />
-					<sval type="int" val="2" />
+				<sval type="array" size="3">
+					<sval type="int" val="3" />
+					<sval type="int" val="1" />
+					<sval type="string" val="0= Terraformers are no problem for us ; 1=we want the global anti Xenon alliance ; 2=we feel obligated to protect the galaxy on our own" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
+					<sval type="string" val="how many freighters factions had before last cycle" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="how many freighters factions lost during last cycle" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="6" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="8" />
+					<sval type="int" val="1" />
 					<sval type="string" val="append [Player] to array $commonwealth" />
 				</sval>
 				<sval type="array" size="2">
+					<sval type="int" val="8" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="20" />
 					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="20" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="12" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="12" />
+					<sval type="int" val="26" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="14" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="14" />
+					<sval type="int" val="26" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
