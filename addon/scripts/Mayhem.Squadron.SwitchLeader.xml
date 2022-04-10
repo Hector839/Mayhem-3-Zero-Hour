@@ -221,7 +221,6 @@
 			<text>:</text>
 			<text> </text>
 			<text>name</text>
-			<text> </text>
 			<text>=</text>
 			<text>'rallyGate.sector'</text>
 			<text> </text>
@@ -972,15 +971,15 @@
 			<var>$squadronLeaders</var>
 		</line>
 		<line linenr="092" indent="" />
-		<line linenr="093" indent="">
+		<line linenr="093" indent="&#160;">
 			<comment>* Commands to retreat only if there was a retreat sector set; otherwise the ship is already on a squadron task.</comment>
 		</line>
-		<line linenr="094" indent="">
+		<line linenr="094" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$retreatSector</var>
 		</line>
-		<line linenr="095" indent="">
+		<line linenr="095" indent="&#160;&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -1004,7 +1003,7 @@
 			<text>=</text>
 			<var>0</var>
 		</line>
-		<line linenr="096" indent="" interruptable="@">
+		<line linenr="096" indent="&#160;" interruptable="@">
 			<text>START</text>
 			<text> </text>
 			<var>$newLeader</var>
@@ -1027,6 +1026,78 @@
 		</line>
 		<line linenr="098" indent="" />
 		<line linenr="099" indent="">
+			<comment>* Zero Hour: update OCV Hunters</comment>
+		</line>
+		<line linenr="100" indent="">
+			<var>$GlobalAlliance</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'ZH_globalAlliance'</text>
+		</line>
+		<line linenr="101" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$GlobalAlliance</var>
+		</line>
+		<line linenr="102" indent="">
+			<var>$OCVhunters</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'OCVhunters'</text>
+		</line>
+		<line linenr="103" indent="">
+			<text>if</text>
+			<text> </text>
+			<text>find</text>
+			<text> </text>
+			<var>$previousLeader</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>array</text>
+			<text>:</text>
+			<text> </text>
+			<var>$OCVhunters</var>
+		</line>
+		<line linenr="104" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$newLeader</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$OCVhunters</var>
+		</line>
+		<line linenr="105" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="106" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="107" indent="" />
+		<line linenr="108" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
@@ -1039,7 +1110,7 @@
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="21">
+			<sval type="array" size="23">
 				<sval type="string" val="squadron" />
 				<sval type="string" val="newLeader" />
 				<sval type="string" val="previousLeader" />
@@ -1061,8 +1132,10 @@
 				<sval type="string" val="squadronLeaders" />
 				<sval type="string" val="squadronLeader" />
 				<sval type="string" val="squadronLeader.exists" />
+				<sval type="string" val="GlobalAlliance" />
+				<sval type="string" val="OCVhunters" />
 			</sval>
-			<sval type="array" size="70">
+			<sval type="array" size="75">
 				<sval type="array" size="4">
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
@@ -1643,6 +1716,42 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="5" />
 				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="ZH_globalAlliance" />
+					<sval type="int" val="21" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610593789" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="OCVhunters" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1406" />
+					<sval type="int" val="-1610593789" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
 					<sval type="int" val="0" />
@@ -1659,7 +1768,7 @@
 					<sval type="string" val="" />
 				</sval>
 			</sval>
-			<sval type="array" size="34">
+			<sval type="array" size="38">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -1805,6 +1914,23 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="69" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="69" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Zero Hour: update OCV Hunters" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="74" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="74" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="74" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
