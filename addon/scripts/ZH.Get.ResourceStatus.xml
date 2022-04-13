@@ -91,34 +91,34 @@
 		</line>
 		<line linenr="010" indent="" />
 		<line linenr="011" indent="">
-			<comment>* 10 million</comment>
+			<comment>* 40 million</comment>
 		</line>
 		<line linenr="012" indent="">
 			<var>$highThreshold</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>10000000</var>
+			<var>40000000</var>
 		</line>
 		<line linenr="013" indent="">
-			<comment>* 3 million</comment>
+			<comment>* 15 million</comment>
 		</line>
 		<line linenr="014" indent="">
 			<var>$medThreshold</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>3000000</var>
+			<var>15000000</var>
 		</line>
 		<line linenr="015" indent="">
-			<comment>* 1 million</comment>
+			<comment>* 3 million</comment>
 		</line>
 		<line linenr="016" indent="">
 			<var>$lowThreshold</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>1000000</var>
+			<var>3000000</var>
 		</line>
 		<line linenr="017" indent="" />
 		<line linenr="018" indent="">
@@ -163,7 +163,7 @@
 			<var>$XS.Iterator1</var>
 			<text>]</text>
 		</line>
-		<line linenr="025" indent="&#160;" interruptable="@">
+		<line linenr="025" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -196,7 +196,7 @@
 			<text>=</text>
 			<var>$ware</var>
 		</line>
-		<line linenr="027" indent="&#160;">
+		<line linenr="027" indent="&#160;&#160;">
 			<var>$ware.average</var>
 			<text> </text>
 			<text>=</text>
@@ -229,19 +229,13 @@
 			<text> </text>
 			<var>$raceSpecBonus</var>
 		</line>
-		<line linenr="030" indent="&#160;&#160;">
-			<var>$ware.total.average</var>
+		<line linenr="030" indent="&#160;">
+			<comment>* our resources can build more valuable stuff if we have a production specialization discount (first multiplied by 100 to workaround integer missing decimal digit)</comment>
+		</line>
+		<line linenr="031" indent="&#160;">
+			<var>$newCost</var>
 			<text> </text>
 			<text>=</text>
-			<text> </text>
-			<var>$ware.amount.average</var>
-			<text> </text>
-			<text>*</text>
-			<text> </text>
-			<text>(</text>
-			<var>100</var>
-			<text> </text>
-			<text>/</text>
 			<text> </text>
 			<text>(</text>
 			<var>100</var>
@@ -250,159 +244,54 @@
 			<text> </text>
 			<var>$raceSpecBonus</var>
 			<text>)</text>
-			<text>)</text>
-		</line>
-		<line linenr="031" indent="&#160;&#160;">
-			<text>else</text>
 		</line>
 		<line linenr="032" indent="&#160;&#160;">
+			<var>$multiplier</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>10000</var>
+			<text> </text>
+			<text>/</text>
+			<text> </text>
+			<var>$newCost</var>
+		</line>
+		<line linenr="033" indent="&#160;&#160;">
+			<var>$ware.total.average</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>(</text>
+			<var>$ware.amount.average</var>
+			<text> </text>
+			<text>/</text>
+			<text> </text>
+			<var>100</var>
+			<text>)</text>
+			<text> </text>
+			<text>*</text>
+			<text> </text>
+			<var>$multiplier</var>
+		</line>
+		<line linenr="034" indent="&#160;">
+			<text>else</text>
+		</line>
+		<line linenr="035" indent="&#160;">
 			<var>$ware.total.average</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$ware.amount.average</var>
 		</line>
-		<line linenr="033" indent="&#160;&#160;">
+		<line linenr="036" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="034" indent="&#160;&#160;">
+		<line linenr="037" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$showDebugZH</var>
 		</line>
-		<line linenr="035" indent="&#160;">
-			<var>$ware.amount.t</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>convert</text>
-			<text> </text>
-			<text>number</text>
-			<text> </text>
-			<var>$ware.amount</var>
-			<text> </text>
-			<text>to</text>
-			<text> </text>
-			<text>string</text>
-		</line>
-		<line linenr="036" indent="&#160;">
-			<var>$ware.amount.t</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>format</text>
-			<text> </text>
-			<text>large</text>
-			<text> </text>
-			<text>number</text>
-			<text> </text>
-			<text>pair</text>
-			<text> </text>
-			<text>as</text>
-			<text> </text>
-			<text>string</text>
-			<text>:</text>
-			<text> </text>
-			<text>billions</text>
-			<text> </text>
-			<var>0</var>
-			<text>,</text>
-			<text> </text>
-			<text>units</text>
-			<text> </text>
-			<var>0</var>
-			<text>,</text>
-			<text> </text>
-			<text>include</text>
-			<text> </text>
-			<text>separators</text>
-			<text> </text>
-			<var>[TRUE]</var>
-			<text>,</text>
-			<text> </text>
-			<text>use</text>
-			<text> </text>
-			<text>millions</text>
-			<text> </text>
-			<text>suffix</text>
-			<text> </text>
-			<text>for</text>
-			<text> </text>
-			<text>very</text>
-			<text> </text>
-			<text>large</text>
-			<text> </text>
-			<text>numbers</text>
-			<text> </text>
-			<var>0</var>
-		</line>
-		<line linenr="037" indent="&#160;&#160;">
-			<var>$ware.total.average.t</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>convert</text>
-			<text> </text>
-			<text>number</text>
-			<text> </text>
-			<var>$ware.total.average</var>
-			<text> </text>
-			<text>to</text>
-			<text> </text>
-			<text>string</text>
-		</line>
-		<line linenr="038" indent="&#160;">
-			<var>$ware.total.average.t</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>format</text>
-			<text> </text>
-			<text>large</text>
-			<text> </text>
-			<text>number</text>
-			<text> </text>
-			<text>pair</text>
-			<text> </text>
-			<text>as</text>
-			<text> </text>
-			<text>string</text>
-			<text>:</text>
-			<text> </text>
-			<text>billions</text>
-			<text> </text>
-			<var>0</var>
-			<text>,</text>
-			<text> </text>
-			<text>units</text>
-			<text> </text>
-			<var>0</var>
-			<text>,</text>
-			<text> </text>
-			<text>include</text>
-			<text> </text>
-			<text>separators</text>
-			<text> </text>
-			<var>[TRUE]</var>
-			<text>,</text>
-			<text> </text>
-			<text>use</text>
-			<text> </text>
-			<text>millions</text>
-			<text> </text>
-			<text>suffix</text>
-			<text> </text>
-			<text>for</text>
-			<text> </text>
-			<text>very</text>
-			<text> </text>
-			<text>large</text>
-			<text> </text>
-			<text>numbers</text>
-			<text> </text>
-			<var>0</var>
-		</line>
-		<line linenr="039" indent="&#160;&#160;">
+		<line linenr="038" indent="&#160;&#160;">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -415,7 +304,7 @@
 			<text> </text>
 			<text>+</text>
 			<text> </text>
-			<var>$ware.amount.t</var>
+			<var>$ware.amount</var>
 			<text> </text>
 			<text>+</text>
 			<text> </text>
@@ -427,15 +316,15 @@
 			<text> </text>
 			<text>+</text>
 			<text> </text>
-			<text>' which is worth '</text>
+			<text>' in their Outposts. It is worth '</text>
 			<text> </text>
 			<text>+</text>
 			<text> </text>
-			<var>$ware.total.average.t</var>
+			<var>$ware.total.average</var>
 			<text> </text>
 			<text>+</text>
 			<text> </text>
-			<text>' credits. (true value got modified by '</text>
+			<text>' credits. (Outpost specialization of '</text>
 			<text> </text>
 			<text>+</text>
 			<text> </text>
@@ -443,9 +332,25 @@
 			<text> </text>
 			<text>+</text>
 			<text> </text>
-			<text>'% specialization discount'</text>
+			<text>'% increases the base value of '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$ware.amount.average</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>' to a true production cost value of  '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$ware.total.average</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>')'</text>
 		</line>
-		<line linenr="040" indent="&#160;">
+		<line linenr="039" indent="&#160;">
 			<text>write</text>
 			<text> </text>
 			<text>to</text>
@@ -456,10 +361,10 @@
 			<text> </text>
 			<var>$t</var>
 		</line>
-		<line linenr="041" indent="&#160;&#160;">
+		<line linenr="040" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="042" indent="">
+		<line linenr="041" indent="">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -478,14 +383,14 @@
 			<text> </text>
 			<var>2</var>
 		</line>
-		<line linenr="043" indent="">
+		<line linenr="042" indent="">
 			<var>$ResourceStatus</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>2</var>
 		</line>
-		<line linenr="044" indent="">
+		<line linenr="043" indent="">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -504,14 +409,14 @@
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="045" indent="">
+		<line linenr="044" indent="">
 			<var>$ResourceStatus</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="046" indent="">
+		<line linenr="045" indent="">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -530,18 +435,18 @@
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="047" indent="">
+		<line linenr="046" indent="">
 			<var>$ResourceStatus</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="048" indent="">
+		<line linenr="047" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="049" indent="" />
-		<line linenr="050" indent="">
+		<line linenr="048" indent="" />
+		<line linenr="049" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>$ResourceStatus</var>
@@ -569,12 +474,12 @@
 				<sval type="string" val="ware.amount" />
 				<sval type="string" val="ware.average" />
 				<sval type="string" val="ware.amount.average" />
+				<sval type="string" val="newCost" />
+				<sval type="string" val="multiplier" />
 				<sval type="string" val="ware.total.average" />
-				<sval type="string" val="ware.amount.t" />
-				<sval type="string" val="ware.total.average.t" />
 				<sval type="string" val="t" />
 			</sval>
-			<sval type="array" size="37">
+			<sval type="array" size="35">
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
@@ -625,7 +530,7 @@
 					<sval type="int" val="5" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
-					<sval type="int" val="10000000" />
+					<sval type="int" val="40000000" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
@@ -634,7 +539,7 @@
 					<sval type="int" val="6" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
-					<sval type="int" val="3000000" />
+					<sval type="int" val="15000000" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
@@ -643,7 +548,7 @@
 					<sval type="int" val="7" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
-					<sval type="int" val="1000000" />
+					<sval type="int" val="3000000" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
@@ -664,7 +569,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610603511" />
+					<sval type="int" val="-1610604023" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="10" />
@@ -724,51 +629,75 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610607357" />
+					<sval type="int" val="-1610606845" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
-				<sval type="array" size="29">
+				<sval type="array" size="15">
 					<sval type="int" val="104" />
 					<sval type="int" val="14" />
-					<sval type="int" val="7" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="13" />
-					<sval type="int" val="4" />
-					<sval type="int" val="100" />
+					<sval type="int" val="3" />
 					<sval type="int" val="4" />
 					<sval type="int" val="100" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
 					<sval type="int" val="15" />
 					<sval type="int" val="12" />
-					<sval type="int" val="15" />
-					<sval type="int" val="14" />
-					<sval type="int" val="15" />
-					<sval type="int" val="13" />
-					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="int" val="16" />
 					<sval type="int" val="-1" />
-					<sval type="int" val="13" />
-					<sval type="int" val="16" />
-					<sval type="int" val="-2" />
-					<sval type="int" val="14" />
-					<sval type="int" val="16" />
-					<sval type="int" val="-3" />
 					<sval type="int" val="12" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="17" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="15" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="10000" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="15" />
+					<sval type="int" val="14" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="14" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="21">
+					<sval type="int" val="104" />
+					<sval type="int" val="16" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="4" />
+					<sval type="int" val="100" />
+					<sval type="int" val="15" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
+					<sval type="int" val="15" />
+					<sval type="int" val="13" />
+					<sval type="int" val="7" />
+					<sval type="int" val="16" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="14" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="17" />
+					<sval type="int" val="13" />
 					<sval type="int" val="-4" />
-					<sval type="int" val="17" />
-					<sval type="int" val="17" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="22" />
+					<sval type="int" val="24" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="14" />
+					<sval type="int" val="16" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="13" />
@@ -777,53 +706,17 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610605309" />
+					<sval type="int" val="-1610605821" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="2" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="1474" />
-					<sval type="int" val="15" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="11" />
-				</sval>
-				<sval type="array" size="10">
-					<sval type="int" val="1544" />
-					<sval type="int" val="15" />
-					<sval type="int" val="4" />
-					<sval type="int" val="0" />
-					<sval type="int" val="4" />
-					<sval type="int" val="0" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="10" />
-					<sval type="int" val="4" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="1474" />
-					<sval type="int" val="16" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="14" />
-				</sval>
-				<sval type="array" size="10">
-					<sval type="int" val="1544" />
-					<sval type="int" val="16" />
-					<sval type="int" val="4" />
-					<sval type="int" val="0" />
-					<sval type="int" val="4" />
-					<sval type="int" val="0" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="10" />
-					<sval type="int" val="4" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="61">
+				<sval type="array" size="85">
 					<sval type="int" val="104" />
 					<sval type="int" val="17" />
-					<sval type="int" val="19" />
+					<sval type="int" val="27" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 					<sval type="int" val="5" />
@@ -831,7 +724,7 @@
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="15" />
+					<sval type="int" val="11" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
@@ -843,7 +736,7 @@
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
-					<sval type="string" val=" which is worth " />
+					<sval type="string" val=" in their Outposts. It is worth " />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="131074" />
@@ -851,7 +744,7 @@
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
-					<sval type="string" val=" credits. (true value got modified by " />
+					<sval type="string" val=" credits. (Outpost specialization of " />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="131074" />
@@ -859,10 +752,26 @@
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
-					<sval type="string" val="% specialization discount" />
+					<sval type="string" val="% increases the base value of " />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
-					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val=" to a true production cost value of  " />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val=")" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="27" />
 					<sval type="int" val="-1" />
 					<sval type="int" val="11" />
 					<sval type="int" val="-2" />
@@ -882,6 +791,14 @@
 					<sval type="int" val="-16" />
 					<sval type="int" val="11" />
 					<sval type="int" val="-18" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-20" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-22" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-24" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-26" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="400" />
@@ -890,10 +807,10 @@
 				</sval>
 				<sval type="array" size="25">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604792" />
+					<sval type="int" val="-1610605304" />
 					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="14" />
+					<sval type="int" val="16" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="5" />
 					<sval type="int" val="15" />
@@ -926,10 +843,10 @@
 				</sval>
 				<sval type="array" size="25">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604280" />
+					<sval type="int" val="-1610604792" />
 					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="14" />
+					<sval type="int" val="16" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="6" />
 					<sval type="int" val="15" />
@@ -962,10 +879,10 @@
 				</sval>
 				<sval type="array" size="25">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610603768" />
+					<sval type="int" val="-1610604280" />
 					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="14" />
+					<sval type="int" val="16" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="7" />
 					<sval type="int" val="15" />
@@ -1016,7 +933,7 @@
 					<sval type="string" val="" />
 				</sval>
 			</sval>
-			<sval type="array" size="15">
+			<sval type="array" size="16">
 				<sval type="array" size="3">
 					<sval type="int" val="0" />
 					<sval type="int" val="1" />
@@ -1037,17 +954,17 @@
 				<sval type="array" size="3">
 					<sval type="int" val="6" />
 					<sval type="int" val="1" />
-					<sval type="string" val="10 million" />
+					<sval type="string" val="40 million" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="7" />
 					<sval type="int" val="1" />
-					<sval type="string" val="3 million" />
+					<sval type="string" val="15 million" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="8" />
 					<sval type="int" val="1" />
-					<sval type="string" val="1 million" />
+					<sval type="string" val="3 million" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="9" />
@@ -1061,24 +978,29 @@
 					<sval type="int" val="10" />
 					<sval type="int" val="2" />
 				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="19" />
+					<sval type="int" val="1" />
+					<sval type="string" val="our resources can build more valuable stuff if we have a production specialization discount (first multiplied by 100 to workaround integer missing decimal digit)" />
+				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="21" />
+					<sval type="int" val="23" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="22" />
+					<sval type="int" val="24" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="29" />
+					<sval type="int" val="27" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="36" />
+					<sval type="int" val="34" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="36" />
+					<sval type="int" val="34" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
