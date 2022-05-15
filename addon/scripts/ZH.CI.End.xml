@@ -11,7 +11,7 @@
 	</arguments>
 	<sourcetext>
 		<line linenr="001" indent="">
-			<comment>* triggered either by Mayhem.Conquer or a safety check in ################################### ZH.Monitor (if all member BG are dead)</comment>
+			<comment>* triggered by Mayhem.Conquer when successful, by ZH.Monitor if all members BattleGroups are dead, or by ZH.Core when a global alliance begins</comment>
 		</line>
 		<line linenr="002" indent="" />
 		<line linenr="003" indent="" />
@@ -218,12 +218,13 @@
 			<var>$CIs.Targets</var>
 			<text> </text>
 			<text>(</text>
+			<text> </text>
 			<var>$race</var>
+			<text> </text>
 			<text>)</text>
 		</line>
 		<line linenr="026" indent="">
 			<var>$target</var>
-			<text> </text>
 			<text>-&gt;</text>
 			<text> </text>
 			<text>set</text>
@@ -312,6 +313,32 @@
 		</line>
 		<line linenr="033" indent="" />
 		<line linenr="034" indent="">
+			<comment>* restart Battlegroups</comment>
+		</line>
+		<line linenr="035" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.restartSquadrons</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>$race</var>
+			<text> </text>
+			<text>squadronName</text>
+			<text>=</text>
+			<text>'battleGroup'</text>
+		</line>
+		<line linenr="036" indent="" />
+		<line linenr="037" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
@@ -335,7 +362,7 @@
 				<sval type="string" val="XS.Iterator1" />
 				<sval type="string" val="target" />
 			</sval>
-			<sval type="array" size="22">
+			<sval type="array" size="23">
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
@@ -495,6 +522,18 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="5" />
 				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.restartSquadrons" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="battleGroup" />
+				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
 					<sval type="int" val="0" />
@@ -507,11 +546,11 @@
 					<sval type="string" val="" />
 				</sval>
 			</sval>
-			<sval type="array" size="13">
+			<sval type="array" size="15">
 				<sval type="array" size="3">
 					<sval type="int" val="0" />
 					<sval type="int" val="1" />
-					<sval type="string" val="triggered either by Mayhem.Conquer or a safety check in ################################### ZH.Monitor (if all member BG are dead)" />
+					<sval type="string" val="triggered by Mayhem.Conquer when successful, by ZH.Monitor if all members BattleGroups are dead, or by ZH.Core when a global alliance begins" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
@@ -562,6 +601,15 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="21" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="21" />
+					<sval type="int" val="1" />
+					<sval type="string" val="restart Battlegroups" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
