@@ -1594,7 +1594,7 @@
 			<text>=</text>
 			<var>$id</var>
 		</line>
-		<line linenr="147" indent="">
+		<line linenr="147" indent="&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -1605,7 +1605,7 @@
 			<text> </text>
 			<var>[Player]</var>
 		</line>
-		<line linenr="148" indent="" interruptable="@">
+		<line linenr="148" indent="&#160;" interruptable="@">
 			<text>START</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -1639,7 +1639,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="149" indent="">
+		<line linenr="149" indent="&#160;&#160;">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -1728,7 +1728,47 @@
 			<comment>* Zero Hour Coordinated Invasion ends</comment>
 		</line>
 		<line linenr="159" indent="">
-			<var>$CI.Status</var>
+			<var>$CI.targetTrait</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$sector</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'CI.target'</text>
+		</line>
+		<line linenr="160" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$CI.targetTrait</var>
+		</line>
+		<line linenr="161" indent="">
+			<var>$CIs.Targets</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'CIs.Targets'</text>
+		</line>
+		<line linenr="162" indent="">
+			<var>$CI.Target</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
@@ -1736,7 +1776,7 @@
 			<text> </text>
 			<text>get</text>
 			<text> </text>
-			<var>$CIs.Status</var>
+			<var>$CIs.Targets</var>
 			<text> </text>
 			<text>(</text>
 			<text> </text>
@@ -1744,18 +1784,18 @@
 			<text> </text>
 			<text>)</text>
 		</line>
-		<line linenr="160" indent="">
+		<line linenr="163" indent="">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
-			<var>$CI.Status</var>
+			<var>$CI.Target</var>
 			<text> </text>
 			<text>==</text>
 			<text> </text>
 			<var>$sector</var>
 		</line>
-		<line linenr="161" indent="" interruptable="@">
+		<line linenr="164" indent="" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -1766,14 +1806,18 @@
 			<text>script</text>
 			<text> </text>
 			<call>ZH.CI.End</call>
+			<text> </text>
 			<text>:</text>
 			<text> </text>
 			<text>race</text>
 			<text>=</text>
-			<var>$race</var>
+			<var>$conqueror</var>
 		</line>
-		<line linenr="162" indent="" />
-		<line linenr="163" indent="">
+		<line linenr="165" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="166" indent="" />
+		<line linenr="167" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
@@ -1819,11 +1863,11 @@
 				<sval type="string" val="ids" />
 				<sval type="string" val="index" />
 				<sval type="string" val="id" />
-				<sval type="string" val="CI.Status" />
-				<sval type="string" val="CIs.Status" />
-				<sval type="string" val="race" />
+				<sval type="string" val="CI.targetTrait" />
+				<sval type="string" val="CIs.Targets" />
+				<sval type="string" val="CI.Target" />
 			</sval>
-			<sval type="array" size="119">
+			<sval type="array" size="122">
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
@@ -3068,8 +3112,31 @@
 					<sval type="int" val="3" />
 				</sval>
 				<sval type="array" size="6">
-					<sval type="int" val="1709" />
+					<sval type="int" val="156" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="CI.target" />
 					<sval type="int" val="32" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610581757" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="CIs.Targets" />
+					<sval type="int" val="33" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1709" />
+					<sval type="int" val="34" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="33" />
 					<sval type="int" val="131074" />
@@ -3077,10 +3144,10 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610582520" />
+					<sval type="int" val="-1610581752" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="32" />
+					<sval type="int" val="34" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 					<sval type="int" val="15" />
@@ -3098,7 +3165,7 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="34" />
+					<sval type="int" val="3" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
@@ -3116,7 +3183,7 @@
 					<sval type="string" val="" />
 				</sval>
 			</sval>
-			<sval type="array" size="53">
+			<sval type="array" size="54">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -3337,7 +3404,11 @@
 					<sval type="string" val="Zero Hour Coordinated Invasion ends" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="118" />
+					<sval type="int" val="121" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="121" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
