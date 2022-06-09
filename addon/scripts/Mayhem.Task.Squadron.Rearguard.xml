@@ -3,7 +3,7 @@
 <!-- Generated using X-Studio -->
 <script>
 	<name>Mayhem.Task.Squadron.Rearguard</name>
-	<version>9</version>
+	<version>20</version>
 	<engineversion>50</engineversion>
 	<description></description>
 	<arguments />
@@ -244,6 +244,22 @@
 			<var>1</var>
 		</line>
 		<line linenr="032" indent="&#160;&#160;">
+			<var>$approachPortal</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'ZH_sentFuryRoadMessage'</text>
+		</line>
+		<line linenr="033" indent="&#160;&#160;">
 			<var>$OCVhunters</var>
 			<text> </text>
 			<text>=</text>
@@ -259,7 +275,7 @@
 			<text>=</text>
 			<text>'OCVhunters'</text>
 		</line>
-		<line linenr="033" indent="&#160;&#160;">
+		<line linenr="034" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>find</text>
@@ -273,44 +289,83 @@
 			<text> </text>
 			<var>$OCVhunters</var>
 		</line>
-		<line linenr="034" indent="&#160;&#160;&#160;">
-			<comment>* we are a strong OCV hunter fleet and search for large Terraformer ships</comment>
-		</line>
 		<line linenr="035" indent="&#160;&#160;&#160;">
-			<comment>* first try up to 4 jumps from our current location (here we don't tether to the homebase because we want them to be able to roam the entire galaxy)</comment>
+			<comment>* if you are in a Xenon sector right now you can wreck it!</comment>
 		</line>
 		<line linenr="036" indent="&#160;&#160;&#160;">
+			<var>$sector.owner</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[SECTOR]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>owner</text>
+			<text> </text>
+			<text>race</text>
+		</line>
+		<line linenr="037" indent="&#160;&#160;&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$sector.owner</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Xenon]</var>
+		</line>
+		<line linenr="038" indent="&#160;&#160;&#160;&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>OpportunisticClaim</var>
+			<text>:</text>
+		</line>
+		<line linenr="039" indent="&#160;&#160;&#160;">
+			<comment>* we are a strong OCV hunter fleet and search for large Terraformer ships</comment>
+		</line>
+		<line linenr="040" indent="&#160;&#160;&#160;">
+			<comment>* first try up to 4 jumps from our current location (here we don't tether to the homebase because we want them to be able to roam the entire galaxy)</comment>
+		</line>
+		<line linenr="041" indent="&#160;&#160;&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
 			<var>$searchDouble</var>
 		</line>
-		<line linenr="037" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="042" indent="&#160;&#160;&#160;&#160;">
 			<var>$reachableSectors</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>[NULL]</var>
+			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
-			<text>call</text>
+			<text>find</text>
 			<text> </text>
-			<text>script</text>
+			<text>all</text>
 			<text> </text>
-			<call>Mayhem.GetReachableSectors</call>
+			<text>sectors</text>
 			<text> </text>
+			<text>within</text>
+			<text> </text>
+			<var>4</var>
+			<text> </text>
+			<text>jumps</text>
 			<text>:</text>
 			<text> </text>
-			<text>station</text>
-			<text>=</text>
-			<var>null</var>
+			<text>Only</text>
 			<text> </text>
-			<text>ship</text>
+			<text>known</text>
+			<text> </text>
+			<text>sectors</text>
 			<text>=</text>
-			<var>[THIS]</var>
+			<var>[FALSE]</var>
 		</line>
-		<line linenr="038" indent="&#160;&#160;&#160;">
+		<line linenr="043" indent="&#160;&#160;&#160;">
 			<var>$XS.Iterator1</var>
 			<text> </text>
 			<text>=</text>
@@ -323,17 +378,17 @@
 			<text> </text>
 			<var>$reachableSectors</var>
 		</line>
-		<line linenr="039" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="044" indent="&#160;&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="040" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="045" indent="&#160;&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="041" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="046" indent="&#160;&#160;&#160;&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
@@ -343,7 +398,7 @@
 			<var>$XS.Iterator1</var>
 			<text>]</text>
 		</line>
-		<line linenr="042" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="047" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -360,7 +415,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="043" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="048" indent="&#160;&#160;&#160;&#160;">
 			<var>$unclaimable</var>
 			<text> </text>
 			<text>=</text>
@@ -379,17 +434,64 @@
 			<text>=</text>
 			<text>'mayhem_unclaimable'</text>
 		</line>
-		<line linenr="044" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="049" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
 			<var>$unclaimable</var>
 		</line>
-		<line linenr="045" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="050" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="046" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="051" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>!</text>
+			<var>$approachPortal</var>
+		</line>
+		<line linenr="052" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<comment>* we cannot approach the general area around the Portal until we got clearance by UNC command</comment>
+		</line>
+		<line linenr="053" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$portal.distance</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.Get.Distance.Portal</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>sector</text>
+			<text>=</text>
+			<var>$sector</var>
+		</line>
+		<line linenr="054" indent="&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$portal.distance</var>
+			<text> </text>
+			<text>&lt;</text>
+			<text> </text>
+			<var>5</var>
+		</line>
+		<line linenr="055" indent="&#160;&#160;&#160;&#160;">
+			<text>continue</text>
+		</line>
+		<line linenr="056" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="057" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="058" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$xenons</var>
 			<text> </text>
 			<text>=</text>
@@ -435,7 +537,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="047" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="059" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$ocv</var>
 			<text> </text>
 			<text>=</text>
@@ -481,7 +583,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="048" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="060" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$xenons</var>
@@ -490,7 +592,7 @@
 			<text> </text>
 			<var>$ocv</var>
 		</line>
-		<line linenr="049" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="061" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -528,7 +630,7 @@
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="050" indent="&#160;&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="062" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -548,109 +650,34 @@
 			<text> </text>
 			<text>timeoutSeconds</text>
 			<text>=</text>
-			<var>1800</var>
+			<var>900</var>
 		</line>
-		<line linenr="051" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
-			<comment>* after we have found and taken down enemies we can switch back to the short range search method</comment>
-		</line>
-		<line linenr="052" indent="&#160;&#160;&#160;&#160;&#160;">
-			<text>if</text>
+		<line linenr="063" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>gosub</text>
 			<text> </text>
-			<var>$searchDouble</var>
-		</line>
-		<line linenr="053" indent="&#160;&#160;&#160;&#160;&#160;">
-			<var>$searchDouble</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<var>[FALSE]</var>
-		</line>
-		<line linenr="054" indent="&#160;&#160;&#160;&#160;" interruptable="@">
-			<var>$reachableSectors</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<var>[NULL]</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>Mayhem.GetReachableSectors</call>
-			<text> </text>
-			<text>:</text>
-			<text> </text>
-			<text>station</text>
-			<text>=</text>
-			<var>null</var>
-			<text> </text>
-			<text>ship</text>
-			<text>=</text>
-			<var>[THIS]</var>
-		</line>
-		<line linenr="055" indent="&#160;&#160;&#160;">
-			<text>end</text>
-		</line>
-		<line linenr="056" indent="&#160;&#160;&#160;">
-			<text>goto</text>
-			<text> </text>
-			<text>label</text>
-			<text> </text>
-			<var>Restart</var>
+			<var>OpportunisticClaim</var>
 			<text>:</text>
 		</line>
-		<line linenr="057" indent="&#160;&#160;&#160;">
-			<text>end</text>
+		<line linenr="064" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<comment>* once we are done with the local Terraformers we check if any other hunter groups are here</comment>
 		</line>
-		<line linenr="058" indent="&#160;&#160;&#160;&#160;">
-			<text>end</text>
-		</line>
-		<line linenr="059" indent="&#160;&#160;&#160;&#160;">
-			<comment>* if we couldn't find enemies with double search radius we must go somewhere else</comment>
-		</line>
-		<line linenr="060" indent="&#160;&#160;&#160;&#160;">
-			<text>if</text>
-			<text> </text>
-			<var>$searchDouble</var>
-		</line>
-		<line linenr="061" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
-			<var>$galaxy</var>
+		<line linenr="065" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<var>$OCVhunters</var>
 			<text> </text>
 			<text>=</text>
-			<text> </text>
-			<var>[NULL]</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>Mayhem.GetGalaxy</call>
-			<text> </text>
-			<text>:</text>
-			<text> </text>
-			<text>known</text>
-			<text>=</text>
-			<var>[FALSE]</var>
-			<text> </text>
-			<text>randomize</text>
-			<text>=</text>
-			<var>[TRUE]</var>
-		</line>
-		<line linenr="062" indent="&#160;&#160;&#160;&#160;&#160;">
-			<var>$sector.current</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<var>[THIS]</var>
-			<text>-&gt;</text>
 			<text> </text>
 			<text>get</text>
 			<text> </text>
-			<text>sector</text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'OCVhunters'</text>
 		</line>
-		<line linenr="063" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="066" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<var>$XS.Iterator2</var>
 			<text> </text>
 			<text>=</text>
@@ -661,61 +688,54 @@
 			<text> </text>
 			<text>array</text>
 			<text> </text>
-			<var>$galaxy</var>
+			<var>$OCVhunters</var>
 		</line>
-		<line linenr="064" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="067" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator2</var>
 		</line>
-		<line linenr="065" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="068" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator2</var>
 		</line>
-		<line linenr="066" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
-			<var>$sector</var>
+		<line linenr="069" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<var>$hunter</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>$galaxy</var>
+			<var>$OCVhunters</var>
 			<text>[</text>
 			<var>$XS.Iterator2</var>
 			<text>]</text>
 		</line>
-		<line linenr="067" indent="&#160;&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="070" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<var>$sector.hunter</var>
+			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<text>wait</text>
+			<var>$hunter</var>
+			<text>-&gt;</text>
 			<text> </text>
-			<text>randomly</text>
+			<text>get</text>
 			<text> </text>
-			<text>from</text>
-			<text> </text>
-			<var>100</var>
-			<text> </text>
-			<text>to</text>
-			<text> </text>
-			<var>200</var>
-			<text> </text>
-			<text>ms</text>
+			<text>sector</text>
 		</line>
-		<line linenr="068" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
-			<text>do</text>
-			<text> </text>
+		<line linenr="071" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
-			<var>$sector</var>
+			<var>$sector.hunter</var>
 			<text> </text>
 			<text>==</text>
 			<text> </text>
-			<var>$sector.current</var>
+			<var>[SECTOR]</var>
 		</line>
-		<line linenr="069" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
-			<text>continue</text>
+		<line linenr="072" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<comment>* we don't want to cluster up with other hunter groups. So go to a random unclaimed Xenon sector and finish it while you're there</comment>
 		</line>
-		<line linenr="070" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
-			<var>$distance</var>
+		<line linenr="073" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$xenonSectors</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
@@ -726,36 +746,99 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>Joubarbe.Lib.GetDistance</call>
+			<call>ZH.GetOwnedSectors.Performance</call>
 			<text> </text>
 			<text>:</text>
 			<text> </text>
-			<text>object1</text>
+			<text>race</text>
 			<text>=</text>
+			<var>[Xenon]</var>
+			<text> </text>
+			<text>randomize</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="074" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<var>$XS.Iterator3</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$xenonSectors</var>
+		</line>
+		<line linenr="075" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator3</var>
+		</line>
+		<line linenr="076" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator3</var>
+		</line>
+		<line linenr="077" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<var>$sector</var>
 			<text> </text>
-			<text>object2</text>
 			<text>=</text>
-			<var>$sector.current</var>
+			<text> </text>
+			<var>$xenonSectors</var>
+			<text>[</text>
+			<var>$XS.Iterator3</var>
+			<text>]</text>
 		</line>
-		<line linenr="071" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="078" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>do</text>
+			<text> </text>
 			<text>if</text>
 			<text> </text>
-			<var>$distance</var>
+			<var>$sector</var>
+			<text>-&gt;</text>
 			<text> </text>
-			<text>&gt;</text>
+			<text>get</text>
 			<text> </text>
-			<var>6</var>
+			<text>local</text>
 			<text> </text>
-			<text>AND</text>
+			<text>variable</text>
+			<text>:</text>
 			<text> </text>
-			<var>$distance</var>
-			<text> </text>
-			<text>&lt;</text>
-			<text> </text>
-			<var>9</var>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_unclaimable'</text>
 		</line>
-		<line linenr="072" indent="&#160;&#160;&#160;">
+		<line linenr="079" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>continue</text>
+		</line>
+		<line linenr="080" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$claimRace</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$sector</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_claimRace'</text>
+		</line>
+		<line linenr="081" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>!</text>
+			<var>$claimRace</var>
+		</line>
+		<line linenr="082" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -793,7 +876,7 @@
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="073" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="083" indent="&#160;&#160;&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -811,14 +894,75 @@
 			<text>=</text>
 			<var>$sector</var>
 		</line>
-		<line linenr="074" indent="&#160;&#160;&#160;">
+		<line linenr="084" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>OpportunisticClaim</var>
+			<text>:</text>
+		</line>
+		<line linenr="085" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>break</text>
+		</line>
+		<line linenr="086" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="087" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="088" indent="&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="089" indent="&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="090" indent="&#160;&#160;&#160;">
+			<comment>* we can switch back to the short range search method</comment>
+		</line>
+		<line linenr="091" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$searchDouble</var>
+		</line>
+		<line linenr="092" indent="&#160;&#160;&#160;">
 			<var>$searchDouble</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="075" indent="&#160;&#160;&#160;">
+		<line linenr="093" indent="&#160;&#160;&#160;&#160;">
+			<var>$reachableSectors</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>find</text>
+			<text> </text>
+			<text>all</text>
+			<text> </text>
+			<text>sectors</text>
+			<text> </text>
+			<text>within</text>
+			<text> </text>
+			<var>4</var>
+			<text> </text>
+			<text>jumps</text>
+			<text>:</text>
+			<text> </text>
+			<text>Only</text>
+			<text> </text>
+			<text>known</text>
+			<text> </text>
+			<text>sectors</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="094" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="095" indent="&#160;&#160;&#160;&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -826,26 +970,471 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="076" indent="&#160;&#160;&#160;">
+		<line linenr="096" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="077" indent="&#160;&#160;">
+		<line linenr="097" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="078" indent="&#160;&#160;&#160;">
+		<line linenr="098" indent="&#160;&#160;&#160;&#160;">
+			<comment>* if we couldn't find capships even with double search radius we must go to the closest Xenon sector and search again.</comment>
+		</line>
+		<line linenr="099" indent="&#160;&#160;&#160;&#160;">
+			<comment>* also 50/50 chance to move randomly before even using double search radius</comment>
+		</line>
+		<line linenr="100" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$rngMove</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>zero</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="101" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$searchDouble</var>
+			<text> </text>
+			<text>OR</text>
+			<text> </text>
+			<var>$rngMove</var>
+		</line>
+		<line linenr="102" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$xenonSectors</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.GetOwnedSectors.Performance</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Xenon]</var>
+			<text> </text>
+			<text>randomize</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="103" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$xenonSectors</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.SortByDistance</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>refObject</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$xenonSectors</var>
+		</line>
+		<line linenr="104" indent="&#160;&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$sector</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetLastElement</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$xenonSectors</var>
+		</line>
+		<line linenr="105" indent="&#160;&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$distance</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetDistance</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>object1</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>object2</text>
+			<text>=</text>
+			<var>$sector</var>
+		</line>
+		<line linenr="106" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<comment>* before special CIs have not secured the OCV portal we cannot approach the general area around it</comment>
+		</line>
+		<line linenr="107" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$portal.distance</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.Get.Distance.Portal</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>sector</text>
+			<text>=</text>
+			<var>$sector</var>
+		</line>
+		<line linenr="108" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$distance</var>
+			<text> </text>
+			<text>&lt;</text>
+			<text> </text>
+			<var>8</var>
+			<text> </text>
+			<text>OR</text>
+			<text> </text>
+			<text>(</text>
+			<var>$portal.distance</var>
+			<text> </text>
+			<text>&lt;</text>
+			<text> </text>
+			<var>5</var>
+			<text> </text>
+			<text>AND</text>
+			<text> </text>
+			<text>!</text>
+			<var>$approachPortal</var>
+			<text>)</text>
+		</line>
+		<line linenr="109" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<var>$sector</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="110" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<comment>* if the closest Xenon sector is less than 8 jumps away from us or too close to the portal we can go a bit further to spread all hunter groups out a bit more.</comment>
+		</line>
+		<line linenr="111" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$xenonSectors</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.RandomizeArray</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$xenonSectors</var>
+		</line>
+		<line linenr="112" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<var>$XS.Iterator4</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$xenonSectors</var>
+		</line>
+		<line linenr="113" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator4</var>
+		</line>
+		<line linenr="114" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator4</var>
+		</line>
+		<line linenr="115" indent="&#160;&#160;&#160;&#160;">
+			<var>$xenonSector</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$xenonSectors</var>
+			<text>[</text>
+			<var>$XS.Iterator4</var>
+			<text>]</text>
+		</line>
+		<line linenr="116" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>100</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="117" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$distance</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetDistance</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>object1</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>object2</text>
+			<text>=</text>
+			<var>$xenonSector</var>
+		</line>
+		<line linenr="118" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$distance</var>
+			<text> </text>
+			<text>&gt;</text>
+			<text> </text>
+			<var>2</var>
+			<text> </text>
+			<text>AND</text>
+			<text> </text>
+			<var>$distance</var>
+			<text> </text>
+			<text>&lt;=</text>
+			<text> </text>
+			<var>6</var>
+		</line>
+		<line linenr="119" indent="&#160;&#160;&#160;&#160;&#160;">
+			<comment>* before special CIs have not secured the OCV portal we cannot approach the general area around it</comment>
+		</line>
+		<line linenr="120" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$portal.distance</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.Get.Distance.Portal</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>sector</text>
+			<text>=</text>
+			<var>$xenonSector</var>
+		</line>
+		<line linenr="121" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>not</text>
+			<text> </text>
+			<var>$portal.distance</var>
+			<text> </text>
+			<text>&lt;</text>
+			<text> </text>
+			<var>5</var>
+			<text> </text>
+			<text>AND</text>
+			<text> </text>
+			<text>!</text>
+			<var>$approachPortal</var>
+		</line>
+		<line linenr="122" indent="&#160;&#160;&#160;&#160;&#160;">
+			<var>$sector</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$xenonSector</var>
+		</line>
+		<line linenr="123" indent="&#160;&#160;&#160;&#160;">
+			<text>break</text>
+		</line>
+		<line linenr="124" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="079" indent="&#160;&#160;&#160;">
-			<comment>* if we can't find any enemies within 4 jumps we must double our search radius</comment>
+		<line linenr="125" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
 		</line>
-		<line linenr="080" indent="&#160;&#160;&#160;">
+		<line linenr="126" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="127" indent="&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="128" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$sector</var>
+		</line>
+		<line linenr="129" indent="&#160;&#160;&#160;">
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>orders</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<text>sprintf</text>
+			<text>:</text>
+			<text> </text>
+			<text>fmt</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Regrouping to %s'</text>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>$sector</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="130" indent="&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>!move.movetosector</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>targetsector</text>
+			<text>=</text>
+			<var>$sector</var>
+		</line>
+		<line linenr="131" indent="&#160;&#160;&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>OpportunisticClaim</var>
+			<text>:</text>
+		</line>
+		<line linenr="132" indent="&#160;&#160;">
+			<text>else</text>
+		</line>
+		<line linenr="133" indent="&#160;&#160;&#160;">
+			<comment>* if you couldn't find any Xenon sector to go to (should practically never happen) then you can head home for now</comment>
+		</line>
+		<line linenr="134" indent="&#160;&#160;&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>GoHomeSector</var>
+			<text>:</text>
+		</line>
+		<line linenr="135" indent="&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="136" indent="&#160;&#160;&#160;">
+			<var>$searchDouble</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="137" indent="&#160;&#160;&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>Restart</var>
+			<text>:</text>
+		</line>
+		<line linenr="138" indent="&#160;&#160;&#160;">
+			<comment>* end</comment>
+		</line>
+		<line linenr="139" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="140" indent="&#160;">
+			<comment>* if we didn't move randomly and also couldn't find capships within 4 jumps we double our search radius</comment>
+		</line>
+		<line linenr="141" indent="&#160;">
 			<var>$searchDouble</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>[TRUE]</var>
 		</line>
-		<line linenr="081" indent="&#160;&#160;&#160;">
+		<line linenr="142" indent="&#160;">
 			<var>$reachableSectors</var>
 			<text> </text>
 			<text>=</text>
@@ -874,7 +1463,7 @@
 			<text>=</text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="082" indent="&#160;&#160;&#160;">
+		<line linenr="143" indent="&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -882,13 +1471,13 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="083" indent="&#160;&#160;&#160;">
+		<line linenr="144" indent="&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="084" indent="&#160;&#160;">
-			<comment>* we are no Hunter ourself so we have to join the closest one (can be from another faction)</comment>
+		<line linenr="145" indent="&#160;">
+			<comment>* we are NO Hunter ourself so we have to join the closest one (can be from another faction)</comment>
 		</line>
-		<line linenr="085" indent="&#160;" interruptable="@">
+		<line linenr="146" indent="&#160;" interruptable="@">
 			<var>$OCVhunters</var>
 			<text> </text>
 			<text>=</text>
@@ -912,7 +1501,7 @@
 			<text>=</text>
 			<var>$OCVhunters</var>
 		</line>
-		<line linenr="086" indent="&#160;" interruptable="@">
+		<line linenr="147" indent="&#160;" interruptable="@">
 			<var>$closestHunter</var>
 			<text> </text>
 			<text>=</text>
@@ -932,7 +1521,7 @@
 			<text>=</text>
 			<var>$OCVhunters</var>
 		</line>
-		<line linenr="087" indent="&#160;">
+		<line linenr="148" indent="&#160;&#160;">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -970,7 +1559,7 @@
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="088" indent="&#160;" interruptable="@">
+		<line linenr="149" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -996,7 +1585,7 @@
 			<text>=</text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="089" indent="&#160;">
+		<line linenr="150" indent="&#160;&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -1004,18 +1593,18 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="090" indent="&#160;">
+		<line linenr="151" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="091" indent="&#160;">
+		<line linenr="152" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="092" indent="&#160;" />
-		<line linenr="093" indent="&#160;&#160;" />
-		<line linenr="094" indent="&#160;">
+		<line linenr="153" indent="&#160;" />
+		<line linenr="154" indent="&#160;" />
+		<line linenr="155" indent="&#160;">
 			<comment>* Zero Hour defense strategy adjustments</comment>
 		</line>
-		<line linenr="095" indent="&#160;&#160;">
+		<line linenr="156" indent="&#160;">
 			<var>$IgnoreClaims</var>
 			<text> </text>
 			<text>=</text>
@@ -1031,7 +1620,7 @@
 			<text>=</text>
 			<text>'RearguardsIgnoreClaims'</text>
 		</line>
-		<line linenr="096" indent="&#160;&#160;">
+		<line linenr="157" indent="&#160;">
 			<var>$IgnoreClaims</var>
 			<text> </text>
 			<text>=</text>
@@ -1048,14 +1637,14 @@
 			<text> </text>
 			<text>)</text>
 		</line>
-		<line linenr="097" indent="&#160;&#160;" />
-		<line linenr="098" indent="&#160;">
+		<line linenr="158" indent="&#160;&#160;" />
+		<line linenr="159" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>!</text>
 			<var>$IgnoreClaims</var>
 		</line>
-		<line linenr="099" indent="&#160;" interruptable="@">
+		<line linenr="160" indent="&#160;&#160;&#160;" interruptable="@">
 			<var>$reachableSectors</var>
 			<text> </text>
 			<text>=</text>
@@ -1079,10 +1668,10 @@
 			<text>=</text>
 			<var>[THIS]</var>
 		</line>
-		<line linenr="100" indent="&#160;">
+		<line linenr="161" indent="&#160;&#160;&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="101" indent="&#160;" interruptable="@">
+		<line linenr="162" indent="&#160;&#160;&#160;&#160;" interruptable="@">
 			<var>$reachableSectors</var>
 			<text> </text>
 			<text>=</text>
@@ -1106,7 +1695,7 @@
 			<text>=</text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="102" indent="&#160;" interruptable="@">
+		<line linenr="163" indent="&#160;&#160;&#160;" interruptable="@">
 			<var>$reachableSectors</var>
 			<text> </text>
 			<text>=</text>
@@ -1130,7 +1719,7 @@
 			<text>=</text>
 			<var>$reachableSectors</var>
 		</line>
-		<line linenr="103" indent="&#160;&#160;">
+		<line linenr="164" indent="&#160;&#160;&#160;">
 			<var>$reachableSectors</var>
 			<text> </text>
 			<text>=</text>
@@ -1141,32 +1730,32 @@
 			<text> </text>
 			<var>$reachableSectors</var>
 		</line>
-		<line linenr="104" indent="&#160;&#160;">
+		<line linenr="165" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="105" indent="&#160;&#160;&#160;">
+		<line linenr="166" indent="&#160;&#160;&#160;&#160;">
 			<var>$latestHotSector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="106" indent="&#160;&#160;&#160;">
+		<line linenr="167" indent="&#160;&#160;">
 			<var>$latestHotSectorTime</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="107" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="168" indent="&#160;&#160;">
 			<var>$randomSector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="108" indent="&#160;&#160;&#160;">
-			<var>$XS.Iterator3</var>
+		<line linenr="169" indent="&#160;&#160;">
+			<var>$XS.Iterator5</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
@@ -1178,27 +1767,27 @@
 			<text> </text>
 			<var>$reachableSectors</var>
 		</line>
-		<line linenr="109" indent="&#160;&#160;&#160;">
+		<line linenr="170" indent="&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
-			<var>$XS.Iterator3</var>
+			<var>$XS.Iterator5</var>
 		</line>
-		<line linenr="110" indent="&#160;&#160;&#160;">
+		<line linenr="171" indent="&#160;&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
-			<var>$XS.Iterator3</var>
+			<var>$XS.Iterator5</var>
 		</line>
-		<line linenr="111" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="172" indent="&#160;&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$reachableSectors</var>
 			<text>[</text>
-			<var>$XS.Iterator3</var>
+			<var>$XS.Iterator5</var>
 			<text>]</text>
 		</line>
-		<line linenr="112" indent="&#160;&#160;" interruptable="@">
+		<line linenr="173" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -1215,12 +1804,12 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="113" indent="&#160;&#160;">
+		<line linenr="174" indent="&#160;&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$IgnoreClaims</var>
 		</line>
-		<line linenr="114" indent="&#160;&#160;" interruptable="@">
+		<line linenr="175" indent="&#160;&#160;" interruptable="@">
 			<var>$distance</var>
 			<text> </text>
 			<text>=</text>
@@ -1244,7 +1833,7 @@
 			<text>=</text>
 			<var>$sector</var>
 		</line>
-		<line linenr="115" indent="&#160;&#160;&#160;">
+		<line linenr="176" indent="&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -1255,10 +1844,10 @@
 			<text> </text>
 			<var>10</var>
 		</line>
-		<line linenr="116" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="177" indent="&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="117" indent="&#160;&#160;" interruptable="@">
+		<line linenr="178" indent="&#160;&#160;" interruptable="@">
 			<var>$HostileShips.sector</var>
 			<text> </text>
 			<text>=</text>
@@ -1302,7 +1891,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="118" indent="&#160;&#160;&#160;">
+		<line linenr="179" indent="&#160;&#160;">
 			<var>$HostileShips.sector.s</var>
 			<text> </text>
 			<text>=</text>
@@ -1315,7 +1904,7 @@
 			<text> </text>
 			<var>$HostileShips.sector.s</var>
 		</line>
-		<line linenr="119" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="180" indent="&#160;&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -1326,13 +1915,13 @@
 			<text> </text>
 			<var>3</var>
 		</line>
-		<line linenr="120" indent="&#160;&#160;">
+		<line linenr="181" indent="&#160;&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="121" indent="&#160;&#160;">
+		<line linenr="182" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="122" indent="&#160;&#160;">
+		<line linenr="183" indent="&#160;&#160;&#160;&#160;">
 			<var>$sector.owner</var>
 			<text> </text>
 			<text>=</text>
@@ -1346,7 +1935,7 @@
 			<text> </text>
 			<text>race</text>
 		</line>
-		<line linenr="123" indent="&#160;&#160;" interruptable="@">
+		<line linenr="184" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>if</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -1368,7 +1957,7 @@
 			<text>=</text>
 			<text>'protection'</text>
 		</line>
-		<line linenr="124" indent="&#160;&#160;">
+		<line linenr="185" indent="&#160;&#160;&#160;&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -1387,13 +1976,13 @@
 			<text> </text>
 			<var>[Player]</var>
 		</line>
-		<line linenr="125" indent="&#160;&#160;">
+		<line linenr="186" indent="&#160;&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="126" indent="&#160;&#160;&#160;">
+		<line linenr="187" indent="&#160;&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="127" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="188" indent="&#160;&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -1404,25 +1993,25 @@
 			<text> </text>
 			<var>[OWNER]</var>
 		</line>
-		<line linenr="128" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="189" indent="&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="129" indent="&#160;&#160;&#160;">
+		<line linenr="190" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="130" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="191" indent="&#160;&#160;&#160;">
 			<comment>* do if [NULL]-&gt; call script 'Joubarbe.Lib.IsBorder' : sector=$sector</comment>
 		</line>
-		<line linenr="131" indent="&#160;&#160;&#160;">
+		<line linenr="192" indent="&#160;&#160;&#160;">
 			<comment>* continue</comment>
 		</line>
-		<line linenr="132" indent="&#160;&#160;">
+		<line linenr="193" indent="&#160;&#160;">
 			<comment>* do if [NULL]-&gt; call script 'Mayhem.IsBlacklisted' : race=[OWNER] item=$sector</comment>
 		</line>
-		<line linenr="133" indent="&#160;&#160;">
+		<line linenr="194" indent="&#160;&#160;&#160;">
 			<comment>* continue</comment>
 		</line>
-		<line linenr="134" indent="&#160;&#160;">
+		<line linenr="195" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$sector</var>
@@ -1439,35 +2028,35 @@
 			<text>=</text>
 			<text>'mayhem_claimRace'</text>
 		</line>
-		<line linenr="135" indent="&#160;&#160;&#160;">
+		<line linenr="196" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>!</text>
 			<var>$IgnoreClaims</var>
 		</line>
-		<line linenr="136" indent="&#160;&#160;&#160;">
+		<line linenr="197" indent="&#160;">
 			<var>$latestHotSector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$sector</var>
 		</line>
-		<line linenr="137" indent="&#160;&#160;&#160;">
+		<line linenr="198" indent="&#160;&#160;">
 			<text>break</text>
 		</line>
-		<line linenr="138" indent="&#160;&#160;">
+		<line linenr="199" indent="&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="139" indent="&#160;&#160;&#160;">
+		<line linenr="200" indent="&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="140" indent="&#160;&#160;">
+		<line linenr="201" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="141" indent="&#160;">
+		<line linenr="202" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="142" indent="&#160;" interruptable="@">
+		<line linenr="203" indent="&#160;&#160;&#160;" interruptable="@">
 			<var>$alert</var>
 			<text> </text>
 			<text>=</text>
@@ -1491,7 +2080,7 @@
 			<text>=</text>
 			<var>$sector</var>
 		</line>
-		<line linenr="143" indent="&#160;&#160;">
+		<line linenr="204" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$alert</var>
@@ -1500,24 +2089,24 @@
 			<text> </text>
 			<var>$latestHotSectorTime</var>
 		</line>
-		<line linenr="144" indent="&#160;">
+		<line linenr="205" indent="&#160;&#160;&#160;&#160;">
 			<var>$latestHotSector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$sector</var>
 		</line>
-		<line linenr="145" indent="&#160;&#160;">
+		<line linenr="206" indent="&#160;&#160;&#160;">
 			<var>$latestHotSectorTime</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$alert</var>
 		</line>
-		<line linenr="146" indent="&#160;&#160;">
+		<line linenr="207" indent="&#160;&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="147" indent="&#160;&#160;&#160;">
+		<line linenr="208" indent="&#160;&#160;&#160;&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -1525,43 +2114,43 @@
 			<text>!</text>
 			<var>$randomSector</var>
 		</line>
-		<line linenr="148" indent="&#160;&#160;&#160;">
+		<line linenr="209" indent="&#160;&#160;&#160;">
 			<var>$randomSector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$sector</var>
 		</line>
-		<line linenr="149" indent="&#160;&#160;&#160;">
+		<line linenr="210" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="150" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="211" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="151" indent="&#160;&#160;&#160;">
+		<line linenr="212" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$latestHotSector</var>
 		</line>
-		<line linenr="152" indent="&#160;&#160;&#160;">
+		<line linenr="213" indent="&#160;&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$latestHotSector</var>
 		</line>
-		<line linenr="153" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="214" indent="&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
 			<var>$IgnoreClaims</var>
 		</line>
-		<line linenr="154" indent="&#160;&#160;&#160;">
+		<line linenr="215" indent="&#160;&#160;">
 			<comment>* if we didn't find a secondary threat sector we can still help in the nearby faction war</comment>
 		</line>
-		<line linenr="155" indent="&#160;&#160;&#160;&#160;">
-			<var>$XS.Iterator4</var>
+		<line linenr="216" indent="&#160;">
+			<var>$XS.Iterator6</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
@@ -1573,27 +2162,27 @@
 			<text> </text>
 			<var>$reachableSectors</var>
 		</line>
-		<line linenr="156" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="217" indent="&#160;&#160;">
 			<text>while</text>
 			<text> </text>
-			<var>$XS.Iterator4</var>
+			<var>$XS.Iterator6</var>
 		</line>
-		<line linenr="157" indent="&#160;&#160;&#160;">
+		<line linenr="218" indent="&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
-			<var>$XS.Iterator4</var>
+			<var>$XS.Iterator6</var>
 		</line>
-		<line linenr="158" indent="&#160;&#160;">
+		<line linenr="219" indent="&#160;&#160;&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$reachableSectors</var>
 			<text>[</text>
-			<var>$XS.Iterator4</var>
+			<var>$XS.Iterator6</var>
 			<text>]</text>
 		</line>
-		<line linenr="159" indent="&#160;" interruptable="@">
+		<line linenr="220" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -1610,7 +2199,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="160" indent="&#160;&#160;">
+		<line linenr="221" indent="&#160;&#160;&#160;&#160;">
 			<var>$sector.owner</var>
 			<text> </text>
 			<text>=</text>
@@ -1624,7 +2213,7 @@
 			<text> </text>
 			<text>race</text>
 		</line>
-		<line linenr="161" indent="&#160;">
+		<line linenr="222" indent="&#160;&#160;&#160;&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -1635,10 +2224,10 @@
 			<text> </text>
 			<var>[OWNER]</var>
 		</line>
-		<line linenr="162" indent="&#160;&#160;">
+		<line linenr="223" indent="&#160;&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="163" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="224" indent="&#160;&#160;" interruptable="@">
 			<var>$distance</var>
 			<text> </text>
 			<text>=</text>
@@ -1662,7 +2251,7 @@
 			<text>=</text>
 			<var>$sector</var>
 		</line>
-		<line linenr="164" indent="&#160;&#160;&#160;">
+		<line linenr="225" indent="&#160;&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -1673,10 +2262,10 @@
 			<text> </text>
 			<var>5</var>
 		</line>
-		<line linenr="165" indent="&#160;&#160;&#160;">
+		<line linenr="226" indent="&#160;&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="166" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="227" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$sector</var>
@@ -1693,40 +2282,40 @@
 			<text>=</text>
 			<text>'mayhem_claimRace'</text>
 		</line>
-		<line linenr="167" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="228" indent="&#160;">
 			<var>$latestHotSector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$sector</var>
 		</line>
-		<line linenr="168" indent="&#160;&#160;&#160;">
+		<line linenr="229" indent="&#160;">
 			<text>break</text>
 		</line>
-		<line linenr="169" indent="&#160;&#160;">
+		<line linenr="230" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="170" indent="&#160;&#160;&#160;">
+		<line linenr="231" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="171" indent="&#160;&#160;&#160;">
+		<line linenr="232" indent="&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
 			<var>$randomSector</var>
 		</line>
-		<line linenr="172" indent="&#160;&#160;">
+		<line linenr="233" indent="&#160;&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$randomSector</var>
 		</line>
-		<line linenr="173" indent="&#160;">
+		<line linenr="234" indent="&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="174" indent="&#160;">
+		<line linenr="235" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>size</text>
@@ -1737,7 +2326,7 @@
 			<text> </text>
 			<var>$reachableSectors</var>
 		</line>
-		<line linenr="175" indent="&#160;" interruptable="@">
+		<line linenr="236" indent="&#160;" interruptable="@">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
@@ -1757,7 +2346,7 @@
 			<text>=</text>
 			<var>$reachableSectors</var>
 		</line>
-		<line linenr="176" indent="&#160;">
+		<line linenr="237" indent="&#160;&#160;">
 			<var>$sector.owner</var>
 			<text> </text>
 			<text>=</text>
@@ -1771,7 +2360,7 @@
 			<text> </text>
 			<text>race</text>
 		</line>
-		<line linenr="177" indent="&#160;">
+		<line linenr="238" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$sector.owner</var>
@@ -1780,48 +2369,48 @@
 			<text> </text>
 			<var>[OWNER]</var>
 		</line>
-		<line linenr="178" indent="&#160;&#160;">
+		<line linenr="239" indent="&#160;&#160;">
 			<text>gosub</text>
 			<text> </text>
 			<var>GoHomeSector</var>
 			<text>:</text>
 		</line>
-		<line linenr="179" indent="&#160;">
+		<line linenr="240" indent="&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>[SECTOR]</var>
 		</line>
-		<line linenr="180" indent="&#160;&#160;">
+		<line linenr="241" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="181" indent="&#160;">
+		<line linenr="242" indent="&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="182" indent="&#160;&#160;">
+		<line linenr="243" indent="&#160;">
 			<text>gosub</text>
 			<text> </text>
 			<var>GoHomeSector</var>
 			<text>:</text>
 		</line>
-		<line linenr="183" indent="&#160;">
+		<line linenr="244" indent="&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>[SECTOR]</var>
 		</line>
-		<line linenr="184" indent="&#160;&#160;">
+		<line linenr="245" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="185" indent="&#160;">
+		<line linenr="246" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="186" indent="&#160;&#160;">
+		<line linenr="247" indent="&#160;&#160;">
 			<comment>* Pirate base.</comment>
 		</line>
-		<line linenr="187" indent="&#160;">
+		<line linenr="248" indent="&#160;">
 			<var>$OffensiveStrategy</var>
 			<text> </text>
 			<text>=</text>
@@ -1837,7 +2426,7 @@
 			<text>=</text>
 			<text>'OffensiveStrategy'</text>
 		</line>
-		<line linenr="188" indent="&#160;">
+		<line linenr="249" indent="&#160;">
 			<var>$OffensiveStrategy</var>
 			<text> </text>
 			<text>=</text>
@@ -1854,7 +2443,7 @@
 			<text> </text>
 			<text>)</text>
 		</line>
-		<line linenr="189" indent="&#160;">
+		<line linenr="250" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$OffensiveStrategy</var>
@@ -1863,14 +2452,14 @@
 			<text> </text>
 			<var>-1</var>
 		</line>
-		<line linenr="190" indent="&#160;&#160;">
+		<line linenr="251" indent="&#160;&#160;">
 			<var>$rng</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>1</var>
+			<var>6</var>
 		</line>
-		<line linenr="191" indent="&#160;">
+		<line linenr="252" indent="&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -1881,14 +2470,14 @@
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="192" indent="&#160;&#160;">
+		<line linenr="253" indent="">
 			<var>$rng</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>2</var>
+			<var>18</var>
 		</line>
-		<line linenr="193" indent="&#160;">
+		<line linenr="254" indent="">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -1899,14 +2488,14 @@
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="194" indent="&#160;">
+		<line linenr="255" indent="">
 			<var>$rng</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>9</var>
+			<var>57</var>
 		</line>
-		<line linenr="195" indent="&#160;">
+		<line linenr="256" indent="">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -1917,14 +2506,14 @@
 			<text> </text>
 			<var>2</var>
 		</line>
-		<line linenr="196" indent="&#160;&#160;">
+		<line linenr="257" indent="">
 			<var>$rng</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>19</var>
+			<var>297</var>
 		</line>
-		<line linenr="197" indent="&#160;">
+		<line linenr="258" indent="&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -1935,17 +2524,17 @@
 			<text> </text>
 			<var>3</var>
 		</line>
-		<line linenr="198" indent="">
+		<line linenr="259" indent="&#160;">
 			<var>$rng</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>99</var>
+			<var>2997</var>
 		</line>
-		<line linenr="199" indent="">
+		<line linenr="260" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="200" indent="">
+		<line linenr="261" indent="">
 			<var>$failedSensorCheck</var>
 			<text> </text>
 			<text>=</text>
@@ -1962,7 +2551,7 @@
 			<text> </text>
 			<var>$rng</var>
 		</line>
-		<line linenr="201" indent="">
+		<line linenr="262" indent="">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -1970,7 +2559,7 @@
 			<text>!</text>
 			<var>$failedSensorCheck</var>
 		</line>
-		<line linenr="202" indent="">
+		<line linenr="263" indent="">
 			<var>$target</var>
 			<text> </text>
 			<text>=</text>
@@ -2016,7 +2605,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="203" indent="&#160;">
+		<line linenr="264" indent="&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -2026,7 +2615,7 @@
 			<text> </text>
 			<text>exists</text>
 		</line>
-		<line linenr="204" indent="&#160;" interruptable="@">
+		<line linenr="265" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -2056,7 +2645,7 @@
 			<text>=</text>
 			<var>0</var>
 		</line>
-		<line linenr="205" indent="">
+		<line linenr="266" indent="&#160;&#160;">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -2094,7 +2683,7 @@
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="206" indent="" interruptable="@">
+		<line linenr="267" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -2116,14 +2705,14 @@
 			<text>=</text>
 			<var>900</var>
 		</line>
-		<line linenr="207" indent="">
+		<line linenr="268" indent="&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
 			<var>$latestHotSector</var>
 		</line>
-		<line linenr="208" indent="" interruptable="@">
+		<line linenr="269" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -2141,22 +2730,22 @@
 			<text>=</text>
 			<var>[THIS]</var>
 		</line>
-		<line linenr="209" indent="" />
-		<line linenr="210" indent="">
+		<line linenr="270" indent="&#160;&#160;" />
+		<line linenr="271" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="211" indent="" />
-		<line linenr="212" indent="">
+		<line linenr="272" indent="&#160;&#160;&#160;" />
+		<line linenr="273" indent="&#160;&#160;">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="213" indent="" />
-		<line linenr="214" indent="">
+		<line linenr="274" indent="&#160;&#160;&#160;" />
+		<line linenr="275" indent="&#160;&#160;&#160;">
 			<var>GoHomeSector</var>
 			<text>:</text>
 		</line>
-		<line linenr="215" indent="">
+		<line linenr="276" indent="&#160;&#160;">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -2194,7 +2783,7 @@
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="216" indent="" interruptable="@">
+		<line linenr="277" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -2208,7 +2797,324 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="217" indent="">
+		<line linenr="278" indent="&#160;&#160;">
+			<text>endsub</text>
+		</line>
+		<line linenr="279" indent="&#160;&#160;" />
+		<line linenr="280" indent="&#160;&#160;&#160;" />
+		<line linenr="281" indent="&#160;&#160;&#160;">
+			<var>OpportunisticClaim</var>
+			<text>:</text>
+		</line>
+		<line linenr="282" indent="&#160;&#160;&#160;&#160;">
+			<comment>* only during Xenon Crisis! When you are a OCV hunter group and happen to end up in a Xenon sector you can also clear it while you're there</comment>
+		</line>
+		<line linenr="283" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$GlobalAlliance</var>
+		</line>
+		<line linenr="284" indent="&#160;&#160;&#160;&#160;&#160;">
+			<text>endsub</text>
+		</line>
+		<line linenr="285" indent="&#160;&#160;&#160;&#160;">
+			<var>$sector.owner</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$sector</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>owner</text>
+			<text> </text>
+			<text>race</text>
+		</line>
+		<line linenr="286" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$sector.owner</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Xenon]</var>
+		</line>
+		<line linenr="287" indent="&#160;&#160;">
+			<comment>* but we claim it for a random main faction!!!</comment>
+		</line>
+		<line linenr="288" indent="&#160;" interruptable="@">
+			<var>$race</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.Get.otherRace.Claim</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="289" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$race</var>
+		</line>
+		<line linenr="290" indent="" interruptable="@">
+			<var>$claimed</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Claim</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>sector</text>
+			<text>=</text>
+			<var>$sector</var>
+			<text> </text>
+			<text>raceOrObject</text>
+			<text>=</text>
+			<var>$race</var>
+		</line>
+		<line linenr="291" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$claimed</var>
+		</line>
+		<line linenr="292" indent="">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Joint UNC forces have gifted the sector '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$sector</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>' to the '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$race</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>'s.'</text>
+		</line>
+		<line linenr="293" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.StackNews</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+			<text> </text>
+			<text>addToHistory</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+			<text> </text>
+			<text>breakingNews</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="294" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="295" indent="">
+			<comment>* its irrelevant if we could claim the sector or not. We still destroy the Xenon station</comment>
+		</line>
+		<line linenr="296" indent="">
+			<var>$stations</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$sector</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>station</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>sector</text>
+		</line>
+		<line linenr="297" indent="">
+			<var>$XS.Iterator7</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$stations</var>
+		</line>
+		<line linenr="298" indent="">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator7</var>
+		</line>
+		<line linenr="299" indent="">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator7</var>
+		</line>
+		<line linenr="300" indent="">
+			<var>$station</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$stations</var>
+			<text>[</text>
+			<var>$XS.Iterator7</var>
+			<text>]</text>
+		</line>
+		<line linenr="301" indent="">
+			<var>$station.owner</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$station</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>owner</text>
+			<text> </text>
+			<text>race</text>
+		</line>
+		<line linenr="302" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$station.owner</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Xenon]</var>
+		</line>
+		<line linenr="303" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$station</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>exists</text>
+		</line>
+		<line linenr="304" indent="">
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>orders</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<text>sprintf</text>
+			<text>:</text>
+			<text> </text>
+			<text>fmt</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Attacking %s'</text>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>$station</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="305" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>!fight.attack.object</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>target</text>
+			<text>=</text>
+			<var>$station</var>
+			<text> </text>
+			<text>follow</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+			<text> </text>
+			<text>onlyShields</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+			<text> </text>
+			<text>timeoutSeconds</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="306" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="307" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="308" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="309" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="310" indent="">
 			<text>endsub</text>
 		</line>
 	</sourcetext>
@@ -2217,46 +3123,61 @@
 			<sval type="string" val="Mayhem.Task.Squadron.Rearguard" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
-			<sval type="int" val="9" />
+			<sval type="int" val="20" />
 			<sval type="int" val="0" />
-			<sval type="array" size="30">
+			<sval type="array" size="45">
 				<sval type="string" val="scriptName" />
 				<sval type="string" val="taskID" />
 				<sval type="string" val="GlobalAlliance" />
+				<sval type="string" val="approachPortal" />
 				<sval type="string" val="OCVhunters" />
+				<sval type="string" val="sector.owner" />
 				<sval type="string" val="searchDouble" />
 				<sval type="string" val="reachableSectors" />
 				<sval type="string" val="sector" />
 				<sval type="string" val="XS.Iterator1" />
 				<sval type="string" val="unclaimable" />
+				<sval type="string" val="portal.distance" />
 				<sval type="string" val="xenons" />
 				<sval type="string" val="ocv" />
-				<sval type="string" val="galaxy" />
-				<sval type="string" val="sector.current" />
+				<sval type="string" val="hunter" />
 				<sval type="string" val="XS.Iterator2" />
+				<sval type="string" val="sector.hunter" />
+				<sval type="string" val="xenonSectors" />
+				<sval type="string" val="XS.Iterator3" />
+				<sval type="string" val="claimRace" />
+				<sval type="string" val="rngMove" />
 				<sval type="string" val="distance" />
+				<sval type="string" val="xenonSector" />
+				<sval type="string" val="XS.Iterator4" />
 				<sval type="string" val="closestHunter" />
 				<sval type="string" val="IgnoreClaims" />
 				<sval type="string" val="latestHotSector" />
 				<sval type="string" val="latestHotSectorTime" />
 				<sval type="string" val="randomSector" />
-				<sval type="string" val="XS.Iterator3" />
+				<sval type="string" val="XS.Iterator5" />
 				<sval type="string" val="HostileShips.sector" />
 				<sval type="string" val="HostileShips.sector.s" />
-				<sval type="string" val="sector.owner" />
 				<sval type="string" val="alert" />
-				<sval type="string" val="XS.Iterator4" />
+				<sval type="string" val="XS.Iterator6" />
 				<sval type="string" val="OffensiveStrategy" />
 				<sval type="string" val="rng" />
 				<sval type="string" val="failedSensorCheck" />
 				<sval type="string" val="target" />
+				<sval type="string" val="race" />
+				<sval type="string" val="claimed" />
+				<sval type="string" val="t" />
+				<sval type="string" val="stations" />
+				<sval type="string" val="station" />
+				<sval type="string" val="XS.Iterator7" />
+				<sval type="string" val="station.owner" />
 			</sval>
-			<sval type="array" size="170">
+			<sval type="array" size="237">
 				<sval type="array" size="4">
 					<sval type="int" val="706" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
-					<sval type="int" val="-1610570487" />
+					<sval type="int" val="-1610559223" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="101" />
@@ -2357,7 +3278,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610597117" />
+					<sval type="int" val="-1610585853" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="2" />
@@ -2373,64 +3294,93 @@
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
-					<sval type="string" val="OCVhunters" />
+					<sval type="string" val="ZH_sentFuryRoadMessage" />
 					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="OCVhunters" />
+					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="1406" />
-					<sval type="int" val="-1610598397" />
+					<sval type="int" val="-1610587133" />
 					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="3" />
-				</sval>
-				<sval type="array" size="7">
-					<sval type="int" val="104" />
-					<sval type="int" val="-536866553" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="4" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="10">
-					<sval type="int" val="102" />
-					<sval type="string" val="Mayhem.GetReachableSectors" />
-					<sval type="int" val="5" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="12" />
-					<sval type="int" val="2" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
 				</sval>
 				<sval type="array" size="4">
-					<sval type="int" val="131" />
-					<sval type="int" val="7" />
+					<sval type="int" val="701" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="6" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610607864" />
+					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="5" />
+					<sval type="int" val="10" />
+					<sval type="int" val="6" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="214" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610603767" />
+					<sval type="int" val="-536865529" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="1334" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
 					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610595831" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="7" />
+					<sval type="int" val="9" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="6" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="8" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="107" />
@@ -2443,29 +3393,70 @@
 				<sval type="array" size="6">
 					<sval type="int" val="156" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhem_unclaimable" />
-					<sval type="int" val="8" />
+					<sval type="int" val="10" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610606328" />
+					<sval type="int" val="-1610605304" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="8" />
+					<sval type="int" val="10" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="18" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610604285" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="15" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="2" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.Get.Distance.Portal" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610604285" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="15" />
+					<sval type="int" val="3" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="22" />
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="757" />
-					<sval type="int" val="9" />
+					<sval type="int" val="12" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2019" />
 					<sval type="int" val="10" />
@@ -2483,9 +3474,9 @@
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="757" />
-					<sval type="int" val="10" />
+					<sval type="int" val="13" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2019" />
 					<sval type="int" val="10" />
@@ -2503,12 +3494,12 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604029" />
+					<sval type="int" val="-1610596093" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="9" />
+					<sval type="int" val="12" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="10" />
+					<sval type="int" val="13" />
 					<sval type="int" val="15" />
 					<sval type="int" val="10" />
 					<sval type="int" val="3" />
@@ -2523,7 +3514,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Hunting Terraformers in %s" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
@@ -2541,167 +3532,138 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="4" />
-					<sval type="int" val="1800" />
-				</sval>
-				<sval type="array" size="7">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610604285" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="7">
-					<sval type="int" val="104" />
-					<sval type="int" val="4" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="9" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="10">
-					<sval type="int" val="102" />
-					<sval type="string" val="Mayhem.GetReachableSectors" />
-					<sval type="int" val="5" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="12" />
-					<sval type="int" val="2" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
+					<sval type="int" val="900" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="100" />
-					<sval type="int" val="1" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="18" />
-				</sval>
-				<sval type="array" size="7">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610599421" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="10">
-					<sval type="int" val="102" />
-					<sval type="string" val="Mayhem.GetGalaxy" />
-					<sval type="int" val="11" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="12" />
-					<sval type="int" val="2" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="9" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="10" />
+					<sval type="int" val="1167" />
+					<sval type="int" val="214" />
 				</sval>
 				<sval type="array" size="4">
-					<sval type="int" val="703" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
-					<sval type="int" val="12" />
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="OCVhunters" />
+					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="13" />
+					<sval type="int" val="15" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="11" />
+					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610599415" />
+					<sval type="int" val="-1610597111" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="13" />
+					<sval type="int" val="15" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="13" />
+					<sval type="int" val="15" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="6" />
+					<sval type="int" val="14" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="11" />
+					<sval type="int" val="4" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="13" />
+					<sval type="int" val="15" />
 				</sval>
-				<sval type="array" size="6">
-					<sval type="int" val="107" />
-					<sval type="int" val="-2147483647" />
-					<sval type="int" val="4" />
-					<sval type="int" val="100" />
-					<sval type="int" val="4" />
-					<sval type="int" val="200" />
+				<sval type="array" size="4">
+					<sval type="int" val="703" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="16" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610601208" />
+					<sval type="int" val="-1610597373" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="12" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="3" />
 					<sval type="int" val="-1" />
 					<sval type="int" val="0" />
 					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
-					<sval type="string" val="Joubarbe.Lib.GetDistance" />
-					<sval type="int" val="14" />
+					<sval type="string" val="ZH.GetOwnedSectors.Performance" />
+					<sval type="int" val="17" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
-					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
 					<sval type="int" val="6" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="12" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
 				</sval>
-				<sval type="array" size="25">
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+				</sval>
+				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610599677" />
-					<sval type="int" val="7" />
+					<sval type="int" val="-1610597367" />
+					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="14" />
-					<sval type="int" val="4" />
-					<sval type="int" val="6" />
-					<sval type="int" val="15" />
-					<sval type="int" val="2" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="14" />
-					<sval type="int" val="4" />
-					<sval type="int" val="9" />
-					<sval type="int" val="15" />
-					<sval type="int" val="3" />
-					<sval type="int" val="15" />
-					<sval type="int" val="9" />
-					<sval type="int" val="7" />
+					<sval type="int" val="18" />
+					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_unclaimable" />
+					<sval type="int" val="-1610599160" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="48" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_claimRace" />
+					<sval type="int" val="19" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610597629" />
 					<sval type="int" val="2" />
-					<sval type="int" val="-2" />
-					<sval type="int" val="9" />
-					<sval type="int" val="-4" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="15" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="2" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="15">
 					<sval type="int" val="1820" />
@@ -2710,7 +3672,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Regrouping to %s" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
@@ -2728,11 +3690,368 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="214" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="60" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="48" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="41" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
+					<sval type="int" val="-1610596349" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="6" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="1334" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="7" />
 					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="106" />
+					<sval type="int" val="20" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610588157" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+					<sval type="int" val="15" />
+					<sval type="int" val="10" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.GetOwnedSectors.Performance" />
+					<sval type="int" val="17" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="10" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.SortByDistance" />
+					<sval type="int" val="17" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetLastElement" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetDistance" />
+					<sval type="int" val="21" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.Get.Distance.Portal" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="36">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610590205" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="4" />
+					<sval type="int" val="8" />
+					<sval type="int" val="15" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="15" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="15" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="15" />
+					<sval type="int" val="9" />
+					<sval type="int" val="15" />
+					<sval type="int" val="10" />
+					<sval type="int" val="12" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="10" />
+					<sval type="int" val="16" />
+					<sval type="int" val="-4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-5" />
+					<sval type="int" val="9" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="-7" />
+					<sval type="int" val="17" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="8" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.RandomizeArray" />
+					<sval type="int" val="17" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610590199" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="22" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="100" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetDistance" />
+					<sval type="int" val="21" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="25">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610590461" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="4" />
+					<sval type="int" val="6" />
+					<sval type="int" val="15" />
+					<sval type="int" val="5" />
+					<sval type="int" val="15" />
+					<sval type="int" val="9" />
+					<sval type="int" val="7" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="9" />
+					<sval type="int" val="-4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="-5" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.Get.Distance.Portal" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="22">
+					<sval type="int" val="104" />
+					<sval type="int" val="-536848636" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="15" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="15" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="15" />
+					<sval type="int" val="9" />
+					<sval type="int" val="6" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="9" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="-4" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="8" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="88" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="77" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610588925" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1820" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Regrouping to %s" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="!move.movetosector" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="214" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="94" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="210" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="6" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="9" />
@@ -2743,13 +4062,9 @@
 					<sval type="int" val="100" />
 					<sval type="int" val="1" />
 				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
-				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="4" />
+					<sval type="int" val="6" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="10" />
@@ -2760,7 +4075,7 @@
 					<sval type="int" val="1334" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="4" />
 					<sval type="int" val="8" />
 					<sval type="int" val="131075" />
@@ -2772,29 +4087,29 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="61" />
+					<sval type="int" val="105" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.SortByDistance" />
-					<sval type="int" val="3" />
+					<sval type="int" val="4" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="3" />
+					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.GetLastElement" />
-					<sval type="int" val="15" />
+					<sval type="int" val="24" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="3" />
+					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="15">
 					<sval type="int" val="1820" />
@@ -2803,7 +4118,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Escorting %s" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="15" />
+					<sval type="int" val="24" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
@@ -2821,7 +4136,7 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="15" />
+					<sval type="int" val="24" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="10" />
 					<sval type="int" val="131075" />
@@ -2835,22 +4150,22 @@
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="RearguardsIgnoreClaims" />
-					<sval type="int" val="16" />
+					<sval type="int" val="25" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="1709" />
-					<sval type="int" val="16" />
+					<sval type="int" val="25" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="16" />
+					<sval type="int" val="25" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610595837" />
+					<sval type="int" val="-1610584573" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="16" />
+					<sval type="int" val="25" />
 					<sval type="int" val="15" />
 					<sval type="int" val="65556" />
 					<sval type="int" val="2" />
@@ -2860,7 +4175,7 @@
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.GetReachableSectors" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
@@ -2871,12 +4186,12 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="69" />
+					<sval type="int" val="113" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
 					<sval type="string" val="ZH.GetOwnedSectors.Performance" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
@@ -2888,24 +4203,24 @@
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.SortByDistance" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="1443" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="17" />
+					<sval type="int" val="26" />
 					<sval type="int" val="1" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
@@ -2914,7 +4229,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="18" />
+					<sval type="int" val="27" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
@@ -2923,7 +4238,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="19" />
+					<sval type="int" val="28" />
 					<sval type="int" val="1" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
@@ -2932,30 +4247,30 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="20" />
+					<sval type="int" val="29" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610585335" />
+					<sval type="int" val="-1610574071" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="20" />
+					<sval type="int" val="29" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="20" />
+					<sval type="int" val="29" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="20" />
+					<sval type="int" val="29" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="107" />
@@ -2967,31 +4282,31 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610590973" />
+					<sval type="int" val="-1610579709" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="16" />
+					<sval type="int" val="25" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.GetDistance" />
-					<sval type="int" val="14" />
+					<sval type="int" val="21" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610591992" />
+					<sval type="int" val="-1610580728" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="14" />
+					<sval type="int" val="21" />
 					<sval type="int" val="4" />
 					<sval type="int" val="10" />
 					<sval type="int" val="15" />
@@ -3003,17 +4318,17 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="73" />
+					<sval type="int" val="117" />
 				</sval>
 				<sval type="array" size="20">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.GetHostileShips" />
-					<sval type="int" val="21" />
+					<sval type="int" val="30" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 					<sval type="int" val="131075" />
@@ -3029,16 +4344,16 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="22" />
+					<sval type="int" val="31" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="22" />
+					<sval type="int" val="31" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536849145" />
+					<sval type="int" val="-536837881" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="22" />
+					<sval type="int" val="31" />
 					<sval type="int" val="4" />
 					<sval type="int" val="3" />
 					<sval type="int" val="15" />
@@ -3050,18 +4365,18 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="73" />
+					<sval type="int" val="117" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="701" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
-					<sval type="int" val="23" />
+					<sval type="int" val="8" />
+					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.Favor.GetTimeout" />
-					<sval type="int" val="-1610589693" />
+					<sval type="int" val="-1610578429" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
@@ -3072,16 +4387,16 @@
 				</sval>
 				<sval type="array" size="25">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536848121" />
+					<sval type="int" val="-536836857" />
 					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="23" />
+					<sval type="int" val="5" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="7" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="23" />
+					<sval type="int" val="5" />
 					<sval type="int" val="10" />
 					<sval type="int" val="10" />
 					<sval type="int" val="15" />
@@ -3099,18 +4414,18 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="73" />
+					<sval type="int" val="117" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="92" />
+					<sval type="int" val="136" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536847353" />
+					<sval type="int" val="-536836089" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="23" />
+					<sval type="int" val="5" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="7" />
 					<sval type="int" val="15" />
@@ -3122,22 +4437,22 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="73" />
+					<sval type="int" val="117" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="156" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhem_claimRace" />
-					<sval type="int" val="-1610587645" />
+					<sval type="int" val="-1610576381" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610587901" />
+					<sval type="int" val="-1610576637" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="16" />
+					<sval type="int" val="25" />
 					<sval type="int" val="15" />
 					<sval type="int" val="65556" />
 					<sval type="int" val="2" />
@@ -3146,45 +4461,45 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="17" />
+					<sval type="int" val="26" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="107" />
+					<sval type="int" val="151" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="98" />
+					<sval type="int" val="142" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="73" />
+					<sval type="int" val="117" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.Alert.IsSectorHot" />
-					<sval type="int" val="24" />
+					<sval type="int" val="32" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610586109" />
+					<sval type="int" val="-1610574845" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="24" />
+					<sval type="int" val="32" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="18" />
+					<sval type="int" val="27" />
 					<sval type="int" val="15" />
 					<sval type="int" val="2" />
 					<sval type="int" val="3" />
@@ -3194,36 +4509,36 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="17" />
+					<sval type="int" val="26" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="18" />
+					<sval type="int" val="27" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="24" />
+					<sval type="int" val="32" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="73" />
+					<sval type="int" val="117" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="106" />
+					<sval type="int" val="150" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610585595" />
+					<sval type="int" val="-1610574331" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="19" />
+					<sval type="int" val="28" />
 					<sval type="int" val="15" />
 					<sval type="int" val="65556" />
 					<sval type="int" val="2" />
@@ -3232,74 +4547,74 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="19" />
+					<sval type="int" val="28" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="73" />
+					<sval type="int" val="117" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610584573" />
+					<sval type="int" val="-1610573309" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="17" />
+					<sval type="int" val="26" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="17" />
+					<sval type="int" val="26" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="139" />
+					<sval type="int" val="183" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610580219" />
+					<sval type="int" val="-1610568955" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="16" />
+					<sval type="int" val="25" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="25" />
+					<sval type="int" val="33" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610580471" />
+					<sval type="int" val="-1610569207" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="25" />
+					<sval type="int" val="33" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="25" />
+					<sval type="int" val="33" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="25" />
+					<sval type="int" val="33" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="107" />
@@ -3312,15 +4627,15 @@
 				<sval type="array" size="4">
 					<sval type="int" val="701" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
-					<sval type="int" val="23" />
+					<sval type="int" val="8" />
+					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536840441" />
+					<sval type="int" val="-536829177" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="23" />
+					<sval type="int" val="5" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="7" />
 					<sval type="int" val="15" />
@@ -3332,26 +4647,26 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="112" />
+					<sval type="int" val="156" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.GetDistance" />
-					<sval type="int" val="14" />
+					<sval type="int" val="21" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610581496" />
+					<sval type="int" val="-1610570232" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="14" />
+					<sval type="int" val="21" />
 					<sval type="int" val="4" />
 					<sval type="int" val="5" />
 					<sval type="int" val="15" />
@@ -3363,87 +4678,87 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="112" />
+					<sval type="int" val="156" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="156" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhem_claimRace" />
-					<sval type="int" val="-1610580733" />
+					<sval type="int" val="-1610569469" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="17" />
+					<sval type="int" val="26" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="126" />
+					<sval type="int" val="170" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="112" />
+					<sval type="int" val="156" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="139" />
+					<sval type="int" val="183" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610579451" />
+					<sval type="int" val="-1610568187" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="19" />
+					<sval type="int" val="28" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="19" />
+					<sval type="int" val="28" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="139" />
+					<sval type="int" val="183" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="-1610577661" />
+					<sval type="int" val="-1610566397" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.GetRandomElement" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="701" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
-					<sval type="int" val="23" />
+					<sval type="int" val="8" />
+					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610577917" />
+					<sval type="int" val="-1610566653" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="23" />
+					<sval type="int" val="5" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="7" />
 					<sval type="int" val="15" />
@@ -3455,11 +4770,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="166" />
+					<sval type="int" val="210" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
@@ -3468,15 +4783,15 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="139" />
+					<sval type="int" val="183" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="166" />
+					<sval type="int" val="210" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
@@ -3487,22 +4802,22 @@
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="OffensiveStrategy" />
-					<sval type="int" val="26" />
+					<sval type="int" val="34" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="1709" />
-					<sval type="int" val="26" />
+					<sval type="int" val="34" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="26" />
+					<sval type="int" val="34" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610575869" />
+					<sval type="int" val="-1610564605" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="26" />
+					<sval type="int" val="34" />
 					<sval type="int" val="4" />
 					<sval type="int" val="-1" />
 					<sval type="int" val="15" />
@@ -3514,23 +4829,23 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="27" />
+					<sval type="int" val="35" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
-					<sval type="int" val="1" />
+					<sval type="int" val="6" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="155" />
+					<sval type="int" val="199" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610575099" />
+					<sval type="int" val="-1610563835" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="26" />
+					<sval type="int" val="34" />
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
 					<sval type="int" val="15" />
@@ -3542,25 +4857,53 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="27" />
+					<sval type="int" val="35" />
 					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="18" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="199" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610563067" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="34" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="57" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="199" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610562299" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="34" />
 					<sval type="int" val="4" />
 					<sval type="int" val="2" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="155" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610574331" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="26" />
-					<sval type="int" val="4" />
-					<sval type="int" val="1" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="3" />
@@ -3570,51 +4913,23 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="27" />
+					<sval type="int" val="35" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
-					<sval type="int" val="9" />
+					<sval type="int" val="297" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="155" />
+					<sval type="int" val="199" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610573563" />
+					<sval type="int" val="-1610561787" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="26" />
-					<sval type="int" val="4" />
-					<sval type="int" val="2" />
-					<sval type="int" val="15" />
-					<sval type="int" val="0" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="7">
-					<sval type="int" val="104" />
-					<sval type="int" val="27" />
-					<sval type="int" val="1" />
-					<sval type="int" val="4" />
-					<sval type="int" val="19" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="155" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610573051" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="26" />
+					<sval type="int" val="34" />
 					<sval type="int" val="4" />
 					<sval type="int" val="3" />
 					<sval type="int" val="15" />
@@ -3626,25 +4941,25 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="27" />
+					<sval type="int" val="35" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
-					<sval type="int" val="99" />
+					<sval type="int" val="2997" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="106" />
-					<sval type="int" val="28" />
+					<sval type="int" val="36" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="27" />
+					<sval type="int" val="35" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610572280" />
+					<sval type="int" val="-1610561016" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="28" />
+					<sval type="int" val="36" />
 					<sval type="int" val="15" />
 					<sval type="int" val="65556" />
 					<sval type="int" val="2" />
@@ -3653,9 +4968,9 @@
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="794" />
-					<sval type="int" val="29" />
+					<sval type="int" val="37" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="9" />
 					<sval type="int" val="327693" />
 					<sval type="int" val="10" />
@@ -3674,8 +4989,8 @@
 				<sval type="array" size="4">
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="29" />
-					<sval type="int" val="-1610571768" />
+					<sval type="int" val="37" />
+					<sval type="int" val="-1610560504" />
 				</sval>
 				<sval type="array" size="14">
 					<sval type="int" val="102" />
@@ -3685,7 +5000,7 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="29" />
+					<sval type="int" val="37" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="10" />
 					<sval type="int" val="131075" />
@@ -3700,7 +5015,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Defending %s" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
@@ -3718,16 +5033,16 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="4" />
 					<sval type="int" val="900" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536828921" />
+					<sval type="int" val="-536817657" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="17" />
+					<sval type="int" val="26" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
@@ -3782,9 +5097,231 @@
 				<sval type="array" size="1">
 					<sval type="int" val="1168" />
 				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="OpportunisticClaim" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-536815353" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="701" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610552317" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="10" />
+					<sval type="int" val="6" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.Get.otherRace.Claim" />
+					<sval type="int" val="38" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610555896" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="38" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Claim" />
+					<sval type="int" val="39" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="38" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610555133" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="39" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="31">
+					<sval type="int" val="104" />
+					<sval type="int" val="40" />
+					<sval type="int" val="9" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Joint UNC forces have gifted the sector " />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val=" to the " />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="38" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val="s." />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="9" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-4" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-6" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-8" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.StackNews" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="40" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1009" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="41" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="43" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="41" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610552311" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="43" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="43" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="42" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="41" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="43" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="701" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="42" />
+					<sval type="int" val="44" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610552573" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="44" />
+					<sval type="int" val="10" />
+					<sval type="int" val="6" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="706" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="42" />
+					<sval type="int" val="-1610552573" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1820" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Attacking %s" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="42" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="14">
+					<sval type="int" val="102" />
+					<sval type="string" val="!fight.attack.object" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="42" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="227" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
+				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="78">
+			<sval type="array" size="111">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -3868,253 +5405,398 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="15" />
+					<sval type="int" val="16" />
+					<sval type="int" val="1" />
+					<sval type="string" val="if you are in a Xenon sector right now you can wreck it!" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="19" />
 					<sval type="int" val="1" />
 					<sval type="string" val="we are a strong OCV hunter fleet and search for large Terraformer ships" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="15" />
+					<sval type="int" val="19" />
 					<sval type="int" val="1" />
 					<sval type="string" val="first try up to 4 jumps from our current location (here we don't tether to the homebase because we want them to be able to roam the entire galaxy)" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="25" />
+					<sval type="int" val="29" />
 					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="30" />
 					<sval type="int" val="1" />
-					<sval type="string" val="after we have found and taken down enemies we can switch back to the short range search method" />
+					<sval type="string" val="we cannot approach the general area around the Portal until we got clearance by UNC command" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="33" />
+					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="33" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="34" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="35" />
+					<sval type="int" val="33" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="35" />
+					<sval type="int" val="39" />
 					<sval type="int" val="1" />
-					<sval type="string" val="if we couldn't find enemies with double search radius we must go somewhere else" />
+					<sval type="string" val="once we are done with the local Terraformers we check if any other hunter groups are here" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="46" />
+					<sval type="int" val="1" />
+					<sval type="string" val="we don't want to cluster up with other hunter groups. So go to a random unclaimed Xenon sector and finish it while you're there" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="45" />
+					<sval type="int" val="53" />
 					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="51" />
+					<sval type="int" val="59" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="59" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="52" />
+					<sval type="int" val="60" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="52" />
+					<sval type="int" val="60" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="61" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="52" />
+					<sval type="int" val="61" />
 					<sval type="int" val="1" />
-					<sval type="string" val="if we can't find any enemies within 4 jumps we must double our search radius" />
+					<sval type="string" val="we can switch back to the short range search method" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="56" />
+					<sval type="int" val="64" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="65" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="66" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="66" />
+					<sval type="int" val="1" />
+					<sval type="string" val="if we couldn't find capships even with double search radius we must go to the closest Xenon sector and search again." />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="66" />
+					<sval type="int" val="1" />
+					<sval type="string" val="also 50/50 chance to move randomly before even using double search radius" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="72" />
+					<sval type="int" val="1" />
+					<sval type="string" val="before special CIs have not secured the OCV portal we cannot approach the general area around it" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="75" />
+					<sval type="int" val="1" />
+					<sval type="string" val="if the closest Xenon sector is less than 8 jumps away from us or too close to the portal we can go a bit further to spread all hunter groups out a bit more." />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="83" />
+					<sval type="int" val="1" />
+					<sval type="string" val="before special CIs have not secured the OCV portal we cannot approach the general area around it" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="87" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="87" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="87" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="88" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="88" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="93" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="56" />
+					<sval type="int" val="93" />
 					<sval type="int" val="1" />
-					<sval type="string" val="we are no Hunter ourself so we have to join the closest one (can be from another faction)" />
+					<sval type="string" val="if you couldn't find any Xenon sector to go to (should practically never happen) then you can head home for now" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="61" />
+					<sval type="int" val="94" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="96" />
+					<sval type="int" val="1" />
+					<sval type="string" val="end" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="96" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="96" />
+					<sval type="int" val="1" />
+					<sval type="string" val="if we didn't move randomly and also couldn't find capships within 4 jumps we double our search radius" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="100" />
+					<sval type="int" val="1" />
+					<sval type="string" val="we are NO Hunter ourself so we have to join the closest one (can be from another faction)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="105" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="61" />
+					<sval type="int" val="105" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="61" />
+					<sval type="int" val="105" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="61" />
+					<sval type="int" val="105" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="61" />
+					<sval type="int" val="105" />
 					<sval type="int" val="1" />
 					<sval type="string" val="Zero Hour defense strategy adjustments" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="63" />
+					<sval type="int" val="107" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="66" />
+					<sval type="int" val="110" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="69" />
+					<sval type="int" val="113" />
 					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="81" />
-					<sval type="int" val="6" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="85" />
-					<sval type="int" val="6" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="85" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="89" />
-					<sval type="int" val="6" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="90" />
-					<sval type="int" val="5" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="92" />
-					<sval type="int" val="6" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="92" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="92" />
-					<sval type="int" val="1" />
-					<sval type="string" val="do if [NULL]-&gt; call script 'Joubarbe.Lib.IsBorder' : sector=$sector" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="92" />
-					<sval type="int" val="1" />
-					<sval type="string" val="continue" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="92" />
-					<sval type="int" val="1" />
-					<sval type="string" val="do if [NULL]-&gt; call script 'Mayhem.IsBlacklisted' : race=[OWNER] item=$sector" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="92" />
-					<sval type="int" val="1" />
-					<sval type="string" val="continue" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="96" />
-					<sval type="int" val="7" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="97" />
-					<sval type="int" val="5" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="98" />
-					<sval type="int" val="6" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="98" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="98" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="103" />
-					<sval type="int" val="6" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="106" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="107" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="111" />
-					<sval type="int" val="1" />
-					<sval type="string" val="if we didn't find a secondary threat sector we can still help in the nearby faction war" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="119" />
-					<sval type="int" val="6" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="122" />
-					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="125" />
-					<sval type="int" val="7" />
+					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="125" />
+					<sval type="int" val="129" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="129" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="126" />
-					<sval type="int" val="4" />
+					<sval type="int" val="133" />
+					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="130" />
+					<sval type="int" val="134" />
 					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="136" />
+					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="136" />
 					<sval type="int" val="4" />
 				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="136" />
+					<sval type="int" val="1" />
+					<sval type="string" val="do if [NULL]-&gt; call script 'Joubarbe.Lib.IsBorder' : sector=$sector" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="136" />
+					<sval type="int" val="1" />
+					<sval type="string" val="continue" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="136" />
+					<sval type="int" val="1" />
+					<sval type="string" val="do if [NULL]-&gt; call script 'Mayhem.IsBlacklisted' : race=[OWNER] item=$sector" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="136" />
+					<sval type="int" val="1" />
+					<sval type="string" val="continue" />
+				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="137" />
+					<sval type="int" val="140" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="141" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="139" />
+					<sval type="int" val="142" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="142" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="139" />
+					<sval type="int" val="142" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="147" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="150" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="151" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="139" />
+					<sval type="int" val="155" />
+					<sval type="int" val="1" />
+					<sval type="string" val="if we didn't find a secondary threat sector we can still help in the nearby faction war" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="163" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="166" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="169" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="169" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="170" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="174" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="180" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="181" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="183" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="183" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="183" />
 					<sval type="int" val="1" />
 					<sval type="string" val="Pirate base." />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="155" />
+					<sval type="int" val="199" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="164" />
+					<sval type="int" val="208" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="165" />
+					<sval type="int" val="209" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="165" />
+					<sval type="int" val="209" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="166" />
+					<sval type="int" val="210" />
 					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="214" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="214" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="215" />
+					<sval type="int" val="1" />
+					<sval type="string" val="only during Xenon Crisis! When you are a OCV hunter group and happen to end up in a Xenon sector you can also clear it while you're there" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="219" />
+					<sval type="int" val="1" />
+					<sval type="string" val="but we claim it for a random main faction!!!" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="225" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="225" />
+					<sval type="int" val="1" />
+					<sval type="string" val="its irrelevant if we could claim the sector or not. We still destroy the Xenon station" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="235" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="235" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="236" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="236" />
+					<sval type="int" val="4" />
 				</sval>
 			</sval>
 			<sval type="int" val="0" />

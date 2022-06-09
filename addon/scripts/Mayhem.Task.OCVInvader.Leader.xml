@@ -3,7 +3,7 @@
 <!-- Generated using X-Studio -->
 <script>
 	<name>Mayhem.Task.OCVInvader.Leader</name>
-	<version>10</version>
+	<version>12</version>
 	<engineversion>50</engineversion>
 	<description></description>
 	<arguments />
@@ -183,7 +183,7 @@
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>3</var>
+			<var>8</var>
 		</line>
 		<line linenr="023" indent="&#160;">
 			<text>else</text>
@@ -194,40 +194,58 @@
 			<text> </text>
 			<text>&gt;=</text>
 			<text> </text>
-			<var>80</var>
+			<var>90</var>
 		</line>
 		<line linenr="024" indent="&#160;&#160;">
 			<var>$jumps</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>2</var>
+			<var>5</var>
 		</line>
 		<line linenr="025" indent="&#160;">
 			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$rng</var>
+			<text> </text>
+			<text>&gt;=</text>
+			<text> </text>
+			<var>80</var>
 		</line>
 		<line linenr="026" indent="&#160;&#160;">
 			<var>$jumps</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>1</var>
+			<var>3</var>
 		</line>
 		<line linenr="027" indent="&#160;">
+			<text>else</text>
+		</line>
+		<line linenr="028" indent="&#160;&#160;">
+			<var>$jumps</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="029" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="028" indent="&#160;">
+		<line linenr="030" indent="&#160;">
 			<var>$invasionSector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="029" indent="&#160;">
+		<line linenr="031" indent="&#160;">
 			<var>SearchSector</var>
 			<text>:</text>
 		</line>
-		<line linenr="030" indent="&#160;">
+		<line linenr="032" indent="&#160;">
 			<var>$sectors</var>
 			<text> </text>
 			<text>=</text>
@@ -256,7 +274,7 @@
 			<text>=</text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="031" indent="&#160;" interruptable="@">
+		<line linenr="033" indent="&#160;" interruptable="@">
 			<var>$sectors</var>
 			<text> </text>
 			<text>=</text>
@@ -276,7 +294,7 @@
 			<text>=</text>
 			<var>$sectors</var>
 		</line>
-		<line linenr="032" indent="&#160;">
+		<line linenr="034" indent="&#160;">
 			<var>$XS.Iterator1</var>
 			<text> </text>
 			<text>=</text>
@@ -289,17 +307,17 @@
 			<text> </text>
 			<var>$sectors</var>
 		</line>
-		<line linenr="033" indent="&#160;&#160;">
+		<line linenr="035" indent="&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="034" indent="&#160;&#160;">
+		<line linenr="036" indent="&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="035" indent="&#160;&#160;&#160;">
+		<line linenr="037" indent="&#160;&#160;&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
@@ -309,7 +327,7 @@
 			<var>$XS.Iterator1</var>
 			<text>]</text>
 		</line>
-		<line linenr="036" indent="&#160;&#160;">
+		<line linenr="038" indent="&#160;&#160;">
 			<var>$sector.owner</var>
 			<text> </text>
 			<text>=</text>
@@ -323,7 +341,7 @@
 			<text> </text>
 			<text>race</text>
 		</line>
-		<line linenr="037" indent="&#160;&#160;">
+		<line linenr="039" indent="&#160;&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -334,14 +352,32 @@
 			<text> </text>
 			<var>[Xenon]</var>
 		</line>
-		<line linenr="038" indent="&#160;&#160;">
+		<line linenr="040" indent="&#160;&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="039" indent="&#160;&#160;">
-			<comment>* Zero Hour: we need to ensure that they spread out and don't create undefeatable doomstacks</comment>
+		<line linenr="041" indent="&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$jumps</var>
+			<text> </text>
+			<text>&gt;</text>
+			<text> </text>
+			<var>1</var>
 		</line>
-		<line linenr="040" indent="&#160;&#160;&#160;" interruptable="@">
-			<var>$sector.OCVcapitals</var>
+		<line linenr="042" indent="&#160;&#160;&#160;&#160;">
+			<comment>* the random long range strikes cannot target the player if his empire is still small. Otherwise bad luck could make it impossible to prevent</comment>
+		</line>
+		<line linenr="043" indent="&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$sector.owner</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Player]</var>
+		</line>
+		<line linenr="044" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+			<var>$plSectors</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
@@ -352,24 +388,20 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>Joubarbe.Lib.GetAllShipsFromSector</call>
+			<call>Mayhem.GetOwnedSectors</call>
 			<text> </text>
 			<text>:</text>
 			<text> </text>
-			<text>sector</text>
-			<text>=</text>
-			<var>$sector</var>
-			<text> </text>
 			<text>race</text>
 			<text>=</text>
-			<var>[OCV]</var>
+			<var>[Player]</var>
 			<text> </text>
-			<text>classOrType</text>
+			<text>randomize</text>
 			<text>=</text>
-			<var>[Huge Ship]</var>
+			<var>[FALSE]</var>
 		</line>
-		<line linenr="041" indent="&#160;&#160;">
-			<var>$sector.OCVcapitals.s</var>
+		<line linenr="045" indent="&#160;&#160;&#160;">
+			<var>$plSectors.s</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
@@ -379,42 +411,71 @@
 			<text> </text>
 			<text>array</text>
 			<text> </text>
-			<var>$sector.OCVcapitals</var>
+			<var>$plSectors</var>
 		</line>
-		<line linenr="042" indent="&#160;&#160;">
+		<line linenr="046" indent="&#160;&#160;">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$plSectors.s</var>
+			<text> </text>
+			<text>&gt;</text>
+			<text> </text>
+			<var>9</var>
+		</line>
+		<line linenr="047" indent="&#160;&#160;">
+			<text>continue</text>
+		</line>
+		<line linenr="048" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="049" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="050" indent="&#160;&#160;&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>CheckTerraformerCapships</var>
+			<text>:</text>
+		</line>
+		<line linenr="051" indent="&#160;&#160;">
+			<comment>* we don't want too many invader fleets in one sector (undefeatable doomstack)</comment>
+		</line>
+		<line linenr="052" indent="&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
-			<var>$sector.OCVcapitals.s</var>
+			<var>$terraformerCapships.s</var>
 			<text> </text>
 			<text>&gt;</text>
 			<text> </text>
 			<var>2</var>
 		</line>
-		<line linenr="043" indent="&#160;">
+		<line linenr="053" indent="&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="044" indent="&#160;">
+		<line linenr="054" indent="&#160;">
 			<var>$invasionSector</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$sector</var>
 		</line>
-		<line linenr="045" indent="&#160;&#160;">
+		<line linenr="055" indent="&#160;&#160;">
 			<text>break</text>
 		</line>
-		<line linenr="046" indent="&#160;&#160;&#160;">
+		<line linenr="056" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="047" indent="&#160;&#160;&#160;">
+		<line linenr="057" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>!</text>
 			<var>$invasionSector</var>
 		</line>
-		<line linenr="048" indent="&#160;&#160;">
+		<line linenr="058" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$jumps</var>
@@ -423,7 +484,7 @@
 			<text> </text>
 			<var>30</var>
 		</line>
-		<line linenr="049" indent="&#160;&#160;" interruptable="@">
+		<line linenr="059" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -445,7 +506,7 @@
 			<text>=</text>
 			<var>1800</var>
 		</line>
-		<line linenr="050" indent="&#160;&#160;">
+		<line linenr="060" indent="&#160;&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -453,15 +514,15 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="051" indent="&#160;">
+		<line linenr="061" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="052" indent="&#160;">
+		<line linenr="062" indent="&#160;">
 			<text>inc</text>
 			<text> </text>
 			<var>$jumps</var>
 		</line>
-		<line linenr="053" indent="&#160;">
+		<line linenr="063" indent="&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -469,11 +530,11 @@
 			<var>SearchSector</var>
 			<text>:</text>
 		</line>
-		<line linenr="054" indent="&#160;&#160;">
+		<line linenr="064" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="055" indent="&#160;&#160;" />
-		<line linenr="056" indent="&#160;">
+		<line linenr="065" indent="&#160;&#160;" />
+		<line linenr="066" indent="&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>[SECTOR]</var>
@@ -482,7 +543,7 @@
 			<text> </text>
 			<var>$invasionSector</var>
 		</line>
-		<line linenr="057" indent="&#160;" interruptable="@">
+		<line linenr="067" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -500,7 +561,7 @@
 			<text>=</text>
 			<var>$invasionSector</var>
 		</line>
-		<line linenr="058" indent="&#160;" interruptable="@">
+		<line linenr="068" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -509,15 +570,157 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="059" indent="&#160;">
+		<line linenr="069" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="060" indent="&#160;" />
-		<line linenr="061" indent="&#160;&#160;">
+		<line linenr="070" indent="&#160;" />
+		<line linenr="071" indent="&#160;&#160;">
+			<comment>* we have reached our invasion target. Now we check if any other invaders came here before us</comment>
+		</line>
+		<line linenr="072" indent="&#160;&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>CheckTerraformerCapships</var>
+			<text>:</text>
+		</line>
+		<line linenr="073" indent="&#160;&#160;&#160;">
+			<var>$XS.Iterator2</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$terraformerCapships</var>
+		</line>
+		<line linenr="074" indent="&#160;&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator2</var>
+		</line>
+		<line linenr="075" indent="&#160;&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator2</var>
+		</line>
+		<line linenr="076" indent="&#160;&#160;&#160;">
+			<var>$ship</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$terraformerCapships</var>
+			<text>[</text>
+			<var>$XS.Iterator2</var>
+			<text>]</text>
+		</line>
+		<line linenr="077" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>100</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="078" indent="&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>zero</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>$terraformerCapships.s</var>
+		</line>
+		<line linenr="079" indent="&#160;">
+			<comment>* there is always a chance to stay, depending on how many capships are already here. But most of the time we do not want more than 1 OCV invader fleet per sector.</comment>
+		</line>
+		<line linenr="080" indent="&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ship</var>
+			<text> </text>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Task.OCVInvader.Leader</call>
+			<text> </text>
+			<text>on</text>
+			<text> </text>
+			<text>stack</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>task</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="081" indent="&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>SearchSector</var>
+			<text>:</text>
+		</line>
+		<line linenr="082" indent="&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ship</var>
+			<text> </text>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Task.XenonInvader.Leader</call>
+			<text> </text>
+			<text>on</text>
+			<text> </text>
+			<text>stack</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>task</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="083" indent="&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>SearchSector</var>
+			<text>:</text>
+		</line>
+		<line linenr="084" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="085" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="086" indent="&#160;" />
+		<line linenr="087" indent="&#160;">
 			<var>SearchTarget</var>
 			<text>:</text>
 		</line>
-		<line linenr="062" indent="&#160;">
+		<line linenr="088" indent="&#160;">
 			<var>$timeout</var>
 			<text> </text>
 			<text>=</text>
@@ -534,7 +737,7 @@
 			<text> </text>
 			<var>450</var>
 		</line>
-		<line linenr="063" indent="&#160;">
+		<line linenr="089" indent="&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -544,7 +747,7 @@
 			<text> </text>
 			<text>exists</text>
 		</line>
-		<line linenr="064" indent="&#160;" interruptable="@">
+		<line linenr="090" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -566,7 +769,7 @@
 			<text>=</text>
 			<var>$timeout</var>
 		</line>
-		<line linenr="065" indent="&#160;">
+		<line linenr="091" indent="&#160;">
 			<var>$flags</var>
 			<text> </text>
 			<text>=</text>
@@ -577,25 +780,25 @@
 			<text> </text>
 			<var>[Find.Enemy]</var>
 		</line>
-		<line linenr="066" indent="&#160;">
+		<line linenr="092" indent="&#160;">
 			<comment>* Priorities: Huge ships, Big ships, Factories, Outposts.</comment>
 		</line>
-		<line linenr="067" indent="&#160;">
+		<line linenr="093" indent="&#160;&#160;">
 			<comment>* $target = find ship: sector=[SECTOR] class or type=[Huge Ship] race=null flags=$flags refobj=[THIS] maxdist=80000 maxnum=1 refpos=null</comment>
 		</line>
-		<line linenr="068" indent="&#160;">
+		<line linenr="094" indent="&#160;">
 			<comment>* = wait 100 ms</comment>
 		</line>
-		<line linenr="069" indent="&#160;">
+		<line linenr="095" indent="&#160;">
 			<comment>* skip if $target-&gt; exists</comment>
 		</line>
-		<line linenr="070" indent="&#160;&#160;">
+		<line linenr="096" indent="&#160;&#160;">
 			<comment>* $target = find ship: sector=[SECTOR] class or type=[Big Ship] race=null flags=$flags refobj=[THIS] maxdist=80000 maxnum=1 refpos=null</comment>
 		</line>
-		<line linenr="071" indent="&#160;">
+		<line linenr="097" indent="&#160;">
 			<comment>* = wait 100 ms</comment>
 		</line>
-		<line linenr="072" indent="&#160;">
+		<line linenr="098" indent="&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -605,7 +808,7 @@
 			<text> </text>
 			<text>exists</text>
 		</line>
-		<line linenr="073" indent="&#160;&#160;">
+		<line linenr="099" indent="&#160;&#160;">
 			<var>$target</var>
 			<text> </text>
 			<text>=</text>
@@ -651,7 +854,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="074" indent="&#160;" interruptable="@">
+		<line linenr="100" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -660,7 +863,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="075" indent="&#160;">
+		<line linenr="101" indent="&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -670,7 +873,7 @@
 			<text> </text>
 			<text>exists</text>
 		</line>
-		<line linenr="076" indent="&#160;&#160;">
+		<line linenr="102" indent="&#160;&#160;">
 			<var>$target</var>
 			<text> </text>
 			<text>=</text>
@@ -716,8 +919,8 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="077" indent="&#160;&#160;" />
-		<line linenr="078" indent="&#160;">
+		<line linenr="103" indent="&#160;&#160;" />
+		<line linenr="104" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$target</var>
@@ -725,7 +928,7 @@
 			<text> </text>
 			<text>exists</text>
 		</line>
-		<line linenr="079" indent="&#160;&#160;" interruptable="@">
+		<line linenr="105" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -755,7 +958,7 @@
 			<text>=</text>
 			<var>3600</var>
 		</line>
-		<line linenr="080" indent="&#160;&#160;">
+		<line linenr="106" indent="&#160;&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -763,10 +966,10 @@
 			<var>SearchTarget</var>
 			<text>:</text>
 		</line>
-		<line linenr="081" indent="&#160;&#160;&#160;">
+		<line linenr="107" indent="&#160;&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="082" indent="&#160;&#160;&#160;">
+		<line linenr="108" indent="&#160;&#160;&#160;">
 			<var>$sector.owner</var>
 			<text> </text>
 			<text>=</text>
@@ -780,7 +983,7 @@
 			<text> </text>
 			<text>race</text>
 		</line>
-		<line linenr="083" indent="&#160;&#160;">
+		<line linenr="109" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$sector.owner</var>
@@ -789,10 +992,10 @@
 			<text> </text>
 			<var>[Xenon]</var>
 		</line>
-		<line linenr="084" indent="&#160;&#160;">
+		<line linenr="110" indent="&#160;">
 			<comment>* Also see !station.signal.killed.</comment>
 		</line>
-		<line linenr="085" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="111" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -814,10 +1017,10 @@
 			<text>=</text>
 			<var>[Xenon]</var>
 		</line>
-		<line linenr="086" indent="&#160;&#160;">
+		<line linenr="112" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="087" indent="&#160;">
+		<line linenr="113" indent="">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -863,7 +1066,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="088" indent="&#160;" interruptable="@">
+		<line linenr="114" indent="" interruptable="@">
 			<var>$station</var>
 			<text> </text>
 			<text>=</text>
@@ -899,7 +1102,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="089" indent="" interruptable="@">
+		<line linenr="115" indent="" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -921,18 +1124,118 @@
 			<text>=</text>
 			<var>3600</var>
 		</line>
-		<line linenr="090" indent="">
+		<line linenr="116" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="091" indent="" />
-		<line linenr="092" indent="">
+		<line linenr="117" indent="" />
+		<line linenr="118" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="093" indent="" />
-		<line linenr="094" indent="">
+		<line linenr="119" indent="&#160;" />
+		<line linenr="120" indent="&#160;">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
+		</line>
+		<line linenr="121" indent="&#160;" />
+		<line linenr="122" indent="&#160;" />
+		<line linenr="123" indent="">
+			<var>CheckTerraformerCapships</var>
+			<text>:</text>
+		</line>
+		<line linenr="124" indent="">
+			<comment>* Zero Hour: we need to ensure that Terraformer capships tend to spread out and don't create undefeatable doomstacks</comment>
+		</line>
+		<line linenr="125" indent="" interruptable="@">
+			<var>$OCVcapships</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetAllShipsFromSector</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>sector</text>
+			<text>=</text>
+			<var>$sector</var>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[OCV]</var>
+			<text> </text>
+			<text>classOrType</text>
+			<text>=</text>
+			<var>[Huge Ship]</var>
+		</line>
+		<line linenr="126" indent="" interruptable="@">
+			<var>$xenonCapships</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetAllShipsFromSector</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>sector</text>
+			<text>=</text>
+			<var>$sector</var>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>[Xenon]</var>
+			<text> </text>
+			<text>classOrType</text>
+			<text>=</text>
+			<var>[Huge Ship]</var>
+		</line>
+		<line linenr="127" indent="">
+			<var>$terraformerCapships</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>join</text>
+			<text> </text>
+			<text>arrays</text>
+			<text>:</text>
+			<text> </text>
+			<text>first</text>
+			<text>=</text>
+			<var>$OCVcapships</var>
+			<text>,</text>
+			<text> </text>
+			<text>second</text>
+			<text>=</text>
+			<var>$xenonCapships</var>
+		</line>
+		<line linenr="128" indent="">
+			<var>$terraformerCapships.s</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$terraformerCapships</var>
+		</line>
+		<line linenr="129" indent="">
+			<text>endsub</text>
 		</line>
 	</sourcetext>
 	<codearray>
@@ -940,9 +1243,9 @@
 			<sval type="string" val="Mayhem.Task.OCVInvader.Leader" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
-			<sval type="int" val="10" />
+			<sval type="int" val="12" />
 			<sval type="int" val="0" />
-			<sval type="array" size="15">
+			<sval type="array" size="21">
 				<sval type="string" val="scriptName" />
 				<sval type="string" val="taskID" />
 				<sval type="string" val="rng" />
@@ -952,19 +1255,25 @@
 				<sval type="string" val="sector" />
 				<sval type="string" val="XS.Iterator1" />
 				<sval type="string" val="sector.owner" />
-				<sval type="string" val="sector.OCVcapitals" />
-				<sval type="string" val="sector.OCVcapitals.s" />
+				<sval type="string" val="plSectors" />
+				<sval type="string" val="plSectors.s" />
+				<sval type="string" val="terraformerCapships.s" />
+				<sval type="string" val="ship" />
+				<sval type="string" val="terraformerCapships" />
+				<sval type="string" val="XS.Iterator2" />
 				<sval type="string" val="timeout" />
 				<sval type="string" val="target" />
 				<sval type="string" val="flags" />
 				<sval type="string" val="station" />
+				<sval type="string" val="OCVcapships" />
+				<sval type="string" val="xenonCapships" />
 			</sval>
-			<sval type="array" size="66">
+			<sval type="array" size="92">
 				<sval type="array" size="4">
 					<sval type="int" val="706" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
-					<sval type="int" val="-1610596087" />
+					<sval type="int" val="-1610590967" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="101" />
@@ -1051,17 +1360,45 @@
 					<sval type="int" val="3" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
-					<sval type="int" val="3" />
+					<sval type="int" val="8" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="16" />
+					<sval type="int" val="19" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
 					<sval type="int" val="-1610608891" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="90" />
+					<sval type="int" val="15" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="3" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="19" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610608123" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="2" />
@@ -1079,13 +1416,13 @@
 					<sval type="int" val="3" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
-					<sval type="int" val="2" />
+					<sval type="int" val="3" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="16" />
+					<sval type="int" val="19" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
@@ -1137,7 +1474,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604023" />
+					<sval type="int" val="-1610601975" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="7" />
@@ -1164,7 +1501,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610605816" />
+					<sval type="int" val="-1610605048" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="8" />
@@ -1179,21 +1516,49 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="21" />
+					<sval type="int" val="24" />
 				</sval>
-				<sval type="array" size="12">
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610603517" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610603517" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="10" />
+					<sval type="int" val="10" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="10">
 					<sval type="int" val="102" />
-					<sval type="string" val="Joubarbe.Lib.GetAllShipsFromSector" />
+					<sval type="string" val="Mayhem.GetOwnedSectors" />
 					<sval type="int" val="9" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="2" />
 					<sval type="int" val="10" />
-					<sval type="int" val="16" />
-					<sval type="int" val="12" />
-					<sval type="int" val="2019" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
@@ -1203,10 +1568,33 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604792" />
+					<sval type="int" val="-536861689" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="10" />
+					<sval type="int" val="4" />
+					<sval type="int" val="9" />
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="24" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="86" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610602744" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
 					<sval type="int" val="4" />
 					<sval type="int" val="2" />
 					<sval type="int" val="15" />
@@ -1218,7 +1606,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="21" />
+					<sval type="int" val="24" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
@@ -1231,15 +1619,15 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="34" />
+					<sval type="int" val="42" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="21" />
+					<sval type="int" val="24" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610602493" />
+					<sval type="int" val="-1610600445" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="4" />
@@ -1251,7 +1639,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610603005" />
+					<sval type="int" val="-1610600957" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="3" />
@@ -1286,11 +1674,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="100" />
-					<sval type="int" val="17" />
+					<sval type="int" val="20" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610601463" />
+					<sval type="int" val="-1610599415" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
@@ -1321,7 +1709,80 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="40" />
+					<sval type="int" val="48" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="86" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610596343" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="14" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="100" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="106" />
+					<sval type="int" val="-1610596605" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1072" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="-1610597112" />
+					<sval type="string" val="Mayhem.Task.OCVInvader.Leader" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="20" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1072" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="-1610596600" />
+					<sval type="string" val="Mayhem.Task.XenonInvader.Leader" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="20" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="54" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="101" />
@@ -1329,7 +1790,7 @@
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="110" />
-					<sval type="int" val="11" />
+					<sval type="int" val="15" />
 					<sval type="int" val="4" />
 					<sval type="int" val="150" />
 					<sval type="int" val="4" />
@@ -1338,8 +1799,8 @@
 				<sval type="array" size="4">
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="12" />
-					<sval type="int" val="-536858617" />
+					<sval type="int" val="16" />
+					<sval type="int" val="-536853497" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
@@ -1351,11 +1812,11 @@
 					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="11" />
+					<sval type="int" val="15" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="13" />
+					<sval type="int" val="17" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="106" />
@@ -1371,12 +1832,12 @@
 				<sval type="array" size="4">
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="12" />
-					<sval type="int" val="-536857849" />
+					<sval type="int" val="16" />
+					<sval type="int" val="-536852729" />
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="794" />
-					<sval type="int" val="12" />
+					<sval type="int" val="16" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
 					<sval type="int" val="12" />
@@ -1384,7 +1845,7 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="13" />
+					<sval type="int" val="17" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
@@ -1403,12 +1864,12 @@
 				<sval type="array" size="4">
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="12" />
-					<sval type="int" val="-536857081" />
+					<sval type="int" val="16" />
+					<sval type="int" val="-536851961" />
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="794" />
-					<sval type="int" val="12" />
+					<sval type="int" val="16" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
 					<sval type="int" val="0" />
@@ -1416,7 +1877,7 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="13" />
+					<sval type="int" val="17" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
@@ -1429,8 +1890,8 @@
 				<sval type="array" size="4">
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="12" />
-					<sval type="int" val="-1610597885" />
+					<sval type="int" val="16" />
+					<sval type="int" val="-1610592765" />
 				</sval>
 				<sval type="array" size="14">
 					<sval type="int" val="102" />
@@ -1440,7 +1901,7 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="12" />
+					<sval type="int" val="16" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="9" />
 					<sval type="int" val="131075" />
@@ -1450,11 +1911,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="100" />
-					<sval type="int" val="44" />
+					<sval type="int" val="64" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="64" />
+					<sval type="int" val="84" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="701" />
@@ -1464,7 +1925,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610597117" />
+					<sval type="int" val="-1610591997" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="8" />
@@ -1491,7 +1952,7 @@
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="794" />
-					<sval type="int" val="-536854777" />
+					<sval type="int" val="-536849657" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
 					<sval type="int" val="9" />
@@ -1512,7 +1973,7 @@
 				<sval type="array" size="16">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.BuildStationAI" />
-					<sval type="int" val="14" />
+					<sval type="int" val="18" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="5" />
@@ -1548,9 +2009,58 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="CheckTerraformerCapships" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetAllShipsFromSector" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="10" />
+					<sval type="int" val="16" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2019" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetAllShipsFromSector" />
+					<sval type="int" val="20" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="10" />
+					<sval type="int" val="6" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2019" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1850" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
+				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="37">
+			<sval type="array" size="49">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -1599,116 +2109,168 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="15" />
+					<sval type="int" val="18" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="16" />
+					<sval type="int" val="19" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="27" />
+					<sval type="int" val="30" />
 					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="27" />
+					<sval type="int" val="31" />
 					<sval type="int" val="1" />
-					<sval type="string" val="Zero Hour: we need to ensure that they spread out and don't create undefeatable doomstacks" />
+					<sval type="string" val="the random long range strikes cannot target the player if his empire is still small. Otherwise bad luck could make it impossible to prevent" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="31" />
+					<sval type="int" val="36" />
 					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="33" />
+					<sval type="int" val="36" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="36" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="37" />
+					<sval type="int" val="1" />
+					<sval type="string" val="we don't want too many invader fleets in one sector (undefeatable doomstack)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="39" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="41" />
 					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="34" />
+					<sval type="int" val="42" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="38" />
+					<sval type="int" val="46" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="40" />
+					<sval type="int" val="48" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="40" />
+					<sval type="int" val="48" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="44" />
+					<sval type="int" val="52" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="44" />
+					<sval type="int" val="52" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="49" />
+					<sval type="int" val="52" />
+					<sval type="int" val="1" />
+					<sval type="string" val="we have reached our invasion target. Now we check if any other invaders came here before us" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="59" />
+					<sval type="int" val="1" />
+					<sval type="string" val="there is always a chance to stay, depending on how many capships are already here. But most of the time we do not want more than 1 OCV invader fleet per sector." />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="63" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="64" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="64" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="69" />
 					<sval type="int" val="1" />
 					<sval type="string" val="Priorities: Huge ships, Big ships, Factories, Outposts." />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="49" />
+					<sval type="int" val="69" />
 					<sval type="int" val="1" />
 					<sval type="string" val="$target = find ship: sector=[SECTOR] class or type=[Huge Ship] race=null flags=$flags refobj=[THIS] maxdist=80000 maxnum=1 refpos=null" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="49" />
+					<sval type="int" val="69" />
 					<sval type="int" val="1" />
 					<sval type="string" val="= wait 100 ms" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="49" />
+					<sval type="int" val="69" />
 					<sval type="int" val="1" />
 					<sval type="string" val="skip if $target-&gt; exists" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="49" />
+					<sval type="int" val="69" />
 					<sval type="int" val="1" />
 					<sval type="string" val="$target = find ship: sector=[SECTOR] class or type=[Big Ship] race=null flags=$flags refobj=[THIS] maxdist=80000 maxnum=1 refpos=null" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="49" />
+					<sval type="int" val="69" />
 					<sval type="int" val="1" />
 					<sval type="string" val="= wait 100 ms" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="54" />
+					<sval type="int" val="74" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="58" />
+					<sval type="int" val="78" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="60" />
+					<sval type="int" val="80" />
 					<sval type="int" val="1" />
 					<sval type="string" val="Also see !station.signal.killed." />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="61" />
+					<sval type="int" val="81" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="64" />
+					<sval type="int" val="84" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="64" />
+					<sval type="int" val="84" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="65" />
+					<sval type="int" val="85" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="65" />
+					<sval type="int" val="85" />
 					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="86" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="86" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="87" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Zero Hour: we need to ensure that Terraformer capships tend to spread out and don't create undefeatable doomstacks" />
 				</sval>
 			</sval>
 			<sval type="int" val="0" />

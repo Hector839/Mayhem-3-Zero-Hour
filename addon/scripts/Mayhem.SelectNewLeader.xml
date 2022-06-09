@@ -97,7 +97,7 @@
 		<line linenr="017" indent="&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="018" indent="&#160;">
+		<line linenr="018" indent="&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -108,10 +108,77 @@
 			<text> </text>
 			<var>$exclude</var>
 		</line>
-		<line linenr="019" indent="&#160;&#160;">
+		<line linenr="019" indent="&#160;&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="020" indent="&#160;&#160;">
+		<line linenr="020" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$squadronName</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<text>'taskForce'</text>
+		</line>
+		<line linenr="021" indent="&#160;&#160;">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>class</text>
+			<text> </text>
+			<var>[TM]</var>
+		</line>
+		<line linenr="022" indent="&#160;&#160;&#160;">
+			<comment>* task forces get a TM leader whenever possible</comment>
+		</line>
+		<line linenr="023" indent="&#160;&#160;&#160;">
+			<text>continue</text>
+		</line>
+		<line linenr="024" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'ZH.raidingTaskForce'</text>
+		</line>
+		<line linenr="025" indent="&#160;&#160;">
+			<comment>* during a raid we don't switch leader</comment>
+		</line>
+		<line linenr="026" indent="&#160;">
+			<var>$newLeader</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$ship</var>
+		</line>
+		<line linenr="027" indent="&#160;">
+			<text>break</text>
+		</line>
+		<line linenr="028" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="029" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="030" indent="&#160;&#160;">
 			<var>$ship.speed</var>
 			<text> </text>
 			<text>=</text>
@@ -125,40 +192,7 @@
 			<text> </text>
 			<text>speed</text>
 		</line>
-		<line linenr="021" indent="&#160;">
-			<text>if</text>
-			<text> </text>
-			<var>$ship.speed</var>
-			<text> </text>
-			<text>&gt;</text>
-			<text> </text>
-			<var>$speed</var>
-			<text> </text>
-			<text>AND</text>
-			<text> </text>
-			<var>$squadronName</var>
-			<text> </text>
-			<text>==</text>
-			<text> </text>
-			<text>'taskForce'</text>
-		</line>
-		<line linenr="022" indent="&#160;&#160;">
-			<var>$speed</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<var>$ship.speed</var>
-		</line>
-		<line linenr="023" indent="&#160;&#160;">
-			<var>$newLeader</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<var>$ship</var>
-		</line>
-		<line linenr="024" indent="&#160;">
-			<text>else</text>
-			<text> </text>
+		<line linenr="031" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$ship.speed</var>
@@ -169,34 +203,74 @@
 			<text> </text>
 			<text>AND</text>
 			<text> </text>
+			<text>(</text>
 			<var>$squadronName</var>
 			<text> </text>
 			<text>!=</text>
 			<text> </text>
 			<text>'taskForce'</text>
+			<text> </text>
+			<text>OR</text>
+			<text> </text>
+			<text>!</text>
+			<var>$squadronName</var>
+			<text>)</text>
 		</line>
-		<line linenr="025" indent="">
+		<line linenr="032" indent="">
 			<var>$speed</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$ship.speed</var>
 		</line>
-		<line linenr="026" indent="">
+		<line linenr="033" indent="">
 			<var>$newLeader</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$ship</var>
 		</line>
-		<line linenr="027" indent="">
+		<line linenr="034" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="028" indent="">
+		<line linenr="035" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="029" indent="" />
-		<line linenr="030" indent="">
+		<line linenr="036" indent="&#160;" />
+		<line linenr="037" indent="">
+			<text>if</text>
+			<text> </text>
+			<text>!</text>
+			<var>$newLeader</var>
+		</line>
+		<line linenr="038" indent="">
+			<comment>* should only ever be necessary for Task Forces without a TM</comment>
+		</line>
+		<line linenr="039" indent="" interruptable="@">
+			<var>$newLeader</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetRandomElement</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$shipArray</var>
+		</line>
+		<line linenr="040" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="041" indent="" />
+		<line linenr="042" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>$newLeader</var>
@@ -216,10 +290,10 @@
 				<sval type="string" val="speed" />
 				<sval type="string" val="ship" />
 				<sval type="string" val="XS.Iterator1" />
-				<sval type="string" val="ship.speed" />
 				<sval type="string" val="newLeader" />
+				<sval type="string" val="ship.speed" />
 			</sval>
-			<sval type="array" size="21">
+			<sval type="array" size="25">
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
 					<sval type="int" val="-536870393" />
@@ -248,7 +322,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610607607" />
+					<sval type="int" val="-1610607095" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="5" />
@@ -296,67 +370,66 @@
 					<sval type="int" val="112" />
 					<sval type="int" val="4" />
 				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610608381" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="taskForce" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="705" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-536867321" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2141" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="string" val="ZH.raidingTaskForce" />
+					<sval type="int" val="-1610608381" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="6" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="22" />
+				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="785" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="4" />
-					<sval type="int" val="6" />
-				</sval>
-				<sval type="array" size="25">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610608637" />
 					<sval type="int" val="7" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="3" />
-					<sval type="int" val="15" />
-					<sval type="int" val="2" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="2" />
-					<sval type="int" val="5" />
-					<sval type="string" val="taskForce" />
-					<sval type="int" val="15" />
-					<sval type="int" val="0" />
-					<sval type="int" val="15" />
-					<sval type="int" val="9" />
-					<sval type="int" val="7" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="2" />
-					<sval type="int" val="-2" />
-					<sval type="int" val="9" />
-					<sval type="int" val="-4" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-5" />
 				</sval>
-				<sval type="array" size="7">
+				<sval type="array" size="36">
 					<sval type="int" val="104" />
-					<sval type="int" val="3" />
-					<sval type="int" val="1" />
+					<sval type="int" val="-1610607357" />
+					<sval type="int" val="10" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="7">
-					<sval type="int" val="104" />
 					<sval type="int" val="7" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="19" />
-				</sval>
-				<sval type="array" size="25">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610607867" />
-					<sval type="int" val="7" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="3" />
 					<sval type="int" val="15" />
@@ -367,29 +440,40 @@
 					<sval type="string" val="taskForce" />
 					<sval type="int" val="15" />
 					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="15" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="15" />
+					<sval type="int" val="10" />
 					<sval type="int" val="15" />
 					<sval type="int" val="9" />
-					<sval type="int" val="7" />
+					<sval type="int" val="12" />
 					<sval type="int" val="-1" />
 					<sval type="int" val="3" />
 					<sval type="int" val="-2" />
 					<sval type="int" val="9" />
+					<sval type="int" val="16" />
 					<sval type="int" val="-4" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-5" />
+					<sval type="int" val="10" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="-7" />
+					<sval type="int" val="17" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
 					<sval type="int" val="3" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="7" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="7" />
+					<sval type="int" val="6" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="4" />
@@ -399,11 +483,33 @@
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
 					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610606589" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="15" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="2" />
+					<sval type="int" val="65556" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetRandomElement" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="7" />
+					<sval type="int" val="6" />
 				</sval>
 			</sval>
 			<sval type="array" size="3">
@@ -420,7 +526,7 @@
 					<sval type="string" val="" />
 				</sval>
 			</sval>
-			<sval type="array" size="13">
+			<sval type="array" size="22">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -464,16 +570,55 @@
 					<sval type="int" val="11" />
 					<sval type="int" val="6" />
 				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="13" />
+					<sval type="int" val="1" />
+					<sval type="string" val="task forces get a TM leader whenever possible" />
+				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="19" />
+					<sval type="int" val="14" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="15" />
+					<sval type="int" val="1" />
+					<sval type="string" val="during a raid we don't switch leader" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="17" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="17" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="20" />
+					<sval type="int" val="17" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="20" />
+					<sval type="int" val="21" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="should only ever be necessary for Task Forces without a TM" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="24" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="24" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
