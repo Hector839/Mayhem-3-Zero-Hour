@@ -1,47 +1,45 @@
 Features:
 - the ultimate addon for Mayhem newcomers and veterans
 - adds real strategic faction AI
-- new Xenon Crisis mechanic. The galaxy can unite and start joint operations
-- new wandering 'Nomad' faction with mobile factories and strong mercs
-- greatly expanded Pirate behavior
-- tons of Quality of Life improvements, more fleet settings, less micromanagement, etc,etc.
-- new infamy system with dedicated mechanics! Be a Pirate Kingdom, Drug Lord, or just an honorable Nation. Or maybe even switch between different playstyles!
-- improved economy. Resources actually matter and the AI is able to fix shortages. NPCs also build their ships with less discounts and cheats.
-- adds a second customization t-file with 55+ new settings!
+- new Xenon Crisis mechanic. The galaxy can unite with joint operations
+- new wandering 'Nomad' faction with mobile factories and powerful mercs
+- Pirate behavior more varied & believable
+- tons of Quality of Life improvements, new fleet settings, automation tools, etc,etc.
+- new infamy system! Be a Pirate Drug Empire or honorable Nation. Or maybe even switch between different playstyles!
+- improved economy. Resources actually matter. The AI is now actually able to react to shortages and gets less discounts!
+- adds a second customization t-file with 50+ new settings!
 
 
 Installation:
-- install the latest compatible Mayhem 3 version
-- download Zero Hour mod archive from GitHub & extract it
-- copy everything from the folder 'Mayhem-3-Zero-Hour-main' to your game directory (C:/games/x3 terran conflict/), override everything
-- run 'Mayhem Galaxy Generator.exe' and create at least 1 new galaxy***
-- start a new game
+1) install the latest compatible Mayhem 3 version
+2) download the Zero Hour mod archive from GitHub 3) extract it
+4) copy everything from the folder 'Mayhem-3-Zero-Hour-main' to your game directory (C:/games/x3 terran conflict/), override everything
+5) run 'Mayhem Galaxy Generator.exe' and create a new galaxy to update the ship computer voice file
+6) start a new game
 
 
-***(this step is just required to update the ship computer voice file, you don't actually need to play in that galaxy)
+Difference to Mayhem 3:
 
-
-Differences to Mayhem 3 - What you should know:
-- all ship & weapon stats are unchanged base Mayhem 3
-- the 3 difficulty settings matter a lot more. Easy is actually forgiving and Hard should be a nice challenge.
-- in the old fleet building 'Meta' you had extremely long construction times and setting up multiple shipyards was almost mandatatory. Now it should often be the resource scarcity that is limiting you. A single shipyard Outpost can take you a lot further, which makes the entire logistics easier! All crafting projects will generally be completed fast and construction time should rarely be an issue anymore. Only the costs are higher for everyone, including the NPCs. There will be times when the galaxy simply runs out of most resources. But the AI can generally handle this and will reduce war activity to allow the universe to restock.
-- almost every type of NPC fleet and unit in the game received some AI tweaks. In general everyone will behave less like a 'mindless killing machine' and just attack every hostile in sight like mad crazy. Now they will ignore certain things and focus attention on their actual job without getting distracted. For example capships won't chase after fast Explorers, Pirates generally don't care about attacking your satellites, etc. This makes the universe feel a lot more believable and less frutstrating.
-- Pirates are more powerful and they come in groups now! But the boss of a pirate gang is their weak spot. When he dies the group becomes very vulnerable because they will scatter and flee.
-- NPCs cannot claim any of the starting unknown sectors until the player owns at least one. Just completing the Ascension quest is not enough anymore. This is to your advantage, so take your sweet time with that starter TL and choose a good first sector! But once you have claimed that the other empires can potentially claim all the remaining empty sectors much faster than you might be used to! There are more opportunities to get sectors and also new ways to play your empire tall. Don't assume that you have already lost the game if you were unlucky and ended up with few starting sectors.
-- claiming more sectors will not raise any hidden threat levels or make enemies stronger. So quickly grab whatever sectors you can before the others do! Overextending yourself is not really possible other than having to spend some construction resources to build the stations.
-- 'Cheaper Stations' now also increases construction times a lot. Maybe save this perk for later because it could hinder your early game expansion into unknown sectors. But it will also conserve your starting resources and potentially allow you to claim more empty sectors before they're gone. It could be a difficult choice!
-- some time after completing your Ascension and setting up your first sector the Xenon Empire will really wake up and escalate pretty fast. But don't worry! This is completely intended. At some point they might own about half of the galaxy. The other main factions will eventually start to panic and initiate extreme countermeasures. In all my test games the AI could defeat the Xenon Empire without any help. The united galaxy will burn through almost all resources and afterwards there will be a long period of peace and prosperity until this Xenon cycle repeats again.
-- its best if you select your starting sectors in the other half of the galaxy, opposite to the OCV Maelstrom portal sector !!! (i got a DLC planned which will allow you to setup a few stealthy sectors closer to the portal)
-- take a very close look at trading stations! They got a completely different range of goods! You can sell more resources to make money or supplement your factory supply and save a few station support slots. The AI will actually do this too and to optimize their ship component production (for example they might build extra computer factories if there are lots of microchips available on trading stations)
-- end tier ship parts like Hull Plating can be much more difficult to obtain. You should produce them a bit earlier than you might be used to from base Mayhem 3. Sometimes its a bad choice to build a Teladianium Foundry when you could use that station support slot for a Hull Plating Factory instead. You can always buy Teladianium but you can generally not buy strategic resources like Hull Plating.
-- your starter TL comes with a mobile factory kit. This equipment is much more useful because now it has a secondary passive production line that can refine resources on a loop just like a real factory! This works even when flying or placing stations! This flexible crafting ability of your starter TL can fulfill any modest need for some missing resource if you cannot get it elsewhere.
+- almost all ship & laser/missle stats are unchanged
+- the 3 difficulty settings matter a lot more. Easy is forgiving and Hard should be a nice challenge.
+- in the old fleet building 'Meta' you had extremely long construction times and setting up multiple shipyards was almost mandatatory. The new meta is resource scarcity. All crafting projects will generally be completed fast and construction times should rarely be an issue anymore. Only the resource costs are higher for everyone, including the NPCs. There will be times when the galaxy simply runs out of most ship parts. But the AI can generally handle this and will reduce war activity to restock on parts.
+- AI tweaks for almost every type of NPC fleet or unit in the game. In general everyone will behave less like a 'mindless killing machine' which just attacks every hostile in sight like mad crazy. Now they will ignore certain things and focus their attention on the actual job without getting distracted. For example capships won't chase after fast Explorers, Pirates generally don't care about attacking your satellites, etc. This makes the universe feel a lot more believable and less frutstrating.
+- Pirates are more powerful and they come in groups now! The boss of such a pirate gang is their weak spot. When he dies the group becomes very vulnerable because they have to break apart and flee.
+- NPCs cannot claim any of the starting unknown sectors until the player owns at least one. Just completing the Ascension quest is not enough anymore. This is to your advantage, so take your sweet time with that starter TL and choose a good first sector! But once you have claimed one the other empires will potentially claim all the remaining empty sectors much faster than you might be used to! There will be more opportunities to get sectors and also new ways to play your empire tall. So don't assume that you have already lost the game if you were a bit unlucky and ended up with few starting sectors.
+- claiming more sectors will not raise any hidden threat level or make enemies stronger. Quickly grab whatever sectors you can get before the others do! Overextending yourself is not really possible here other than having to spend some construction resources to build the stations.
+- 'Cheaper Stations' was often an instant pick as your first perk. But now it also slows construction a lot. Maybe save this perk for later because it could hinder your initial expansion rush to secure unknown sectors. But it would also conserve your limited starting resources and potentially allow you to claim more empty sectors before you run out. Its your choice!
+- some time after setting up your first sector the Xenon Empire will really wake up and escalate pretty fast. But don't worry! This is completely intended. At some point they might own about half of the galaxy. It would help you greatly if your sectors are mostly in the other half, far away from the OCV portal.
+The main empires will eventually start to panic and initiate extreme countermeasures. In all my test games the AI could defeat the Xenon Empire without my help. The united galaxy will burn through almost all their resources and afterwards there will be a long period of peace and prosperity until this Xenon cycle can repeat again.
+- take a very close look at trading stations! They got a completely different range of goods! You can sell most resources to make money or supplement your factory supply with them and save yourself a few early station support slots. The AI will actually do this too and optimizes its ship component production (for example if they want computers and there is already a surplus of microchips available on trading stations the AI can actually recycle chip plants to free up support slots for more computer fabs because they can simply buy the required chips)
+- end tier ship parts like Hull Plating can be much more difficult to obtain. You should produce them a bit earlier than you might be used to from base Mayhem 3. You can always buy things like Teladianium, but you can generally not buy strategic resources like Hull Plating. At least not in large quantity.
+- your starter TL comes with a mobile factory kit. This equipment is much more useful because it has a secondary passive production line that can refine resources on a loop just like a real factory! This works even when flying or placing stations! This flexible crafting ability of your starter TL can fulfill any modest need for some missing resource if you cannot get it elsewhere.
 - in Zero Hour your freighters can usually still travel safely during war with other major empires. Enemy stations might not allow them to dock or trade, but you can still reach the trading stations in enemy sectors, because the other empire will respect rules of war which forbid them to attack innocent freighters. The AI is basically roleplaying to be honorable. But note that the AI can also decide to commit war crimes. For example when it really hates you (permanent war). Then it attacks your freighters when it gets the chance and will also send dedicated raiders against your supply lines.
 - there is an entirely new civilian sector with many neutral Traders which are not affiliated to one of the major empires! Those ships can be destroyed without penalties and you can steal their cargo. This also includes any ships of the new 'Nomad' faction.
 Killing civilians which don't have a faction label is evil and accumulates 'infamy', which has certain effects. Infamy will never trash your good relations with major empires but disables certain interactions.
 - there is a completely new way how you can get a truce to repair bad reputation with a main faction by proposing a non-aggression pact. The AI empires will also do this between each other. A faction needs to have a reason to accept your proposal. Like when they are weak in general, having internal problems, being low on resources or having many other enemies in their sectors. And you need to be trustworthy enough because you are making a promise to not attack for some time.
 This new Truce option allows you to fight fairly limited wars over a few selected sectors. Your conflicts  don't need to drag on forever and can be settled in a mutual agreement. But this only works when you choose the 'honorable' playstyle. 
 - if you have trouble with the pirates early in the game, consider to temporarily turn into a criminal by killing a civilian Trader or two. The pirates will immediately respect this and attack you much less. With only little infamy its still reasonable to just wait until your crimes are quickly forgotten and you can become honroable again. But when you have infamy be careful with early wars against other empires. They won't offer a truce and this could easily wipe you out!
-- blocking the AI by conquering specific sectors on the galaxy map to isolate large areas and reserve many unknown sectors for yourself will no longer work forever. On hard game difficulty the AI simply counters this strategy immediately by using their fast Explorers to fly past your sector and conquer all empty sectors behind it very quickly. But even on easy or normal difficulty certain weak factions who want more sectors will now also use their Task Forces to claim empty sectors. Mostly they will do this with unknown sectors directly at their borders, but sometimes they can also go further. So don't believe that some empty sector that you have walled off will forever be safe and reserved for you! But you probably still buy yourself a lot of extra time by doing that, so it kinda still works and can be effective on easy or normal game difficulty.
+- blocking the AI by conquering specific sectors on the galaxy map to isolate large areas and reserve many unknown sectors for yourself will no longer work forever. On hard game difficulty the AI simply counters this strategy immediately by using their fast Explorers to fly past your sector and conquer all empty sectors behind it very quickly. But even on easy or normal difficulty certain weak factions who want more sectors will now also use their Task Forces to claim empty sectors. Mostly they will do this with unknown sectors directly at their borders, but sometimes they can also go further. So don't believe that some empty sector that you have walled off will forever be safe and reserved for you! But you probably still buy yourself a lot of extra time by doing that, so it kinda still works somewhat and can be very effective on easy or normal game difficulty.
 
 
 Now go and play already!
@@ -1184,3 +1182,29 @@ Customization:
 		<t id="238">60</t> <!-- Default export threshold for AI. (Zero Hour Default: 60 default: 40) -->
 		<t id="143">9</t> <!-- Waste production factor per consumption cycle (* people). (Zero Hour default: 9 default: 6) -->
 		<t id="205">150</t> <!-- E-Cell production multiplier (from Solar Panels perk). (Zero Hour default: 150 default: 100) -->
+
+
+
+Long Term Observations required:
+1)
+Potential Issue:
+Is the NPC Crystal supply stable even over weeks of gameplay? The AI might recycle too many Crystal factories to free station support for more ship part industry. My current assumption is that it should still be fine since the AI can eventually cheat-equip ships.
+
+Potential Solution:
+- also add Crystals to the currently only 3 strategic resources that the AI monitors and wants to keep with roughly equal stockpiles.
+- or take the easy route and just lower the delay until required lasers get cheat-equipped
+
+
+2)
+Potential Issue:
+- OCV could get permanently trapped in their portal sector by a very defensive AI that simply groups too large fleet stacks which the OCV cannot defeat.
+
+Potential Solution:
+- adding kind of an OCV CI, where they grind out huge forces in the Maelstrom sector before attacking.
+- or maybe a powerful OCV 'Overlord' fleet that appears whenever the OCV have to spawn too many fleets in a row which always die without ever really expanding the Xenon Empire.
+- such aj OCV doomstack could punch through all roadblocks and eventually break up into smaller fleets.
+
+
+3)
+Keep monitoring:
+- can there still be ANY cases where an active CI breaks somehow but doesn't get aborted properly? Things like sector claims never running out. Battlegroups just sitting idle at jumpgates forever. CI member fleets not going to invade the target sector? Individual fleet ships not knowing that they're part of a CI squadron? All these issues should be fixed by now but you never know.
