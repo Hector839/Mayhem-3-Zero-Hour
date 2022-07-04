@@ -1,3 +1,5 @@
+NO OFFICIAL RELEASE YET. NO SUPPORT FOR ACTIVE SAVEGAMES
+
 Features:
 - the ultimate addon for Mayhem newcomers and veterans
 - adds real strategic faction AI
