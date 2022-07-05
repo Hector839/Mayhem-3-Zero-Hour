@@ -76,6 +76,14 @@ This was only a serious problem when squadrons required to be at full strength b
 - on hard difficulty AI Explorers can quickly claim empty sectors at unlimited range. This will stop once your empire is a bit larger so that it cannot annoy you in the lategame.
 - Police License reworked. You no longer buy it. It is automatically awarded at rank 6 and retracted if you drop below rank 6 or have any infamy. Also added notifiications.
 - the Drydock perk still keeps a quarter of your capship maintenance cost. It doesn't remove it entirely.
+- free saving with lots of salvage insurance
+
+Traders:
+- player Traders now always try to make a profit on external trades. Previously your Trader could buy Fish from a Trading Station and sell it to an NPC Outpost for the same price. This was considered an 'External Trade' and while it actually helped to move things were they needed to be, it didn't earn you any money (Docks in X3 always pay average price). NPCs will still do these zero profit trades, but they don't have to pay each other anyway.
+
+Your Traders will still sometimes haul stuff between Docks without any profit. But at least they don't already plan to do this in the first place. I would like to simply also lock the sell destination station before buying, but apparently thats not possible. There would probably be 'hacky ways' to do it, but its just not worth it and could also break other stuff.
+TLDR: Mayhem just doesn't have as many profitable external trades like the UTs in Litcube. The big money is when you sell Loot or produce goods to sell.
+
 
 
 Quality of Life:
@@ -229,8 +237,9 @@ An entire Xenon crisis 'cycle' should last no longer than about 1 ingame week.
 single Terraformer fleet should be much easier to stop, even OCV. But the entire Xenon Empire will spread faster.
 - the OCV doesn't prefer sectors with high abnormal signals anymore. Most often they will just randomly expand 1 sector at a time, starting from their Maelstrom portal. But there is also a chance that an OCV invader fleet performs a deep strike which can target a distant sector up to 8 jumps away from the closest Xenon border! To prevent that an OCV deep strike wipes you out early just because of bad luck it cannot target player sectors until your empire is already well established. But it could still hit the NPC sector next door and then you afterwards, so be careful.
 - easy difficulty reduces the chance for an OCV deep strike and cuts the maximum range in half (4 jumps)
-- easy mode doubles the amount of jump beacons that the player can have before the Xenon will start to send scouts to infect them. It also slows the infection process down by a factor of 4, so that it takes them about 20-25min and you get a much better chance to send ships
-- hard mode increases the chance for an OCV deep strike and always adds +1 potential jump range to all their invasions so they expand in more unpredictable ways
+- doubled the amount of jump beacons that the player can have before the Xenon will start to send scouts to infect them. Easy mode doubles it once more and Hard mode allows only half of the base Mayhem 3 amount.
+- Easy mode slows the jump beacon infection process down by a factor of 4, so that it takes the Xenon Scout about 20-25min and you get a lot of time to send ships
+- hard mode increases the chance for an OCV deep strike and always adds +1 potential jump range to all their invasions so they might expand in unpredictable ways
 - on normal and hard difficulty the OCV starts the game with additional ships
 - between station kills OCV invaders randomly hesitate and just patrol the sector for a short while. This slows them down a bit.
 - added a t-file setting to modify the general OCV ship construction speed. With this new setting you have great control over how much these new 'Xenon Cycles' will even be a factor in your playthrough. Don't really like the mechanic and mostly want faction war? Then tone the OCV ship construction way down and they will probably never manage to threaten the galaxy.
@@ -315,7 +324,7 @@ Economy Overview:
 - NPC empires will start the game with only half their usual resource stockpile
 - resource shortages in factories should be very rare. The resource distribution in the galaxy just works more efficient
 - but this also means even less opportunities for manual trading in the early game. Automated Traders and Trade Commands have some advantages because they reserve the trade. If you need to get rid of something you can generally sell it to trading stations.
-- the export threshold for AI factories has been raised from 40 to 60. This means that AI traders and suppliers can only grab finished goods once their price has already dropped below average. This should give you at least some good early game trading opportunities and a few more factories with low prices.
+- the default export threshold for AI factories has been raised from 40 to 60. This fixes a couple issues. First it means that Traders and Suppliers can only grab finished goods once their price has already dropped below average. This should give you way more early game manual trading opportunities. And second it makes it less likely that one of your Traders scores a net loss. This can sometimes happen when his planned selling location gets stolen by another Trader. In Mayhem 3 your Traders reserve those trades for themselves, but they have to finish buying first. In the meantime an NPC Trader can fill their sell location up and make the price bad. With the default NPC export threshold your Traders often bought at a fairly high price and when the Sell location got stolen you had a small loss. It wasn't that common to begin with because while your Trader travelled the price already got better again, but external trade losses should simply just be much rarer now.
 - Rastar Oil can be a bit rare in some parts of the galaxy. This is intended. Rastar is only required very infrequently to build your stations. Its not sold by trading stations and nobody really wants to buy it. The NPCs also generally have fewer Rastar and Chelt factories and already consume most of that for their own station building activity. You definitely need some Rastar, but a real production would require 2 factory slots, which are very valuable in the early game. And Rastar cannot really be profitable in any other way than consuming it yourself.
 Tip:  early on you might not need much Rastar. Producing it in your starter TL mobile factory can save 2 valuable station support slots!
 - population is more significant for the player because your ships can get built so quickly (more feedback about pop growth is required before introduce changes here)
@@ -354,6 +363,8 @@ Optimized ship component production:
 
 
 Outposts:
+- new perk 'Wellfare': +3 growth rate, +15% maximum population, double food consumption and incompatible with the no food perk.
+- this one is more interesting than it looks at first because its a flat bonus which doesn't deteriorate on high pop levels like your natural growth. Helpful to maintain population and ship production on a high level, especially when building capships. But you are paying that with even another shipyard perk and the Outpost will burn extra food that you cannot sell anymore.
 - increased Waste generation & Energy Cells production with the Solar Panels perk by 50% (to have enough for the new 'Nomad' mobile factories)
 - reduced default production specialization limit from 50% to 20% for NPCs and the player (all crafting is more resource intensive)
 - all Outpost crafting is 4 times faster. This might seem extreme but its necessary for various reasons. New ships can roll out quickly as long as resources are still available. The AI knows how many resources it has left and tries to prevent excessive ship losses when it starts to run low.
