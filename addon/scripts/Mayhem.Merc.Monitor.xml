@@ -3,7 +3,7 @@
 <!-- Generated using X-Studio -->
 <script>
 	<name>Mayhem.Merc.Monitor</name>
-	<version>5</version>
+	<version>6</version>
 	<engineversion>50</engineversion>
 	<description></description>
 	<arguments />
@@ -350,6 +350,10 @@
 			<text> </text>
 			<text>!</text>
 			<var>$GlobalAlliance</var>
+			<text> </text>
+			<text>AND</text>
+			<text> </text>
+			<var>$vip</var>
 		</line>
 		<line linenr="038" indent="&#160;&#160;&#160;&#160;">
 			<text>if</text>
@@ -422,7 +426,7 @@
 			<text> </text>
 			<var>$leave</var>
 		</line>
-		<line linenr="047" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="047" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<var>$playerInfamy</var>
 			<text> </text>
 			<text>=</text>
@@ -438,7 +442,53 @@
 			<text>=</text>
 			<text>'playerInfamy'</text>
 		</line>
-		<line linenr="048" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="048" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$playerInfamy</var>
+		</line>
+		<line linenr="049" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<comment>* having any infamy provides 50% chance to stop them from leaving</comment>
+		</line>
+		<line linenr="050" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>not</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>zero</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="051" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+			<var>$leave</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="052" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="053" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="054" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$leave</var>
+		</line>
+		<line linenr="055" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+			<comment>* if that failed we get another linear chance to keep the merc based on our infamy, but it caps out at 90</comment>
+		</line>
+		<line linenr="056" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -449,14 +499,14 @@
 			<text> </text>
 			<var>90</var>
 		</line>
-		<line linenr="049" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="057" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<var>$playerInfamy</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>90</var>
 		</line>
-		<line linenr="050" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="058" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<var>$rng</var>
 			<text> </text>
 			<text>=</text>
@@ -473,7 +523,7 @@
 			<text> </text>
 			<var>100</var>
 		</line>
-		<line linenr="051" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="059" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$playerInfamy</var>
@@ -486,17 +536,17 @@
 			<text> </text>
 			<var>$rng</var>
 		</line>
-		<line linenr="052" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="060" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<var>$leave</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="053" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="061" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="054" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="062" indent="&#160;&#160;&#160;&#160;&#160;&#160;&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
@@ -508,7 +558,7 @@
 			<text> </text>
 			<text>sector</text>
 		</line>
-		<line linenr="055" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="063" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -531,7 +581,7 @@
 			<text> </text>
 			<text>' leaves you.'</text>
 		</line>
-		<line linenr="056" indent="&#160;&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="064" indent="&#160;&#160;&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -557,28 +607,31 @@
 			<text>=</text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="057" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="065" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="058" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="066" indent="&#160;&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="067" indent="&#160;&#160;&#160;&#160;">
 			<var>$rng</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="059" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="068" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="060" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="069" indent="&#160;&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="061" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="070" indent="&#160;&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$leave</var>
 		</line>
-		<line linenr="062" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="071" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -596,23 +649,23 @@
 			<text>=</text>
 			<var>$leader</var>
 		</line>
-		<line linenr="063" indent="&#160;&#160;&#160;">
+		<line linenr="072" indent="&#160;&#160;&#160;">
 			<var>$leave</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="064" indent="&#160;&#160;&#160;">
+		<line linenr="073" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="065" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="074" indent="&#160;&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="066" indent="&#160;&#160;&#160;">
+		<line linenr="075" indent="&#160;&#160;&#160;">
 			<comment>* only player pays Mercs</comment>
 		</line>
-		<line linenr="067" indent="&#160;&#160;&#160;">
+		<line linenr="076" indent="&#160;&#160;&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -623,10 +676,10 @@
 			<text> </text>
 			<var>[Player]</var>
 		</line>
-		<line linenr="068" indent="&#160;&#160;&#160;">
+		<line linenr="077" indent="&#160;&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="069" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="078" indent="&#160;&#160;&#160;&#160;">
 			<var>$money</var>
 			<text> </text>
 			<text>=</text>
@@ -637,7 +690,7 @@
 			<text> </text>
 			<text>money</text>
 		</line>
-		<line linenr="070" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="079" indent="&#160;&#160;&#160;&#160;" interruptable="@">
 			<var>$cost</var>
 			<text> </text>
 			<text>=</text>
@@ -657,7 +710,7 @@
 			<text>=</text>
 			<var>$leader</var>
 		</line>
-		<line linenr="071" indent="&#160;&#160;&#160;">
+		<line linenr="080" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$money</var>
@@ -666,7 +719,7 @@
 			<text> </text>
 			<var>$cost</var>
 		</line>
-		<line linenr="072" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="081" indent="&#160;&#160;&#160;&#160;">
 			<var>$cost.neg</var>
 			<text> </text>
 			<text>=</text>
@@ -677,7 +730,7 @@
 			<text> </text>
 			<var>-1</var>
 		</line>
-		<line linenr="073" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="082" indent="&#160;&#160;&#160;&#160;">
 			<text>add</text>
 			<text> </text>
 			<text>money</text>
@@ -689,10 +742,10 @@
 			<text> </text>
 			<var>$cost.neg</var>
 		</line>
-		<line linenr="074" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="083" indent="&#160;&#160;&#160;&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="075" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="084" indent="&#160;&#160;&#160;&#160;">
 			<var>$sector</var>
 			<text> </text>
 			<text>=</text>
@@ -704,7 +757,7 @@
 			<text> </text>
 			<text>sector</text>
 		</line>
-		<line linenr="076" indent="&#160;&#160;&#160;">
+		<line linenr="085" indent="&#160;&#160;&#160;">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -727,7 +780,7 @@
 			<text> </text>
 			<text>' has been dismissed because you don't have enough money to pay him.'</text>
 		</line>
-		<line linenr="077" indent="&#160;&#160;" interruptable="@">
+		<line linenr="086" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -753,7 +806,7 @@
 			<text>=</text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="078" indent="&#160;" interruptable="@">
+		<line linenr="087" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -771,21 +824,21 @@
 			<text>=</text>
 			<var>$leader</var>
 		</line>
-		<line linenr="079" indent="&#160;">
+		<line linenr="088" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="080" indent="">
+		<line linenr="089" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="081" indent="">
+		<line linenr="090" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="082" indent="" />
-		<line linenr="083" indent="">
+		<line linenr="091" indent="" />
+		<line linenr="092" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="084" indent="" />
-		<line linenr="085" indent="">
+		<line linenr="093" indent="" />
+		<line linenr="094" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
@@ -796,7 +849,7 @@
 			<sval type="string" val="Mayhem.Merc.Monitor" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
-			<sval type="int" val="5" />
+			<sval type="int" val="6" />
 			<sval type="int" val="0" />
 			<sval type="array" size="19">
 				<sval type="string" val="GlobalAlliance" />
@@ -819,10 +872,10 @@
 				<sval type="string" val="cost" />
 				<sval type="string" val="cost.neg" />
 			</sval>
-			<sval type="array" size="62">
+			<sval type="array" size="66">
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610597111" />
+					<sval type="int" val="-1610596087" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
@@ -886,7 +939,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610597367" />
+					<sval type="int" val="-1610596343" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="5" />
@@ -943,7 +996,7 @@
 				</sval>
 				<sval type="array" size="31">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610597629" />
+					<sval type="int" val="-1610596605" />
 					<sval type="int" val="9" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="7" />
@@ -1013,10 +1066,10 @@
 					<sval type="int" val="4" />
 					<sval type="int" val="10" />
 				</sval>
-				<sval type="array" size="22">
+				<sval type="array" size="28">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610600701" />
-					<sval type="int" val="6" />
+					<sval type="int" val="-1610599677" />
+					<sval type="int" val="8" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="10" />
 					<sval type="int" val="10" />
@@ -1029,13 +1082,19 @@
 					<sval type="int" val="65556" />
 					<sval type="int" val="15" />
 					<sval type="int" val="9" />
-					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="15" />
+					<sval type="int" val="9" />
+					<sval type="int" val="8" />
 					<sval type="int" val="-1" />
 					<sval type="int" val="0" />
 					<sval type="int" val="-2" />
 					<sval type="int" val="9" />
 					<sval type="int" val="65556" />
 					<sval type="int" val="-4" />
+					<sval type="int" val="9" />
+					<sval type="int" val="-7" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="106" />
@@ -1054,7 +1113,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610601469" />
+					<sval type="int" val="-1610600445" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="9" />
@@ -1084,7 +1143,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610601469" />
+					<sval type="int" val="-1610600445" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="11" />
@@ -1097,9 +1156,42 @@
 					<sval type="string" val="playerInfamy" />
 					<sval type="int" val="12" />
 				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610603261" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="106" />
+					<sval type="int" val="-536861436" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610600701" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610603512" />
+					<sval type="int" val="-1610602488" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="12" />
@@ -1131,7 +1223,7 @@
 				</sval>
 				<sval type="array" size="19">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610602493" />
+					<sval type="int" val="-1610601469" />
 					<sval type="int" val="5" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="12" />
@@ -1161,7 +1253,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="43" />
+					<sval type="int" val="47" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="703" />
@@ -1227,7 +1319,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610600701" />
+					<sval type="int" val="-1610599677" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="11" />
@@ -1255,7 +1347,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536858361" />
+					<sval type="int" val="-536857337" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="9" />
@@ -1288,7 +1380,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610598653" />
+					<sval type="int" val="-1610597629" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="16" />
@@ -1323,7 +1415,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="59" />
+					<sval type="int" val="63" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="703" />
@@ -1403,7 +1495,7 @@
 				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="30">
+			<sval type="array" size="35">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -1467,65 +1559,87 @@
 					<sval type="int" val="32" />
 					<sval type="int" val="4" />
 				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="40" />
-					<sval type="int" val="5" />
+				<sval type="array" size="3">
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="string" val="having any infamy provides 50% chance to stop them from leaving" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="43" />
+					<sval type="int" val="37" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="44" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="44" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="47" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="47" />
+					<sval type="int" val="37" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
+					<sval type="int" val="38" />
+					<sval type="int" val="1" />
+					<sval type="string" val="if that failed we get another linear chance to keep the merc based on our infamy, but it caps out at 90" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="44" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
 					<sval type="int" val="47" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="47" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="48" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="48" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="51" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="51" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="51" />
 					<sval type="int" val="1" />
 					<sval type="string" val="only player pays Mercs" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="49" />
+					<sval type="int" val="53" />
 					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="55" />
+					<sval type="int" val="59" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="59" />
+					<sval type="int" val="63" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="59" />
+					<sval type="int" val="63" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="60" />
+					<sval type="int" val="64" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="60" />
+					<sval type="int" val="64" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="61" />
+					<sval type="int" val="65" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="61" />
+					<sval type="int" val="65" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
