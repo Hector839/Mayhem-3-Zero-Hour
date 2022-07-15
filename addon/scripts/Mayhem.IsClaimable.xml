@@ -682,9 +682,12 @@
 		</line>
 		<line linenr="084" indent="" />
 		<line linenr="085" indent="">
-			<comment>* Cannot claim Player sectors if the reputation is not bad. Cannot claim unknown sectors adjacent to player either.</comment>
+			<comment>*** Zone of Control</comment>
 		</line>
 		<line linenr="086" indent="">
+			<comment>* Cannot claim Player sectors if the reputation is not bad. Cannot claim unknown sectors adjacent to player either.</comment>
+		</line>
+		<line linenr="087" indent="">
 			<var>$repRank</var>
 			<text> </text>
 			<text>=</text>
@@ -709,7 +712,7 @@
 			<text>=</text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="087" indent="">
+		<line linenr="088" indent="">
 			<var>$minRepRank</var>
 			<text> </text>
 			<text>=</text>
@@ -725,7 +728,7 @@
 			<text>=</text>
 			<text>'mayhem_minRepRankToInvade'</text>
 		</line>
-		<line linenr="088" indent="">
+		<line linenr="089" indent="">
 			<text>if</text>
 			<text> </text>
 			<var>$sector.owner</var>
@@ -734,7 +737,7 @@
 			<text> </text>
 			<var>[Player]</var>
 		</line>
-		<line linenr="089" indent="&#160;">
+		<line linenr="090" indent="&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -745,12 +748,12 @@
 			<text> </text>
 			<var>$minRepRank</var>
 		</line>
-		<line linenr="090" indent="&#160;&#160;">
+		<line linenr="091" indent="&#160;&#160;">
 			<text>return</text>
 			<text> </text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="091" indent="">
+		<line linenr="092" indent="">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -761,10 +764,10 @@
 			<text> </text>
 			<var>[Unknown]</var>
 		</line>
-		<line linenr="092" indent="&#160;">
+		<line linenr="093" indent="&#160;">
 			<comment>* Zero Hour: no Zone of Control on hard difficulty</comment>
 		</line>
-		<line linenr="093" indent="&#160;">
+		<line linenr="094" indent="&#160;">
 			<var>$answers</var>
 			<text> </text>
 			<text>=</text>
@@ -780,7 +783,7 @@
 			<text>=</text>
 			<text>'mayhem_startingOptionAnswers'</text>
 		</line>
-		<line linenr="094" indent="&#160;">
+		<line linenr="095" indent="&#160;">
 			<var>$difficulty</var>
 			<text> </text>
 			<text>=</text>
@@ -797,7 +800,7 @@
 			<text> </text>
 			<text>)</text>
 		</line>
-		<line linenr="095" indent="&#160;">
+		<line linenr="096" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$difficulty</var>
@@ -806,10 +809,10 @@
 			<text> </text>
 			<var>2</var>
 		</line>
-		<line linenr="096" indent="&#160;&#160;">
+		<line linenr="097" indent="&#160;&#160;">
 			<comment>* Zero Hour: chance to ignore ZoC</comment>
 		</line>
-		<line linenr="097" indent="&#160;&#160;">
+		<line linenr="098" indent="&#160;&#160;">
 			<var>$playerInfamy</var>
 			<text> </text>
 			<text>=</text>
@@ -825,10 +828,10 @@
 			<text>=</text>
 			<text>'playerInfamy'</text>
 		</line>
-		<line linenr="098" indent="&#160;&#160;">
-			<comment>* default: 5 = 0,5% risk</comment>
-		</line>
 		<line linenr="099" indent="&#160;&#160;">
+			<comment>* default: 20 = 2% risk</comment>
+		</line>
+		<line linenr="100" indent="&#160;&#160;">
 			<var>$ZoneOfControlIgnore</var>
 			<text> </text>
 			<text>=</text>
@@ -844,7 +847,7 @@
 			<text>=</text>
 			<text>'ZH_ZoneOfControlIgnore.pt'</text>
 		</line>
-		<line linenr="100" indent="&#160;&#160;">
+		<line linenr="101" indent="&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -855,32 +858,32 @@
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="101" indent="&#160;&#160;&#160;">
+		<line linenr="102" indent="&#160;&#160;&#160;">
 			<comment>* no risk on easy difficulty if player is honorable</comment>
 		</line>
-		<line linenr="102" indent="&#160;&#160;&#160;">
+		<line linenr="103" indent="&#160;&#160;&#160;">
 			<var>$ZoneOfControlIgnore</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="103" indent="&#160;&#160;">
+		<line linenr="104" indent="&#160;&#160;">
 			<var>$risk</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>$ZoneOfControlIgnore</var>
 		</line>
-		<line linenr="104" indent="&#160;&#160;">
+		<line linenr="105" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$playerInfamy</var>
 		</line>
-		<line linenr="105" indent="&#160;&#160;&#160;">
-			<comment>* infamy increases to 5% + 1 for each point of infamy</comment>
-		</line>
 		<line linenr="106" indent="&#160;&#160;&#160;">
+			<comment>* infamy increases to 15% + 1% for each point of infamy</comment>
+		</line>
+		<line linenr="107" indent="&#160;&#160;&#160;">
 			<var>$risk</var>
 			<text> </text>
 			<text>=</text>
@@ -889,7 +892,7 @@
 			<text> </text>
 			<text>+</text>
 			<text> </text>
-			<var>45</var>
+			<var>130</var>
 			<text> </text>
 			<text>+</text>
 			<text> </text>
@@ -901,10 +904,10 @@
 			<var>10</var>
 			<text>)</text>
 		</line>
-		<line linenr="107" indent="&#160;&#160;">
+		<line linenr="108" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="108" indent="&#160;&#160;">
+		<line linenr="109" indent="&#160;&#160;">
 			<var>$rng</var>
 			<text> </text>
 			<text>=</text>
@@ -921,7 +924,7 @@
 			<text> </text>
 			<var>1000</var>
 		</line>
-		<line linenr="109" indent="&#160;&#160;">
+		<line linenr="110" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$rng</var>
@@ -930,7 +933,7 @@
 			<text> </text>
 			<var>$risk</var>
 		</line>
-		<line linenr="110" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="111" indent="&#160;&#160;&#160;" interruptable="@">
 			<var>$adjacentSectors</var>
 			<text> </text>
 			<text>=</text>
@@ -954,7 +957,7 @@
 			<text>=</text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="111" indent="&#160;&#160;&#160;">
+		<line linenr="112" indent="&#160;&#160;&#160;">
 			<var>$XS.Iterator1</var>
 			<text> </text>
 			<text>=</text>
@@ -967,17 +970,17 @@
 			<text> </text>
 			<var>$adjacentSectors</var>
 		</line>
-		<line linenr="112" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="113" indent="&#160;&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="113" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="114" indent="&#160;&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator1</var>
 		</line>
-		<line linenr="114" indent="&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="115" indent="&#160;&#160;&#160;&#160;&#160;">
 			<var>$adjacentSector</var>
 			<text> </text>
 			<text>=</text>
@@ -987,7 +990,7 @@
 			<var>$XS.Iterator1</var>
 			<text>]</text>
 		</line>
-		<line linenr="115" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
+		<line linenr="116" indent="&#160;&#160;&#160;&#160;&#160;&#160;">
 			<var>$adjacentSector.owner</var>
 			<text> </text>
 			<text>=</text>
@@ -1001,7 +1004,7 @@
 			<text> </text>
 			<text>race</text>
 		</line>
-		<line linenr="116" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="117" indent="&#160;&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$adjacentSector.owner</var>
@@ -1010,7 +1013,7 @@
 			<text> </text>
 			<var>[Player]</var>
 		</line>
-		<line linenr="117" indent="&#160;&#160;&#160;">
+		<line linenr="118" indent="&#160;&#160;&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -1021,15 +1024,12 @@
 			<text> </text>
 			<var>$minRepRank</var>
 		</line>
-		<line linenr="118" indent="&#160;&#160;">
+		<line linenr="119" indent="&#160;&#160;">
 			<text>return</text>
 			<text> </text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="119" indent="&#160;">
-			<text>end</text>
-		</line>
-		<line linenr="120" indent="">
+		<line linenr="120" indent="&#160;">
 			<text>end</text>
 		</line>
 		<line linenr="121" indent="">
@@ -1041,11 +1041,14 @@
 		<line linenr="123" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="124" indent="&#160;" />
-		<line linenr="125" indent="&#160;">
+		<line linenr="124" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="125" indent="&#160;" />
+		<line linenr="126" indent="&#160;">
 			<comment>* Cannot claim a sector if the owner has less than or equal to X sectors (9972 option).</comment>
 		</line>
-		<line linenr="126" indent="&#160;">
+		<line linenr="127" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$sector.owner</var>
@@ -1054,7 +1057,7 @@
 			<text> </text>
 			<var>[Unknown]</var>
 		</line>
-		<line linenr="127" indent="&#160;">
+		<line linenr="128" indent="&#160;">
 			<var>$annihilationLimit</var>
 			<text> </text>
 			<text>=</text>
@@ -1070,7 +1073,7 @@
 			<text>=</text>
 			<text>'mayhem_aiAnnihilationLimit'</text>
 		</line>
-		<line linenr="128" indent="&#160;&#160;" interruptable="@">
+		<line linenr="129" indent="&#160;&#160;" interruptable="@">
 			<var>$nbSectors</var>
 			<text> </text>
 			<text>=</text>
@@ -1094,7 +1097,7 @@
 			<text>=</text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="129" indent="">
+		<line linenr="130" indent="">
 			<var>$nbSectors</var>
 			<text> </text>
 			<text>=</text>
@@ -1107,7 +1110,7 @@
 			<text> </text>
 			<var>$nbSectors</var>
 		</line>
-		<line linenr="130" indent="">
+		<line linenr="131" indent="">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -1118,19 +1121,19 @@
 			<text> </text>
 			<var>$annihilationLimit</var>
 		</line>
-		<line linenr="131" indent="">
+		<line linenr="132" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="132" indent="">
+		<line linenr="133" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="133" indent="&#160;" />
-		<line linenr="134" indent="">
+		<line linenr="134" indent="&#160;" />
+		<line linenr="135" indent="">
 			<comment>* Don't claim if we have Pacifism favor.</comment>
 		</line>
-		<line linenr="135" indent="" interruptable="@">
+		<line linenr="136" indent="" interruptable="@">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -1154,17 +1157,17 @@
 			<text>=</text>
 			<text>'pacifism'</text>
 		</line>
-		<line linenr="136" indent="">
+		<line linenr="137" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="137" indent="" />
 		<line linenr="138" indent="" />
-		<line linenr="139" indent="">
+		<line linenr="139" indent="" />
+		<line linenr="140" indent="">
 			<comment>* Zero Hour AI:    -1=full defense ; 0=cautious ; 1=baseline (vanilla Mayhem 3) ; 2=confident ; 3=reckless</comment>
 		</line>
-		<line linenr="140" indent="">
+		<line linenr="141" indent="">
 			<var>$OffensiveStrategy</var>
 			<text> </text>
 			<text>=</text>
@@ -1180,7 +1183,7 @@
 			<text>=</text>
 			<text>'OffensiveStrategy'</text>
 		</line>
-		<line linenr="141" indent="&#160;">
+		<line linenr="142" indent="&#160;">
 			<var>$OffensiveStrategy</var>
 			<text> </text>
 			<text>=</text>
@@ -1197,8 +1200,8 @@
 			<text> </text>
 			<text>)</text>
 		</line>
-		<line linenr="142" indent="&#160;" />
-		<line linenr="143" indent="">
+		<line linenr="143" indent="&#160;" />
+		<line linenr="144" indent="">
 			<text>if</text>
 			<text> </text>
 			<var>$OffensiveStrategy</var>
@@ -1207,15 +1210,15 @@
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="144" indent="&#160;">
+		<line linenr="145" indent="&#160;">
 			<comment>* full defense AI cannot claim any sectors</comment>
 		</line>
-		<line linenr="145" indent="&#160;">
+		<line linenr="146" indent="&#160;">
 			<text>return</text>
 			<text> </text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="146" indent="&#160;">
+		<line linenr="147" indent="&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -1226,10 +1229,10 @@
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="147" indent="&#160;&#160;">
+		<line linenr="148" indent="&#160;&#160;">
 			<comment>* cautious AI can only claim adjacent sectors</comment>
 		</line>
-		<line linenr="148" indent="" interruptable="@">
+		<line linenr="149" indent="" interruptable="@">
 			<var>$isBorder</var>
 			<text> </text>
 			<text>=</text>
@@ -1253,23 +1256,23 @@
 			<text>=</text>
 			<var>$race</var>
 		</line>
-		<line linenr="149" indent="">
+		<line linenr="150" indent="">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
 			<var>$isBorder</var>
 		</line>
-		<line linenr="150" indent="">
+		<line linenr="151" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>[FALSE]</var>
 		</line>
-		<line linenr="151" indent="">
+		<line linenr="152" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="152" indent="" />
-		<line linenr="153" indent="">
+		<line linenr="153" indent="" />
+		<line linenr="154" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>[TRUE]</var>
@@ -1855,7 +1858,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="18" />
 					<sval type="int" val="4" />
-					<sval type="int" val="45" />
+					<sval type="int" val="130" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="131074" />
@@ -2155,7 +2158,7 @@
 					<sval type="string" val="Claimer." />
 				</sval>
 			</sval>
-			<sval type="array" size="65">
+			<sval type="array" size="66">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -2335,6 +2338,11 @@
 				<sval type="array" size="3">
 					<sval type="int" val="44" />
 					<sval type="int" val="1" />
+					<sval type="string" val="** Zone of Control" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="44" />
+					<sval type="int" val="1" />
 					<sval type="string" val="Cannot claim Player sectors if the reputation is not bad. Cannot claim unknown sectors adjacent to player either." />
 				</sval>
 				<sval type="array" size="3">
@@ -2350,7 +2358,7 @@
 				<sval type="array" size="3">
 					<sval type="int" val="55" />
 					<sval type="int" val="1" />
-					<sval type="string" val="default: 5 = 0,5% risk" />
+					<sval type="string" val="default: 20 = 2% risk" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="57" />
@@ -2360,7 +2368,7 @@
 				<sval type="array" size="3">
 					<sval type="int" val="60" />
 					<sval type="int" val="1" />
-					<sval type="string" val="infamy increases to 5% + 1 for each point of infamy" />
+					<sval type="string" val="infamy increases to 15% + 1% for each point of infamy" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="61" />
