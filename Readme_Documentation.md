@@ -1,65 +1,18 @@
-NO OFFICIAL RELEASE YET. NO SUPPORT FOR ACTIVE SAVEGAMES
-
-Features:
-- the ultimate addon for Mayhem newcomers and veterans
-- adds real strategic faction AI
-- new Xenon Crisis mechanic. The galaxy can unite with joint operations
-- new wandering 'Nomad' faction with mobile factories and powerful mercs
-- Pirate behavior more varied & believable
-- tons of Quality of Life improvements, new fleet settings, automation tools, etc,etc.
-- new infamy system! Be a Pirate Drug Empire or honorable Nation. Or maybe even switch between different playstyles!
-- improved economy. Resources actually matter. The AI is now actually able to react to shortages and gets less discounts!
-- adds a second customization t-file with 50+ new settings!
-
-
 Installation:
-1) install the latest compatible Mayhem 3 version
-2) download the Zero Hour mod archive from GitHub 3) extract it
-4) copy everything from the folder 'Mayhem-3-Zero-Hour-main' to your game directory (C:/games/x3 terran conflict/), override everything
-5) run 'Mayhem Galaxy Generator.exe' and create a new galaxy to update the ship computer voice file
-6) start a new game
-
-
-Difference to Mayhem 3:
-
-- almost all ship & laser/missle stats are unchanged
-- the 3 difficulty settings matter a lot more. Easy is forgiving and Hard should be a nice challenge.
-- in the old fleet building 'Meta' you had extremely long construction times and setting up multiple shipyards was almost mandatatory. The new meta is resource scarcity. All crafting projects will generally be completed fast and construction times should rarely be an issue anymore. Only the resource costs are higher for everyone, including the NPCs. There will be times when the galaxy simply runs out of most ship parts. But the AI can generally handle this and will reduce war activity to restock on parts.
-- AI tweaks for almost every type of NPC fleet or unit in the game. In general everyone will behave less like a 'mindless killing machine' which just attacks every hostile in sight like mad crazy. Now they will ignore certain things and focus their attention on the actual job without getting distracted. For example capships won't chase after fast Explorers, Pirates generally don't care about attacking your satellites, etc. This makes the universe feel a lot more believable and less frutstrating.
-- Pirates are more powerful and they come in groups now! The boss of such a pirate gang is their weak spot. When he dies the group becomes very vulnerable because they have to break apart and flee.
-- NPCs cannot claim any of the starting unknown sectors until the player owns at least one. Just completing the Ascension quest is not enough anymore. This is to your advantage, so take your sweet time with that starter TL and choose a good first sector! But once you have claimed one the other empires will potentially claim all the remaining empty sectors much faster than you might be used to! There will be more opportunities to get sectors and also new ways to play your empire tall. So don't assume that you have already lost the game if you were a bit unlucky and ended up with few starting sectors.
-- claiming more sectors will not raise any hidden threat level or make enemies stronger. Quickly grab whatever sectors you can get before the others do! Overextending yourself is not really possible here other than having to spend some construction resources to build the stations.
-- 'Cheaper Stations' was often an instant pick as your first perk. But now it also slows construction a lot. Maybe save this perk for later because it could hinder your initial expansion rush to secure unknown sectors. But it would also conserve your limited starting resources and potentially allow you to claim more empty sectors before you run out. Its your choice!
-- some time after setting up your first sector the Xenon Empire will really wake up and escalate pretty fast. But don't worry! This is completely intended. At some point they might own about half of the galaxy. It would help you greatly if your sectors are mostly in the other half, far away from the OCV portal.
-The main empires will eventually start to panic and initiate extreme countermeasures. In all my test games the AI could defeat the Xenon Empire without my help. The united galaxy will burn through almost all their resources and afterwards there will be a long period of peace and prosperity until this Xenon cycle can repeat again.
-- take a very close look at trading stations! They got a completely different range of goods! You can sell most resources to make money or supplement your factory supply with them and save yourself a few early station support slots. The AI will actually do this too and optimizes its ship component production (for example if they want computers and there is already a surplus of microchips available on trading stations the AI can actually recycle chip plants to free up support slots for more computer fabs because they can simply buy the required chips)
-- end tier ship parts like Hull Plating can be much more difficult to obtain. You should produce them a bit earlier than you might be used to from base Mayhem 3. You can always buy things like Teladianium, but you can generally not buy strategic resources like Hull Plating. At least not in large quantity.
-- your starter TL comes with a mobile factory kit. This equipment is much more useful because it has a secondary passive production line that can refine resources on a loop just like a real factory! This works even when flying or placing stations! This flexible crafting ability of your starter TL can fulfill any modest need for some missing resource if you cannot get it elsewhere.
-- in Zero Hour your freighters can usually still travel safely during war with other major empires. Enemy stations might not allow them to dock or trade, but you can still reach the trading stations in enemy sectors, because the other empire will respect rules of war which forbid them to attack innocent freighters. The AI is basically roleplaying to be honorable. But note that the AI can also decide to commit war crimes. For example when it really hates you (permanent war). Then it attacks your freighters when it gets the chance and will also send dedicated raiders against your supply lines.
-- there is an entirely new civilian sector with many neutral Traders which are not affiliated to one of the major empires! Those ships can be destroyed without penalties and you can steal their cargo. This also includes any ships of the new 'Nomad' faction.
-Killing civilians which don't have a faction label is evil and accumulates 'infamy', which has certain effects. Infamy will never trash your good relations with major empires but disables certain interactions.
-- there is a completely new way how you can get a truce to repair bad reputation with a main faction by proposing a non-aggression pact. The AI empires will also do this between each other. A faction needs to have a reason to accept your proposal. Like when they are weak in general, having internal problems, being low on resources or having many other enemies in their sectors. And you need to be trustworthy enough because you are making a promise to not attack for some time.
-This new Truce option allows you to fight fairly limited wars over a few selected sectors. Your conflicts  don't need to drag on forever and can be settled in a mutual agreement. But this only works when you choose the 'honorable' playstyle. 
-- if you have trouble with the pirates early in the game, consider to temporarily turn into a criminal by killing a civilian Trader or two. The pirates will immediately respect this and attack you much less. With only little infamy its still reasonable to just wait until your crimes are quickly forgotten and you can become honroable again. But when you have infamy be careful with early wars against other empires. They won't offer a truce and this could easily wipe you out!
-- blocking the AI by conquering specific sectors on the galaxy map to isolate large areas and reserve many unknown sectors for yourself will no longer work forever. On hard game difficulty the AI simply counters this strategy immediately by using their fast Explorers to fly past your sector and conquer all empty sectors behind it very quickly. But even on easy or normal difficulty certain weak factions who want more sectors will now also use their Task Forces to claim empty sectors. Mostly they will do this with unknown sectors directly at their borders, but sometimes they can also go further. So don't believe that some empty sector that you have walled off will forever be safe and reserved for you! But you probably still buy yourself a lot of extra time by doing that, so it kinda still works somewhat and can be very effective on easy or normal game difficulty.
-
-
-Now go and play already!
-
-
-
-
-Full Documentation:
-
+- install the latest compatible Mayhem 3 version
+- download the Zero Hour mod archive from GitHub & extract it
+- copy everything from the folder 'Mayhem-3-Zero-Hour-main' to your game directory (C:/games/x3 terran conflict/), override everything
+- run 'Mayhem Galaxy Generator.exe' and create at least 1 new galaxy to update the ship computer voice file
+- start a new game in any galaxy
 
 General Changes/Fixes:
 - M3/M4/M5 combat AI ported directly from SWM3 with a few adjustments -> proper dogfights -> fixes most friendly fire issues
  -> fancy maneuvers like speed dependent flanking positions and evasive flying during fallback to recharge shields
 - satellites and jump beacons are more stealthy and survivable. Loosing them is less frequent and  annoying. NPC empires generally have a larger selection of sector invasion targets from this. - NPC capships should never chase after satellites anymore. This was always a complete waste of time for them (excluding OCV defenders in the Maelstrom sector) - pirates almost always ignore all satellites - the main NPC empires only have 2 types of squadrons which can even detect satellites and jump beacons. The police, but it needs to pass a sensor check and often overlooks satellites - Task Forces will always detect them (but factions have very few of those squadrons). - small Xenon patrols still destroy satellites pretty consistently
-- improved capship OOS combat. Ships would often not defend themselves because moving to a new position had a higher priority. Slow ships took ages to arrive there and the enemies would pummel them to death quickly. Now this additional movement behavior will only apply to ships without main batteries during in-sector combat, where they can move around and still shoot with their turrets. This concerns all M2/M1 and a couple M7/M6. During OOS combat ships with weapons will now generally stop moving and focus completely on fighting back.
+- improved OOS capship combat. They should properly defend themselves now. Previously they often failed to shoot back at all, because first they wanted to move to some position at very high priority. Enemies would pummel them to death before arriving there. Now all combat vessels with equipped weapons will generally stop moving and focus only on fighting back immediately at top priority.
+- improved in-sector capship combat. Ships with turrets only now use a modified version of Mayhem's original 'anti-station tactics'. Capships often utilize multiple firing arcs, not just the front guns. These anti-capship tactics use a shorter distance of only 50% of the attacker's laser range (against stations its now 80%), because the target will also be moving. The attacker also tends to stay on the same y-coordinate plane like the target (less up/down movement). And the attacker will get an update on the target's current position after each movement.
 - small ships can follow each other at much closer distance and they space themselves out a bit more
 - cargo scanning without the correct police license has no additional penalties anymore. You loose a tiny bit of reputation if you scan a ship of a major NPC empire but scanning neutrals is always free
-### scanning legal image
 - added a small cash and reputation reward for uncovering a smuggler if you have the police license
 - added UI and flavor sound effects
 - Battlegroup sector claims get a bonus on duration depending on jump distance on the galaxy map (+10% per jump) 
@@ -69,20 +22,49 @@ General Changes/Fixes:
 This was only a serious problem when squadrons required to be at full strength before being able to leave retreat mode and head out on invasions again (which is only a thing in this mod. Vanilla Mayhem 3 just had a t-file option to activate this behavior globally). Squadrons could get stuck because they would believe that they were still getting reinforced by that lying NPC Outpost, so they wouldn't order any more ships, never reach full strength and just be stuck defending forever
 - total wars get paused between coalition allies. Defeating the shared enemy is more important.
 - when NPC squadrons switch homebase there is a small chance that they can ignore all the usual jump range restrictions. This helps to prevent that fleets can get stuck in some corner of the galaxy. The new homebase selection is also a bit smarter. For example it will avoid choosing distant enclave sectors when the faction is in trouble.
-- loot drops from freighters (TS/TP) [u]always[\u] include all resources they carried, but only partial equipment loot like weapons or shields
+- loot drops from freighters (TS/TP) [u]always[/u] include all resources they carried, but only partial equipment loot like weapons or shields
 - NPC Looter Workers can pick up blacklisted Waste (so they are able to clean up after Nomad Recyclers who are randomly dropping loot crates)
 - your starting TL has a Mobile Factory Kit and the Crystal Transmuter
 - Docking Computer is no longer a default equipment for TPs. But if you choose to start with a TP it will have one.
 - on hard difficulty AI Explorers can quickly claim empty sectors at unlimited range. This will stop once your empire is a bit larger so that it cannot annoy you in the lategame.
 - Police License reworked. You no longer buy it. It is automatically awarded at rank 6 and retracted if you drop below rank 6 or have any infamy. Also added notifiications.
+- all ships which are docked to other ships don't cost upkeep (makes carriers more useful)
 - the Drydock perk still keeps a quarter of your capship maintenance cost. It doesn't remove it entirely.
+- TM also have the Carrier Repair Module preinstalled
 - free saving with lots of salvage insurance
+- reduced delay before waiting NPC ships can get equipment for free from 4h to 1h (just to be safe. I don't know how stable long term crystal supply is)
+- explorer workers put their satellites further away from the sector center
+- explorer and tug workers never react to any attacks and just continue flying. This is assuming that you use fast ships!
+- turrets never start shooting at freighters when a military ship is just passing by. But they can shoot when the ship is attacking the freighter.
+- mercenaries only get payed every 15 min (from 10 min). Their running costs are unchanged, so they are essentially 50% cheaper.
+- Zone of Control tweaks:
+- NPCs are now able to claim unknown sectors which are adjacent to player sectors, ignoring zone of control (ZoC)
+- on easy game difficulty factions always respect ZoC if the player stays honorable
+- on hard difficulty factions always ignore ZoC
+- normal difficulty: the base chance to ignore ZoC is 2% on each claiming attempt by any type of NPC squadron. You cannot get completely rid of this risk. But there is a t-file option where you could set it to 0 if you like. This would give you complete ZoC safety as long as you stay true to an honorable playstyle.
+- note that weak factions will also use their Task Forces to claim empty sectors, which gives them more claim attempts and makes it more likely to go for one of the  unknown sectors in your ZoC. Having infamy increases the base chance to get your ZoC violated from 2% to 15% and each point of infamy adds another +1%
+- the new flySafe routine from Mayhem 3.15+ that allowed ships to fly around blacklisted sectors could lead to bugs with sector ownership. Zero Hour adds additional safeties to the movement script itself and to the NPC station building routine which is constantly running in the background. It automatically fixes sector ownership issues that get detected during play.
+- the mercenary board now shows you the ships and classes that each merc group has, not just the total number of ships. (Nomads have mixed merc groups)
+- coalitions are less likely (increased minimum empire size difference by 50%)
+
+
+Favors and Loyalty
+- favor actions are generally more accessible to the player and you can build a real long term relationship to make favors much cheaper.
+- new ways to earn loyalty besides completing missions
+- on easy and normal difficulty there is a chance to get a loyalty point each time reputation is added during a mission. But you must already have at least rank 4. Having rank 7 or higher improves this chance a bit more
+- when one of your ships destroys any ship that is bigger than a fighter there is a small chance that you get loyalty with a random enemy of the owner faction. The location of the kill is irrelevant. It is much less likely to happen with Pirates, Xenon or Yaki (because everyone is enemy to them).
+- easy and normal difficulty reduce the cost for buying favor points with loyalty by 70% / 30%. On default settings a favor point now costs 7 loyalty points instead of 10.
+- you can 'bank' loyalty. Favor points will cost 1 less loyalty if you always keep enough to buy 1 favor point, but never spend the loyalty for it.
+- reputation rank 9 and 10 now reduce the loyalty cost further by 1 each. If you play on easy mode you can get completely free favor actions by banking loyalty on rank 10.
+- the 'Priority' favor action allows NPCs to invade Xenon sectors for you, even when the Xenon are weaker than original during galaxy creation
+- if you drop below rank 0 you will now loose all your loyalty and favor points with a faction
+- infamy does not prevent that you get loyalty and you can also buy favor points. But you cannot spend them on diplomatic favor actions until you're honorable again.
 
 Traders:
-- player Traders now always try to make a profit on external trades. Previously your Trader could buy Fish from a Trading Station and sell it to an NPC Outpost for the same price. This was considered an 'External Trade' and while it actually helped to move things were they needed to be, it didn't earn you any money (Docks in X3 always pay average price). NPCs will still do these zero profit trades, but they don't have to pay each other anyway.
-
-Your Traders will still sometimes haul stuff between Docks without any profit. But at least they don't already plan to do this in the first place. I would like to simply also lock the sell destination station before buying, but apparently thats not possible. There would probably be 'hacky ways' to do it, but its just not worth it and could also break other stuff.
-TLDR: Mayhem just doesn't have as many profitable external trades like the UTs in Litcube. The big money is when you sell Loot or produce goods to sell.
+- player Traders can now see how much money their Outpost has and if no money is left they reduce the buying quantity or abort the trade. Previously they would just complain to you.
+- player Traders now always try to make a profit on external trades. Previously your Trader could buy Fish from a Trading Station and sell it to an NPC Outpost for the same price. This was considered an 'External Trade' and while it actually helped to move things were they needed to be around the universe, it didn't earn you any money (because Docks always pay average price). NPCs still perform these zero profit trades.
+Your Traders will also sometimes still do them. But at least they didn't plan this in the first place. There are technical limitations and i cannot lock the planned selling destination before your Trader buys. So it still happens that his trade gets stolen by an NPC.
+Mayhem just doesn't have as many profitable external trades like the UTs in Litcube have. Thats because LU economy is fake and Mayhem economy is not and needs to be stable with plenty resource supply. The big money in Mayhem is when you sell Loot or produce goods to sell them.
 
 
 
@@ -96,6 +78,11 @@ Automatic Jump Beacon Protection:
 - the Xenon scout also won't fall back anymore and cannot wander off while still infecting the beacon
 - no, i won't make this compatible for docked ships. You have to park them directly in space where they will constantly cost you maintenance and get more expensive over time (game balance)
 
+Bounty Board:
+[img]https://i.imgur.com/Rg2C9NK.jpg[/img]
+[img]https://i.imgur.com/o8uX9oh.jpg[/img]
+- shows jump distance
+- clicking on a ship activates autopilot to last known position
 
 Map Data Stashes:
 - Remnant ships often reveal the location of an empty sector that you don't know yet
@@ -105,6 +92,7 @@ Map Data Stashes:
 
 
 Miner Worker Early Unloading:
+[img]https://i.imgur.com/4SDc7Jq.jpg[/img]
 - now Miners go and drop their cargo already at 3000 filled volume
 - t-file setting. Many players want their Miners to head home more frequently to get constant access to their color crystals or to reduce the risk of loosing an entire cargo load. Others like me just buy those crystals elsewhere and want their Miners to stay in space as long as possible to maximize overall profit and mining time. Now you can tweak this yourself with a new setting. To disable early unloading set it to 0.
 - only checked by Player Miners & only after switching to the next asteroid debris chunk
@@ -122,18 +110,20 @@ QuickTrade:
 ### image
 
 Storage UI:
+[img]https://i.imgur.com/RdXAPCa.jpg[/img]
 - the 6 most important ship and station crafting materials simply get highlighted in the Outpost storage overview. At first glance you can see how balanced the total values of your stocks are. Saving up lots of Hull Plating is useless if you don't also have the required Computer Components and Quantum Tubes to back it up. Building ships and stations always consumes all 3 resources at an equal rate (average credit value).
-### image
 
 Galaxy News Settings:
+[img]https://i.imgur.com/S7hOhGx.jpg[/img]
 - greatly reduced on-screen notification clutter!
 - ministry of war got 4 new toggles for each faction (at the bottom of the diplomacy tab). With those you can control which galaxy news get displayed on screen for this faction. 1) their sector claims, 2) their claims expiring 3) them conquering sectors 4) their protectorates expiring.
 For example you can disable everything but still get notified whenever an Argon protectorate times out, so you will know that you can attack the sector.
 Also added a new t-file setting which controls how these message settings get first set on a new gamestart. Either showing everything (vanilla Mayhem), showing nothing, or hiding just the often useless info like claims, etc. and only notifying about actually conquered sectors (this is the new default).
 - any messages concerning player sectors, Xenon, or the creation of new abandoned sectors will always be shown to you
-### image
+
 
 Mobile Factory Passive Loop Production:
+[img]https://i.imgur.com/do6ndGQ.jpg[/img][img]https://i.imgur.com/TDHApmW.jpg[/img]
 - TLs with the mobile factory equipment can now be told to produce constantly on a loop!
 - production will just begin whenever the required resource is detected in the cargohold
 - it only stops once you turn it off in this screen
@@ -145,6 +135,8 @@ Mobile Factory Passive Loop Production:
 ### image
 
 Automatic station building - Architect Worker:
+[img]https://i.imgur.com/e2dnSeL.gif[/img]
+[img]https://i.imgur.com/VWlHx43.jpg[/img]
 - placing stations lategame was a real micro pain. First you had to produce the station kits at an Outpost, then wait until they were finished, then not forget about them, dock your TL, remember which factories you wanted to build, load the kits up (but not all because cargospace is limited!), tell the TL where to go, wait until its there, remember that you had sent him, now finally build the factories one by one. This chore required hundreds of keystrokes and going through countless sub-menus and commands with lots of waiting in between. This is fine for the first couple sectors, but then...jeez
 - now you can just queue up factories to build with a single click and everything gets handled by your 'Architect TL'
 Each Outpost has a new 'Architect' backlog in the Administration section (where the perks are, not in the internal factory menu)
@@ -158,10 +150,14 @@ Each Outpost has a new 'Architect' backlog in the Administration section (where 
 - there is no real Architect ship command for the TL itself. You just define the TL to be your Architect and from this point on he just is, even when you use him for something else. He will always resume back to his Architect task whenever you tell him to dock at his homebase.
 - he only needs a certain portion of his cargospace to do the Architect work. You are completely free to use the rest of the cargospace. So for example you can still manually order him around to place jump beacons for you, transport goods, craft things with the mobile factory, etc. When you don't want him to do Architect work, either unassign him as Architect, unassign his Outpost homebase, park him in space or at a different Outpost which is not his homebase
 - if there is any problem, like when you filled up his cargospace too much or want him to build a second research station, or he cannot find a matching asteroid for a mining station that you ordered, etc. he will either fix the build queue himself (and notify you), or request that you empty his cargo a bit more.
+- added buttons to Outpost Administration to hide the perk and worker lists for easier access to the Architect order list
 ### image
 
 Fleets (Player):
+[img]https://i.imgur.com/LpveoY2.jpg[/img]
 - new fleet setting: monitor all sectors of a specific faction. Very useful on yourself because that completely removes the need to update the monitored sectors list on every response fleet each time your territory grows. This works as an addition to the monitored sectors list. So for example you can tell a fleet to monitor the player faction + that Paranid sector XY at your border + another Unknown sector Z with a pirate base
+- stopped monitoring response taking control of leaders who are currently going for repairs or detailed inspection
+[img]https://i.imgur.com/kUlmV9W.jpg[/img]
 - new fleet setting: retreat from a specific enemy ship class! Your fleet will gtfo once it detects a particular enemy ship class or anything bigger entering the sector. Very useful to keep fighter or corvette fleets generally away from things they can't or shouldn't handle.
 It works as an addition to the standard strength based retreat threshold. So for example if you set this to 'M6' and combine it with a retreat threshold of '3:1', then your fleet would only respond into monitored sectors which don't have any hostile M6, M7, M1 or M2 and the combined enemy strength can also not be higher than 3 times of your strength. Your fleet will also retreat if any of those conditions suddenly appear in their current sector.
 - added an even lower retreat threshold '1:1'. With this one your fleet only engages when the enemy is weaker than you. Now you can set up very careful rapid fighter response fleets to monitor your own sectors with almost zero losses. For enemy sectors this new 1:1 setting is often too sensitive because there are usually multiple small patrols roaming around which also stack up some combined power. And your fleet could be too afraid and not go there at all
@@ -169,6 +165,7 @@ It works as an addition to the standard strength based retreat threshold. So for
 - freighters are now always excluded from any military strength comparisons because they are never such a threat that any fleet should ever retreat from them (or refuse to enter these sectors)
 - strength comparisons now always take all enemies into account. Even the ones that you have set to be ignored for sector monitoring (fighters, big ships or huge ships) Just because you don't want to attack these targets doesn't mean that your fleet should ignore them when considering enemy military presence.
 - player fleets don't attack hostile freighters or satellites anymore and will never get distracted by them.
+[img]https://i.imgur.com/ONyjI1V.jpg[/img]
 - 3 new fleet targeting priorities have been added.
 - 'Enemy Freighters'. Use this together with faction monitoring and the Explorer whitelist to get automatic raider fleets which can hit the supply lines of a hostile empire.
 - 'Satellites'. (factions need vision to be able to start invasions against sectors)
@@ -177,10 +174,10 @@ It works as an addition to the standard strength based retreat threshold. So for
 
 Strategic AI:
 
-Mayhem 3 had certain oddities. Factions would randomly start new wars while they were getting completely owned by the Xenon. Or they never bothered to fix strategic ship component shortages.
-To a very large degree faction behavior was simply random. They just didn't know any better.
+In base Mayhem 3 factions would sometimes do stupid things like starting new wars while they were already getting completely owned by the Xenon. Or that they never did anything to try and fix their strategic ship component shortages.
+To a very large degree their behavior was simply random. They just didn't know any better.
 
-But in Zero Hour the AI empires will understand a couple of very important things like:
+But in the Zero Hour Mod the AI empires will understand a couple of very important things like:
 
 - how large their territory is
 - how powerful their military
@@ -190,64 +187,62 @@ But in Zero Hour the AI empires will understand a couple of very important thing
 - how many freighters the faction is loosing lately
 - if enemy capships are roaming around their sectors and just endlessly killing their small patrols
 
-Each AI empire will evaluate all these parameters and might react to them, or solve certain problems in pretty creative ways.
-Its definitely not perfect, but probably better than the strategic AI that X4 cooked up  :-)
+Each AI empire will evaluate all these parameters and might react to them, or solve certain problems in pretty creative ways. The documentation contains a long list of all possible reactions and their respective triggers.
+This new strategic AI is definitely not perfect, but probably better than the one in X4  :-)
 
 
 AI reactions include:
 - blacklisting sectors or even entire factions
-- telling certain ships to travel on safe galaxy flight paths
-- ordering the construction of additional squadrons (like extra police to fix a local pirate problem, etc.)
-- choose to invade good industry sectors with high station support or special strategic bottlenecks on the galaxy map
-- sign separate peace agreements with other factions
-- manipulating Xenon reports to Terracorp in order to work either towards or against uniting the galaxy
+- telling ships to travel on safe galaxy flight paths
+- building additional squadrons (like extra police to fix a local pirate problem, etc.)
+- choose smart invasion targets like good industry sectors with high station support or special strategic bottlenecks on the galaxy map
+- separate peace agreements with other factions
+- working either towards or against that Terracorp unites the galaxy against the Xenon Empire
 - general usage and range of deep strike invasions
-- adjusting fleet retreat & overmatch factors, including very cautious behavior with full strength build up before sending fleets on invasions
+- adjusting fleet retreat & overmatch factors, including very cautious behavior with full fleet build up before sending them on invasions
 - general usage and different types of synchronized overkill invasions, using multiple Battlegroups together for massive fleet operations
-- abandoning the general area around the OCV Maelstrom sector & pushing away from it to conquer new territories at a safe distance
-- smarter force concentration & fleet grouping to achieve local power advantages against stronger empires at minimum own losses
-- alternative squadron roles & behavior. Multipurpose fleets which can also snatch empty sectors quicker
-- asymetric tonnage war against the economy, sending raider fleets
+- abandoning the entire area around the OCV Maelstrom sector & evacuating all offensive forces to try and conquer new territories at a safe distance
+- smart force concentration & fleet grouping to achieve local power advantages against stronger empires and have minimum losses
+- alternate squadron roles & behavior. Multipurpose fleets which can also snatch empty sectors.
+- asymetric econ tonnage war, sending raider fleets
 - trying harder to locate pirate bases and take them out
-- fixing strategic ship component shortages by building the factories which are actually required instead of building more useless factories just to fulfill arbitrary station quotas which never reflect the real demand
-- recycling unnecessary factories to free up station support slots
-- opting out of the concept of having a self sufficient economy and instead choosing to buy resources in bulk from trading stations in order to recycle intermediate factories and use the additional free station support slots to spam more ship component factories and ramp up overall fleet production.
+- fixing strategic ship component shortages, building the correct factories. Recycling unnecessary ones to free up station support slots
 - hiring mercenaries to supplement various fleets
 - activating the Lasertower perk on Outposts
+[img]https://i.imgur.com/OVybo2V.jpg[/img][img]https://i.imgur.com/SLZrMLs.jpg[/img]
+
 
 Not all factions will play smart!
-- there are also sentimental motivations with more reckless or stupid behavior
-- for example every faction wants to control their own dejure sectors, even if the sector stats are crap (its like an ancestral homeworld for them)
-- the general rule is this. If a faction struggles it starts to play smarter (minMaxing). But if they do well they can also pursue sentimental goals with no real gameplay advantage
-- galactic superpowers which have basically won the game and nothing really left to do will eventually develop a good or evil personality, which affects their entire behavior
-- this depends mostly on the species (Borons tend to become benevolent protectors, Split mostly become evil tyrants) You can customize the ethos of each race in the t-file. Note that this only determines their chance to become good OR evil. Not how good or evil they will be.
-
-
+- there are also sentimental motivations with more reckless or even stupid behavior!
+- for example every faction wants to control their own dejure sectors, even if the sector stats are complete crap (its like an ancestral homeworld for them)
+- the general rule is this. If a faction struggles  in the game it tries to play smarter (minMaxing). But if they do well they can also pursue sentimental goals with no real gameplay advantage
+- galactic superpowers which have basically already won the game and nothing really left to do will eventually develop a good or evil personality, which affects their entire behavior. A personality generally makes them less effective and allows weaker factions to topple them.
+- good vs. evil depends mostly on the species (Borons tend to become benevolent protectors, Split mostly become tyrants) You can customize the ethos of each race in the t-file. Note that this only determines their chance to become good OR evil. Not HOW good or evil they will be.
 
 
 Terraformers:
-- this mod is centered around a cyclic Xenon Armaggedon. The Xenon Empire can grow quite powerful and threaten a large part of the galaxy. This eventually leads to the declaration of 'Zero Hour' by Terracorp. All factions have to unite and beat the machines back in a massive war. Once that is won the Terraformers will be crippled for a while, followed by a long period of peace and healing for the galaxy. Once the factions have rebuild and saved up some resources their internal wars will slowly restart again. This keeps them busy and allows the Xenon to grow powerful once more.
-An entire Xenon crisis 'cycle' should last no longer than about 1 ingame week.
+- this mod is centered around a cyclic Xenon Armaggedon. The Xenon Empire can grow quite powerful and threaten a large part of the galaxy. This eventually leads to the declaration of the 'Zero Hour' event from Terracorp. All factions will have to unite and beat the machines back in a massive war. Once that is won the Terraformers will be crippled for a while, followed by a long period of peace and healing for the galaxy. Once the factions have rebuild and saved up some resources their internal wars will slowly restart again. This keeps them busy and allows the Xenon to grow powerful once more.
 - the OCV Maelstrom is now always located in one of the more isolated Xenon sectors, not in the center of the galaxy
-- the general area around the OCV portal is more dangerous than before. The location of that sector is so important that it will get revealed to you right after gamestart (t-file setting can also hide it if you like)
-- all Xenon forces have a maximum fleet limit. Their main job is the defense of the Terraformer territory. The OCV is their primary offensive branch and the only way how the Xenon can expand their territory.
-- OCV doesn't have a top limit for their total navy size!
-- most Terraformer fleets are a bit smaller than before and individual fleets have a new capship limit.
-- their fleets tend to spread further across the galaxy. Its less likely that the Xenon or OCV clump together in a single sector and create an undefeatable fleet stack. Instead they want to 'carpet siege' the galaxy, taking more ground in all directions. On a local level a 
-single Terraformer fleet should be much easier to stop, even OCV. But the entire Xenon Empire will spread faster.
-- the OCV doesn't prefer sectors with high abnormal signals anymore. Most often they will just randomly expand 1 sector at a time, starting from their Maelstrom portal. But there is also a chance that an OCV invader fleet performs a deep strike which can target a distant sector up to 8 jumps away from the closest Xenon border! To prevent that an OCV deep strike wipes you out early just because of bad luck it cannot target player sectors until your empire is already well established. But it could still hit the NPC sector next door and then you afterwards, so be careful.
+- the general area around the OCV portal is more dangerous than before. The location of this sector is so important that it will get revealed to you shortly after gamestart (t-file setting can also hide it if you like)
+- the OCV also received some rudimentary strategic AI. When the Xenon Empire is pretty unsuccessful for a while and mostly trapped inside their Maelstrom sector, then the OCV can decide to lay low for a while to grind out massive forces at their portal and then just overrun adjacent sectors with brute force. Once they have established a firm grip on the surrounding area they will start to spread their fleets again and try to carpet siege a larger area of the galaxy on multiple fronts.
+- all Xenon forces have a maximum fleet limit. Their primary job is the defense of the Terraformer territory. The OCV is their primary offensive branch and the only way how the Xenon Empire can expand.
+- OCV doesn't have any top limit for their total navy size!
+- the OCV doesn't prefer sectors with high abnormal signals anymore. Most often they will just randomly expand 1 sector at a time, starting from their Maelstrom portal. But there is also a chance that an OCV invader fleet performs a deep strike which can target a distant sector up to 8 jumps away from the closest Xenon border!
+- to prevent that an OCV deep strike can wipe the player out early just because of bad luck it cannot target player sectors until your empire is already well established. But it could still hit an NPC sector next door and then you afterwards, so be careful. It is possible to loose the game due to bad luck, but this should be super rare and keeps things interesting. This additional player protection from OCV deep strikes is not active on hard difficulty.
 - easy difficulty reduces the chance for an OCV deep strike and cuts the maximum range in half (4 jumps)
+- on easy the OCV generally has a high chance to skip player sectors entirely and go elsewhere
+- on easy and normal difficulty the big Xenon invasion fleets are much less aggressive against the player (Xenon Targeting Signature detected). Each time they found a player station to attack there is a chance that they abort and head back to the OCV Maelstrom to restart and maybe go in a different direction this time. On easy the chance is 10%. On normal its just 2%. But its checked before every single station attack so the Xenon generally cannot steamroll your empire quickly when they have reached your sectors.
 - doubled the amount of jump beacons that the player can have before the Xenon will start to send scouts to infect them. Easy mode doubles it once more and Hard mode allows only half of the base Mayhem 3 amount.
 - Easy mode slows the jump beacon infection process down by a factor of 4, so that it takes the Xenon Scout about 20-25min and you get a lot of time to send ships
 - hard mode increases the chance for an OCV deep strike and always adds +1 potential jump range to all their invasions so they might expand in unpredictable ways
 - on normal and hard difficulty the OCV starts the game with additional ships
-- between station kills OCV invaders randomly hesitate and just patrol the sector for a short while. This slows them down a bit.
 - added a t-file setting to modify the general OCV ship construction speed. With this new setting you have great control over how much these new 'Xenon Cycles' will even be a factor in your playthrough. Don't really like the mechanic and mostly want faction war? Then tone the OCV ship construction way down and they will probably never manage to threaten the galaxy.
-- added a new t-file setting whether OCV production speed scales to make your playthrough more dynamic. On default this boosts their ship production when they are still weak compared to the main factions. But it also nerfs them once they are more powerful or after they have been defeated in a Xenon Crisis. If you don't like the idea of more cyclic activity with longer periods of peace, then you can disable this setting and the Terraformer threat will be less cyclic and appear at a more steady rate like base Mayhem.
+- added a new t-file setting whether OCV production speed scales to make your playthrough more dynamic. On default this boosts their ship production when they are still weak compared to the main factions. But it also nerfs them once they are more powerful or after they have been defeated in a Xenon Crisis. If you don't like the idea of more cyclic activity with longer periods of peace, then you can disable this setting and the Terraformer threat will be less cyclic and appear at a more steady rate like base Mayhem. It would also disable their strategic AI and they cannot decide to grind for major offensives anymore.
 - main factions will sometimes withdraw their sector claims of a Xenon sector after destroying the central station. This turns the sector abandoned and available for anyone to claim. Its much more likely to happen when the conqueror is already very large and also during a Xenon Crisis.
 - the OCV horn sound effect only plays once at the beginning of each Xenon Crisis cycle
-- Xenon slowly reinforce their territory with additional defenders, especially the area around the OCV Maelstrom sector. Their periphery tends to get fewer and much weaker fleets and they can never cover all their sectors. There is a t-file option to customize how many extra fleets are allowed.
-- these extra Xenon fleets can become quite numerous, but usually they are only defending. The Xenons have separate invader forces (both small and large). But overall their offensive capabilities are pretty limited compared to the OCV.
+- Xenon slowly reinforce their territory with additional defender fleets, especially the area around the OCV Maelstrom sector. The periphery of their empire tends to get fewer and much weaker fleets and they can never put them in all their sectors. A new t-file option defines how many extra fleets are allowed.
+- different Xenon & OCV invasion fleet leaders have an individual level of aggression. Some of their fleets will make very fast progress, others will hesitate a lot between station kills and expand the Xenon territory much slower. Can be customized in the t-file.
+
 
 
 Xenon Crisis - 'Zero Hour'
@@ -267,6 +262,7 @@ Xenon Crisis - 'Zero Hour'
 - Terracorp have their own secret agenda and want to see a certain level of Terraformer progress in the galaxy (measured by Terraformer territory size and fleet power). These goals are always hidden and also a bit random. Before the Terraformers have not yet reached a progress kind of close to those goals, Terracorp will not even consider listening to what any faction report might have to say about their progress. The global Alliance just won't happen. If the player is already working towards unification with his Xenon reports, he will occassionally get a hint message which just tells you that your current efforts are useless right now. But there is no penalty if you keep trying and exaggerate your reports.
 - added a new diplomatic favor action which allows you to write the Xenon reports for other empires. But first you must have some significance, aka military power. You can use this favor to force an earlier unification if the galaxy if you have trouble with the OCV. Or you can delay it to cause a certain faction getting crushed by the Xenon.
 Note that this favor cannot be used on a superpower (an AI with 'Tyrant' or 'Galactic Protector' personality)
+
 
 
 Pirate Gangs:
@@ -320,6 +316,8 @@ Pirate Bases:
 
 
 
+
+
 Economy Overview:
 - NPC empires will start the game with only half their usual resource stockpile
 - resource shortages in factories should be very rare. The resource distribution in the galaxy just works more efficient
@@ -327,7 +325,21 @@ Economy Overview:
 - the default export threshold for AI factories has been raised from 40 to 60. This fixes a couple issues. First it means that Traders and Suppliers can only grab finished goods once their price has already dropped below average. This should give you way more early game manual trading opportunities. And second it makes it less likely that one of your Traders scores a net loss. This can sometimes happen when his planned selling location gets stolen by another Trader. In Mayhem 3 your Traders reserve those trades for themselves, but they have to finish buying first. In the meantime an NPC Trader can fill their sell location up and make the price bad. With the default NPC export threshold your Traders often bought at a fairly high price and when the Sell location got stolen you had a small loss. It wasn't that common to begin with because while your Trader travelled the price already got better again, but external trade losses should simply just be much rarer now.
 - Rastar Oil can be a bit rare in some parts of the galaxy. This is intended. Rastar is only required very infrequently to build your stations. Its not sold by trading stations and nobody really wants to buy it. The NPCs also generally have fewer Rastar and Chelt factories and already consume most of that for their own station building activity. You definitely need some Rastar, but a real production would require 2 factory slots, which are very valuable in the early game. And Rastar cannot really be profitable in any other way than consuming it yourself.
 Tip:  early on you might not need much Rastar. Producing it in your starter TL mobile factory can save 2 valuable station support slots!
-- population is more significant for the player because your ships can get built so quickly (more feedback about pop growth is required before introduce changes here)
+- population is more significant for the player because your ships can get built so quickly
+
+
+Outposts:
+- new perk 'Double food consumption': High population does not decrease growth rate. Incompatible with No food consumption perk.
+- this one might look useless at first, but it can be helpful to maintain stable ship production, especially very large capships which require a lot of people at once. The last quarter of your maximum population will have a 500% growth rate compared to usual.
+- increased Waste generation & Energy Cells production with the Solar Panels perk by 50% (to have enough for the new 'Nomad' mobile factories)
+- reduced default production specialization limit from 50% to 20% for NPCs and the player
+- reduced all resource costs by 50% (t-file change)
+- all Outpost crafting is 4 times faster. This might seem extreme but its necessary for various reasons. New ships can roll out quickly as long as resources are still available. The AI knows how many resources it has left and tries to prevent excessive ship losses when it starts to run low.
+- crafting speed scales much more on higher specialization levels
+- advanced engineering perk increases ship build times to 600% instead of 150%
+- cheaper stations perk now increases station build times to 400%. Unlocking it straight away might be a bad idea when you want to build stations fast to expand into more sectors! Later on the increased build time doesn't matter much.
+- improved the way how the AI orders squadron reinforcements. They can order larger batches of ships and will spread the various construction requests and replacements over multiple nearby Outposts. Mayhem 3.15 already improved this a bit, but now its even better
+- when the player uses 'Strict Import' this will never apply to Outpost food items like Meat or Fruit because they get consumed constantly at a slow rate. It should always be better to just buy a full load so that the food actually lasts for a while and your Trader does not immediately head out again to buy like 127 units all the time. If you you don't want this special exception you can disable it in the t-file.
 
 
 Corporations & Civilian Sector
@@ -346,65 +358,15 @@ This ware teleport is a bit cheaty, but it helps the entire economy to remain st
 - trading stations always get destroyed when Xenon conquer the sector. All resources will be lost.
 
 
-Evolving Factory Layout:
-- factions occasionally recycle a factory in their core sectors. This stimulates the stock Mayhem 3 station construction routine and allows them to build something else that they maybe need more (but it could also be the same type of factory again)
-- this makes them slightly less reliant on war and destruction because they can get free up station support slots even if nobody blows their factories up. Previously the economy could clog up in certain peaceful areas of the galaxy because of a lack of free station support slots and unable to change anything.
-- for the most part this recycling process is random, but if the galaxy really needs the product of a factory it won't get recycled.
-- recycling mining stations will always return the asteroid back to the sector
-
-
-Optimized ship component production:
-- previously the AI would only check what resources their current factories would need to keep running and then build those required lower tier factories if possible. Once these needs were satisfied they would just pick additional factories from a pretty arbitrary list. This always completely ignored the most important consumer -> Outposts which need a fairly balanced stock of all 3 ship components to produce the ships which keep everything going. And it always lead to huge resource imbalances across the entire galaxy. For example Ore was always in oversupply and C-Rations were always short. Freighters started to ship more and more useless stuff around and the economy could never reach good efficiency. The game still worked because the NPC ships were so cheap that their resources didn't actually matter much.
-- now the AI ship construction is actually limited by their resources reserve. If they have all 3 components they can just crank out ships super quickly. And the AI generally knows how important those 3 resources are, so they carefully try to avoid shortages. When they can't produce more ships because they need more Hull Plating they will now actually build more Hull Plating productions (crazy right?)
-- for this purpose the AI can recycle factories which are unnecessary at this moment and which will free up station support slots for the more important factories
-- the AI also knows if it could buy any intermediate resources from trading stations and is able to decide against building those factories in order to save a lot of station support slots. This will get way more ship part factories going for them and they can crank out more ships overall. Only the weaker factions can act smart like this (they are essentially trying to MinMax their component stockpile)
-- the vanilla Mayhem 3 station construction routine for the NPCs will not build any more factories for the 1 intermediate product which is already the most common in the entire galaxy.
-- then the AI can specifically decide to source certain external resources from trading stations (see under AI details). Those factions will not build any more factories for the top 3 most available intermediate products in the galaxy. They will just buy those externally. For the NPCs this is always extremely efficient and smart because they are not actually limited by money.
-
-
-Outposts:
-- new perk 'Wellfare': +3 growth rate, +15% maximum population, double food consumption and incompatible with the no food perk.
-- this one is more interesting than it looks at first because its a flat bonus which doesn't deteriorate on high pop levels like your natural growth. Helpful to maintain population and ship production on a high level, especially when building capships. But you are paying that with even another shipyard perk and the Outpost will burn extra food that you cannot sell anymore.
-- increased Waste generation & Energy Cells production with the Solar Panels perk by 50% (to have enough for the new 'Nomad' mobile factories)
-- reduced default production specialization limit from 50% to 20% for NPCs and the player (all crafting is more resource intensive)
-- all Outpost crafting is 4 times faster. This might seem extreme but its necessary for various reasons. New ships can roll out quickly as long as resources are still available. The AI knows how many resources it has left and tries to prevent excessive ship losses when it starts to run low.
-- crafting speed scales much more on higher specialization levels
-- advanced engineering perk increases ship build times to 600% instead of 150%
-- cheaper stations perk now increases station build times to 400%. Unlocking it straight away might be a bad idea when you want to build stations fast to expand into more sectors! Later on the increased build time doesn't matter much.
-- improved the way how the AI orders squadron reinforcements. They can order larger batches of ships and will spread the various construction requests and replacements over multiple nearby Outposts. Mayhem 3.15 already improved this a bit, but now its even better
-- when the player uses 'Strict Import' this will never apply to Outpost food items like Meat or Fruit because they get consumed constantly at a slow rate. It should always be better to just buy a full load so that the food actually lasts for a while and your Trader does not immediately head out again to buy like 127 units all the time. If you you don't want this special exception you can disable it in the t-file.
-
-
-
 Crafting Efficiency Booster:
-
 - this allows weak factions to actually swing around and pull off a comeback for real. It dynamically adjusts their Outpost crafting efficiency based on the actual gameplay situation.
 - it introduces soft economic 'rubberbanding' between factions to prevent that they fall apart too quickly. Basically a cheat, but you can also think of it as nations developing more efficient war economies with less required consumer goods
 - weak factions just build their ships more efficient (faster & with less resources)
 - Player Outposts always just level up like usual. (learning by doing)
-
-Modifiers:
-- highly customizable with 19 t-file settings
+- the NPC production booster is highly customizable with 19 t-file settings
 - all modifiers get applied gradually and equally on all NPC Outposts of each faction. Different modifiers can stack
-- the final production specialization with all modifiers combined must remain between 0% and 90%.
-- the new baseline for an average faction is 20%. With default settings it will go up to about 60%-70% for a very beat up faction. The player can only reach 20% +10% terraforming bonus.
-
-1) general catch up intensity multiplier (can tone the entire effect up or down or disable it with 0)
-2) large empire nerf limit (default 15 spec points)
-3) large empire sensitivity: how much % of average main faction territory is needed to get max nerf (default 200%)
-4) strong empires nerf limit (default 10 spec points)
-5) strong empire sensitivity: how much % of average main faction military power is needed to get max nerf (default 200%)
-6) small empire buff limit (default 15 spec points)
-7) small empire buff sensitivity: how little % of average main faction territory is needed to get max buff (default 30%)
-8) weak empire buff limit (default 10 spec points)
-9) weak empire sensitivity: how little % of average main faction military power is needed to get max buff (default 30%)
-10) Xenon buff limit: extra spec points that every main faction gets based on Xenon territory vs. the territory of all main factions combined (default 15 spec points)
-11) Xenon sensitivity: how much % of Xenon territory is needed to give max buff (default 30%)
-12) OCV buff limit: extra spec that every main faction gets based on OCV fleet power vs. the power of all main factions combined (default 30 spec points)
-13) OCV sensitivity: how much % of OCV power is needed to give max buff (default 80%)
-14-19) additional racial settings to boost/nerf spec points of a specific empire (all disabled on default)
-
-
+- the final production specialization with all modifiers combined must remain between 0% and 90% specialization.
+- the new baseline specialization for an average NPC empire is 20% (from 50%). With default settings a powerful faction can realistically drop down to 0% and a very beat up faction could go up to about 60%-70%. The player can reach 30% with the terraforming bonus on a fully levelled up Outpost.
 
 Non-aggression pacts:
 - factions who believe they're having some sort of problem will agree to sign peace treaties with each other
@@ -421,8 +383,12 @@ Non-aggression pacts:
 - during Terracorp's global alliance you get forced into  truces with everyone. Breaking one of those has very severe consequences. You gain lots of infamy and there is a 50/50 chance for each faction to start a war against you after the Xenon crisis is over. Since all factions tend to stay neutral to each other even long after the crisis you would be their only war target. Think carefully whether betraying the common law is really worth it in the long run!
 
 
+
 Infamy
-- the player can do evil things and become a known criminal. This is just an alternate way to play Mayhem 3.
+- the player can do evil things and become a known criminal. This is just an alternate way to play Mayhem 3 and has many effects.
+- with the honorable playstyle you are respected by the major factions and can fight limited wars over a few border sectors.
+- with the criminal playstyle you have many benefits and get respected by the Pirates and Nomad Mercs.
+- just to be clear. Nobody can ever declare wars on you. Being a criminal doesn't affect your reputation in any way. You always need to be attacking first.
 - as long as you don't have any infamy you are considered honorable. Even just 1 point of infamy will immediately make you a criminal, but that's not too punishing. Most importantly nobody can attack you because of it.
 - infamy slowly decays over time, faster the more you have (t-file settings)
 - infamy has certain benefits. They usually start out pretty strong and only get moderately better with more infamy.
@@ -436,13 +402,13 @@ Infamy
 - when you got at least 1 point of infamy the pirates will immediately be much less likely to attack you because they kind of see you as one of their own. The intensity of this protection slowly improves further with more and more infamy, but it will cap out at 80 infamy. And it can also never achieve full pirate immunity for your ships (only the Pirate Contract perk can do that).
 - infamy also increases the yield of the spaceweed Outpost perk by 50%. This bonus doubles if you have more than 50 infamy and triples at 100 infamy.
 - depending on your infamy the Nomads might send traders to buy your spaceweed. The amount they will buy at once depends on your infamy. This Spaceweed also boosts Nomad merc production.
+- infamy increases the risk that factions can ignore your Zone of Control over adjacent unknown sectors and claim them.
 - you gain infamy if you break a truce before it times out.
 - infamy also increases massively if you violate the global peace during a Xenon Crisis
 - you gain 1 infamy for destroying a neutral Trader. This doesn't have any other penalties anymore! Your relations with companies, Nomads, mercs and freelancers are always fixed at neutral and no faction will protect them.
 - killing neutral Traders can only raise your infamy up to 60. If you want more you need to become a mass murderer (go after refugee ships or Nomad TLs)
 - infamy gives you +1 merc recruitment sector range and +2 at 50 infamy
 - when a Xenon Crisis ends there will be a general amnesty and 90% of your infamy gets cleared for free. So you could start the game as a pirate kingdom with fully automated fleets to hunt innocent freighters and automated Looters to get their resources for your war machine, but a few days later after the amnesty you could switch and become mr. nice guy who will earn lots of bribe money from the Trade Union because of his now powerful military fleet.
-
 
 Refugee Ships (Humanitarian Aid Transporter)
 - lucky survivors from a station which got destroyed by the Terraformers. They have a TP which is cloaked & protected against the Pirates/Xenon (like neutral traders).
@@ -452,7 +418,6 @@ Refugee Ships (Humanitarian Aid Transporter)
 - before doing that they'll head off to a random faction Outpost to drop off a few passengers which might join the local population
 - refugees will only come to your Outposts if you are honorable. This extra influx of people allows you to exceed your sector population limit by up to the double.
 - once you're above your natural limit your pop growth will stagnate. All these extra people would still get consumed if you produce any ships in this Outpost. If you don't build ships and no deadly desease or famine wipes them out, then you can profit from a permanently increased population (higher taxes and waste generation).
-
 
 
 Nomad Faction
@@ -467,9 +432,9 @@ Nomad Faction
 
 
 Recycler Ships & Traders:
-- the Nomad flagship builds other mobile factory ships (TL) and traders (TS) to supply them with resources
+- the Nomad shipyard flagship builds mobile factory ships (TL) and traders (TS) to supply them with resources
 - Recycler TLs are basically a flexible factory reserve for the galactic economy. They have very low speed but high-tech cargo compression and more efficient production modules
-- their internal factory actually consumes the required lower tier resources and works just like the player's mobile factory kit for TLs, only much more advanced. Compared to the player Nomad TLs produce 8 times faster at 45% less resource cost (with default settings 1 Nomad TL Recycler produces 400% of 1 standard factory at 440% resource cost)
+- their internal factory actually consumes the required lower tier resources and works just like the player's mobile factory kit for TLs, only much more advanced. Compared to the player Nomad TLs produce 8 times faster and with 4 times less resource cost (on default settings 1 Nomad TL Recycler produces 400% of 1 standard factory at 200% resource cost. Yes they are that efficient. Its because they are advanced intergalactic Aliens :-)
 - recyclers cannot craft any high end ship parts. They focus is on producing intermediate resources which are in high demand in the galaxy. Once they have selected their product they have to stick with it for a while and will only produce that. After a few hours they check if something else is in higher demand.
 - Nomad TS traders will pick up nearby opportunities to buy what the recyclers need or sell what they have produced. Their trade range is rather short so that they can catch up with their TL again. They prefer to buy in large quantity from trading stations and for that they won't use Mayhem's trade lock system. This means that multiple Nomad traders can buy from the same trading station at the same time, also without blocking those trades for other Traders.
 - there is no way to actively trade with the Nomads, but they can trade with you (maybe even buy your Waste or Energy Cells).
@@ -478,24 +443,23 @@ Recycler Ships & Traders:
 
 
 Nomad Mercs:
-- these are the former refugees who accepted huge debt and sold out their families as worker slave hostages to receive new ships from the Nomad Flagship in order to make merc money
+- these are the former refugees who accepted huge debt and sold out their families as worker slave hostages to receive new ships from the Nomad Flagship in order to make a living as mercs
 - they're different from standard mercenaries. More desperate, angry, powerful and cheap. But also less disciplined and unreliable.
 - they come in larger groups than standard mercs and can even field M7 frigates
 - all Nomad merc costs are 50% lower, but there is the risk that they run away pretty quickly (and steal most of your upfront hiring fee)
+- if they don't respect you they will leave quickly. Having at least 1 point of infamy already helps tremendously to keep them in line and it completely prevents that they can betray you by turning into a pirate gang. Having more infamy increases their respect further.
 - these poor guys don't have the kind of connections that you need to smuggle illegal goods like standard mercs do. They just travel long distances on the galaxy map to visit different factions in search of work.
 - there is no top limit for the amount of Nomad mercs which can exist in the entire galaxy. More refugees just leads to more Nomad mercs.
 - when many Nomad mercs exist, there will be a risk that they might decide to attack the core sectors of the Xenon Empire on their own. This will be foolish and should always fail. They will break their current merc contracts for this.
 - there is always a chance that Nomad mercs just decide to leave you or even go completely rogue and turn into a pirate gang! This also happens to other NPC empires who hire them.
-- having infamy makes them fear you somewhat. And they will be less likely to just randomly leave. Having at least 1 point of infamy also completely prevents that they can betray you and turn into pirates (the base chance for this increases when more Nomad mercs exist in the galaxy)
 - Nomad mercs are suited for the more short term contracts. You hire them to make good use of some extra firepower to defeat only a single hostile fleet, stop an OCV advance or take out some pirate base. For any longer term contracts they are cheap but could be too unreliable.
 - during the global Xenon Crisis these guys are going up against their preferred enemy which makes them completely dependable. But most Nomad mercs immediately get hired by the UNC and you'd need to double on their pay to hire them for yourself.
-
 
 
 Faction AI Details:
 (spoilers)
 
-- the vast majority of AI features only concern strategic considerations. Things like which factories to build, blacklisting sectors, getting extra squadrons, making peace with other empires, hiring mercs, etc. The tactical AI during in sector battles is still pretty much stock Mayhem 3 with only a few changes & improvements (except fighters which behave completely different)
+- the vast majority of AI features concern strategic considerations. Building specific factories, blacklisting sectors, ordering extra squadrons, making peace with other empires, hiring mercs, etc. The tactical AI during battles has also changed, but not as much.
 - the NPC empires only analyze the global situation about every 8 hours. So it might take some time before they react to something. Economic adjustments can take even longer than that. Also don't expect any super smart AI which plays better than you. This is still just good old X3.
 - gathering the global data and deciding what to do with it happens completely in the background. It takes about 15 min to complete, but during full SETA up to 1 ingame hour! Which is not ideal but it should still be fine. This process doesn't need to be fast and doing it more slowly should prevent performance hogs.
 - there is a dev-mode t-file option which will activate certain stats and testing options in the ministry of war and special debug messages and reports. The typical end user won't understand everything and should never need it.
@@ -669,10 +633,10 @@ Full Defense:
 - going into this stance locks it permanently. The chance to leave again is based on negative overextension every 8h (they can only stop being defensive once they have built up their military)
 
 When to use:
-- resource starvation + less than average territory size + some overextension + less than 10 sectors
+- resource starvation + less than average territory size + a little overextension + less than 10 sectors
 - well below average territory size or less than 8 sectors + medium overextension
 - high overextension + less than average territory size
-- very high secondary threat + not the strongest faction + less than average territory size
+- very high secondary threat + not the strongest faction + less than average territory size + overextension
 
 Cautious Offense:
 - the faction knows that it is getting weaker and should probably stop to send more ships into the meatgrinder.
@@ -682,15 +646,15 @@ Cautious Offense:
 - optimizes own ship component industry if resources are low, also sourcing external resources
 
 When to use:
-- resource starvation + not the strongest faction
-- low resources + less than high fleet power
-- very weak + not rich
+- resource starvation + not the strongest faction + overextension
+- low resources + less than high fleet power + overextension
+- very weak + not rich + overextension
 - little overextension + a bit below average territory size
 - medium overextension + medium resources
 - little overextension + low resources
 - high overextension
-- extreme pirate density + very high freighter losses + at least low secondary threat + not the strongest faction
-- medium secondary threat + not the strongest faction
+- extreme pirate density + very high freighter losses + at least low secondary threat + not the strongest faction + overextension
+- medium secondary threat + not the strongest faction + overextension
 
 
 Confident Offense:
@@ -911,13 +875,13 @@ Exodus:
 - the Exodus only affects their Battlegroups and it has the following effects on them:
 - when they choose invasion sector targets they prefer sectors which are furthest away from the OCV portal. This doesn't inrease their actual invasion range like deep strikes or anything. So they cannot immediately fly to conquer sectors at the other edge of the galaxy map. But from their available invasion targets they'll generally choose the furthest away. So in time their territory likely shifts and gets some distance to the OCV portal.
 - they can only invade Xenon sectors which are further away from the OCV portal than their own homebase sector.
-- they won't turn back to help defend their own sectors against Terraformer capships anymore. Other empires might come to take advantage of this, but it will only put those factions closer to the OCV portal (which is exactly what the faction with the Exodus wants. A buffer zone owned by somebody else inbetween them and the OCV Maelstrom.)
+- they won't turn back to help defend their own sectors against Terraformer capships anymore. They also won't form up with Rearguards to create large defensive fleetstacks. Other empires might come to take advantage of this, but it will only put those factions closer to the OCV portal (which is exactly what the faction with the Exodus wants. A buffer zone owned by somebody else inbetween them and the OCV Maelstrom.)
 - when a Battlegroup switches homebase it will prefer those Outposts which are further away from the OCV portal (again without increasing the actual range for this.)
 
 
 Example:
-- the Argon sectors have 87% average distance to the OCV portal, compared to the other factions. That means their sectors are 13% closer
-- every 8h the chance that the Argons initiate an Exodus is 100% - 87% = 13%
+- the Argon sectors have 88% average distance to the OCV portal, compared to the other factions. That means their sectors are 12% closer
+- every 8h the chance that the Argons initiate an Exodus is (100% - 88%) / 3 = 4%
 - during Exodus the Argon Battlegroups will slowly migrate into the more distant Argon sectors and will choose their invasion targets near them
 - Lets say the Argons manage to increase their average distance to the OCV portal to 103%, maybe because their sectors close to the Maelstrom are now Xenon
 - every 8h they now got a chance to stop the Exodus: 103% - 100% = 3%
@@ -1029,6 +993,24 @@ CIs for reckless AI:
 Switching Rearguard focus away from the faction war:
 - medium secondary threat + high average secondary threat ship strength + not the most powerful main faction
 
+
+Evolving Factory Layout:
+- factions occasionally recycle a factory in their core sectors. This stimulates the stock Mayhem 3 station construction routine and allows them to build something else that they maybe need more (but it could also be the same type of factory again)
+- this makes them slightly less reliant on war and destruction because they can get free up station support slots even if nobody blows their factories up. Previously the economy could clog up in certain peaceful areas of the galaxy because of a lack of free station support slots and unable to change anything.
+- for the most part this recycling process is random, but if the galaxy really needs the product of a factory it won't get recycled.
+- recycling mining stations will always return the asteroid back to the sector
+
+
+Optimized ship component production:
+- previously the AI would only check what resources their current factories would need to keep running and then build those required lower tier factories if possible. Once these needs were satisfied they would just pick additional factories from a pretty arbitrary list. This always completely ignored the most important consumer -> Outposts which need a fairly balanced stock of all 3 ship components to produce the ships which keep everything going. And it always lead to huge resource imbalances across the entire galaxy. For example Ore was always in oversupply and C-Rations were always short. Freighters started to ship more and more useless stuff around and the economy could never reach good efficiency. The game still worked because the NPC ships were so cheap that their resources didn't actually matter much.
+- now the AI ship construction is actually limited by their resources reserve. If they have all 3 components they can just crank out ships super quickly. And the AI generally knows how important those 3 resources are, so they carefully try to avoid shortages. When they can't produce more ships because they need more Hull Plating they will now actually build more Hull Plating productions (crazy right?)
+- for this purpose the AI can recycle factories which are unnecessary at this moment and which will free up station support slots for the more important factories
+- the AI also knows if it could buy any intermediate resources from trading stations and is able to decide against building those factories in order to save a lot of station support slots. This will get way more ship part factories going for them and they can crank out more ships overall. Only the weaker factions can act smart like this (they are essentially trying to MinMax their component stockpile)
+- the vanilla Mayhem 3 station construction routine for the NPCs will not build any more factories for the 1 intermediate product which is already the most common in the entire galaxy.
+- then the AI can specifically decide to source certain external resources from trading stations (see under AI details). Those factions will not build any more factories for the top 3 most available intermediate products in the galaxy. They will just buy those externally. For the NPCs this is always extremely efficient and smart because they are not actually limited by money.
+
+
+
 Fixing a strategic ship part shortage:
 - this has three components. 1) whether the AIs want to optimize their economies at all 2) how many missing ship part factories they can build 3) whether the AI is smart enough to check if they could also source the required intermediate resources from trading stations to save station support slots. A faction that is not smart like this always needs to recycle enough unnecessary factories for the entire product chain. That makes them less efficient with their station support slots and they will crank out fewer of the missing ship part.
 - the extra final-tier ship part factories (Computer Plant, Hull Plating facility, etc.) get built instantly (but the AI will actually pay them like usual).
@@ -1063,16 +1045,16 @@ Truce Desire:
 Requirements (alternatives):
 - fully defensive AI stance
 - being in a coalition
-- resource starvation + below average fleet power
-- very weak fleet power + low resources
-- a bit of overextension + well below average territory size or less than 7 sectors
+- resource starvation + below average fleet power + overextension
+- very weak fleet power + low resources + overextension
+- a little overextension + well below average territory size or less than 7 sectors
 - high overextension + below average territory size
 - medium overextension + low resources
 - extreme overextension
-- extreme pirate density + very high freighter losses + some secondary threat
-- very high secondary threat
-- first day after a Xenon Crisis + no more than medium resources stockpiled
-- second day after a Xenon Crisis + no more than low resources stockpiled
+- extreme pirate density + very high freighter losses + some secondary threat + overextension
+- very high secondary threat + overextension
+- first day after a Xenon Crisis + no more than medium resources stockpiled + overextension
+- second day after a Xenon Crisis + no more than low resources stockpiled + overextension
 
 
 Hiring Mercenaries:
@@ -1117,10 +1099,10 @@ Triggers for the Xenon Crisis
 - Terracorp has two slightly randomized hidden goals which determine at which point they are planning to start the global alliance in order to save the galaxy. Once either one of those goals gets reached the event will happen no matter what. In this case the faction reports would be completely irrelevant. All they can do is to reduce those Terracorp goals. Both goals get reset after a global Xenon crisis event is over.
 
 Territory trigger: 40-60% of Xenon territory size compared to total main faction size (t-file settings)
-Fleet trigger: 40-60% of total Terraformer military power compared to total main faction power (t-file settings)
+Fleet trigger: 30-50% of total Terraformer military power compared to total main faction power (t-file settings)
 
-- all those faction reports can only sway Terracorp to declare the event up to 20% below their originally planned thresholds. There is also a t-file setting for how much influence the reports can have on Terracorp.
-- so if Terracorp was planning to trigger Zero Hour at 57% Xenon sectors or 52% OCV power, but all factions including the player already want the alliance, then it could get triggered at 37% Xenon sectors or 32% OCV power)
+- all those faction reports can only sway Terracorp to declare the event up to 30% below their originally planned thresholds. There is also a t-file setting for how much influence the reports can have on Terracorp.
+- so if Terracorp was planning to trigger Zero Hour at 57% Xenon sectors or 50% OCV power, but all factions including the player already want the alliance, then it could get triggered at 27% Xenon sectors or 20% OCV power)
 - the chance for Terracorp to declare Zero Hour prematurely because of faction reports depends on how much relative faction power is voting for the alliance. As long as the supporters don't have the absolute voting majority (more than 50%) Terracorp is much less likely to care at all about reports
 Example 1:
 40% of all main faction power is voting pro alliance, gets divided by 25 = 1,6% alliance chance (every 8h)
@@ -1128,7 +1110,7 @@ Example 2:
 60% of power voting pro alliance, gets divided by 2 = 30% alliance chance
 - but this alliance chance gets further reduced based on how far away the Terraformer progress still is from the goals that Terracorp originally planned for the galaxy
 Example 3:
-Current OCV power is 47%, but Terracorp intended to trigger the alliance only at 52% OCV power. So 5 percent points are still missing to reach the threshold. 5 points is 1/4 of the entire potential 20 point range that the factions can influence with their voting power. So with 60% of all faction power voting pro alliance the previous 30% final chance would get further reduced by 1/4 down to 22,5%
+Current OCV power is 45%, but Terracorp intended to trigger the alliance only at 50% OCV power. So 5 percent points are still missing to reach the threshold. 5 points is 1/6 of the entire potential 30 point range that the factions can influence with their voting power. So with 60% of all faction power voting pro alliance the previous 30% final chance would get further reduced by 1/6 down to 25%
 
 
 Crisis Effects:
@@ -1179,6 +1161,7 @@ After a Crisis:
 Customization:
 - mod has a separate t-file '9973-L044'  with many new settings!!! Want to make OCV progress slower? The galaxy to unite against them sooner? Give some faction a bonus during your active savegame? All covered!
 - also makes necessary changes to the base Mayhem t-file ('9972-L044').Some of them might seem strange at first. Like the much lower Outpost specialization maximum or the vastly different NPC fleet ratios. But please trust me at least with the changes to production and squadron ratios.
+		<t id="176">50</t> <!-- General crafting resource cost multiplier, for lasers, missiles, shields, stations and ships. (Zero Hour default: 50 base default: 100) -->
 		<t id="200">25</t> <!-- General crafting time cost multiplier, for lasers, missiles, shields, stations and ships. (Zero Hour default: 25 base default: 100) -->
 		<t id="142">20</t> <!-- Maximum specialization level. (Zero Hour default: 20 base default: 50) -->
 		<t id="145">5</t> <!-- Fleet ratio per X sectors owned (negative is per sector) - Battle Group. (Zero Hour default: 5 base default: 4) -->
@@ -1195,6 +1178,29 @@ Customization:
 		<t id="238">60</t> <!-- Default export threshold for AI. (Zero Hour Default: 60 default: 40) -->
 		<t id="143">9</t> <!-- Waste production factor per consumption cycle (* people). (Zero Hour default: 9 default: 6) -->
 		<t id="205">150</t> <!-- E-Cell production multiplier (from Solar Panels perk). (Zero Hour default: 150 default: 100) -->
+		<t id="222">3600</t> <!-- AI cheat: timeout, in seconds, after which the AI ships waiting to be outfitted will be automatically equipped. 0 is deactivated. (Zero Hour default: 3600 base default: 14400) -->
+		<t id="258">15</t> <!-- Coalition tolerance factor: how much bigger an empire needs to be, in % galaxy control, for a faction to roll a coalition check against it. (Zero Hour default: 15 base default: 10) -->
+
+
+
+
+Crafting Catchup Settings:
+1) general catch up intensity multiplier (can tone the entire effect up or down or disable it with 0)
+2) large empire nerf limit (default 15 spec points)
+3) large empire sensitivity: how much % of average main faction territory is needed to get max nerf (default 200%)
+4) strong empires nerf limit (default 10 spec points)
+5) strong empire sensitivity: how much % of average main faction military power is needed to get max nerf (default 200%)
+6) small empire buff limit (default 15 spec points)
+7) small empire buff sensitivity: how little % of average main faction territory is needed to get max buff (default 30%)
+8) weak empire buff limit (default 10 spec points)
+9) weak empire sensitivity: how little % of average main faction military power is needed to get max buff (default 30%)
+10) Xenon buff limit: extra spec points that every main faction gets based on Xenon territory vs. the territory of all main factions combined (default 15 spec points)
+11) Xenon sensitivity: how much % of Xenon territory is needed to give max buff (default 30%)
+12) OCV buff limit: extra spec that every main faction gets based on OCV fleet power vs. the power of all main factions combined (default 30 spec points)
+13) OCV sensitivity: how much % of OCV power is needed to give max buff (default 80%)
+14-19) additional racial settings to boost/nerf spec points of a specific empire (all disabled on default)
+
+
 
 
 
@@ -1220,4 +1226,5 @@ Potential Solution:
 
 3)
 Keep monitoring:
-- can there still be ANY cases where an active CI breaks somehow but doesn't get aborted properly? Things like sector claims never running out. Battlegroups just sitting idle at jumpgates forever. CI member fleets not going to invade the target sector? Individual fleet ships not knowing that they're part of a CI squadron? All these issues should be fixed by now but you never know.
+- can there still be ANY cases where an active CI breaks somehow but doesn't get aborted properly? Things like CI member fleets starting to retreat. Sector claims never running out. Battlegroups just sitting idle at jumpgates forever. CI member fleets not going to invade the target sector? Individual fleet ships not knowing that they're part of a CI squadron?
+I already implemented many safety checks, but you never know. At the very least any broken CIs should ALWAYS be aborted properly so that the sector claim can time out.
