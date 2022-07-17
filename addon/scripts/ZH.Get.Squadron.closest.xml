@@ -1,0 +1,440 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>ZH.Get.Squadron.closest</name>
+	<version>1</version>
+	<engineversion>50</engineversion>
+	<description></description>
+	<arguments>
+		<argument index="1" name="squadronName" type="Var/String" desc="" />
+		<argument index="2" name="race" type="Var/Race" desc="" />
+		<argument index="3" name="object" type="Value" desc="" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<comment>* returns the closest squadron a faction or any faction (all allied during Xenon Crisis)</comment>
+		</line>
+		<line linenr="002" indent="" />
+		<line linenr="003" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$race</var>
+		</line>
+		<line linenr="004" indent="&#160;" interruptable="@">
+			<var>$squadronLeaders</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Squadron.GetLeaders</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>squadronName</text>
+			<text>=</text>
+			<var>$squadronName</var>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>$race</var>
+			<text> </text>
+			<text>sector</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="005" indent="">
+			<text>else</text>
+		</line>
+		<line linenr="006" indent="&#160;" interruptable="@">
+			<var>$commonwealth</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetCommonwealth</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="007" indent="&#160;">
+			<text>append</text>
+			<text> </text>
+			<var>[Yaki]</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$commonwealth</var>
+		</line>
+		<line linenr="008" indent="&#160;">
+			<var>$squadronLeaders</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="009" indent="&#160;">
+			<var>$XS.Iterator1</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$commonwealth</var>
+		</line>
+		<line linenr="010" indent="&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator1</var>
+		</line>
+		<line linenr="011" indent="&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator1</var>
+		</line>
+		<line linenr="012" indent="&#160;&#160;">
+			<var>$ally</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$commonwealth</var>
+			<text>[</text>
+			<var>$XS.Iterator1</var>
+			<text>]</text>
+		</line>
+		<line linenr="013" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>10</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="014" indent="" interruptable="@">
+			<var>$squadronLeaders.race</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Squadron.GetLeaders</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>squadronName</text>
+			<text>=</text>
+			<var>$squadronName</var>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>$ally</var>
+			<text> </text>
+			<text>sector</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="015" indent="">
+			<var>$squadronLeaders</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>join</text>
+			<text> </text>
+			<text>arrays</text>
+			<text>:</text>
+			<text> </text>
+			<text>first</text>
+			<text>=</text>
+			<var>$squadronLeaders</var>
+			<text>,</text>
+			<text> </text>
+			<text>second</text>
+			<text>=</text>
+			<var>$squadronLeaders.race</var>
+		</line>
+		<line linenr="016" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="017" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="018" indent="" interruptable="@">
+			<var>$squadronLeaders</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.SortByDistance</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>refObject</text>
+			<text>=</text>
+			<var>$object</var>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$squadronLeaders</var>
+		</line>
+		<line linenr="019" indent="" interruptable="@">
+			<var>$closestSquadron</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetLastElement</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$squadronLeaders</var>
+		</line>
+		<line linenr="020" indent="" />
+		<line linenr="021" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>$closestSquadron</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="ZH.Get.Squadron.closest" />
+			<sval type="int" val="50" />
+			<sval type="string" val="" />
+			<sval type="int" val="1" />
+			<sval type="int" val="0" />
+			<sval type="array" size="9">
+				<sval type="string" val="squadronName" />
+				<sval type="string" val="race" />
+				<sval type="string" val="object" />
+				<sval type="string" val="squadronLeaders" />
+				<sval type="string" val="commonwealth" />
+				<sval type="string" val="ally" />
+				<sval type="string" val="XS.Iterator1" />
+				<sval type="string" val="squadronLeaders.race" />
+				<sval type="string" val="closestSquadron" />
+			</sval>
+			<sval type="array" size="17">
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610611965" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Squadron.GetLeaders" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="14" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetCommonwealth" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="10" />
+					<sval type="int" val="19" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610609143" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Squadron.GetLeaders" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1850" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.SortByDistance" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetLastElement" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+				</sval>
+			</sval>
+			<sval type="array" size="3">
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="string" val="" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="16" />
+					<sval type="string" val="" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="" />
+				</sval>
+			</sval>
+			<sval type="array" size="6">
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="returns the closest squadron a faction or any faction (all allied during Xenon Crisis)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="3" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="14" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="14" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="16" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

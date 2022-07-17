@@ -1,0 +1,754 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>ZH.Nomads.Berzerk</name>
+	<version>1</version>
+	<engineversion>50</engineversion>
+	<description></description>
+	<arguments />
+	<sourcetext>
+		<line linenr="001" indent="">
+			<comment>* sends all Nomad Mercs into the Core of the Xenon Empire (to get rid of Nomad overpopulation)</comment>
+		</line>
+		<line linenr="002" indent="" />
+		<line linenr="003" indent="">
+			<var>$mercs</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_mercs'</text>
+		</line>
+		<line linenr="004" indent="" interruptable="@">
+			<var>$nomadMercLeaders</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Merc.GetLeaders</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>company</text>
+			<text>=</text>
+			<var>[Nomad]</var>
+			<text> </text>
+			<text>sector</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>onlyHired</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="005" indent="" interruptable="@">
+			<var>$nomadMercLeaders</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.RandomizeArray</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$nomadMercLeaders</var>
+		</line>
+		<line linenr="006" indent="">
+			<var>$XS.Iterator1</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$nomadMercLeaders</var>
+		</line>
+		<line linenr="007" indent="&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator1</var>
+		</line>
+		<line linenr="008" indent="&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator1</var>
+		</line>
+		<line linenr="009" indent="&#160;">
+			<var>$leader</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$nomadMercLeaders</var>
+			<text>[</text>
+			<var>$XS.Iterator1</var>
+			<text>]</text>
+		</line>
+		<line linenr="010" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>1000</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="011" indent="&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Merc.Dismiss</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>leader</text>
+			<text>=</text>
+			<var>$leader</var>
+		</line>
+		<line linenr="012" indent="&#160;">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$mercs</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
+			<var>$leader</var>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="013" indent="&#160;&#160;">
+			<var>$followers</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$leader</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_mercFollowers'</text>
+		</line>
+		<line linenr="014" indent="&#160;&#160;">
+			<var>$leader</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_mercFollowers'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="015" indent="&#160;">
+			<var>$XS.Iterator2</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$followers</var>
+		</line>
+		<line linenr="016" indent="&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator2</var>
+		</line>
+		<line linenr="017" indent="&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator2</var>
+		</line>
+		<line linenr="018" indent="">
+			<var>$follower</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$followers</var>
+			<text>[</text>
+			<var>$XS.Iterator2</var>
+			<text>]</text>
+		</line>
+		<line linenr="019" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>50</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="020" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$follower</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.Task.Berserk</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="021" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="022" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>50</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="023" indent="&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$leader</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.Task.Berserk</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="024" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="025" indent="&#160;" />
+		<line linenr="026" indent="&#160;&#160;">
+			<var>$ships</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>ship</text>
+			<text> </text>
+			<text>array</text>
+			<text>:</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>race</text>
+			<text> </text>
+			<var>[Nomad]</var>
+			<text> </text>
+			<text>class</text>
+			<text>/</text>
+			<text>type</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="027" indent="&#160;">
+			<var>$XS.Iterator3</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$ships</var>
+		</line>
+		<line linenr="028" indent="&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator3</var>
+		</line>
+		<line linenr="029" indent="&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator3</var>
+		</line>
+		<line linenr="030" indent="">
+			<var>$ship</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$ships</var>
+			<text>[</text>
+			<var>$XS.Iterator3</var>
+			<text>]</text>
+		</line>
+		<line linenr="031" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>50</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="032" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ship</var>
+			<text> </text>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>class</text>
+			<text> </text>
+			<var>[M1]</var>
+		</line>
+		<line linenr="033" indent="">
+			<text>continue</text>
+		</line>
+		<line linenr="034" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ship</var>
+			<text> </text>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>class</text>
+			<text> </text>
+			<var>[Freighter]</var>
+		</line>
+		<line linenr="035" indent="">
+			<text>continue</text>
+		</line>
+		<line linenr="036" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ship</var>
+			<text> </text>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>class</text>
+			<text> </text>
+			<var>[TL]</var>
+		</line>
+		<line linenr="037" indent="">
+			<text>continue</text>
+		</line>
+		<line linenr="038" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.Task.Berserk</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="039" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="040" indent="" />
+		<line linenr="041" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="ZH.Nomads.Berzerk" />
+			<sval type="int" val="50" />
+			<sval type="string" val="" />
+			<sval type="int" val="1" />
+			<sval type="int" val="0" />
+			<sval type="array" size="10">
+				<sval type="string" val="mercs" />
+				<sval type="string" val="nomadMercLeaders" />
+				<sval type="string" val="leader" />
+				<sval type="string" val="XS.Iterator1" />
+				<sval type="string" val="followers" />
+				<sval type="string" val="follower" />
+				<sval type="string" val="XS.Iterator2" />
+				<sval type="string" val="ships" />
+				<sval type="string" val="ship" />
+				<sval type="string" val="XS.Iterator3" />
+			</sval>
+			<sval type="array" size="37">
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_mercs" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Merc.GetLeaders" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="10" />
+					<sval type="int" val="30" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.RandomizeArray" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610607095" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1000" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Merc.Dismiss" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_mercFollowers" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="155" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_mercFollowers" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610607863" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="50" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.Task.Berserk" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="50" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.Task.Berserk" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1068" />
+					<sval type="int" val="10" />
+					<sval type="int" val="30" />
+					<sval type="int" val="7" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610603511" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="50" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="705" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="-1610605048" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2021" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="24" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="705" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="-1610604536" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2038" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="24" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="705" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="-1610604024" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2032" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="24" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.Task.Berserk" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="24" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+			<sval type="array" size="10">
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="sends all Nomad Mercs into the Core of the Xenon Empire (to get rid of Nomad overpopulation)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="19" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="30" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="32" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="34" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="36" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="36" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

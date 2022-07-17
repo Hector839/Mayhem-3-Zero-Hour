@@ -1,0 +1,397 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>ZH.Loyalty.Add.maybe</name>
+	<version>1</version>
+	<engineversion>50</engineversion>
+	<description></description>
+	<arguments>
+		<argument index="1" name="raceKilled" type="Var/Race" desc="owner of killed ship" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<comment>* rewards random loyalty points for killing bigger ships. Called by !ship.signal.killed. raceKilled was the [OWNER]</comment>
+		</line>
+		<line linenr="002" indent="" />
+		<line linenr="003" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$raceKilled</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Xenon]</var>
+			<text> </text>
+			<text>OR</text>
+			<text> </text>
+			<var>$raceKilled</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Pirates]</var>
+			<text> </text>
+			<text>OR</text>
+			<text> </text>
+			<var>$raceKilled</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Yaki]</var>
+		</line>
+		<line linenr="004" indent="&#160;">
+			<comment>* these factions have too many enemies (exploitable).</comment>
+		</line>
+		<line linenr="005" indent="&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>zero</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>19</var>
+		</line>
+		<line linenr="006" indent="&#160;&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="007" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="008" indent="" />
+		<line linenr="009" indent="" interruptable="@">
+			<var>$commonwealth</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetCommonwealth</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="010" indent="" interruptable="@">
+			<var>$race</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetRandomElement</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$commonwealth</var>
+		</line>
+		<line linenr="011" indent="" />
+		<line linenr="012" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$race</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$raceKilled</var>
+		</line>
+		<line linenr="013" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="014" indent="">
+			<text>else</text>
+		</line>
+		<line linenr="015" indent="&#160;" interruptable="@">
+			<var>$relation</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetRelation</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>raceOrObject1</text>
+			<text>=</text>
+			<var>$race</var>
+			<text> </text>
+			<text>raceOrObject2</text>
+			<text>=</text>
+			<var>$raceKilled</var>
+		</line>
+		<line linenr="016" indent="&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$relation</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Foe]</var>
+		</line>
+		<line linenr="017" indent="&#160;&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Loyalty.Add</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>$race</var>
+			<text> </text>
+			<text>point</text>
+			<text>=</text>
+			<var>1</var>
+		</line>
+		<line linenr="018" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="019" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="020" indent="" />
+		<line linenr="021" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="ZH.Loyalty.Add.maybe" />
+			<sval type="int" val="50" />
+			<sval type="string" val="" />
+			<sval type="int" val="1" />
+			<sval type="int" val="0" />
+			<sval type="array" size="4">
+				<sval type="string" val="raceKilled" />
+				<sval type="string" val="commonwealth" />
+				<sval type="string" val="race" />
+				<sval type="string" val="relation" />
+			</sval>
+			<sval type="array" size="12">
+				<sval type="array" size="37">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610611965" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="10" />
+					<sval type="int" val="6" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="10" />
+					<sval type="int" val="8" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="15" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="10" />
+					<sval type="int" val="19" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="15" />
+					<sval type="int" val="10" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="10" />
+					<sval type="int" val="-4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-5" />
+					<sval type="int" val="10" />
+					<sval type="int" val="-8" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="106" />
+					<sval type="int" val="-1610611960" />
+					<sval type="int" val="4" />
+					<sval type="int" val="20" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetCommonwealth" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetRandomElement" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610610685" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetRelation" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610609917" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="14" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Loyalty.Add" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="array" size="1">
+				<sval type="array" size="2">
+					<sval type="int" val="16" />
+					<sval type="string" val="owner of killed ship" />
+				</sval>
+			</sval>
+			<sval type="array" size="10">
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="rewards random loyalty points for killing bigger ships. Called by !ship.signal.killed. raceKilled was the [OWNER]" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="string" val="these factions have too many enemies (exploitable)." />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="3" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="5" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="8" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

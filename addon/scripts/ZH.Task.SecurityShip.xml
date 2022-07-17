@@ -1,0 +1,865 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>ZH.Task.SecurityShip</name>
+	<version>1</version>
+	<engineversion>50</engineversion>
+	<description></description>
+	<arguments>
+		<argument index="1" name="escortShip" type="Var/Ship" desc="" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<comment>* just escorts passively forever. Heads to a trading station to despawn if the escort target dies.</comment>
+		</line>
+		<line linenr="002" indent="" />
+		<line linenr="003" indent="" interruptable="@">
+			<var>$mainFactions</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetMainFactions</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="004" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>[Player]</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$mainFactions</var>
+		</line>
+		<line linenr="005" indent="">
+			<var>$flag</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[OverrideNameFlag.ShowJob]</var>
+			<text> </text>
+			<text>|</text>
+			<text> </text>
+			<var>[OverrideNameFlag.ShowObj]</var>
+		</line>
+		<line linenr="006" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.SetJobName</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>ship</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>job</text>
+			<text>=</text>
+			<var>50104</var>
+			<text> </text>
+			<text>flag</text>
+			<text>=</text>
+			<var>$flag</var>
+		</line>
+		<line linenr="007" indent="" />
+		<line linenr="008" indent="" />
+		<line linenr="009" indent="">
+			<text>while</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>exists</text>
+		</line>
+		<line linenr="010" indent="&#160;" />
+		<line linenr="011" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>!move.undock</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="012" indent="&#160;" />
+		<line linenr="013" indent="&#160;">
+			<var>Restart</var>
+			<text>:</text>
+		</line>
+		<line linenr="014" indent="&#160;" />
+		<line linenr="015" indent="&#160;">
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>orders</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<text>sprintf</text>
+			<text>:</text>
+			<text> </text>
+			<text>fmt</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Standby'</text>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="016" indent="&#160;" />
+		<line linenr="017" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<text>randomly</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<var>3000</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>5000</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="018" indent="&#160;" />
+		<line linenr="019" indent="&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>a</text>
+			<text> </text>
+			<text>new</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<text>version</text>
+			<text> </text>
+			<text>available</text>
+		</line>
+		<line linenr="020" indent="&#160;&#160;">
+			<var>$scriptName</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<text>name</text>
+		</line>
+		<line linenr="021" indent="&#160;&#160;">
+			<var>$taskID</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>task</text>
+			<text> </text>
+			<text>ID</text>
+		</line>
+		<line linenr="022" indent="&#160;&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Lib.Gen.RunScriptWhenFinished</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>ScriptName</text>
+			<text>=</text>
+			<var>$scriptName</var>
+			<text> </text>
+			<text>TaskWatch</text>
+			<text>=</text>
+			<var>$taskID</var>
+			<text> </text>
+			<text>TaskRun</text>
+			<text>=</text>
+			<var>$taskID</var>
+			<text> </text>
+			<text>ObjectWatch</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>ObjectRun</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>arg1</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg2</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg3</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg4</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg5</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="023" indent="&#160;&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="024" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="025" indent="&#160;" />
+		<line linenr="026" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>!move.follow.template</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>leader</text>
+			<text>=</text>
+			<var>$escortShip</var>
+			<text> </text>
+			<text>protectit</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+			<text> </text>
+			<text>attacksame</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+			<text> </text>
+			<text>attacknearest</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+			<text> </text>
+			<text>stopwhendocked</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+			<text> </text>
+			<text>stopwhenOOS</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="027" indent="&#160;" />
+		<line linenr="028" indent="&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$escortShip</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>exists</text>
+		</line>
+		<line linenr="029" indent="&#160;&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>Restart</var>
+			<text>:</text>
+		</line>
+		<line linenr="030" indent="&#160;" />
+		<line linenr="031" indent="&#160;">
+			<var>$companyStations</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>station</text>
+			<text> </text>
+			<text>array</text>
+			<text>:</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>race</text>
+			<text> </text>
+			<var>[Private Corp.]</var>
+			<text> </text>
+			<text>class</text>
+			<text>/</text>
+			<text>type</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="032" indent="&#160;" interruptable="@">
+			<var>$companyStations</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.SortByDistance</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>refObject</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$companyStations</var>
+		</line>
+		<line linenr="033" indent="&#160;" interruptable="@">
+			<var>$tradingStation</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.GetRandomElement</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$companyStations</var>
+		</line>
+		<line linenr="034" indent="&#160;">
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<text>orders</text>
+			<text> </text>
+			<text>string</text>
+			<text> </text>
+			<text>sprintf</text>
+			<text>:</text>
+			<text> </text>
+			<text>fmt</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Visiting %s'</text>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>$tradingStation</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text> </text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="035" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>!move.movetostation</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>targetstation</text>
+			<text>=</text>
+			<var>$tradingStation</var>
+		</line>
+		<line linenr="036" indent="&#160;">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>[DOCKEDAT]</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$tradingStation</var>
+		</line>
+		<line linenr="037" indent="&#160;&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>Restart</var>
+			<text>:</text>
+		</line>
+		<line linenr="038" indent="&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.JOO.Global</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>ship</text>
+			<text>=</text>
+			<var>[THIS]</var>
+		</line>
+		<line linenr="039" indent="&#160;" />
+		<line linenr="040" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="041" indent="" />
+		<line linenr="042" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="043" indent="" />
+		<line linenr="044" indent="" />
+		<line linenr="045" indent="" />
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="ZH.Task.SecurityShip" />
+			<sval type="int" val="50" />
+			<sval type="string" val="" />
+			<sval type="int" val="1" />
+			<sval type="int" val="0" />
+			<sval type="array" size="7">
+				<sval type="string" val="escortShip" />
+				<sval type="string" val="mainFactions" />
+				<sval type="string" val="flag" />
+				<sval type="string" val="scriptName" />
+				<sval type="string" val="taskID" />
+				<sval type="string" val="companyStations" />
+				<sval type="string" val="tradingStation" />
+			</sval>
+			<sval type="array" size="27">
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetMainFactions" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="4006" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="4002" />
+					<sval type="int" val="15" />
+					<sval type="int" val="7" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="7" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.SetJobName" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="50104" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="706" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1610606071" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="!move.undock" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="Restart" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1820" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Standby" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="107" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3000" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5000" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1201" />
+					<sval type="int" val="-1610609149" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1032" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="147" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="26">
+					<sval type="int" val="102" />
+					<sval type="string" val="Lib.Gen.RunScriptWhenFinished" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="18">
+					<sval type="int" val="102" />
+					<sval type="string" val="!move.follow.template" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="706" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-1610608376" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1069" />
+					<sval type="int" val="10" />
+					<sval type="int" val="9" />
+					<sval type="int" val="5" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.SortByDistance" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.GetRandomElement" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1820" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Visiting %s" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="!move.movetostation" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-536864761" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.JOO.Global" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="array" size="1">
+				<sval type="array" size="2">
+					<sval type="int" val="21" />
+					<sval type="string" val="" />
+				</sval>
+			</sval>
+			<sval type="array" size="19">
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="just escorts passively forever. Heads to a trading station to despawn if the escort target dies." />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="5" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="6" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="7" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="8" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="14" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="14" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="17" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="25" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="26" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="26" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="27" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="27" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="27" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>
