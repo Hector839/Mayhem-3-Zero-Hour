@@ -3,7 +3,7 @@
 <!-- Generated using X-Studio -->
 <script>
 	<name>Mayhem.Task.OCVInvader.Leader</name>
-	<version>18</version>
+	<version>19</version>
 	<engineversion>50</engineversion>
 	<description></description>
 	<arguments />
@@ -874,15 +874,62 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="103" indent="&#160;">
+		<line linenr="103" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="104" indent="&#160;">
+		<line linenr="104" indent="&#160;&#160;&#160;">
 			<text>inc</text>
 			<text> </text>
 			<var>$jumps</var>
 		</line>
-		<line linenr="105" indent="&#160;">
+		<line linenr="105" indent="&#160;&#160;">
+			<comment>* Zero Hour 1.7: we don't want to send all OCV invaders to the same sector! Mostly relevant for the chaotic galaxy start</comment>
+		</line>
+		<line linenr="106" indent="&#160;&#160;&#160;">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>zero</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="107" indent="&#160;&#160;">
+			<text>inc</text>
+			<text> </text>
+			<var>$jumps</var>
+		</line>
+		<line linenr="108" indent="&#160;">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<text>random</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>zero</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="109" indent="&#160;">
+			<text>inc</text>
+			<text> </text>
+			<var>$jumps</var>
+		</line>
+		<line linenr="110" indent="&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -890,11 +937,11 @@
 			<var>SearchSector</var>
 			<text>:</text>
 		</line>
-		<line linenr="106" indent="&#160;&#160;">
+		<line linenr="111" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="107" indent="&#160;&#160;" />
-		<line linenr="108" indent="&#160;">
+		<line linenr="112" indent="&#160;&#160;" />
+		<line linenr="113" indent="&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>[SECTOR]</var>
@@ -903,7 +950,7 @@
 			<text> </text>
 			<var>$invasionSector</var>
 		</line>
-		<line linenr="109" indent="&#160;" interruptable="@">
+		<line linenr="114" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -921,7 +968,7 @@
 			<text>=</text>
 			<var>$invasionSector</var>
 		</line>
-		<line linenr="110" indent="&#160;" interruptable="@">
+		<line linenr="115" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -930,20 +977,20 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="111" indent="&#160;">
+		<line linenr="116" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="112" indent="&#160;" />
-		<line linenr="113" indent="&#160;&#160;">
+		<line linenr="117" indent="&#160;" />
+		<line linenr="118" indent="&#160;&#160;">
 			<comment>* we have reached our invasion target. Now we check if any other invaders came here before us</comment>
 		</line>
-		<line linenr="114" indent="&#160;&#160;">
+		<line linenr="119" indent="&#160;&#160;">
 			<text>gosub</text>
 			<text> </text>
 			<var>CheckTerraformerCapships</var>
 			<text>:</text>
 		</line>
-		<line linenr="115" indent="&#160;&#160;&#160;">
+		<line linenr="120" indent="&#160;&#160;&#160;">
 			<var>$XS.Iterator2</var>
 			<text> </text>
 			<text>=</text>
@@ -956,17 +1003,17 @@
 			<text> </text>
 			<var>$terraformerCapships</var>
 		</line>
-		<line linenr="116" indent="&#160;&#160;&#160;">
+		<line linenr="121" indent="&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator2</var>
 		</line>
-		<line linenr="117" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="122" indent="&#160;&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator2</var>
 		</line>
-		<line linenr="118" indent="&#160;&#160;&#160;">
+		<line linenr="123" indent="&#160;&#160;&#160;">
 			<var>$ship</var>
 			<text> </text>
 			<text>=</text>
@@ -976,7 +1023,7 @@
 			<var>$XS.Iterator2</var>
 			<text>]</text>
 		</line>
-		<line linenr="119" indent="&#160;&#160;&#160;&#160;" interruptable="@">
+		<line linenr="124" indent="&#160;&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -985,7 +1032,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="120" indent="&#160;&#160;">
+		<line linenr="125" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>random</text>
@@ -1000,10 +1047,10 @@
 			<text> </text>
 			<var>$terraformerCapships.s</var>
 		</line>
-		<line linenr="121" indent="&#160;">
+		<line linenr="126" indent="&#160;">
 			<comment>* there is always a chance to stay, depending on how many capships are already here. But most of the time we do not want more than 1 OCV invader fleet per sector.</comment>
 		</line>
-		<line linenr="122" indent="&#160;">
+		<line linenr="127" indent="&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -1027,7 +1074,7 @@
 			<text>=</text>
 			<var>0</var>
 		</line>
-		<line linenr="123" indent="&#160;">
+		<line linenr="128" indent="&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -1035,7 +1082,7 @@
 			<var>SearchSector</var>
 			<text>:</text>
 		</line>
-		<line linenr="124" indent="&#160;">
+		<line linenr="129" indent="&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -1059,7 +1106,7 @@
 			<text>=</text>
 			<var>0</var>
 		</line>
-		<line linenr="125" indent="&#160;&#160;">
+		<line linenr="130" indent="&#160;&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -1067,33 +1114,33 @@
 			<var>SearchSector</var>
 			<text>:</text>
 		</line>
-		<line linenr="126" indent="&#160;&#160;&#160;">
+		<line linenr="131" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="127" indent="&#160;&#160;&#160;">
+		<line linenr="132" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="128" indent="&#160;&#160;&#160;&#160;" />
-		<line linenr="129" indent="&#160;&#160;">
+		<line linenr="133" indent="&#160;&#160;&#160;&#160;" />
+		<line linenr="134" indent="&#160;&#160;">
 			<var>SearchTarget</var>
 			<text>:</text>
 		</line>
-		<line linenr="130" indent="&#160;">
+		<line linenr="135" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$TerraformerWaiting</var>
 		</line>
-		<line linenr="131" indent="&#160;">
+		<line linenr="136" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>not</text>
 			<text> </text>
 			<var>$OCVgrinding</var>
 		</line>
-		<line linenr="132" indent="&#160;">
+		<line linenr="137" indent="&#160;">
 			<comment>* don't waste time when grinding</comment>
 		</line>
-		<line linenr="133" indent="&#160;">
+		<line linenr="138" indent="&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -1103,7 +1150,7 @@
 			<text> </text>
 			<text>exists</text>
 		</line>
-		<line linenr="134" indent="&#160;" interruptable="@">
+		<line linenr="139" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -1125,13 +1172,13 @@
 			<text>=</text>
 			<var>$timeout</var>
 		</line>
-		<line linenr="135" indent="&#160;">
+		<line linenr="140" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="136" indent="&#160;">
+		<line linenr="141" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="137" indent="&#160;">
+		<line linenr="142" indent="&#160;">
 			<var>$flags</var>
 			<text> </text>
 			<text>=</text>
@@ -1142,25 +1189,25 @@
 			<text> </text>
 			<var>[Find.Enemy]</var>
 		</line>
-		<line linenr="138" indent="&#160;">
+		<line linenr="143" indent="&#160;">
 			<comment>* Priorities: Huge ships, Big ships, Factories, Outposts.</comment>
 		</line>
-		<line linenr="139" indent="&#160;&#160;">
+		<line linenr="144" indent="&#160;&#160;">
 			<comment>* $target = find ship: sector=[SECTOR] class or type=[Huge Ship] race=null flags=$flags refobj=[THIS] maxdist=80000 maxnum=1 refpos=null</comment>
 		</line>
-		<line linenr="140" indent="&#160;">
+		<line linenr="145" indent="&#160;">
 			<comment>* = wait 100 ms</comment>
 		</line>
-		<line linenr="141" indent="&#160;">
+		<line linenr="146" indent="&#160;">
 			<comment>* skip if $target-&gt; exists</comment>
 		</line>
-		<line linenr="142" indent="&#160;&#160;">
+		<line linenr="147" indent="&#160;&#160;">
 			<comment>* $target = find ship: sector=[SECTOR] class or type=[Big Ship] race=null flags=$flags refobj=[THIS] maxdist=80000 maxnum=1 refpos=null</comment>
 		</line>
-		<line linenr="143" indent="&#160;">
+		<line linenr="148" indent="&#160;">
 			<comment>* = wait 100 ms</comment>
 		</line>
-		<line linenr="144" indent="&#160;">
+		<line linenr="149" indent="&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -1170,7 +1217,7 @@
 			<text> </text>
 			<text>exists</text>
 		</line>
-		<line linenr="145" indent="&#160;&#160;">
+		<line linenr="150" indent="&#160;&#160;">
 			<var>$target</var>
 			<text> </text>
 			<text>=</text>
@@ -1216,7 +1263,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="146" indent="&#160;&#160;" interruptable="@">
+		<line linenr="151" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -1225,7 +1272,7 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="147" indent="&#160;">
+		<line linenr="152" indent="&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -1235,7 +1282,7 @@
 			<text> </text>
 			<text>exists</text>
 		</line>
-		<line linenr="148" indent="&#160;&#160;">
+		<line linenr="153" indent="&#160;&#160;">
 			<var>$target</var>
 			<text> </text>
 			<text>=</text>
@@ -1281,8 +1328,8 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="149" indent="&#160;&#160;" />
-		<line linenr="150" indent="&#160;&#160;&#160;">
+		<line linenr="154" indent="&#160;&#160;" />
+		<line linenr="155" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$target</var>
@@ -1290,7 +1337,7 @@
 			<text> </text>
 			<text>exists</text>
 		</line>
-		<line linenr="151" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="156" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -1320,7 +1367,7 @@
 			<text>=</text>
 			<var>3600</var>
 		</line>
-		<line linenr="152" indent="&#160;&#160;">
+		<line linenr="157" indent="&#160;&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -1328,10 +1375,10 @@
 			<var>SearchTarget</var>
 			<text>:</text>
 		</line>
-		<line linenr="153" indent="&#160;&#160;">
+		<line linenr="158" indent="&#160;&#160;">
 			<text>else</text>
 		</line>
-		<line linenr="154" indent="&#160;&#160;&#160;">
+		<line linenr="159" indent="&#160;&#160;&#160;">
 			<var>$sector.owner</var>
 			<text> </text>
 			<text>=</text>
@@ -1345,7 +1392,7 @@
 			<text> </text>
 			<text>race</text>
 		</line>
-		<line linenr="155" indent="&#160;&#160;">
+		<line linenr="160" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$sector.owner</var>
@@ -1354,10 +1401,10 @@
 			<text> </text>
 			<var>[Xenon]</var>
 		</line>
-		<line linenr="156" indent="&#160;&#160;&#160;">
+		<line linenr="161" indent="&#160;&#160;&#160;">
 			<comment>* Also see !station.signal.killed.</comment>
 		</line>
-		<line linenr="157" indent="&#160;&#160;&#160;" interruptable="@">
+		<line linenr="162" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -1379,10 +1426,10 @@
 			<text>=</text>
 			<var>[Xenon]</var>
 		</line>
-		<line linenr="158" indent="&#160;&#160;">
+		<line linenr="163" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="159" indent="&#160;&#160;&#160;">
+		<line linenr="164" indent="&#160;&#160;&#160;">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -1428,7 +1475,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="160" indent="&#160;&#160;" interruptable="@">
+		<line linenr="165" indent="&#160;&#160;" interruptable="@">
 			<var>$station</var>
 			<text> </text>
 			<text>=</text>
@@ -1464,15 +1511,15 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="161" indent="&#160;">
+		<line linenr="166" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$OCVgrinding</var>
 		</line>
-		<line linenr="162" indent="&#160;">
+		<line linenr="167" indent="&#160;">
 			<comment>* don't waste time when grinding</comment>
 		</line>
-		<line linenr="163" indent="" interruptable="@">
+		<line linenr="168" indent="" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -1494,10 +1541,10 @@
 			<text>=</text>
 			<var>120</var>
 		</line>
-		<line linenr="164" indent="">
+		<line linenr="169" indent="">
 			<text>else</text>
 		</line>
-		<line linenr="165" indent="" interruptable="@">
+		<line linenr="170" indent="" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -1519,32 +1566,32 @@
 			<text>=</text>
 			<var>3600</var>
 		</line>
-		<line linenr="166" indent="">
+		<line linenr="171" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="167" indent="">
+		<line linenr="172" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="168" indent="" />
-		<line linenr="169" indent="&#160;">
+		<line linenr="173" indent="" />
+		<line linenr="174" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="170" indent="&#160;" />
-		<line linenr="171" indent="&#160;">
+		<line linenr="175" indent="&#160;" />
+		<line linenr="176" indent="&#160;">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="172" indent="&#160;" />
-		<line linenr="173" indent="&#160;" />
-		<line linenr="174" indent="">
+		<line linenr="177" indent="&#160;" />
+		<line linenr="178" indent="&#160;" />
+		<line linenr="179" indent="">
 			<var>CheckTerraformerCapships</var>
 			<text>:</text>
 		</line>
-		<line linenr="175" indent="">
+		<line linenr="180" indent="">
 			<comment>* Zero Hour: we need to ensure that Terraformer capships tend to spread out and don't create undefeatable doomstacks</comment>
 		</line>
-		<line linenr="176" indent="" interruptable="@">
+		<line linenr="181" indent="" interruptable="@">
 			<var>$OCVcapships</var>
 			<text> </text>
 			<text>=</text>
@@ -1572,7 +1619,7 @@
 			<text>=</text>
 			<var>[Huge Ship]</var>
 		</line>
-		<line linenr="177" indent="" interruptable="@">
+		<line linenr="182" indent="" interruptable="@">
 			<var>$xenonCapships</var>
 			<text> </text>
 			<text>=</text>
@@ -1600,7 +1647,7 @@
 			<text>=</text>
 			<var>[Huge Ship]</var>
 		</line>
-		<line linenr="178" indent="">
+		<line linenr="183" indent="">
 			<var>$terraformerCapships</var>
 			<text> </text>
 			<text>=</text>
@@ -1619,7 +1666,7 @@
 			<text>=</text>
 			<var>$xenonCapships</var>
 		</line>
-		<line linenr="179" indent="">
+		<line linenr="184" indent="">
 			<var>$terraformerCapships.s</var>
 			<text> </text>
 			<text>=</text>
@@ -1632,7 +1679,7 @@
 			<text> </text>
 			<var>$terraformerCapships</var>
 		</line>
-		<line linenr="180" indent="">
+		<line linenr="185" indent="">
 			<text>endsub</text>
 		</line>
 	</sourcetext>
@@ -1641,7 +1688,7 @@
 			<sval type="string" val="Mayhem.Task.OCVInvader.Leader" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
-			<sval type="int" val="18" />
+			<sval type="int" val="19" />
 			<sval type="int" val="0" />
 			<sval type="array" size="26">
 				<sval type="string" val="startingOptionsDone" />
@@ -1671,7 +1718,7 @@
 				<sval type="string" val="OCVcapships" />
 				<sval type="string" val="xenonCapships" />
 			</sval>
-			<sval type="array" size="129">
+			<sval type="array" size="133">
 				<sval type="array" size="2">
 					<sval type="int" val="101" />
 					<sval type="string" val="WaitForUniverseGeneration" />
@@ -1779,7 +1826,7 @@
 					<sval type="int" val="706" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
-					<sval type="int" val="-1610581495" />
+					<sval type="int" val="-1610580471" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="101" />
@@ -2315,7 +2362,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="123" />
+					<sval type="int" val="127" />
 				</sval>
 				<sval type="array" size="22">
 					<sval type="int" val="104" />
@@ -2364,7 +2411,7 @@
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610591997" />
+					<sval type="int" val="-1610590973" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="10" />
@@ -2409,13 +2456,33 @@
 					<sval type="int" val="142" />
 					<sval type="int" val="9" />
 				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="106" />
+					<sval type="int" val="-536849913" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="142" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="106" />
+					<sval type="int" val="-536849401" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="142" />
+					<sval type="int" val="9" />
+				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="100" />
 					<sval type="int" val="49" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610590967" />
+					<sval type="int" val="-1610589943" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
@@ -2446,11 +2513,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="81" />
+					<sval type="int" val="85" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="123" />
+					<sval type="int" val="127" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
@@ -2460,7 +2527,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610587895" />
+					<sval type="int" val="-1610586871" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="20" />
@@ -2487,7 +2554,7 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="106" />
-					<sval type="int" val="-1610588157" />
+					<sval type="int" val="-1610587133" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="17" />
 				</sval>
@@ -2495,7 +2562,7 @@
 					<sval type="int" val="1072" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="18" />
-					<sval type="int" val="-1610588664" />
+					<sval type="int" val="-1610587640" />
 					<sval type="string" val="Mayhem.Task.OCVInvader.Leader" />
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
@@ -2508,7 +2575,7 @@
 					<sval type="int" val="1072" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="18" />
-					<sval type="int" val="-1610588152" />
+					<sval type="int" val="-1610587128" />
 					<sval type="string" val="Mayhem.Task.XenonInvader.Leader" />
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
@@ -2519,7 +2586,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="87" />
+					<sval type="int" val="91" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="101" />
@@ -2527,7 +2594,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610586621" />
+					<sval type="int" val="-1610585597" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="3" />
@@ -2536,7 +2603,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536844796" />
+					<sval type="int" val="-536843772" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="7" />
@@ -2547,7 +2614,7 @@
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="21" />
-					<sval type="int" val="-536844793" />
+					<sval type="int" val="-536843769" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
@@ -2580,7 +2647,7 @@
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="21" />
-					<sval type="int" val="-536844025" />
+					<sval type="int" val="-536843001" />
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="794" />
@@ -2612,7 +2679,7 @@
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="21" />
-					<sval type="int" val="-536843257" />
+					<sval type="int" val="-536842233" />
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="794" />
@@ -2638,7 +2705,7 @@
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="21" />
-					<sval type="int" val="-1610584061" />
+					<sval type="int" val="-1610583037" />
 				</sval>
 				<sval type="array" size="14">
 					<sval type="int" val="102" />
@@ -2658,11 +2725,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="100" />
-					<sval type="int" val="97" />
+					<sval type="int" val="101" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="121" />
+					<sval type="int" val="125" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="701" />
@@ -2672,7 +2739,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610583293" />
+					<sval type="int" val="-1610582269" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="14" />
@@ -2699,7 +2766,7 @@
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="794" />
-					<sval type="int" val="-536840953" />
+					<sval type="int" val="-536839929" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="6" />
 					<sval type="int" val="9" />
@@ -2737,7 +2804,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610582013" />
+					<sval type="int" val="-1610580989" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="7" />
@@ -2758,7 +2825,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="121" />
+					<sval type="int" val="125" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
@@ -2832,7 +2899,7 @@
 				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="68">
+			<sval type="array" size="69">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -2986,143 +3053,148 @@
 					<sval type="int" val="79" />
 					<sval type="int" val="4" />
 				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="80" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Zero Hour 1.7: we don't want to send all OCV invaders to the same sector! Mostly relevant for the chaotic galaxy start" />
+				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="81" />
+					<sval type="int" val="85" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="81" />
+					<sval type="int" val="85" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="85" />
+					<sval type="int" val="89" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="85" />
+					<sval type="int" val="89" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="85" />
+					<sval type="int" val="89" />
 					<sval type="int" val="1" />
 					<sval type="string" val="we have reached our invasion target. Now we check if any other invaders came here before us" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="92" />
+					<sval type="int" val="96" />
 					<sval type="int" val="1" />
 					<sval type="string" val="there is always a chance to stay, depending on how many capships are already here. But most of the time we do not want more than 1 OCV invader fleet per sector." />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="96" />
+					<sval type="int" val="100" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="97" />
+					<sval type="int" val="101" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="97" />
+					<sval type="int" val="101" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="100" />
+					<sval type="int" val="104" />
 					<sval type="int" val="1" />
 					<sval type="string" val="don't waste time when grinding" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="102" />
+					<sval type="int" val="106" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="102" />
+					<sval type="int" val="106" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="103" />
+					<sval type="int" val="107" />
 					<sval type="int" val="1" />
 					<sval type="string" val="Priorities: Huge ships, Big ships, Factories, Outposts." />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="103" />
+					<sval type="int" val="107" />
 					<sval type="int" val="1" />
 					<sval type="string" val="$target = find ship: sector=[SECTOR] class or type=[Huge Ship] race=null flags=$flags refobj=[THIS] maxdist=80000 maxnum=1 refpos=null" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="103" />
+					<sval type="int" val="107" />
 					<sval type="int" val="1" />
 					<sval type="string" val="= wait 100 ms" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="103" />
+					<sval type="int" val="107" />
 					<sval type="int" val="1" />
 					<sval type="string" val="skip if $target-&gt; exists" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="103" />
+					<sval type="int" val="107" />
 					<sval type="int" val="1" />
 					<sval type="string" val="$target = find ship: sector=[SECTOR] class or type=[Big Ship] race=null flags=$flags refobj=[THIS] maxdist=80000 maxnum=1 refpos=null" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="103" />
+					<sval type="int" val="107" />
 					<sval type="int" val="1" />
 					<sval type="string" val="= wait 100 ms" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="108" />
+					<sval type="int" val="112" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="112" />
+					<sval type="int" val="116" />
 					<sval type="int" val="5" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="114" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Also see !station.signal.killed." />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="115" />
-					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="118" />
 					<sval type="int" val="1" />
+					<sval type="string" val="Also see !station.signal.killed." />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="119" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="122" />
+					<sval type="int" val="1" />
 					<sval type="string" val="don't waste time when grinding" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="120" />
+					<sval type="int" val="124" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="121" />
+					<sval type="int" val="125" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="121" />
+					<sval type="int" val="125" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="121" />
+					<sval type="int" val="125" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="122" />
+					<sval type="int" val="126" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="122" />
+					<sval type="int" val="126" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="123" />
+					<sval type="int" val="127" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="123" />
+					<sval type="int" val="127" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="124" />
+					<sval type="int" val="128" />
 					<sval type="int" val="1" />
 					<sval type="string" val="Zero Hour: we need to ensure that Terraformer capships tend to spread out and don't create undefeatable doomstacks" />
 				</sval>
