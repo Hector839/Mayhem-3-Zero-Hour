@@ -765,7 +765,7 @@
 			<text>=</text>
 			<var>$enemy</var>
 		</line>
-		<line linenr="099" indent="&#160;" interruptable="@">
+		<line linenr="099" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -791,10 +791,10 @@
 			<text>=</text>
 			<var>[Foe]</var>
 		</line>
-		<line linenr="100" indent="">
+		<line linenr="100" indent="&#160;&#160;">
 			<comment>* Make sure coalition members have no truce against the enemy.</comment>
 		</line>
-		<line linenr="101" indent="" interruptable="@">
+		<line linenr="101" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
@@ -818,7 +818,7 @@
 			<text>=</text>
 			<var>$enemy</var>
 		</line>
-		<line linenr="102" indent="" interruptable="@">
+		<line linenr="102" indent="&#160;&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -840,10 +840,10 @@
 			<text>=</text>
 			<var>$enemy</var>
 		</line>
-		<line linenr="103" indent="">
+		<line linenr="103" indent="&#160;&#160;&#160;">
 			<comment>* Make sure everyone is friendly in the coalition.</comment>
 		</line>
-		<line linenr="104" indent="">
+		<line linenr="104" indent="&#160;&#160;&#160;">
 			<var>$XS.Iterator4</var>
 			<text> </text>
 			<text>=</text>
@@ -856,17 +856,17 @@
 			<text> </text>
 			<var>$coalitionAllies</var>
 		</line>
-		<line linenr="105" indent="">
+		<line linenr="105" indent="&#160;&#160;&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$XS.Iterator4</var>
 		</line>
-		<line linenr="106" indent="">
+		<line linenr="106" indent="&#160;&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$XS.Iterator4</var>
 		</line>
-		<line linenr="107" indent="">
+		<line linenr="107" indent="&#160;&#160;&#160;">
 			<var>$ally</var>
 			<text> </text>
 			<text>=</text>
@@ -876,11 +876,11 @@
 			<var>$XS.Iterator4</var>
 			<text>]</text>
 		</line>
-		<line linenr="108" indent="">
+		<line linenr="108" indent="&#160;&#160;">
 			<comment>* Zero Hour: also suppress total war</comment>
 		</line>
-		<line linenr="109" indent="">
-			<comment>*skip if [NULL]-&gt; call script 'Mayhem.HasTotalWar' : raceOrObject1=$coalitionAlly raceOrObject2=$ally</comment>
+		<line linenr="109" indent="&#160;">
+			<comment>* skip if [NULL]-&gt; call script 'Mayhem.HasTotalWar' : raceOrObject1=$coalitionAlly raceOrObject2=$ally</comment>
 		</line>
 		<line linenr="110" indent="" interruptable="@">
 			<text>=</text>
@@ -909,13 +909,109 @@
 			<var>[Friend]</var>
 		</line>
 		<line linenr="111" indent="">
-			<text>end</text>
+			<comment>* ZH 1.8 give player a favor point</comment>
 		</line>
 		<line linenr="112" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$coalitionAlly</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[Player]</var>
+		</line>
+		<line linenr="113" indent="">
+			<comment>* award 1 favor</comment>
+		</line>
+		<line linenr="114" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Favor.AddPoints</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>race</text>
+			<text>=</text>
+			<var>$ally</var>
+			<text> </text>
+			<text>nbOfPoints</text>
+			<text>=</text>
+			<var>1</var>
+		</line>
+		<line linenr="115" indent="">
+			<comment>* sign Truces to enforce peace by player</comment>
+		</line>
+		<line linenr="116" indent="">
+			<var>$PlayerPacts</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'PlayerPacts'</text>
+		</line>
+		<line linenr="117" indent="">
+			<var>$playtime</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>playing</text>
+			<text> </text>
+			<text>time</text>
+		</line>
+		<line linenr="118" indent="">
+			<var>$pactTime</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$playtime</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>43200</var>
+		</line>
+		<line linenr="119" indent="">
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$PlayerPacts</var>
+			<text> </text>
+			<text>(</text>
+			<text> </text>
+			<var>$ally</var>
+			<text> </text>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$pactTime</var>
+		</line>
+		<line linenr="120" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="113" indent="" />
-		<line linenr="114" indent="">
+		<line linenr="121" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="122" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="123" indent="" />
+		<line linenr="124" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>$status</var>
@@ -928,7 +1024,7 @@
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="23">
+			<sval type="array" size="26">
 				<sval type="string" val="race" />
 				<sval type="string" val="enemy" />
 				<sval type="string" val="coalitions" />
@@ -952,8 +1048,11 @@
 				<sval type="string" val="coalitionAlly" />
 				<sval type="string" val="XS.Iterator3" />
 				<sval type="string" val="XS.Iterator4" />
+				<sval type="string" val="PlayerPacts" />
+				<sval type="string" val="playtime" />
+				<sval type="string" val="pactTime" />
 			</sval>
-			<sval type="array" size="70">
+			<sval type="array" size="76">
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
 					<sval type="int" val="-1610612216" />
@@ -1511,7 +1610,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610595063" />
+					<sval type="int" val="-1610593527" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="21" />
@@ -1588,7 +1687,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610595319" />
+					<sval type="int" val="-1610593783" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="22" />
@@ -1621,6 +1720,67 @@
 					<sval type="int" val="14" />
 					<sval type="int" val="1" />
 				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610594045" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+					<sval type="int" val="10" />
+					<sval type="int" val="10" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Favor.AddPoints" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="PlayerPacts" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="141" />
+					<sval type="int" val="24" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="25" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="4" />
+					<sval type="int" val="43200" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1708" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
 					<sval type="int" val="63" />
@@ -1645,7 +1805,7 @@
 					<sval type="string" val="" />
 				</sval>
 			</sval>
-			<sval type="array" size="53">
+			<sval type="array" size="57">
 				<sval type="array" size="2">
 					<sval type="int" val="0" />
 					<sval type="int" val="2" />
@@ -1872,16 +2032,35 @@
 					<sval type="int" val="1" />
 					<sval type="string" val="skip if [NULL]-&gt; call script 'Mayhem.HasTotalWar' : raceOrObject1=$coalitionAlly raceOrObject2=$ally" />
 				</sval>
-				<sval type="array" size="2">
+				<sval type="array" size="3">
+					<sval type="int" val="67" />
+					<sval type="int" val="1" />
+					<sval type="string" val="ZH 1.8 give player a favor point" />
+				</sval>
+				<sval type="array" size="3">
 					<sval type="int" val="68" />
+					<sval type="int" val="1" />
+					<sval type="string" val="award 1 favor" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="69" />
+					<sval type="int" val="1" />
+					<sval type="string" val="sign Truces to enforce peace by player" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="73" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="69" />
+					<sval type="int" val="74" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="69" />
+					<sval type="int" val="75" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="75" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
