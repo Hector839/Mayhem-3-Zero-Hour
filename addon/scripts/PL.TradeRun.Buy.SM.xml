@@ -1,0 +1,4928 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>PL.TradeRun.Buy.SM</name>
+	<version>15</version>
+	<engineversion>50</engineversion>
+	<description>Menu: Trade Run: Buy - Set Menu</description>
+	<arguments>
+		<argument index="1" name="Menu" type="Value" desc="Menu" />
+		<argument index="2" name="Control" type="Value" desc="Control" />
+		<argument index="3" name="Changeline" type="Var/Boolean" desc="Changeline" />
+		<argument index="4" name="CallbackReturn" type="Value" desc="Callback return" />
+		<argument index="5" name="This" type="Value" desc="This" />
+		<argument index="6" name="Key.Menu" type="Var/String" desc="Key.Menu" />
+		<argument index="7" name="Key.Settings" type="Var/String" desc="Key.Settings" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$Changeline</var>
+		</line>
+		<line linenr="002" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="003" indent="" />
+		<line linenr="004" indent="">
+			<var>$Settings</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<var>$Key.Settings</var>
+		</line>
+		<line linenr="005" indent="">
+			<var>$SelectedMainType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Settings</var>
+			<text>[</text>
+			<var>1</var>
+			<text>]</text>
+		</line>
+		<line linenr="006" indent="">
+			<var>$SelectedWare</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Settings</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+		</line>
+		<line linenr="007" indent="">
+			<var>$TradebarAmount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Settings</var>
+			<text>[</text>
+			<var>3</var>
+			<text>]</text>
+		</line>
+		<line linenr="008" indent="">
+			<var>$SelectedAmount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Settings</var>
+			<text>[</text>
+			<var>4</var>
+			<text>]</text>
+		</line>
+		<line linenr="009" indent="">
+			<var>$SelectedUnloadWareAtHomebase</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Settings</var>
+			<text>[</text>
+			<var>5</var>
+			<text>]</text>
+		</line>
+		<line linenr="010" indent="">
+			<var>$SelectedKeepShopping</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Settings</var>
+			<text>[</text>
+			<var>6</var>
+			<text>]</text>
+		</line>
+		<line linenr="011" indent="">
+			<var>$SelectedKeepShoppingTimer</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Settings</var>
+			<text>[</text>
+			<var>7</var>
+			<text>]</text>
+		</line>
+		<line linenr="012" indent="" />
+		<line linenr="013" indent="">
+			<var>$Values.Wares</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="014" indent="" />
+		<line linenr="015" indent="">
+			<comment>* $Values.MainTypes = create new array, arguments= 8, 9, 10, 11, 12, 13, 14, 15, 16</comment>
+		</line>
+		<line linenr="016" indent="">
+			<comment>* $Values.MainTypeNames = create new array, arguments= 'Lasers', 'Shields', 'Missiles', 'Energy', 'Natural', 'Bio', 'Food', 'Minerals', 'Tech'</comment>
+		</line>
+		<line linenr="017" indent="" />
+		<line linenr="018" indent="">
+			<var>$Values.MainTypes</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>6</var>
+		</line>
+		<line linenr="019" indent="">
+			<var>$Values.MainTypes</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[SSTYPE_W_MINERALS]</var>
+		</line>
+		<line linenr="020" indent="">
+			<var>$Values.MainTypes</var>
+			<text>[</text>
+			<var>1</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[SSTYPE_W_ENERGY]</var>
+		</line>
+		<line linenr="021" indent="">
+			<var>$Values.MainTypes</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[SSTYPE_LASER]</var>
+		</line>
+		<line linenr="022" indent="">
+			<var>$Values.MainTypes</var>
+			<text>[</text>
+			<var>3</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[SSTYPE_MISSILE]</var>
+		</line>
+		<line linenr="023" indent="">
+			<var>$Values.MainTypes</var>
+			<text>[</text>
+			<var>4</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[SSTYPE_SHIELD]</var>
+		</line>
+		<line linenr="024" indent="">
+			<var>$Values.MainTypes</var>
+			<text>[</text>
+			<var>5</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[SSTYPE_W_TECH]</var>
+		</line>
+		<line linenr="025" indent="">
+			<var>$Values.MainTypeNames</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>6</var>
+		</line>
+		<line linenr="026" indent="">
+			<var>$Values.MainTypeNames</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Common'</text>
+		</line>
+		<line linenr="027" indent="">
+			<var>$Values.MainTypeNames</var>
+			<text>[</text>
+			<var>1</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Energy'</text>
+		</line>
+		<line linenr="028" indent="">
+			<var>$Values.MainTypeNames</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Lasers'</text>
+		</line>
+		<line linenr="029" indent="">
+			<var>$Values.MainTypeNames</var>
+			<text>[</text>
+			<var>3</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Missiles'</text>
+		</line>
+		<line linenr="030" indent="">
+			<var>$Values.MainTypeNames</var>
+			<text>[</text>
+			<var>4</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Shields'</text>
+		</line>
+		<line linenr="031" indent="">
+			<var>$Values.MainTypeNames</var>
+			<text>[</text>
+			<var>5</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Tech'</text>
+		</line>
+		<line linenr="032" indent="" />
+		<line linenr="033" indent="">
+			<var>$Values.UnloadWaresAtHomebase</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>new</text>
+			<text> </text>
+			<text>array</text>
+			<text>,</text>
+			<text> </text>
+			<text>arguments</text>
+			<text>=</text>
+			<text>'No'</text>
+			<text>,</text>
+			<text> </text>
+			<text>'Yes'</text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="034" indent="&#160;">
+			<var>$Values.KeepShopping</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>new</text>
+			<text> </text>
+			<text>array</text>
+			<text>,</text>
+			<text> </text>
+			<text>arguments</text>
+			<text>=</text>
+			<text>'No'</text>
+			<text>,</text>
+			<text> </text>
+			<text>'Yes'</text>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="035" indent="">
+			<var>$Values.KeepShoppingTimer</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>new</text>
+			<text> </text>
+			<text>array</text>
+			<text>,</text>
+			<text> </text>
+			<text>arguments</text>
+			<text>=</text>
+			<var>2</var>
+			<text>,</text>
+			<text> </text>
+			<var>5</var>
+			<text>,</text>
+			<text> </text>
+			<var>10</var>
+			<text>,</text>
+			<text> </text>
+			<var>15</var>
+			<text>,</text>
+			<text> </text>
+			<var>30</var>
+		</line>
+		<line linenr="036" indent="" />
+		<line linenr="037" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>GetWares</var>
+			<text>:</text>
+		</line>
+		<line linenr="038" indent="" />
+		<line linenr="039" indent="">
+			<comment>* $Has = $This-&gt; get amount of ware $SelectedWare in cargo bay</comment>
+		</line>
+		<line linenr="040" indent="">
+			<comment>* do if $TradebarAmount &lt; $Has</comment>
+		</line>
+		<line linenr="041" indent="">
+			<comment>* $TradebarAmount = $Has</comment>
+		</line>
+		<line linenr="042" indent="" />
+		<line linenr="043" indent="" />
+		<line linenr="044" indent="" />
+		<line linenr="045" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+		</line>
+		<line linenr="046" indent="">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>CallBackReturn</var>
+			<text>:</text>
+		</line>
+		<line linenr="047" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="048" indent="" />
+		<line linenr="049" indent="">
+			<var>WriteMenu</var>
+			<text>:</text>
+		</line>
+		<line linenr="050" indent="" />
+		<line linenr="051" indent="">
+			<var>$Menu</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<var>$Key.Menu</var>
+		</line>
+		<line linenr="052" indent="">
+			<text>resize</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="053" indent="" />
+		<line linenr="054" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>AddOptions</var>
+			<text>:</text>
+		</line>
+		<line linenr="055" indent="" />
+		<line linenr="056" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'This command respects Export/Import thresholds.'</text>
+		</line>
+		<line linenr="057" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'&gt; to ignore them and find more clients use Trade Product Search instead (manual trade).'</text>
+		</line>
+		<line linenr="058" indent="&#160;&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>option</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>page</text>
+			<text> </text>
+			<text>up</text>
+			<text>/</text>
+			<text>down</text>
+			<text> </text>
+			<text>keys</text>
+			<text> </text>
+			<text>for</text>
+			<text> </text>
+			<text>info</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="059" indent="&#160;&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>option</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>icon</text>
+			<text>=</text>
+			<text> </text>
+			<var>61</var>
+		</line>
+		<line linenr="060" indent="&#160;&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<var>$Key.Menu</var>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$Menu</var>
+		</line>
+		<line linenr="061" indent="&#160;&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="062" indent="&#160;&#160;" />
+		<line linenr="063" indent="&#160;&#160;">
+			<var>CallBackReturn</var>
+			<text>:</text>
+		</line>
+		<line linenr="064" indent="&#160;&#160;" />
+		<line linenr="065" indent="&#160;&#160;">
+			<var>$ControlType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Control</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+		</line>
+		<line linenr="066" indent="&#160;" />
+		<line linenr="067" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$ControlType</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>-22</var>
+		</line>
+		<line linenr="068" indent="">
+			<var>$ReturnID</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+		</line>
+		<line linenr="069" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$ReturnID</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<text>'MainType'</text>
+		</line>
+		<line linenr="070" indent="&#160;">
+			<var>$Index</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+		</line>
+		<line linenr="071" indent="&#160;">
+			<var>$SelectedMainType</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Values.MainTypes</var>
+			<text>[</text>
+			<var>$Index</var>
+			<text>]</text>
+		</line>
+		<line linenr="072" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>GetWares</var>
+			<text>:</text>
+		</line>
+		<line linenr="073" indent="&#160;&#160;">
+			<var>$SelectedWare</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Values.Wares</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+		</line>
+		<line linenr="074" indent="&#160;&#160;">
+			<var>$SelectedAmount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="075" indent="&#160;&#160;">
+			<var>$TradebarAmount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="076" indent="&#160;&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>SetMenuPassThrough</var>
+			<text>:</text>
+		</line>
+		<line linenr="077" indent="&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>WriteMenu</var>
+			<text>:</text>
+		</line>
+		<line linenr="078" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="079" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="080" indent="&#160;&#160;" />
+		<line linenr="081" indent="&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$ControlType</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>-4</var>
+		</line>
+		<line linenr="082" indent="&#160;">
+			<var>$ReturnID</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+		</line>
+		<line linenr="083" indent="&#160;&#160;" />
+		<line linenr="084" indent="&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$ReturnID</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<text>'UnloadWares'</text>
+		</line>
+		<line linenr="085" indent="&#160;&#160;">
+			<var>$Index</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+		</line>
+		<line linenr="086" indent="&#160;&#160;">
+			<var>$SelectedUnloadWareAtHomebase</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Values.UnloadWaresAtHomebase</var>
+			<text>[</text>
+			<var>$Index</var>
+			<text>]</text>
+		</line>
+		<line linenr="087" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>SetMenuPassThrough</var>
+			<text>:</text>
+		</line>
+		<line linenr="088" indent="&#160;&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>WriteMenu</var>
+			<text>:</text>
+		</line>
+		<line linenr="089" indent="&#160;&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ReturnID</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<text>'range'</text>
+		</line>
+		<line linenr="090" indent="&#160;&#160;">
+			<var>$Index</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+		</line>
+		<line linenr="091" indent="&#160;&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_tradeRunMaxRange'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$Index</var>
+		</line>
+		<line linenr="092" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>SetMenuPassThrough</var>
+			<text>:</text>
+		</line>
+		<line linenr="093" indent="&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>WriteMenu</var>
+			<text>:</text>
+		</line>
+		<line linenr="094" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ReturnID</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<text>'KeepShopping'</text>
+		</line>
+		<line linenr="095" indent="">
+			<var>$Index</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+		</line>
+		<line linenr="096" indent="">
+			<var>$SelectedKeepShopping</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Values.KeepShopping</var>
+			<text>[</text>
+			<var>$Index</var>
+			<text>]</text>
+		</line>
+		<line linenr="097" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>SetMenuPassThrough</var>
+			<text>:</text>
+		</line>
+		<line linenr="098" indent="&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>WriteMenu</var>
+			<text>:</text>
+		</line>
+		<line linenr="099" indent="&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$ReturnID</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<text>'KeepShoppingTimer'</text>
+		</line>
+		<line linenr="100" indent="&#160;">
+			<var>$Index</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+		</line>
+		<line linenr="101" indent="&#160;">
+			<var>$SelectedKeepShoppingTimer</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Values.KeepShoppingTimer</var>
+			<text>[</text>
+			<var>$Index</var>
+			<text>]</text>
+		</line>
+		<line linenr="102" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>SetMenuPassThrough</var>
+			<text>:</text>
+		</line>
+		<line linenr="103" indent="&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>WriteMenu</var>
+			<text>:</text>
+		</line>
+		<line linenr="104" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="105" indent="&#160;" />
+		<line linenr="106" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="107" indent="&#160;" />
+		<line linenr="108" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$ControlType</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>-21</var>
+		</line>
+		<line linenr="109" indent="">
+			<var>$Current</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+			<text>[</text>
+			<var>1</var>
+			<text>]</text>
+		</line>
+		<line linenr="110" indent="">
+			<var>$PressedEnter</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+		</line>
+		<line linenr="111" indent="&#160;">
+			<comment>* if $PressedEnter &amp; $Current &gt; 0</comment>
+		</line>
+		<line linenr="112" indent="&#160;">
+			<var>$SelectedAmount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Current</var>
+		</line>
+		<line linenr="113" indent="&#160;">
+			<comment>* $Has = $This-&gt; get amount of ware $SelectedWare in cargo bay</comment>
+		</line>
+		<line linenr="114" indent="&#160;">
+			<comment>* $SelectedAmount = $SelectedAmount - $Has</comment>
+		</line>
+		<line linenr="115" indent="&#160;">
+			<comment>* end</comment>
+		</line>
+		<line linenr="116" indent="">
+			<comment>* $TradebarAmount = $Control[10]</comment>
+		</line>
+		<line linenr="117" indent="">
+			<var>$TradebarAmount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$SelectedAmount</var>
+		</line>
+		<line linenr="118" indent="">
+			<text>gosub</text>
+			<text> </text>
+			<var>SetMenuPassThrough</var>
+			<text>:</text>
+		</line>
+		<line linenr="119" indent="">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>WriteMenu</var>
+			<text>:</text>
+		</line>
+		<line linenr="120" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="121" indent="&#160;" />
+		<line linenr="122" indent="&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>datatype</text>
+			<text>[</text>
+			<var>$CallbackReturn</var>
+			<text>]</text>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[DATATYPE_WARE]</var>
+		</line>
+		<line linenr="123" indent="&#160;">
+			<var>$SelectedWare</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$CallbackReturn</var>
+		</line>
+		<line linenr="124" indent="&#160;">
+			<var>$SelectedAmount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="125" indent="&#160;&#160;">
+			<var>$TradebarAmount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="126" indent="&#160;&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>SetMenuPassThrough</var>
+			<text>:</text>
+		</line>
+		<line linenr="127" indent="&#160;">
+			<text>goto</text>
+			<text> </text>
+			<text>label</text>
+			<text> </text>
+			<var>WriteMenu</var>
+			<text>:</text>
+		</line>
+		<line linenr="128" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="129" indent="&#160;" />
+		<line linenr="130" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="131" indent="&#160;" />
+		<line linenr="132" indent="&#160;">
+			<var>AddOptions</var>
+			<text>:</text>
+		</line>
+		<line linenr="133" indent="&#160;" />
+		<line linenr="134" indent="&#160;&#160;">
+			<var>$Count</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Values.Wares</var>
+		</line>
+		<line linenr="135" indent="&#160;&#160;">
+			<var>$Values.Wares</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>reverse</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Values.Wares</var>
+		</line>
+		<line linenr="136" indent="&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$Count</var>
+		</line>
+		<line linenr="137" indent="&#160;&#160;">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>text</text>
+			<text> </text>
+			<text>for</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text>,</text>
+			<text> </text>
+			<text>left</text>
+			<text>=</text>
+			<text>'Ware'</text>
+			<text>,</text>
+			<text> </text>
+			<text>right</text>
+			<text>=</text>
+			<text>'Cargo'</text>
+		</line>
+		<line linenr="138" indent="&#160;&#160;&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>:</text>
+			<text> </text>
+			<text>title</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="139" indent="&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="140" indent="&#160;&#160;" />
+		<line linenr="141" indent="&#160;&#160;">
+			<var>$Index</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>index</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<var>$SelectedMainType</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Values.MainTypes</var>
+			<text> </text>
+			<text>offset</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="142" indent="&#160;&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>with</text>
+			<text> </text>
+			<text>match</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'Type'</text>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$Values.MainTypes</var>
+			<text>,</text>
+			<text> </text>
+			<text>display</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$Values.MainTypeNames</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>$Index</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<text>'MainType'</text>
+		</line>
+		<line linenr="143" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>section</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+		</line>
+		<line linenr="144" indent="&#160;" />
+		<line linenr="145" indent="&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$Count</var>
+		</line>
+		<line linenr="146" indent="&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$Count</var>
+		</line>
+		<line linenr="147" indent="&#160;">
+			<var>$Ware</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Values.Wares</var>
+			<text>[</text>
+			<var>$Count</var>
+			<text>]</text>
+		</line>
+		<line linenr="148" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>sprintf</text>
+			<text>:</text>
+			<text> </text>
+			<text>fmt</text>
+			<text>=</text>
+			<text>'%s'</text>
+			<text>,</text>
+			<text> </text>
+			<var>$Ware</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="149" indent="&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$Ware</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$SelectedWare</var>
+		</line>
+		<line linenr="150" indent="&#160;" interruptable="@">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Lib.MenuHelp.ColourSelected</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>Text</text>
+			<text>=</text>
+			<var>$Text</var>
+		</line>
+		<line linenr="151" indent="&#160;">
+			<var>$Has</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$This</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>amount</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<var>$Ware</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>cargo</text>
+			<text> </text>
+			<text>bay</text>
+		</line>
+		<line linenr="152" indent="&#160;">
+			<var>$Has</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>convert</text>
+			<text> </text>
+			<text>number</text>
+			<text> </text>
+			<var>$Has</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>string</text>
+		</line>
+		<line linenr="153" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>text</text>
+			<text> </text>
+			<text>for</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text>,</text>
+			<text> </text>
+			<text>left</text>
+			<text>=</text>
+			<var>$Text</var>
+			<text>,</text>
+			<text> </text>
+			<text>right</text>
+			<text>=</text>
+			<var>$Has</var>
+		</line>
+		<line linenr="154" indent="&#160;&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>dynamic</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$Text</var>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$Ware</var>
+		</line>
+		<line linenr="155" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="156" indent="&#160;" />
+		<line linenr="157" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>:</text>
+			<text> </text>
+			<text>title</text>
+			<text>=</text>
+			<text>'Setup'</text>
+		</line>
+		<line linenr="158" indent="&#160;&#160;" />
+		<line linenr="159" indent="&#160;">
+			<var>$MaxAmount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$This</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>free</text>
+			<text> </text>
+			<text>amount</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<var>$SelectedWare</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>cargo</text>
+			<text> </text>
+			<text>bay</text>
+		</line>
+		<line linenr="160" indent="&#160;">
+			<var>$Has</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$This</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>amount</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<var>$SelectedWare</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>cargo</text>
+			<text> </text>
+			<text>bay</text>
+		</line>
+		<line linenr="161" indent="&#160;" />
+		<line linenr="162" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>convert</text>
+			<text> </text>
+			<text>number</text>
+			<text> </text>
+			<var>$SelectedAmount</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>string</text>
+		</line>
+		<line linenr="163" indent="&#160;">
+			<var>$Text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>text</text>
+			<text> </text>
+			<text>for</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text>,</text>
+			<text> </text>
+			<text>left</text>
+			<text>=</text>
+			<text>'Amount'</text>
+			<text>,</text>
+			<text> </text>
+			<text>right</text>
+			<text>=</text>
+			<var>$Text</var>
+		</line>
+		<line linenr="164" indent="&#160;" />
+		<line linenr="165" indent="&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>datatype</text>
+			<text>[</text>
+			<var>$SelectedWare</var>
+			<text>]</text>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[DATATYPE_WARE]</var>
+		</line>
+		<line linenr="166" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>dynamic</text>
+			<text> </text>
+			<text>trade</text>
+			<text> </text>
+			<text>bar</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$Text</var>
+			<text>,</text>
+			<text> </text>
+			<text>min</text>
+			<text>=</text>
+			<var>0</var>
+			<text>,</text>
+			<text> </text>
+			<text>max</text>
+			<text>=</text>
+			<var>$MaxAmount</var>
+			<text>,</text>
+			<text> </text>
+			<text>current</text>
+			<text>=</text>
+			<var>$SelectedAmount</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<text>'Amount'</text>
+			<text>,</text>
+			<text> </text>
+			<text>left</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$SelectedWare</var>
+			<text>,</text>
+			<text> </text>
+			<text>right</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>''</text>
+			<text>,</text>
+			<text> </text>
+			<text>enter</text>
+			<text> </text>
+			<text>sets</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="167" indent="&#160;" />
+		<line linenr="168" indent="&#160;">
+			<var>$range</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_tradeRunMaxRange'</text>
+		</line>
+		<line linenr="169" indent="&#160;&#160;">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$range</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="170" indent="&#160;&#160;">
+			<var>$range</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>5</var>
+		</line>
+		<line linenr="171" indent="&#160;">
+			<var>$values.range</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>11</var>
+		</line>
+		<line linenr="172" indent="&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>0</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="173" indent="&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>1</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="174" indent="&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>2</var>
+		</line>
+		<line linenr="175" indent="&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>3</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>3</var>
+		</line>
+		<line linenr="176" indent="&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>4</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>4</var>
+		</line>
+		<line linenr="177" indent="&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>5</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>5</var>
+		</line>
+		<line linenr="178" indent="&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>6</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>6</var>
+		</line>
+		<line linenr="179" indent="&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>7</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>7</var>
+		</line>
+		<line linenr="180" indent="&#160;&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>8</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>8</var>
+		</line>
+		<line linenr="181" indent="&#160;&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>9</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>9</var>
+		</line>
+		<line linenr="182" indent="&#160;&#160;&#160;">
+			<var>$values.range</var>
+			<text>[</text>
+			<var>10</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>10</var>
+		</line>
+		<line linenr="183" indent="&#160;&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'Trade run max. range'</text>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$values.range</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>$range</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<text>'range'</text>
+		</line>
+		<line linenr="184" indent="&#160;&#160;&#160;" />
+		<line linenr="185" indent="&#160;&#160;">
+			<var>$Index</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>index</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<var>$SelectedUnloadWareAtHomebase</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Values.UnloadWaresAtHomebase</var>
+			<text> </text>
+			<text>offset</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="186" indent="&#160;&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'Unload wares at homebase'</text>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$Values.UnloadWaresAtHomebase</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>$Index</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<text>'UnloadWares'</text>
+		</line>
+		<line linenr="187" indent="&#160;&#160;" />
+		<line linenr="188" indent="&#160;&#160;&#160;">
+			<comment>* $Index = get index of $SelectedKeepShopping in array $Values.KeepShopping offset=0</comment>
+		</line>
+		<line linenr="189" indent="&#160;&#160;&#160;">
+			<comment>* add value selection to menu: $Menu, text='Standby', value array=$Values.KeepShopping, default=$Index, return id='KeepShopping'</comment>
+		</line>
+		<line linenr="190" indent="&#160;&#160;&#160;" />
+		<line linenr="191" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$SelectedKeepShopping</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<text>'Yes'</text>
+		</line>
+		<line linenr="192" indent="&#160;&#160;&#160;">
+			<var>$Index</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>index</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<var>$SelectedKeepShoppingTimer</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Values.KeepShoppingTimer</var>
+			<text> </text>
+			<text>offset</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="193" indent="&#160;&#160;&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'Standby timer'</text>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$Values.KeepShoppingTimer</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>$Index</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<text>'KeepShoppingTimer'</text>
+		</line>
+		<line linenr="194" indent="&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="195" indent="&#160;&#160;&#160;" />
+		<line linenr="196" indent="&#160;&#160;&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>section</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+		</line>
+		<line linenr="197" indent="&#160;&#160;">
+			<var>$priceAv</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>average</text>
+			<text> </text>
+			<text>price</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<var>$SelectedWare</var>
+		</line>
+		<line linenr="198" indent="&#160;&#160;&#160;">
+			<var>$price</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$priceAv</var>
+			<text> </text>
+			<text>*</text>
+			<text> </text>
+			<var>$SelectedAmount</var>
+		</line>
+		<line linenr="199" indent="&#160;&#160;&#160;">
+			<var>$price.f</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>convert</text>
+			<text> </text>
+			<text>number</text>
+			<text> </text>
+			<var>$price</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>string</text>
+		</line>
+		<line linenr="200" indent="&#160;&#160;">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Total average price: '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$price.f</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>' Cr.'</text>
+		</line>
+		<line linenr="201" indent="&#160;&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="202" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>datatype</text>
+			<text>[</text>
+			<var>$SelectedWare</var>
+			<text>]</text>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[DATATYPE_WARE]</var>
+		</line>
+		<line linenr="203" indent="&#160;&#160;&#160;&#160;">
+			<var>$Flags</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[GetBestStation.RespectPPP]</var>
+			<text> </text>
+			<text>|</text>
+			<text> </text>
+			<var>[GetBestStation.NoUnknown]</var>
+			<text> </text>
+			<text>|</text>
+			<text> </text>
+			<var>[GetBestStation.NoJumpDrive]</var>
+			<text> </text>
+			<text>|</text>
+			<text> </text>
+			<var>[GetBestStation.IsNotEnemy]</var>
+		</line>
+		<line linenr="204" indent="&#160;&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$SelectedAmount</var>
+		</line>
+		<line linenr="205" indent="&#160;&#160;&#160;">
+			<var>$a</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$SelectedAmount</var>
+		</line>
+		<line linenr="206" indent="&#160;&#160;&#160;&#160;">
+			<text>else</text>
+		</line>
+		<line linenr="207" indent="&#160;&#160;&#160;&#160;">
+			<var>$a</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="208" indent="&#160;&#160;&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="209" indent="&#160;&#160;" interruptable="@">
+			<var>$Station</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$This</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Lib.Cmd.Trade.GetStationBestPrice</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>BuySell</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+			<text> </text>
+			<text>StartSector</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>Ware</text>
+			<text>=</text>
+			<var>$SelectedWare</var>
+			<text> </text>
+			<text>MaxJumps</text>
+			<text>=</text>
+			<var>$range</var>
+			<text> </text>
+			<text>RejectPrice</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>MinAmount</text>
+			<text>=</text>
+			<var>$a</var>
+			<text> </text>
+			<text>Flags</text>
+			<text>=</text>
+			<var>$Flags</var>
+			<text> </text>
+			<text>Exclude</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>RequestLock</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="210" indent="&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$Station</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>exists</text>
+		</line>
+		<line linenr="211" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>section</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+		</line>
+		<line linenr="212" indent="">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Client: '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$Station</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>'.'</text>
+		</line>
+		<line linenr="213" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="214" indent="">
+			<var>$priceAv</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Station</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>price</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<var>$SelectedWare</var>
+		</line>
+		<line linenr="215" indent="&#160;">
+			<var>$price</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$priceAv</var>
+			<text> </text>
+			<text>*</text>
+			<text> </text>
+			<var>$SelectedAmount</var>
+		</line>
+		<line linenr="216" indent="&#160;">
+			<var>$price.f</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>convert</text>
+			<text> </text>
+			<text>number</text>
+			<text> </text>
+			<var>$price</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>string</text>
+		</line>
+		<line linenr="217" indent="&#160;">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Total client price: '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$price.f</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>' Cr.'</text>
+		</line>
+		<line linenr="218" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="219" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>section</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+		</line>
+		<line linenr="220" indent="&#160;">
+			<text>else</text>
+		</line>
+		<line linenr="221" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>section</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+		</line>
+		<line linenr="222" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'No client.'</text>
+		</line>
+		<line linenr="223" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="224" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$Station</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>exists</text>
+		</line>
+		<line linenr="225" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$SelectedAmount</var>
+			<text> </text>
+			<text>&gt;</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="226" indent="" interruptable="@">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.ColorText</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'Start trade run'</text>
+			<text> </text>
+			<text>color</text>
+			<text>=</text>
+			<text>'g'</text>
+		</line>
+		<line linenr="227" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+			<text> </text>
+			<text>returnvalue</text>
+			<text>=</text>
+			<text>'Start'</text>
+		</line>
+		<line linenr="228" indent="">
+			<text>else</text>
+		</line>
+		<line linenr="229" indent="" interruptable="@">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.ColorText</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'Start trade run'</text>
+			<text> </text>
+			<text>color</text>
+			<text>=</text>
+			<text>'a'</text>
+		</line>
+		<line linenr="230" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$Menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="231" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="232" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="233" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="234" indent="&#160;" />
+		<line linenr="235" indent="&#160;">
+			<text>endsub</text>
+		</line>
+		<line linenr="236" indent="&#160;&#160;" />
+		<line linenr="237" indent="&#160;&#160;">
+			<var>SetMenuPassThrough</var>
+			<text>:</text>
+		</line>
+		<line linenr="238" indent="&#160;&#160;">
+			<var>$Settings</var>
+			<text>[</text>
+			<var>1</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$SelectedMainType</var>
+		</line>
+		<line linenr="239" indent="&#160;&#160;">
+			<var>$Settings</var>
+			<text>[</text>
+			<var>2</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$SelectedWare</var>
+		</line>
+		<line linenr="240" indent="&#160;&#160;&#160;">
+			<var>$Settings</var>
+			<text>[</text>
+			<var>3</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$TradebarAmount</var>
+		</line>
+		<line linenr="241" indent="&#160;&#160;">
+			<var>$Settings</var>
+			<text>[</text>
+			<var>4</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$SelectedAmount</var>
+		</line>
+		<line linenr="242" indent="&#160;&#160;&#160;">
+			<var>$Settings</var>
+			<text>[</text>
+			<var>5</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$SelectedUnloadWareAtHomebase</var>
+		</line>
+		<line linenr="243" indent="&#160;&#160;">
+			<var>$Settings</var>
+			<text>[</text>
+			<var>6</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$SelectedKeepShopping</var>
+		</line>
+		<line linenr="244" indent="&#160;&#160;&#160;">
+			<var>$Settings</var>
+			<text>[</text>
+			<var>7</var>
+			<text>]</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$SelectedKeepShoppingTimer</var>
+		</line>
+		<line linenr="245" indent="&#160;&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<var>$Key.Settings</var>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$Settings</var>
+		</line>
+		<line linenr="246" indent="&#160;&#160;">
+			<text>endsub</text>
+		</line>
+		<line linenr="247" indent="&#160;&#160;" />
+		<line linenr="248" indent="&#160;&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="249" indent="&#160;&#160;" />
+		<line linenr="250" indent="&#160;&#160;" />
+		<line linenr="251" indent="&#160;&#160;" />
+		<line linenr="252" indent="&#160;&#160;&#160;" />
+		<line linenr="253" indent="&#160;" />
+		<line linenr="254" indent="&#160;">
+			<var>GetWares</var>
+			<text>:</text>
+		</line>
+		<line linenr="255" indent="">
+			<var>$SubCount</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>number</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>subtypes</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>maintype</text>
+			<text> </text>
+			<var>$SelectedMainType</var>
+		</line>
+		<line linenr="256" indent="">
+			<var>$Values.Wares</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="257" indent="">
+			<var>$Count</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="258" indent="">
+			<text>while</text>
+			<text> </text>
+			<var>$Count</var>
+			<text> </text>
+			<text>!=</text>
+			<text> </text>
+			<var>$SubCount</var>
+		</line>
+		<line linenr="259" indent="">
+			<var>$Ware</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>maintype</text>
+			<text> </text>
+			<var>$SelectedMainType</var>
+			<text> </text>
+			<text>and</text>
+			<text> </text>
+			<text>subtype</text>
+			<text> </text>
+			<var>$Count</var>
+		</line>
+		<line linenr="260" indent="">
+			<text>inc</text>
+			<text> </text>
+			<var>$Count</var>
+		</line>
+		<line linenr="261" indent="" />
+		<line linenr="262" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>inventory</text>
+			<text>:</text>
+			<text> </text>
+			<text>ware</text>
+			<text>=</text>
+			<var>$Ware</var>
+		</line>
+		<line linenr="263" indent="">
+			<text>continue</text>
+		</line>
+		<line linenr="264" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>upgrade</text>
+			<text>:</text>
+			<text> </text>
+			<text>ware</text>
+			<text>=</text>
+			<var>$Ware</var>
+		</line>
+		<line linenr="265" indent="">
+			<text>continue</text>
+		</line>
+		<line linenr="266" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>equipment</text>
+			<text>:</text>
+			<text> </text>
+			<text>ware</text>
+			<text>=</text>
+			<var>$Ware</var>
+		</line>
+		<line linenr="267" indent="">
+			<text>continue</text>
+		</line>
+		<line linenr="268" indent="" />
+		<line linenr="269" indent="">
+			<var>$Stations</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>station</text>
+			<text> </text>
+			<text>array</text>
+			<text>:</text>
+			<text> </text>
+			<text>product</text>
+			<text>=</text>
+			<var>$Ware</var>
+			<text> </text>
+			<text>include</text>
+			<text> </text>
+			<text>empty</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="270" indent="">
+			<var>$StationsFoundA</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Stations</var>
+		</line>
+		<line linenr="271" indent="">
+			<var>$Stations</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>station</text>
+			<text> </text>
+			<text>array</text>
+			<text>:</text>
+			<text> </text>
+			<text>resource</text>
+			<text>=</text>
+			<var>$Ware</var>
+			<text> </text>
+			<text>include</text>
+			<text> </text>
+			<text>empty</text>
+			<text>=</text>
+			<var>[TRUE]</var>
+		</line>
+		<line linenr="272" indent="">
+			<var>$StationsFoundB</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Stations</var>
+		</line>
+		<line linenr="273" indent="" />
+		<line linenr="274" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$StationsFoundA</var>
+			<text> </text>
+			<text>OR</text>
+			<text> </text>
+			<var>$StationsFoundB</var>
+		</line>
+		<line linenr="275" indent="">
+			<text>append</text>
+			<text> </text>
+			<var>$Ware</var>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Values.Wares</var>
+		</line>
+		<line linenr="276" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="277" indent="">
+			<var>$Values.Wares</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>sort</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Values.Wares</var>
+		</line>
+		<line linenr="278" indent="">
+			<text>endsub</text>
+		</line>
+		<line linenr="279" indent="" />
+		<line linenr="280" indent="" />
+		<line linenr="281" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="PL.TradeRun.Buy.SM" />
+			<sval type="int" val="50" />
+			<sval type="string" val="Menu: Trade Run: Buy - Set Menu" />
+			<sval type="int" val="15" />
+			<sval type="int" val="0" />
+			<sval type="array" size="44">
+				<sval type="string" val="Menu" />
+				<sval type="string" val="Control" />
+				<sval type="string" val="Changeline" />
+				<sval type="string" val="CallbackReturn" />
+				<sval type="string" val="This" />
+				<sval type="string" val="Key.Menu" />
+				<sval type="string" val="Key.Settings" />
+				<sval type="string" val="Settings" />
+				<sval type="string" val="SelectedMainType" />
+				<sval type="string" val="SelectedWare" />
+				<sval type="string" val="TradebarAmount" />
+				<sval type="string" val="SelectedAmount" />
+				<sval type="string" val="SelectedUnloadWareAtHomebase" />
+				<sval type="string" val="SelectedKeepShopping" />
+				<sval type="string" val="SelectedKeepShoppingTimer" />
+				<sval type="string" val="Values.Wares" />
+				<sval type="string" val="Values.MainTypes" />
+				<sval type="string" val="Values.MainTypeNames" />
+				<sval type="string" val="Values.UnloadWaresAtHomebase" />
+				<sval type="string" val="Values.KeepShopping" />
+				<sval type="string" val="Values.KeepShoppingTimer" />
+				<sval type="string" val="ControlType" />
+				<sval type="string" val="ReturnID" />
+				<sval type="string" val="Index" />
+				<sval type="string" val="Current" />
+				<sval type="string" val="PressedEnter" />
+				<sval type="string" val="Count" />
+				<sval type="string" val="t" />
+				<sval type="string" val="Ware" />
+				<sval type="string" val="Text" />
+				<sval type="string" val="Has" />
+				<sval type="string" val="MaxAmount" />
+				<sval type="string" val="range" />
+				<sval type="string" val="values.range" />
+				<sval type="string" val="priceAv" />
+				<sval type="string" val="price" />
+				<sval type="string" val="price.f" />
+				<sval type="string" val="Flags" />
+				<sval type="string" val="a" />
+				<sval type="string" val="Station" />
+				<sval type="string" val="SubCount" />
+				<sval type="string" val="Stations" />
+				<sval type="string" val="StationsFoundA" />
+				<sval type="string" val="StationsFoundB" />
+			</sval>
+			<sval type="array" size="209">
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610612216" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="15" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="16" />
+					<sval type="int" val="4" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="215" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="211" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="208" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="210" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="209" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="216" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="17" />
+					<sval type="int" val="4" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Common" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Energy" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Lasers" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Missiles" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Shields" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Tech" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="1415" />
+					<sval type="int" val="18" />
+					<sval type="int" val="5" />
+					<sval type="string" val="No" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Yes" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="1415" />
+					<sval type="int" val="19" />
+					<sval type="int" val="5" />
+					<sval type="string" val="No" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Yes" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="1415" />
+					<sval type="int" val="20" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="4" />
+					<sval type="int" val="10" />
+					<sval type="int" val="4" />
+					<sval type="int" val="15" />
+					<sval type="int" val="4" />
+					<sval type="int" val="30" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="186" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610604797" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="41" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="WriteMenu" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="137" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="93" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1446" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="This command respects Export/Import thresholds." />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1446" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="&gt; to ignore them and find more clients use Trade Product Search instead (manual trade)." />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1553" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1903" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="61" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="CallBackReturn" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="21" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610598909" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-22" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="22" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610598909" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+					<sval type="int" val="5" />
+					<sval type="string" val="MainType" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="186" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="175" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610592509" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-4" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="22" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610596861" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+					<sval type="int" val="5" />
+					<sval type="string" val="UnloadWares" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="175" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="79" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610595323" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+					<sval type="int" val="5" />
+					<sval type="string" val="range" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_tradeRunMaxRange" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="175" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="79" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610593787" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+					<sval type="int" val="5" />
+					<sval type="string" val="KeepShopping" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="175" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="79" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610592507" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+					<sval type="int" val="5" />
+					<sval type="string" val="KeepShoppingTimer" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="175" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610590717" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-21" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="24" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="175" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="125" />
+					<sval type="int" val="-1610589181" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="20" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="9" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="175" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="100" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="AddOptions" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="26" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1443" />
+					<sval type="int" val="15" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610587389" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1523" />
+					<sval type="int" val="27" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Ware" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Cargo" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1448" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="1083" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="1834" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Type" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+					<sval type="int" val="5" />
+					<sval type="string" val="MainType" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1522" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610583799" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="28" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="14">
+					<sval type="int" val="149" />
+					<sval type="int" val="29" />
+					<sval type="int" val="5" />
+					<sval type="string" val="%s" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610585080" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Lib.MenuHelp.ColourSelected" />
+					<sval type="int" val="29" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="29" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="618" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="30" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1474" />
+					<sval type="int" val="30" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="30" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1523" />
+					<sval type="int" val="29" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="29" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="30" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1833" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="29" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="102" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1448" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Setup" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="620" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="31" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="618" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="30" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1474" />
+					<sval type="int" val="29" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1523" />
+					<sval type="int" val="29" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Amount" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="29" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="125" />
+					<sval type="int" val="-1610582008" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="20" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="19">
+					<sval type="int" val="1832" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="29" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="31" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Amount" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="5" />
+					<sval type="string" val="" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_tradeRunMaxRange" />
+					<sval type="int" val="32" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610581240" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="32" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="6" />
+					<sval type="int" val="4" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="9" />
+					<sval type="int" val="4" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="4" />
+					<sval type="int" val="10" />
+					<sval type="int" val="4" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="11">
+					<sval type="int" val="1527" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Trade run max. range" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="32" />
+					<sval type="int" val="5" />
+					<sval type="string" val="range" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="1083" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="11">
+					<sval type="int" val="1527" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Unload wares at homebase" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+					<sval type="int" val="5" />
+					<sval type="string" val="UnloadWares" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610576637" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Yes" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="1083" />
+					<sval type="int" val="23" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="11">
+					<sval type="int" val="1527" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Standby timer" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+					<sval type="int" val="5" />
+					<sval type="string" val="KeepShoppingTimer" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1522" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="629" />
+					<sval type="int" val="34" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="35" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="34" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="15" />
+					<sval type="int" val="13" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="13" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1474" />
+					<sval type="int" val="36" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="35" />
+				</sval>
+				<sval type="array" size="19">
+					<sval type="int" val="104" />
+					<sval type="int" val="27" />
+					<sval type="int" val="5" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Total average price: " />
+					<sval type="int" val="131074" />
+					<sval type="int" val="36" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val=" Cr." />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-4" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1556" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="125" />
+					<sval type="int" val="-1610568189" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="20" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="25">
+					<sval type="int" val="104" />
+					<sval type="int" val="37" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="150" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="151" />
+					<sval type="int" val="15" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="153" />
+					<sval type="int" val="15" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="154" />
+					<sval type="int" val="15" />
+					<sval type="int" val="7" />
+					<sval type="int" val="7" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="7" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="7" />
+					<sval type="int" val="-4" />
+					<sval type="int" val="7" />
+					<sval type="int" val="-6" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610573821" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="38" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="153" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="38" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="24">
+					<sval type="int" val="102" />
+					<sval type="string" val="Lib.Cmd.Trade.GetStationBestPrice" />
+					<sval type="int" val="39" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="32" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="38" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="37" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="706" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="39" />
+					<sval type="int" val="-1610570493" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1522" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="19">
+					<sval type="int" val="104" />
+					<sval type="int" val="27" />
+					<sval type="int" val="5" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Client: " />
+					<sval type="int" val="131074" />
+					<sval type="int" val="39" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val="." />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-4" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1556" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="627" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="39" />
+					<sval type="int" val="34" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="35" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="34" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="15" />
+					<sval type="int" val="13" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="13" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1474" />
+					<sval type="int" val="36" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="35" />
+				</sval>
+				<sval type="array" size="19">
+					<sval type="int" val="104" />
+					<sval type="int" val="27" />
+					<sval type="int" val="5" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Total client price: " />
+					<sval type="int" val="131074" />
+					<sval type="int" val="36" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val=" Cr." />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-4" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1556" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1522" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="167" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1522" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1556" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="No client." />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="706" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="39" />
+					<sval type="int" val="-1610568189" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610568701" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.ColorText" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Start trade run" />
+					<sval type="int" val="5" />
+					<sval type="string" val="g" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1447" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Start" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="174" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.ColorText" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Start trade run" />
+					<sval type="int" val="5" />
+					<sval type="string" val="a" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1556" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="SetMenuPassThrough" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="GetWares" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="658" />
+					<sval type="int" val="40" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="15" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610559991" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="40" />
+					<sval type="int" val="15" />
+					<sval type="int" val="1" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="657" />
+					<sval type="int" val="28" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="142" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1506" />
+					<sval type="int" val="-1610562808" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="190" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1480" />
+					<sval type="int" val="-1610562296" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="190" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1479" />
+					<sval type="int" val="-1610561784" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="190" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1459" />
+					<sval type="int" val="41" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="42" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="41" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1460" />
+					<sval type="int" val="41" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="43" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="41" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610560248" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="42" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="43" />
+					<sval type="int" val="15" />
+					<sval type="int" val="10" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="135" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="190" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1375" />
+					<sval type="int" val="15" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="array" size="7">
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="Menu" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="Control" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="63" />
+					<sval type="string" val="Changeline" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="Callback return" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="This" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="string" val="Key.Menu" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="string" val="Key.Settings" />
+				</sval>
+			</sval>
+			<sval type="array" size="83">
+				<sval type="array" size="2">
+					<sval type="int" val="2" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="10" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Values.MainTypes = create new array, arguments= 8, 9, 10, 11, 12, 13, 14, 15, 16" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Values.MainTypeNames = create new array, arguments= 'Lasers', 'Shields', 'Missiles', 'Energy', 'Natural', 'Bio', 'Food', 'Minerals', 'Tech'" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="25" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="28" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Has = $This-&gt; get amount of ware $SelectedWare in cargo bay" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="do if $TradebarAmount &lt; $Has" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$TradebarAmount = $Has" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="31" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="31" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="32" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="34" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="35" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="41" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="42" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="43" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="54" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="54" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="54" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="56" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="79" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="79" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="79" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="79" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="82" />
+					<sval type="int" val="1" />
+					<sval type="string" val="if $PressedEnter &amp; $Current &gt; 0" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="83" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Has = $This-&gt; get amount of ware $SelectedWare in cargo bay" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="83" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$SelectedAmount = $SelectedAmount - $Has" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="83" />
+					<sval type="int" val="1" />
+					<sval type="string" val="end" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="83" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$TradebarAmount = $Control[10]" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="86" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="86" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="92" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="92" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="93" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="94" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="99" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="99" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="102" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="113" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="113" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="114" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="116" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="118" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="120" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="136" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="138" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="138" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$Index = get index of $SelectedKeepShopping in array $Values.KeepShopping offset=0" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="138" />
+					<sval type="int" val="1" />
+					<sval type="string" val="add value selection to menu: $Menu, text='Standby', value array=$Values.KeepShopping, default=$Index, return id='KeepShopping'" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="138" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="141" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="141" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="152" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="153" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="165" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="167" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="172" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="174" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="174" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="174" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="174" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="175" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="185" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="186" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="186" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="186" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="186" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="186" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="193" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="195" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="197" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="199" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="199" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="203" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="206" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="208" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="208" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

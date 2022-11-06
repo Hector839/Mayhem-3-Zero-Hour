@@ -1,0 +1,926 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Menu.DWM.Get.Production.Shield</name>
+	<version>1</version>
+	<engineversion>50</engineversion>
+	<description></description>
+	<arguments>
+		<argument index="1" name="menu" type="Value" desc="" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="" />
+		<line linenr="002" indent="">
+			<var>$buildingShield</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_buildingShield'</text>
+		</line>
+		<line linenr="003" indent="" interruptable="@">
+			<var>$parallelTasks</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Menu.DWM.Lib.GetParallelTasks</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>indexName</text>
+			<text>=</text>
+			<text>'mayhem_parallelTasksShieldIndex'</text>
+		</line>
+		<line linenr="004" indent="">
+			<text>do</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$parallelTasks</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>101</var>
+		</line>
+		<line linenr="005" indent="&#160;">
+			<var>$parallelTasks</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>1</var>
+		</line>
+		<line linenr="006" indent="">
+			<var>$specialization</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_specializationShield'</text>
+		</line>
+		<line linenr="007" indent="">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Specialization level: '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$specialization</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>' %'</text>
+		</line>
+		<line linenr="008" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="009" indent="" />
+		<line linenr="010" indent="" interruptable="@">
+			<var>$shields</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.GetShield.All</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="011" indent="">
+			<var>$shields</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>sort</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$shields</var>
+		</line>
+		<line linenr="012" indent="">
+			<var>$shields</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>reverse</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$shields</var>
+		</line>
+		<line linenr="013" indent="" />
+		<line linenr="014" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Menu.DWM.Lib.ProductionHeader</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>suffix</text>
+			<text>=</text>
+			<text>'Shield'</text>
+			<text> </text>
+			<text>menu</text>
+			<text>=</text>
+			<var>$menu</var>
+		</line>
+		<line linenr="015" indent="" />
+		<line linenr="016" indent="" interruptable="@">
+			<var>$heading</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Menu.Heading.Shield</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="017" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>:</text>
+			<text> </text>
+			<text>title</text>
+			<text>=</text>
+			<var>$heading</var>
+		</line>
+		<line linenr="018" indent="" />
+		<line linenr="019" indent="">
+			<comment>* Zero Hour 1.8</comment>
+		</line>
+		<line linenr="020" indent="">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>alloc</text>
+			<text>:</text>
+			<text> </text>
+			<text>size</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="021" indent="">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>columnize</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>text</text>
+			<text>:</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<text> </text>
+			<var>$t</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text> </text>
+			<text>' '</text>
+			<text>,</text>
+			<text> </text>
+			<text>alignment</text>
+			<text>=</text>
+			<text> </text>
+			<var>-1</var>
+			<text>,</text>
+			<text> </text>
+			<text>colour</text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+			<text>,</text>
+			<text> </text>
+			<text>column</text>
+			<text> </text>
+			<text>width</text>
+			<text>=</text>
+			<text> </text>
+			<var>300</var>
+		</line>
+		<line linenr="022" indent="">
+			<var>$crystals</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>amount</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<var>{Crystals}</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>cargo</text>
+			<text> </text>
+			<text>bay</text>
+		</line>
+		<line linenr="023" indent="">
+			<var>$crystals.f</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>format</text>
+			<text> </text>
+			<text>large</text>
+			<text> </text>
+			<text>number</text>
+			<text> </text>
+			<text>pair</text>
+			<text> </text>
+			<text>as</text>
+			<text> </text>
+			<text>string</text>
+			<text>:</text>
+			<text> </text>
+			<text>billions</text>
+			<text> </text>
+			<var>0</var>
+			<text>,</text>
+			<text> </text>
+			<text>units</text>
+			<text> </text>
+			<var>$crystals</var>
+			<text>,</text>
+			<text> </text>
+			<text>include</text>
+			<text> </text>
+			<text>separators</text>
+			<text> </text>
+			<var>[TRUE]</var>
+			<text>,</text>
+			<text> </text>
+			<text>use</text>
+			<text> </text>
+			<text>millions</text>
+			<text> </text>
+			<text>suffix</text>
+			<text> </text>
+			<text>for</text>
+			<text> </text>
+			<text>very</text>
+			<text> </text>
+			<text>large</text>
+			<text> </text>
+			<text>numbers</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="024" indent="">
+			<var>$crystals.f</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'('</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$crystals.f</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>')'</text>
+		</line>
+		<line linenr="025" indent="" interruptable="@">
+			<var>$crystals.f</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.ColorText</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$crystals.f</var>
+			<text> </text>
+			<text>color</text>
+			<text>=</text>
+			<text>'a'</text>
+		</line>
+		<line linenr="026" indent="">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>columnize</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>text</text>
+			<text>:</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<text> </text>
+			<var>$t</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text> </text>
+			<var>$crystals.f</var>
+			<text>,</text>
+			<text> </text>
+			<text>alignment</text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+			<text>,</text>
+			<text> </text>
+			<text>colour</text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+			<text>,</text>
+			<text> </text>
+			<text>column</text>
+			<text> </text>
+			<text>width</text>
+			<text>=</text>
+			<text> </text>
+			<var>100</var>
+		</line>
+		<line linenr="027" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="028" indent="" />
+		<line linenr="029" indent="" />
+		<line linenr="030" indent="">
+			<var>$XS.Iterator1</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$shields</var>
+		</line>
+		<line linenr="031" indent="&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator1</var>
+		</line>
+		<line linenr="032" indent="&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator1</var>
+		</line>
+		<line linenr="033" indent="">
+			<var>$shield</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$shields</var>
+			<text>[</text>
+			<var>$XS.Iterator1</var>
+			<text>]</text>
+		</line>
+		<line linenr="034" indent="" interruptable="@">
+			<var>$line</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Menu.Line.Shield</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>outpost</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>shield</text>
+			<text>=</text>
+			<var>$shield</var>
+			<text> </text>
+			<text>qty</text>
+			<text>=</text>
+			<var>$parallelTasks</var>
+			<text> </text>
+			<text>factor</text>
+			<text>=</text>
+			<var>0</var>
+		</line>
+		<line linenr="035" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>dynamic</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$line</var>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$shield</var>
+		</line>
+		<line linenr="036" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="037" indent="" />
+		<line linenr="038" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="039" indent="" />
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Menu.DWM.Get.Production.Shield" />
+			<sval type="int" val="50" />
+			<sval type="string" val="" />
+			<sval type="int" val="1" />
+			<sval type="int" val="0" />
+			<sval type="array" size="12">
+				<sval type="string" val="menu" />
+				<sval type="string" val="buildingShield" />
+				<sval type="string" val="parallelTasks" />
+				<sval type="string" val="specialization" />
+				<sval type="string" val="t" />
+				<sval type="string" val="shields" />
+				<sval type="string" val="heading" />
+				<sval type="string" val="crystals" />
+				<sval type="string" val="crystals.f" />
+				<sval type="string" val="shield" />
+				<sval type="string" val="XS.Iterator1" />
+				<sval type="string" val="line" />
+			</sval>
+			<sval type="array" size="29">
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_buildingShield" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Menu.DWM.Lib.GetParallelTasks" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_parallelTasksShieldIndex" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610611704" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="101" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="2" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_specializationShield" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="19">
+					<sval type="int" val="104" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Specialization level: " />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val=" %" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-4" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1556" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.GetShield.All" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1375" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1443" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Menu.DWM.Lib.ProductionHeader" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Shield" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="Menu.Heading.Shield" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1448" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="128" />
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="1897" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="string" val=" " />
+					<sval type="int" val="4" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="300" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="618" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="7" />
+					<sval type="int" val="9" />
+					<sval type="int" val="983062" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="1544" />
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="10" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="19">
+					<sval type="int" val="104" />
+					<sval type="int" val="8" />
+					<sval type="int" val="5" />
+					<sval type="int" val="5" />
+					<sval type="string" val="(" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val=")" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-4" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.ColorText" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="5" />
+					<sval type="string" val="a" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="1897" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="100" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1556" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610605559" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+				</sval>
+				<sval type="array" size="14">
+					<sval type="int" val="102" />
+					<sval type="string" val="Menu.Line.Shield" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="1833" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="array" size="1">
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="" />
+				</sval>
+			</sval>
+			<sval type="array" size="11">
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="7" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="10" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="13" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="13" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Zero Hour 1.8" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="21" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="21" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="28" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="28" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

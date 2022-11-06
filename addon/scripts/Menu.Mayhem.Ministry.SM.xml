@@ -3556,7 +3556,7 @@
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<text>'This also reduces your '</text>
+			<text>'This will reduce your '</text>
 			<text> </text>
 			<text>+</text>
 			<text> </text>
@@ -3564,7 +3564,15 @@
 			<text> </text>
 			<text>+</text>
 			<text> </text>
-			<text>' reputation to 0. Are you sure?'</text>
+			<text>' reputation to neutral (0). If someone else does the same you will be stuck together in a major war against the '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$selectedRace</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>'. Are you really sure?'</text>
 		</line>
 		<line linenr="316" indent="&#160;&#160;">
 			<var>$confirm</var>
@@ -3656,7 +3664,7 @@
 			<text> </text>
 			<text>race1</text>
 			<text>=</text>
-			<var>$race</var>
+			<var>$selectedRace</var>
 			<text> </text>
 			<text>race2</text>
 			<text>=</text>
@@ -3703,7 +3711,7 @@
 			<text> </text>
 			<text>==</text>
 			<text> </text>
-			<text>'removeCoalitio'</text>
+			<text>'removeCoalition'</text>
 		</line>
 		<line linenr="326" indent="&#160;">
 			<var>$t</var>
@@ -8430,6 +8438,11 @@
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
+			<text> </text>
+			<text>!</text>
+			<var>$coalition.status</var>
+			<text> </text>
+			<text>OR</text>
 			<text> </text>
 			<var>$coalition.status</var>
 			<text> </text>
@@ -16135,7 +16148,6 @@
 				<sval type="string" val="playtime" />
 				<sval type="string" val="reputation" />
 				<sval type="string" val="repLoss" />
-				<sval type="string" val="race" />
 				<sval type="string" val="favorPointCost" />
 				<sval type="string" val="favorPointCost.neg" />
 				<sval type="string" val="discounts" />
@@ -16156,6 +16168,7 @@
 				<sval type="string" val="menu.relations" />
 				<sval type="string" val="menu.sectors" />
 				<sval type="string" val="commonwealth" />
+				<sval type="string" val="race" />
 				<sval type="string" val="XS.Iterator1" />
 				<sval type="string" val="allValues.size" />
 				<sval type="string" val="allValues.maxIndex" />
@@ -19045,26 +19058,38 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="-2" />
 				</sval>
-				<sval type="array" size="19">
+				<sval type="array" size="31">
 					<sval type="int" val="104" />
 					<sval type="int" val="66" />
+					<sval type="int" val="9" />
 					<sval type="int" val="5" />
-					<sval type="int" val="5" />
-					<sval type="string" val="This also reduces your " />
+					<sval type="string" val="This will reduce your " />
 					<sval type="int" val="131074" />
 					<sval type="int" val="25" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
-					<sval type="string" val=" reputation to 0. Are you sure?" />
+					<sval type="string" val=" reputation to neutral (0). If someone else does the same you will be stuck together in a major war against the " />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
+					<sval type="string" val=". Are you really sure?" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="9" />
 					<sval type="int" val="-1" />
 					<sval type="int" val="11" />
 					<sval type="int" val="-2" />
 					<sval type="int" val="11" />
 					<sval type="int" val="-4" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-6" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-8" />
 				</sval>
 				<sval type="array" size="8">
 					<sval type="int" val="1530" />
@@ -19131,7 +19156,7 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="100" />
+					<sval type="int" val="25" />
 					<sval type="int" val="10" />
 					<sval type="int" val="10" />
 					<sval type="int" val="131074" />
@@ -19160,7 +19185,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="70" />
 					<sval type="int" val="5" />
-					<sval type="string" val="removeCoalitio" />
+					<sval type="string" val="removeCoalition" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="3" />
@@ -19230,7 +19255,7 @@
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.Favor.GetPointCost" />
-					<sval type="int" val="101" />
+					<sval type="int" val="100" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
@@ -19239,10 +19264,10 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="102" />
+					<sval type="int" val="101" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="101" />
+					<sval type="int" val="100" />
 					<sval type="int" val="4" />
 					<sval type="int" val="-1" />
 					<sval type="int" val="15" />
@@ -19263,7 +19288,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="79" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="101" />
+					<sval type="int" val="100" />
 					<sval type="int" val="15" />
 					<sval type="int" val="4" />
 					<sval type="int" val="3" />
@@ -19274,7 +19299,7 @@
 				<sval type="array" size="3">
 					<sval type="int" val="662" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="102" />
+					<sval type="int" val="101" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
@@ -19292,12 +19317,12 @@
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhem_favorPointReductions" />
-					<sval type="int" val="103" />
+					<sval type="int" val="102" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="1708" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="103" />
+					<sval type="int" val="102" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="25" />
 					<sval type="int" val="4" />
@@ -19361,7 +19386,7 @@
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.Loyalty.Get" />
-					<sval type="int" val="104" />
+					<sval type="int" val="103" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
@@ -19373,7 +19398,7 @@
 					<sval type="int" val="-1610526205" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="104" />
+					<sval type="int" val="103" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="28" />
 					<sval type="int" val="15" />
@@ -19385,7 +19410,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="105" />
+					<sval type="int" val="104" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="28" />
@@ -19403,7 +19428,7 @@
 					<sval type="int" val="-1610528248" />
 					<sval type="int" val="5" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="104" />
+					<sval type="int" val="103" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="28" />
 					<sval type="int" val="4" />
@@ -19421,10 +19446,10 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="105" />
+					<sval type="int" val="104" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="105" />
+					<sval type="int" val="104" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 					<sval type="int" val="15" />
@@ -19454,7 +19479,7 @@
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.ColorText" />
-					<sval type="int" val="106" />
+					<sval type="int" val="105" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
@@ -19478,7 +19503,7 @@
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="106" />
+					<sval type="int" val="105" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="7" />
@@ -19507,7 +19532,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="25" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="105" />
+					<sval type="int" val="104" />
 				</sval>
 				<sval type="array" size="14">
 					<sval type="int" val="102" />
@@ -19594,7 +19619,7 @@
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.GetOutposts" />
-					<sval type="int" val="107" />
+					<sval type="int" val="106" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
@@ -19604,23 +19629,23 @@
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.GetRandomElement" />
-					<sval type="int" val="108" />
+					<sval type="int" val="107" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="107" />
+					<sval type="int" val="106" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="706" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="108" />
+					<sval type="int" val="107" />
 					<sval type="int" val="-1610520573" />
 				</sval>
 				<sval type="array" size="12">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.GetMissingResource" />
-					<sval type="int" val="109" />
+					<sval type="int" val="108" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="3" />
@@ -19633,7 +19658,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="110" />
+					<sval type="int" val="109" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="20" />
@@ -19654,9 +19679,9 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="109" />
+					<sval type="int" val="108" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="110" />
+					<sval type="int" val="109" />
 				</sval>
 				<sval type="array" size="12">
 					<sval type="int" val="102" />
@@ -19666,9 +19691,9 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="108" />
+					<sval type="int" val="107" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="109" />
+					<sval type="int" val="108" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="20" />
 				</sval>
@@ -19676,30 +19701,30 @@
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhem_favorPointReductions" />
-					<sval type="int" val="103" />
+					<sval type="int" val="102" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="1709" />
-					<sval type="int" val="111" />
+					<sval type="int" val="110" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="103" />
+					<sval type="int" val="102" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="25" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="629" />
-					<sval type="int" val="112" />
+					<sval type="int" val="111" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="109" />
+					<sval type="int" val="108" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="113" />
+					<sval type="int" val="112" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="20" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="112" />
+					<sval type="int" val="111" />
 					<sval type="int" val="15" />
 					<sval type="int" val="13" />
 					<sval type="int" val="3" />
@@ -19709,12 +19734,12 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="111" />
+					<sval type="int" val="110" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="111" />
+					<sval type="int" val="110" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="113" />
+					<sval type="int" val="112" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="3" />
@@ -19725,11 +19750,11 @@
 				<sval type="array" size="7">
 					<sval type="int" val="1708" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="103" />
+					<sval type="int" val="102" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="25" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="111" />
+					<sval type="int" val="110" />
 				</sval>
 				<sval type="array" size="14">
 					<sval type="int" val="102" />
@@ -19806,7 +19831,7 @@
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="ZH.Get.Power.Race" />
-					<sval type="int" val="114" />
+					<sval type="int" val="113" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
@@ -19818,7 +19843,7 @@
 					<sval type="int" val="-1610518525" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="114" />
+					<sval type="int" val="113" />
 					<sval type="int" val="4" />
 					<sval type="int" val="2000" />
 					<sval type="int" val="15" />
@@ -19846,12 +19871,12 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="115" />
+					<sval type="int" val="114" />
 					<sval type="int" val="3" />
 					<sval type="int" val="4" />
 					<sval type="int" val="2000" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="114" />
+					<sval type="int" val="113" />
 					<sval type="int" val="15" />
 					<sval type="int" val="12" />
 					<sval type="int" val="3" />
@@ -19866,7 +19891,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="you need " />
 					<sval type="int" val="131074" />
-					<sval type="int" val="115" />
+					<sval type="int" val="114" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
@@ -19960,14 +19985,14 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="128" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="4" />
 					<sval type="int" val="3" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="130" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
 					<sval type="int" val="5" />
@@ -19976,7 +20001,7 @@
 				<sval type="array" size="7">
 					<sval type="int" val="130" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 					<sval type="int" val="5" />
@@ -19985,7 +20010,7 @@
 				<sval type="array" size="7">
 					<sval type="int" val="130" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="4" />
 					<sval type="int" val="2" />
 					<sval type="int" val="5" />
@@ -19993,7 +20018,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="117" />
+					<sval type="int" val="116" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
@@ -20002,7 +20027,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="118" />
+					<sval type="int" val="117" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
@@ -20011,7 +20036,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="119" />
+					<sval type="int" val="118" />
 					<sval type="int" val="1" />
 					<sval type="int" val="4" />
 					<sval type="int" val="2" />
@@ -20062,7 +20087,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Menu" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="10" />
 					<sval type="int" val="5" />
@@ -20075,7 +20100,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="10" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="118" />
+					<sval type="int" val="117" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="3" />
@@ -20098,7 +20123,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="10" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="119" />
+					<sval type="int" val="118" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="3" />
@@ -20121,7 +20146,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="10" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="117" />
+					<sval type="int" val="116" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="3" />
@@ -20277,14 +20302,14 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="128" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="102" />
 					<sval type="string" val="Joubarbe.Lib.GetCommonwealth" />
-					<sval type="int" val="120" />
+					<sval type="int" val="119" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="0" />
@@ -20292,7 +20317,7 @@
 				<sval type="array" size="5">
 					<sval type="int" val="135" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="120" />
+					<sval type="int" val="119" />
 					<sval type="int" val="10" />
 					<sval type="int" val="19" />
 				</sval>
@@ -20300,7 +20325,7 @@
 					<sval type="int" val="131" />
 					<sval type="int" val="121" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="120" />
+					<sval type="int" val="119" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
@@ -20317,9 +20342,9 @@
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="100" />
-					<sval type="int" val="131074" />
 					<sval type="int" val="120" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="119" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="121" />
 				</sval>
@@ -20331,7 +20356,7 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="100" />
+					<sval type="int" val="120" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="9" />
 				</sval>
@@ -20348,9 +20373,9 @@
 				<sval type="array" size="5">
 					<sval type="int" val="135" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="100" />
+					<sval type="int" val="120" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
@@ -20360,13 +20385,13 @@
 					<sval type="int" val="131" />
 					<sval type="int" val="122" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="1443" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
@@ -20439,7 +20464,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Faction" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="73" />
 					<sval type="int" val="5" />
@@ -20449,7 +20474,7 @@
 					<sval type="int" val="129" />
 					<sval type="int" val="25" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="116" />
+					<sval type="int" val="115" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="73" />
 				</sval>
@@ -21287,7 +21312,7 @@
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.Loyalty.Get" />
-					<sval type="int" val="104" />
+					<sval type="int" val="103" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
@@ -21301,7 +21326,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Your loyalty: " />
 					<sval type="int" val="131074" />
-					<sval type="int" val="104" />
+					<sval type="int" val="103" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
@@ -22311,20 +22336,29 @@
 					<sval type="int" val="112" />
 					<sval type="int" val="633" />
 				</sval>
-				<sval type="array" size="13">
+				<sval type="array" size="22">
 					<sval type="int" val="104" />
 					<sval type="int" val="-1610452219" />
-					<sval type="int" val="3" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="145" />
+					<sval type="int" val="15" />
+					<sval type="int" val="65556" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="145" />
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
-					<sval type="int" val="3" />
+					<sval type="int" val="15" />
+					<sval type="int" val="10" />
+					<sval type="int" val="6" />
+					<sval type="int" val="65556" />
 					<sval type="int" val="-1" />
+					<sval type="int" val="10" />
+					<sval type="int" val="-3" />
 					<sval type="int" val="0" />
-					<sval type="int" val="-2" />
+					<sval type="int" val="-4" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
@@ -23208,7 +23242,7 @@
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
 					<sval type="string" val="Mayhem.Favor.GetPointCost" />
-					<sval type="int" val="101" />
+					<sval type="int" val="100" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
@@ -23217,21 +23251,21 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="1474" />
-					<sval type="int" val="101" />
+					<sval type="int" val="100" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="101" />
+					<sval type="int" val="100" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="mayhem_favorPointReductions" />
-					<sval type="int" val="103" />
+					<sval type="int" val="102" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="1709" />
-					<sval type="int" val="111" />
+					<sval type="int" val="110" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="103" />
+					<sval type="int" val="102" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="25" />
 				</sval>
@@ -23239,7 +23273,7 @@
 					<sval type="int" val="1474" />
 					<sval type="int" val="152" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="111" />
+					<sval type="int" val="110" />
 				</sval>
 				<sval type="array" size="8">
 					<sval type="int" val="1472" />
@@ -23256,7 +23290,7 @@
 					<sval type="int" val="-1610429181" />
 					<sval type="int" val="5" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="104" />
+					<sval type="int" val="103" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="28" />
 					<sval type="int" val="4" />
@@ -25504,7 +25538,7 @@
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="1709" />
-					<sval type="int" val="100" />
+					<sval type="int" val="120" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="197" />
 					<sval type="int" val="5" />
@@ -25517,7 +25551,7 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="74" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="100" />
+					<sval type="int" val="120" />
 					<sval type="int" val="10" />
 					<sval type="int" val="10" />
 					<sval type="int" val="15" />
@@ -25612,7 +25646,7 @@
 					<sval type="int" val="211" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="100" />
+					<sval type="int" val="120" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
@@ -25648,7 +25682,7 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="100" />
+					<sval type="int" val="120" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
