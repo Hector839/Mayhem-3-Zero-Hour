@@ -1,0 +1,862 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>Cmd.AuctionStation</name>
+	<version>9</version>
+	<engineversion>50</engineversion>
+	<description>Cmd: Sells station</description>
+	<arguments />
+	<sourcetext>
+		<line linenr="001" indent="" />
+		<line linenr="002" indent="">
+			<var>$type</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>ware</text>
+			<text> </text>
+			<text>type</text>
+			<text> </text>
+			<text>code</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>object</text>
+		</line>
+		<line linenr="003" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$type</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>{Player Outpost}</var>
+		</line>
+		<line linenr="004" indent="&#160;">
+			<text>display</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>box</text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text> </text>
+			<text>'You cannot disassemble Outposts'</text>
+			<text>,</text>
+			<text> </text>
+			<text>icon</text>
+			<text>=</text>
+			<text> </text>
+			<var>66</var>
+			<text>,</text>
+			<text> </text>
+			<text>timeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>5000</var>
+			<text>,</text>
+			<text> </text>
+			<text>fadeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>2000</var>
+		</line>
+		<line linenr="005" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="006" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="007" indent="" />
+		<line linenr="008" indent="">
+			<comment>* Zero Hour 1.8</comment>
+		</line>
+		<line linenr="009" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>[SECTOR]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'mayhem_claimRace'</text>
+		</line>
+		<line linenr="010" indent="&#160;">
+			<text>display</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>box</text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Sector getting claimed. Cannot disassemble'</text>
+			<text>,</text>
+			<text> </text>
+			<text>icon</text>
+			<text>=</text>
+			<text> </text>
+			<var>66</var>
+			<text>,</text>
+			<text> </text>
+			<text>timeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>5000</var>
+			<text>,</text>
+			<text> </text>
+			<text>fadeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>2000</var>
+		</line>
+		<line linenr="011" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="012" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="013" indent="" />
+		<line linenr="014" indent="" />
+		<line linenr="015" indent="">
+			<var>$MoneyText</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Are you sure you want to disassemble '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>'? All wares inside the station will be lost and all docked ships will be undocked. You will be reimbursed.'</text>
+		</line>
+		<line linenr="016" indent="">
+			<var>$Return</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>user</text>
+			<text> </text>
+			<text>input</text>
+			<text>:</text>
+			<text> </text>
+			<text>type</text>
+			<text>=</text>
+			<var>[Var/Boolean]</var>
+			<text>,</text>
+			<text> </text>
+			<text>title</text>
+			<text>=</text>
+			<var>$MoneyText</var>
+		</line>
+		<line linenr="017" indent="" />
+		<line linenr="018" indent="">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$Return</var>
+		</line>
+		<line linenr="019" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="020" indent="" />
+		<line linenr="021" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>number</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>landed</text>
+			<text> </text>
+			<text>ships</text>
+		</line>
+		<line linenr="022" indent="&#160;">
+			<text>display</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>box</text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Undocking ships...'</text>
+			<text>,</text>
+			<text> </text>
+			<text>icon</text>
+			<text>=</text>
+			<text> </text>
+			<var>0</var>
+			<text>,</text>
+			<text> </text>
+			<text>timeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>15000</var>
+			<text>,</text>
+			<text> </text>
+			<text>fadeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>2000</var>
+		</line>
+		<line linenr="023" indent="&#160;">
+			<var>$Ships</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>ship</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>from</text>
+			<text> </text>
+			<text>sector</text>
+			<text>/</text>
+			<text>ship</text>
+			<text>/</text>
+			<text>station</text>
+		</line>
+		<line linenr="024" indent="&#160;">
+			<var>$XS.Iterator1</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>size</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$Ships</var>
+		</line>
+		<line linenr="025" indent="&#160;&#160;">
+			<text>while</text>
+			<text> </text>
+			<var>$XS.Iterator1</var>
+		</line>
+		<line linenr="026" indent="&#160;&#160;&#160;">
+			<text>dec</text>
+			<text> </text>
+			<var>$XS.Iterator1</var>
+		</line>
+		<line linenr="027" indent="&#160;&#160;">
+			<var>$Ship</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$Ships</var>
+			<text>[</text>
+			<var>$XS.Iterator1</var>
+			<text>]</text>
+		</line>
+		<line linenr="028" indent="&#160;&#160;&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$Ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>is</text>
+			<text> </text>
+			<text>task</text>
+			<text> </text>
+			<var>0</var>
+			<text> </text>
+			<text>in</text>
+			<text> </text>
+			<text>use</text>
+		</line>
+		<line linenr="029" indent="&#160;&#160;">
+			<var>$Ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>interrupt</text>
+			<text> </text>
+			<text>task</text>
+			<text> </text>
+			<var>0</var>
+			<text> </text>
+			<text>with</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>!move.undock</call>
+			<text> </text>
+			<text>and</text>
+			<text> </text>
+			<text>priority</text>
+			<text> </text>
+			<var>10000</var>
+			<text>:</text>
+			<text> </text>
+			<text>arg1</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg2</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg3</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg4</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="030" indent="&#160;">
+			<text>else</text>
+		</line>
+		<line linenr="031" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>$Ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>!move.undock</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="032" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="033" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="034" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="035" indent="" />
+		<line linenr="036" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>2000</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="037" indent="&#160;" />
+		<line linenr="038" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>number</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>landed</text>
+			<text> </text>
+			<text>ships</text>
+		</line>
+		<line linenr="039" indent="">
+			<text>display</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>box</text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text> </text>
+			<text>'Error: could not undock all ships'</text>
+			<text>,</text>
+			<text> </text>
+			<text>icon</text>
+			<text>=</text>
+			<text> </text>
+			<var>66</var>
+			<text>,</text>
+			<text> </text>
+			<text>timeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>5000</var>
+			<text>,</text>
+			<text> </text>
+			<text>fadeout</text>
+			<text>=</text>
+			<text> </text>
+			<var>2000</var>
+		</line>
+		<line linenr="040" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="041" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="042" indent="" />
+		<line linenr="043" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>100</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="044" indent="" />
+		<line linenr="045" indent="">
+			<var>$Money</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>money</text>
+		</line>
+		<line linenr="046" indent="" />
+		<line linenr="047" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Lib.X.AuctionStation</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>Station</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>Money</text>
+			<text>=</text>
+			<var>$Money</var>
+		</line>
+		<line linenr="048" indent="" />
+		<line linenr="049" indent="" />
+		<line linenr="050" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="Cmd.AuctionStation" />
+			<sval type="int" val="50" />
+			<sval type="string" val="Cmd: Sells station" />
+			<sval type="int" val="9" />
+			<sval type="int" val="0" />
+			<sval type="array" size="7">
+				<sval type="string" val="type" />
+				<sval type="string" val="MoneyText" />
+				<sval type="string" val="Return" />
+				<sval type="string" val="Ships" />
+				<sval type="string" val="Ship" />
+				<sval type="string" val="XS.Iterator1" />
+				<sval type="string" val="Money" />
+			</sval>
+			<sval type="array" size="31">
+				<sval type="array" size="4">
+					<sval type="int" val="707" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610611709" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="9" />
+					<sval type="int" val="327739" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="9">
+					<sval type="int" val="1861" />
+					<sval type="int" val="5" />
+					<sval type="string" val="You cannot disassemble Outposts" />
+					<sval type="int" val="4" />
+					<sval type="int" val="66" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5000" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2000" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="6" />
+					<sval type="int" val="5" />
+					<sval type="string" val="mayhem_claimRace" />
+					<sval type="int" val="-1610610941" />
+				</sval>
+				<sval type="array" size="9">
+					<sval type="int" val="1861" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Sector getting claimed. Cannot disassemble" />
+					<sval type="int" val="4" />
+					<sval type="int" val="66" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5000" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2000" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="19">
+					<sval type="int" val="104" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Are you sure you want to disassemble " />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val="? All wares inside the station will be lost and all docked ships will be undocked. You will be reimbursed." />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-4" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="1329" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="24" />
+					<sval type="int" val="63" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-536868089" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="790" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1610606845" />
+				</sval>
+				<sval type="array" size="9">
+					<sval type="int" val="1861" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Undocking ships..." />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="15000" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2000" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1008" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610606839" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="1073" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="-1610607357" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="16">
+					<sval type="int" val="1016" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="string" val="!move.undock" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="10000" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="!move.undock" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="15" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2000" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="790" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1610605821" />
+				</sval>
+				<sval type="array" size="9">
+					<sval type="int" val="1861" />
+					<sval type="int" val="5" />
+					<sval type="string" val="Error: could not undock all ships" />
+					<sval type="int" val="4" />
+					<sval type="int" val="66" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5000" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2000" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="4" />
+					<sval type="int" val="100" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="600" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Lib.X.AuctionStation" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+			<sval type="array" size="21">
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="4" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Zero Hour 1.8" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="7" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="7" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="21" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="23" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="23" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="23" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="24" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="27" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="27" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="28" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="30" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="30" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="string" val="COMMAND_AUCTION_STATION" />
+		</sval>
+	</codearray>
+</script>

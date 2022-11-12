@@ -1,0 +1,416 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>!ship.signal.captured</name>
+	<version>5</version>
+	<engineversion>50</engineversion>
+	<description>Synchron signal. captured</description>
+	<arguments>
+		<argument index="1" name="privateer" type="Value" desc="privateer" />
+		<argument index="2" name="cmd" type="Object Command" desc="cmd" />
+		<argument index="3" name="cmdtarget" type="Value" desc="cmdtarget" />
+		<argument index="4" name="cmdtarget2" type="Value" desc="cmdtarget2" />
+		<argument index="5" name="cmdpar1" type="Value" desc="cmdpar1" />
+		<argument index="6" name="cmdpar2" type="Value" desc="cmdpar2" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="" />
+		<line linenr="002" indent="">
+			<comment>* This signal seems to only trigger after the &quot;bail ship: attacker&quot; command has been used, NOT when you claim a ship or capture it through marines.</comment>
+		</line>
+		<line linenr="003" indent="" />
+		<line linenr="004" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.AssignNewLeader</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>ship</text>
+			<text>=</text>
+			<var>[THIS]</var>
+			<text> </text>
+			<text>killer</text>
+			<text>=</text>
+			<var>$privateer</var>
+			<text> </text>
+			<text>cmd</text>
+			<text>=</text>
+			<var>$cmd</var>
+			<text> </text>
+			<text>cmdtarget</text>
+			<text>=</text>
+			<var>$cmdtarget</var>
+			<text> </text>
+			<text>cmdtarget2</text>
+			<text>=</text>
+			<var>$cmdtarget2</var>
+			<text> </text>
+			<text>cmdpar1</text>
+			<text>=</text>
+			<var>$cmdpar1</var>
+			<text> </text>
+			<text>cmdpar2</text>
+			<text>=</text>
+			<var>$cmdpar2</var>
+		</line>
+		<line linenr="005" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Mayhem.Signal.Bailed.Action</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>ship</text>
+			<text>=</text>
+			<var>[THIS]</var>
+		</line>
+		<line linenr="006" indent="" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Sig.Captured</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>Privateer</text>
+			<text>=</text>
+			<var>$privateer</var>
+			<text> </text>
+			<text>cmd</text>
+			<text>=</text>
+			<var>$cmd</var>
+			<text> </text>
+			<text>cmdtarget</text>
+			<text>=</text>
+			<var>$cmdtarget</var>
+			<text> </text>
+			<text>cmdtarget2</text>
+			<text>=</text>
+			<var>$cmdtarget2</var>
+			<text> </text>
+			<text>cmdpar1</text>
+			<text>=</text>
+			<var>$cmdpar1</var>
+			<text> </text>
+			<text>cmdpar2</text>
+			<text>=</text>
+			<var>$cmdpar2</var>
+			<text> </text>
+			<text>Ship</text>
+			<text>=</text>
+			<var>[THIS]</var>
+		</line>
+		<line linenr="007" indent="" />
+		<line linenr="008" indent="">
+			<comment>* Zero Hour 1.8 boarding</comment>
+		</line>
+		<line linenr="009" indent="">
+			<var>$attackingMarines</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>number</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
+			<text>marines</text>
+			<text> </text>
+			<text>attacking</text>
+		</line>
+		<line linenr="010" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$attackingMarines</var>
+			<text> </text>
+			<text>&gt;</text>
+			<text> </text>
+			<var>0</var>
+		</line>
+		<line linenr="011" indent="&#160;">
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>begin</text>
+			<text> </text>
+			<text>task</text>
+			<text> </text>
+			<var>0</var>
+			<text> </text>
+			<text>with</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>!lib.interrupt</call>
+			<text> </text>
+			<text>and</text>
+			<text> </text>
+			<text>priority</text>
+			<text> </text>
+			<var>0</var>
+			<text>:</text>
+			<text> </text>
+			<text>arg1</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg2</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg3</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg4</text>
+			<text>=</text>
+			<var>null</var>
+			<text> </text>
+			<text>arg5</text>
+			<text>=</text>
+			<var>null</var>
+		</line>
+		<line linenr="012" indent="&#160;" interruptable="@">
+			<text>START</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>ZH.Sig.Captured.Delay</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>ship</text>
+			<text>=</text>
+			<var>[THIS]</var>
+		</line>
+		<line linenr="013" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="014" indent="" />
+		<line linenr="015" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="!ship.signal.captured" />
+			<sval type="int" val="50" />
+			<sval type="string" val="Synchron signal. captured" />
+			<sval type="int" val="5" />
+			<sval type="int" val="0" />
+			<sval type="array" size="7">
+				<sval type="string" val="privateer" />
+				<sval type="string" val="cmd" />
+				<sval type="string" val="cmdtarget" />
+				<sval type="string" val="cmdtarget2" />
+				<sval type="string" val="cmdpar1" />
+				<sval type="string" val="cmdpar2" />
+				<sval type="string" val="attackingMarines" />
+			</sval>
+			<sval type="array" size="8">
+				<sval type="array" size="20">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.AssignNewLeader" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="Mayhem.Signal.Bailed.Action" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="20">
+					<sval type="int" val="102" />
+					<sval type="string" val="Sig.Captured" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1441" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="6" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610610941" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="15" />
+					<sval type="int" val="2" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="18">
+					<sval type="int" val="1017" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="string" val="!lib.interrupt" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="ZH.Sig.Captured.Delay" />
+					<sval type="int" val="-2147483646" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="array" size="6">
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="privateer" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="31" />
+					<sval type="string" val="cmd" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="cmdtarget" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="cmdtarget2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="cmdpar1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="cmdpar2" />
+				</sval>
+			</sval>
+			<sval type="array" size="7">
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="This signal seems to only trigger after the &quot;bail ship: attacker&quot; command has been used, NOT when you claim a ship or capture it through marines." />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="3" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="3" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Zero Hour 1.8 boarding" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="7" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="7" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>
