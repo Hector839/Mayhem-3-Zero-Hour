@@ -2997,16 +2997,16 @@
 			<text> </text>
 			<var>$menu</var>
 		</line>
-		<line linenr="219" indent="&#160;&#160;&#160;">
+		<line linenr="219" indent="&#160;&#160;">
 			<comment>* $t = [NULL]-&gt; call script 'Joubarbe.Lib.InfoText' : text='All ships require a crew of people onboard to be operational.'</comment>
 		</line>
 		<line linenr="220" indent="&#160;&#160;">
 			<comment>* add non selectable menu item: $menu, text=$t</comment>
 		</line>
-		<line linenr="221" indent="&#160;&#160;">
+		<line linenr="221" indent="&#160;&#160;&#160;">
 			<comment>* add section to custom menu: $menu</comment>
 		</line>
-		<line linenr="222" indent="&#160;" interruptable="@">
+		<line linenr="222" indent="&#160;&#160;" interruptable="@">
 			<var>$i</var>
 			<text> </text>
 			<text>=</text>
@@ -3092,7 +3092,7 @@
 			<text>=</text>
 			<text>'g'</text>
 		</line>
-		<line linenr="227" indent="&#160;" interruptable="@">
+		<line linenr="227" indent="&#160;&#160;" interruptable="@">
 			<var>$legend.f</var>
 			<text> </text>
 			<text>=</text>
@@ -3116,7 +3116,7 @@
 			<text>=</text>
 			<text>'a'</text>
 		</line>
-		<line linenr="228" indent="&#160;" interruptable="@">
+		<line linenr="228" indent="&#160;&#160;" interruptable="@">
 			<var>$legend2.f</var>
 			<text> </text>
 			<text>=</text>
@@ -3140,7 +3140,7 @@
 			<text>=</text>
 			<text>'a'</text>
 		</line>
-		<line linenr="229" indent="&#160;">
+		<line linenr="229" indent="&#160;&#160;">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -3319,7 +3319,7 @@
 		<line linenr="239" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="240" indent="" interruptable="@">
+		<line linenr="240" indent="&#160;" interruptable="@">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -3337,7 +3337,7 @@
 			<text> </text>
 			<text>text</text>
 			<text>=</text>
-			<text>'*** Terraformer ship designs get ignored by Xenon and OCV fleets.'</text>
+			<text>'*** Xenon &amp; OCV ship designs get ignored by all Terraformer fleets.'</text>
 		</line>
 		<line linenr="241" indent="&#160;">
 			<text>add</text>
@@ -3358,7 +3358,7 @@
 			<text>=</text>
 			<var>$t</var>
 		</line>
-		<line linenr="242" indent="">
+		<line linenr="242" indent="&#160;">
 			<var>$ocvSignals</var>
 			<text> </text>
 			<text>=</text>
@@ -3377,19 +3377,47 @@
 			<text>=</text>
 			<text>'mayhem_sector.ocvSignals'</text>
 		</line>
-		<line linenr="243" indent="">
+		<line linenr="243" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$ocvSignals</var>
 		</line>
-		<line linenr="244" indent="">
+		<line linenr="244" indent="" interruptable="@">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<text>'Sector can build OCV ships. Free equipment and maintenance. But eventually they will join the OCV.'</text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.ColorText</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'OCV'</text>
+			<text> </text>
+			<text>color</text>
+			<text>=</text>
+			<text>'o'</text>
 		</line>
-		<line linenr="245" indent="" interruptable="@">
+		<line linenr="245" indent="&#160;">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$t</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>' ships get free lasers and shields. No template required.'</text>
+		</line>
+		<line linenr="246" indent="" interruptable="@">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -3409,7 +3437,26 @@
 			<text>=</text>
 			<var>$t</var>
 		</line>
-		<line linenr="246" indent="">
+		<line linenr="247" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="248" indent="">
 			<var>$delay</var>
 			<text> </text>
 			<text>=</text>
@@ -3426,7 +3473,7 @@
 			<var>600</var>
 			<text>)</text>
 		</line>
-		<line linenr="247" indent="">
+		<line linenr="249" indent="">
 			<var>$delay</var>
 			<text> </text>
 			<text>=</text>
@@ -3437,7 +3484,7 @@
 			<text> </text>
 			<var>3600</var>
 		</line>
-		<line linenr="248" indent="">
+		<line linenr="250" indent="">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -3448,27 +3495,19 @@
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="249" indent="">
+		<line linenr="251" indent="">
 			<var>$delay</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="250" indent="">
-			<var>$t</var>
+		<line linenr="252" indent="">
+			<var>$delay</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<text>'OCV discount: '</text>
-			<text> </text>
-			<text>+</text>
-			<text> </text>
-			<var>$ocvSignals</var>
-			<text> </text>
-			<text>+</text>
-			<text> </text>
-			<text>'%. Average time until ships built here turn into OCV: '</text>
+			<text>'join the OCV after  ~'</text>
 			<text> </text>
 			<text>+</text>
 			<text> </text>
@@ -3476,9 +3515,9 @@
 			<text> </text>
 			<text>+</text>
 			<text> </text>
-			<text>' hours.'</text>
+			<text>' hours'</text>
 		</line>
-		<line linenr="251" indent="" interruptable="@">
+		<line linenr="253" indent="" interruptable="@">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -3490,30 +3529,36 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>Joubarbe.Lib.InfoText</call>
+			<call>Joubarbe.Lib.ColorText</call>
 			<text> </text>
 			<text>:</text>
 			<text> </text>
 			<text>text</text>
 			<text>=</text>
-			<var>$t</var>
-		</line>
-		<line linenr="252" indent="">
-			<text>else</text>
-		</line>
-		<line linenr="253" indent="">
-			<var>$ocvSignals</var>
+			<var>$delay</var>
 			<text> </text>
+			<text>color</text>
 			<text>=</text>
-			<text> </text>
-			<text>'0'</text>
+			<text>'o'</text>
 		</line>
 		<line linenr="254" indent="">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<text>'Sector can build Xenon ships, but no OCV ships due to a lack of abnormal signals.'</text>
+			<text>'OCV ships built here are '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$ocvSignals</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>'% cheaper but will '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$t</var>
 		</line>
 		<line linenr="255" indent="" interruptable="@">
 			<var>$t</var>
@@ -3536,28 +3581,23 @@
 			<var>$t</var>
 		</line>
 		<line linenr="256" indent="">
-			<text>end</text>
+			<text>else</text>
 		</line>
 		<line linenr="257" indent="">
-			<text>add</text>
+			<var>$ocvSignals</var>
 			<text> </text>
-			<text>non</text>
-			<text> </text>
-			<text>selectable</text>
-			<text> </text>
-			<text>menu</text>
-			<text> </text>
-			<text>item</text>
-			<text>:</text>
-			<text> </text>
-			<var>$menu</var>
-			<text>,</text>
-			<text> </text>
-			<text>text</text>
 			<text>=</text>
-			<var>$t</var>
+			<text> </text>
+			<text>'0'</text>
 		</line>
-		<line linenr="258" indent="" interruptable="@">
+		<line linenr="258" indent="">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>'Sector can build Xenon ships, but not OCV ships due to lack of abnormal signals.'</text>
+		</line>
+		<line linenr="259" indent="" interruptable="@">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -3575,46 +3615,10 @@
 			<text> </text>
 			<text>text</text>
 			<text>=</text>
-			<text>'All ships have basic extensions built-in, some classes receive extras:'</text>
-		</line>
-		<line linenr="259" indent="">
-			<text>add</text>
-			<text> </text>
-			<text>non</text>
-			<text> </text>
-			<text>selectable</text>
-			<text> </text>
-			<text>menu</text>
-			<text> </text>
-			<text>item</text>
-			<text>:</text>
-			<text> </text>
-			<var>$menu</var>
-			<text>,</text>
-			<text> </text>
-			<text>text</text>
-			<text>=</text>
 			<var>$t</var>
 		</line>
-		<line linenr="260" indent="" interruptable="@">
-			<var>$t</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<var>[NULL]</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>Joubarbe.Lib.InfoText</call>
-			<text> </text>
-			<text>:</text>
-			<text> </text>
-			<text>text</text>
-			<text>=</text>
-			<text>'M4 and M5: Video Enhancement Goggles.'</text>
+		<line linenr="260" indent="">
+			<text>end</text>
 		</line>
 		<line linenr="261" indent="">
 			<text>add</text>
@@ -3653,7 +3657,7 @@
 			<text> </text>
 			<text>text</text>
 			<text>=</text>
-			<text>'M8: CCDS MK1, CCDS MK2, CCDS MK3, Triplex Scanner.'</text>
+			<text>'All ships have basic extensions built-in, some classes receive extras:'</text>
 		</line>
 		<line linenr="263" indent="">
 			<text>add</text>
@@ -3692,7 +3696,7 @@
 			<text> </text>
 			<text>text</text>
 			<text>=</text>
-			<text>'M1 and dockable M7: Transporter Device, Carrier Repair Module.'</text>
+			<text>'M4 and M5: Video Enhancement Goggles.'</text>
 		</line>
 		<line linenr="265" indent="">
 			<text>add</text>
@@ -3731,7 +3735,7 @@
 			<text> </text>
 			<text>text</text>
 			<text>=</text>
-			<text>'TP: Transporter Device.'</text>
+			<text>'M8: CCDS MK1, CCDS MK2, CCDS MK3, Triplex Scanner.'</text>
 		</line>
 		<line linenr="267" indent="">
 			<text>add</text>
@@ -3770,7 +3774,7 @@
 			<text> </text>
 			<text>text</text>
 			<text>=</text>
-			<text>'TM: Boost Extension, Triplex Scanner.'</text>
+			<text>'M1 and dockable M7: Transporter Device, Carrier Repair Module.'</text>
 		</line>
 		<line linenr="269" indent="">
 			<text>add</text>
@@ -3791,8 +3795,25 @@
 			<text>=</text>
 			<var>$t</var>
 		</line>
-		<line linenr="270" indent="">
-			<text>else</text>
+		<line linenr="270" indent="" interruptable="@">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.InfoText</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'TP: Transporter Device.'</text>
 		</line>
 		<line linenr="271" indent="">
 			<text>add</text>
@@ -3811,18 +3832,79 @@
 			<text> </text>
 			<text>text</text>
 			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="272" indent="" interruptable="@">
+			<var>$t</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[NULL]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>Joubarbe.Lib.InfoText</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<text>'TM: Boost Extension, Triplex Scanner.'</text>
+		</line>
+		<line linenr="273" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t</var>
+		</line>
+		<line linenr="274" indent="">
+			<text>else</text>
+		</line>
+		<line linenr="275" indent="">
+			<text>add</text>
+			<text> </text>
+			<text>non</text>
+			<text> </text>
+			<text>selectable</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>item</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
 			<text>'No blueprint found'</text>
 		</line>
-		<line linenr="272" indent="">
+		<line linenr="276" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="273" indent="" />
-		<line linenr="274" indent="">
+		<line linenr="277" indent="" />
+		<line linenr="278" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="275" indent="" />
+		<line linenr="279" indent="" />
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
@@ -3891,7 +3973,7 @@
 				<sval type="string" val="ocvSignals" />
 				<sval type="string" val="delay" />
 			</sval>
-			<sval type="array" size="223">
+			<sval type="array" size="227">
 				<sval type="array" size="6">
 					<sval type="int" val="156" />
 					<sval type="int" val="131075" />
@@ -5576,7 +5658,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610556157" />
+					<sval type="int" val="-1610555133" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="50" />
@@ -5775,7 +5857,7 @@
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
 					<sval type="int" val="5" />
-					<sval type="string" val="*** Terraformer ship designs get ignored by Xenon and OCV fleets." />
+					<sval type="string" val="*** Xenon &amp; OCV ship designs get ignored by all Terraformer fleets." />
 				</sval>
 				<sval type="array" size="5">
 					<sval type="int" val="1556" />
@@ -5794,21 +5876,39 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610560509" />
+					<sval type="int" val="-1610559485" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="56" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
-				<sval type="array" size="7">
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.ColorText" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="OCV" />
+					<sval type="int" val="5" />
+					<sval type="string" val="o" />
+				</sval>
+				<sval type="array" size="13">
 					<sval type="int" val="104" />
 					<sval type="int" val="4" />
-					<sval type="int" val="1" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
 					<sval type="int" val="5" />
-					<sval type="string" val="Sector can build OCV ships. Free equipment and maintenance. But eventually they will join the OCV." />
-					<sval type="int" val="1" />
+					<sval type="string" val=" ships get free lasers and shields. No template required." />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="3" />
 					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
 				</sval>
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
@@ -5817,6 +5917,13 @@
 					<sval type="int" val="131075" />
 					<sval type="int" val="12" />
 					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1556" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="4" />
 				</sval>
@@ -5860,7 +5967,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536819449" />
+					<sval type="int" val="-536818937" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="57" />
@@ -5882,29 +5989,58 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
-				<sval type="array" size="31">
+				<sval type="array" size="19">
 					<sval type="int" val="104" />
-					<sval type="int" val="4" />
-					<sval type="int" val="9" />
+					<sval type="int" val="57" />
 					<sval type="int" val="5" />
-					<sval type="string" val="OCV discount: " />
-					<sval type="int" val="131074" />
-					<sval type="int" val="56" />
-					<sval type="int" val="15" />
-					<sval type="int" val="11" />
 					<sval type="int" val="5" />
-					<sval type="string" val="%. Average time until ships built here turn into OCV: " />
-					<sval type="int" val="15" />
-					<sval type="int" val="11" />
+					<sval type="string" val="join the OCV after  ~" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="57" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
-					<sval type="string" val=" hours." />
+					<sval type="string" val=" hours" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
-					<sval type="int" val="9" />
+					<sval type="int" val="5" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-4" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="Joubarbe.Lib.ColorText" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="57" />
+					<sval type="int" val="5" />
+					<sval type="string" val="o" />
+				</sval>
+				<sval type="array" size="25">
+					<sval type="int" val="104" />
+					<sval type="int" val="4" />
+					<sval type="int" val="7" />
+					<sval type="int" val="5" />
+					<sval type="string" val="OCV ships built here are " />
+					<sval type="int" val="131074" />
+					<sval type="int" val="56" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val="% cheaper but will " />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="7" />
 					<sval type="int" val="-1" />
 					<sval type="int" val="11" />
 					<sval type="int" val="-2" />
@@ -5912,8 +6048,6 @@
 					<sval type="int" val="-4" />
 					<sval type="int" val="11" />
 					<sval type="int" val="-6" />
-					<sval type="int" val="11" />
-					<sval type="int" val="-8" />
 				</sval>
 				<sval type="array" size="8">
 					<sval type="int" val="102" />
@@ -5927,7 +6061,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="207" />
+					<sval type="int" val="211" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
@@ -5943,7 +6077,7 @@
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 					<sval type="int" val="5" />
-					<sval type="string" val="Sector can build Xenon ships, but no OCV ships due to a lack of abnormal signals." />
+					<sval type="string" val="Sector can build Xenon ships, but not OCV ships due to lack of abnormal signals." />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
@@ -6068,7 +6202,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="222" />
+					<sval type="int" val="226" />
 				</sval>
 				<sval type="array" size="5">
 					<sval type="int" val="1556" />
@@ -6353,27 +6487,27 @@
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="204" />
+					<sval type="int" val="208" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="207" />
+					<sval type="int" val="211" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="221" />
+					<sval type="int" val="225" />
 					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="222" />
+					<sval type="int" val="226" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="222" />
+					<sval type="int" val="226" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="223" />
+					<sval type="int" val="227" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
