@@ -3,7 +3,7 @@
 <!-- Generated using X-Studio -->
 <script>
 	<name>ZH.Task.Architect</name>
-	<version>11</version>
+	<version>12</version>
 	<engineversion>50</engineversion>
 	<description></description>
 	<arguments />
@@ -3016,7 +3016,7 @@
 			<text> </text>
 			<text>sector</text>
 		</line>
-		<line linenr="277" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="277" indent="&#160;&#160;&#160;">
 			<var>$stations.client.s</var>
 			<text> </text>
 			<text>=</text>
@@ -3029,7 +3029,7 @@
 			<text> </text>
 			<var>$stations.client</var>
 		</line>
-		<line linenr="278" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="278" indent="&#160;&#160;&#160;">
 			<var>$freeSupport</var>
 			<text> </text>
 			<text>=</text>
@@ -3040,7 +3040,7 @@
 			<text> </text>
 			<var>$stations.client.s</var>
 		</line>
-		<line linenr="279" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="279" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$freeSupport</var>
@@ -3049,10 +3049,10 @@
 			<text> </text>
 			<var>1</var>
 		</line>
-		<line linenr="280" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="280" indent="&#160;">
 			<comment>* needs a free support slot</comment>
 		</line>
-		<line linenr="281" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="281" indent="&#160;">
 			<var>$index</var>
 			<text> </text>
 			<text>=</text>
@@ -3075,7 +3075,7 @@
 			<text>=</text>
 			<var>0</var>
 		</line>
-		<line linenr="282" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="282" indent="&#160;&#160;">
 			<text>remove</text>
 			<text> </text>
 			<text>element</text>
@@ -3092,7 +3092,7 @@
 			<text> </text>
 			<var>$index</var>
 		</line>
-		<line linenr="283" indent="&#160;&#160;&#160;">
+		<line linenr="283" indent="&#160;&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -3100,10 +3100,10 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="284" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="284" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="285" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="285" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$pendingOrder</var>
@@ -3112,10 +3112,10 @@
 			<text> </text>
 			<var>{Research Station}</var>
 		</line>
-		<line linenr="286" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="286" indent="&#160;&#160;&#160;">
 			<comment>* only 1 allowed per sector</comment>
 		</line>
-		<line linenr="287" indent="&#160;&#160;&#160;&#160;">
+		<line linenr="287" indent="&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>find</text>
@@ -3160,31 +3160,6 @@
 			<var>null</var>
 		</line>
 		<line linenr="288" indent="&#160;&#160;&#160;">
-			<var>$buildOrdsers.s</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>size</text>
-			<text> </text>
-			<text>of</text>
-			<text> </text>
-			<text>array</text>
-			<text> </text>
-			<var>$buildOrders</var>
-		</line>
-		<line linenr="289" indent="&#160;&#160;">
-			<text>if</text>
-			<text> </text>
-			<var>$buildOrdsers.s</var>
-			<text> </text>
-			<text>&gt;</text>
-			<text> </text>
-			<var>1</var>
-		</line>
-		<line linenr="290" indent="&#160;">
-			<comment>* move any duplicate Research Station to the end of the Architect order queue</comment>
-		</line>
-		<line linenr="291" indent="&#160;">
 			<text>remove</text>
 			<text> </text>
 			<text>element</text>
@@ -3201,23 +3176,12 @@
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="292" indent="&#160;&#160;">
-			<text>append</text>
-			<text> </text>
-			<var>{Research Station}</var>
-			<text> </text>
-			<text>to</text>
-			<text> </text>
-			<text>array</text>
-			<text> </text>
-			<var>$buildOrders</var>
-		</line>
-		<line linenr="293" indent="&#160;&#160;">
+		<line linenr="289" indent="&#160;&#160;">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<text>'Architect cannot build 2nd Research Station in '</text>
+			<text>'Architect cannot build a 2nd Research Station in '</text>
 			<text> </text>
 			<text>+</text>
 			<text> </text>
@@ -3225,9 +3189,9 @@
 			<text> </text>
 			<text>+</text>
 			<text> </text>
-			<text>'. Moved to end of queue.'</text>
+			<text>'. Removed order.'</text>
 		</line>
-		<line linenr="294" indent="&#160;&#160;" interruptable="@">
+		<line linenr="290" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -3257,7 +3221,7 @@
 			<text>=</text>
 			<var>1000</var>
 		</line>
-		<line linenr="295" indent="&#160;&#160;">
+		<line linenr="291" indent="&#160;&#160;">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -3265,70 +3229,13 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="296" indent="&#160;&#160;&#160;">
-			<text>else</text>
-		</line>
-		<line linenr="297" indent="&#160;&#160;">
-			<comment>* if it was the only remaining order remove the client Outpost for now</comment>
-		</line>
-		<line linenr="298" indent="&#160;&#160;&#160;">
-			<var>$index</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>get</text>
-			<text> </text>
-			<text>index</text>
-			<text> </text>
-			<text>of</text>
-			<text> </text>
-			<var>$client</var>
-			<text> </text>
-			<text>in</text>
-			<text> </text>
-			<text>array</text>
-			<text> </text>
-			<var>$outposts</var>
-			<text> </text>
-			<text>offset</text>
-			<text>=</text>
-			<var>0</var>
-		</line>
-		<line linenr="299" indent="&#160;&#160;">
-			<text>remove</text>
-			<text> </text>
-			<text>element</text>
-			<text> </text>
-			<text>from</text>
-			<text> </text>
-			<text>array</text>
-			<text> </text>
-			<var>$outposts</var>
-			<text> </text>
-			<text>at</text>
-			<text> </text>
-			<text>index</text>
-			<text> </text>
-			<var>$index</var>
-		</line>
-		<line linenr="300" indent="&#160;&#160;">
-			<text>goto</text>
-			<text> </text>
-			<text>label</text>
-			<text> </text>
-			<var>Restart</var>
-			<text>:</text>
-		</line>
-		<line linenr="301" indent="&#160;&#160;">
+		<line linenr="292" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="302" indent="&#160;&#160;&#160;">
+		<line linenr="293" indent="&#160;&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="303" indent="&#160;&#160;&#160;">
-			<text>end</text>
-		</line>
-		<line linenr="304" indent="&#160;&#160;&#160;">
+		<line linenr="294" indent="&#160;&#160;&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$pendingOrder</var>
@@ -3345,24 +3252,24 @@
 			<text> </text>
 			<var>{Silicon Mine}</var>
 		</line>
-		<line linenr="305" indent="&#160;&#160;&#160;">
+		<line linenr="295" indent="&#160;&#160;&#160;">
 			<comment>* required asteroid available?</comment>
 		</line>
-		<line linenr="306" indent="&#160;&#160;&#160;">
+		<line linenr="296" indent="&#160;&#160;&#160;">
 			<var>$ware</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="307" indent="&#160;&#160;">
+		<line linenr="297" indent="&#160;&#160;">
 			<var>$asteroid</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="308" indent="&#160;">
+		<line linenr="298" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>$pendingOrder</var>
@@ -3371,14 +3278,14 @@
 			<text> </text>
 			<var>{Ore Mine}</var>
 		</line>
-		<line linenr="309" indent="&#160;">
+		<line linenr="299" indent="&#160;">
 			<var>$ware</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>{Ore}</var>
 		</line>
-		<line linenr="310" indent="&#160;">
+		<line linenr="300" indent="&#160;">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -3389,17 +3296,17 @@
 			<text> </text>
 			<var>{Silicon Mine}</var>
 		</line>
-		<line linenr="311" indent="&#160;">
+		<line linenr="301" indent="&#160;">
 			<var>$ware</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>{Silicon Wafers}</var>
 		</line>
-		<line linenr="312" indent="&#160;&#160;">
+		<line linenr="302" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="313" indent="&#160;" interruptable="@">
+		<line linenr="303" indent="&#160;" interruptable="@">
 			<var>$asteroid</var>
 			<text> </text>
 			<text>=</text>
@@ -3423,16 +3330,16 @@
 			<text>=</text>
 			<var>$ware</var>
 		</line>
-		<line linenr="314" indent="&#160;">
+		<line linenr="304" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>!</text>
 			<var>$asteroid</var>
 		</line>
-		<line linenr="315" indent="&#160;&#160;">
+		<line linenr="305" indent="&#160;&#160;">
 			<comment>* if we don't have a matching asteroid we remove the order. There is a way to spawn new asteroids later with a generic mission, but this is just too rare.</comment>
 		</line>
-		<line linenr="316" indent="">
+		<line linenr="306" indent="">
 			<text>remove</text>
 			<text> </text>
 			<text>element</text>
@@ -3449,7 +3356,7 @@
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="317" indent="">
+		<line linenr="307" indent="">
 			<var>$t</var>
 			<text> </text>
 			<text>=</text>
@@ -3472,7 +3379,7 @@
 			<text> </text>
 			<text>'. Removed order.'</text>
 		</line>
-		<line linenr="318" indent="" interruptable="@">
+		<line linenr="308" indent="" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[NULL]</var>
@@ -3502,7 +3409,7 @@
 			<text>=</text>
 			<var>1000</var>
 		</line>
-		<line linenr="319" indent="">
+		<line linenr="309" indent="">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -3510,16 +3417,16 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="320" indent="">
+		<line linenr="310" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="321" indent="">
+		<line linenr="311" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="322" indent="">
+		<line linenr="312" indent="">
 			<comment>* in between we need to check if the player has modified the Architect order queue</comment>
 		</line>
-		<line linenr="323" indent="">
+		<line linenr="313" indent="">
 			<var>$buildOrders</var>
 			<text> </text>
 			<text>=</text>
@@ -3538,7 +3445,7 @@
 			<text>=</text>
 			<text>'ZH.buildOrders'</text>
 		</line>
-		<line linenr="324" indent="">
+		<line linenr="314" indent="">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -3551,7 +3458,7 @@
 			<text> </text>
 			<var>$buildOrders</var>
 		</line>
-		<line linenr="325" indent="">
+		<line linenr="315" indent="">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -3559,7 +3466,7 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="326" indent="">
+		<line linenr="316" indent="">
 			<var>$newOrder</var>
 			<text> </text>
 			<text>=</text>
@@ -3569,7 +3476,7 @@
 			<var>0</var>
 			<text>]</text>
 		</line>
-		<line linenr="327" indent="">
+		<line linenr="317" indent="">
 			<text>skip</text>
 			<text> </text>
 			<text>if</text>
@@ -3580,7 +3487,7 @@
 			<text> </text>
 			<var>$pendingOrder</var>
 		</line>
-		<line linenr="328" indent="">
+		<line linenr="318" indent="">
 			<text>goto</text>
 			<text> </text>
 			<text>label</text>
@@ -3588,7 +3495,7 @@
 			<var>Restart</var>
 			<text>:</text>
 		</line>
-		<line linenr="329" indent="">
+		<line linenr="319" indent="">
 			<text>endsub</text>
 		</line>
 	</sourcetext>
@@ -3597,9 +3504,9 @@
 			<sval type="string" val="ZH.Task.Architect" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
-			<sval type="int" val="11" />
+			<sval type="int" val="12" />
 			<sval type="int" val="0" />
-			<sval type="array" size="45">
+			<sval type="array" size="44">
 				<sval type="string" val="factoryTypes" />
 				<sval type="string" val="scriptName" />
 				<sval type="string" val="taskID" />
@@ -3642,11 +3549,10 @@
 				<sval type="string" val="posArray" />
 				<sval type="string" val="distance" />
 				<sval type="string" val="station" />
-				<sval type="string" val="buildOrdsers.s" />
 				<sval type="string" val="ware" />
 				<sval type="string" val="newOrder" />
 			</sval>
-			<sval type="array" size="246">
+			<sval type="array" size="239">
 				<sval type="array" size="4">
 					<sval type="int" val="128" />
 					<sval type="int" val="0" />
@@ -5535,7 +5441,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610555133" />
+					<sval type="int" val="-1610556925" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="14" />
@@ -5550,7 +5456,7 @@
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="794" />
-					<sval type="int" val="-1610555133" />
+					<sval type="int" val="-1610556925" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="22" />
 					<sval type="int" val="9" />
@@ -5567,27 +5473,6 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="131" />
-					<sval type="int" val="42" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="20" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610555901" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="42" />
-					<sval type="int" val="4" />
-					<sval type="int" val="1" />
-					<sval type="int" val="15" />
-					<sval type="int" val="2" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="2" />
-					<sval type="int" val="-2" />
 				</sval>
 				<sval type="array" size="5">
 					<sval type="int" val="136" />
@@ -5596,25 +5481,18 @@
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
 				</sval>
-				<sval type="array" size="5">
-					<sval type="int" val="135" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="20" />
-					<sval type="int" val="9" />
-					<sval type="int" val="394115" />
-				</sval>
 				<sval type="array" size="19">
 					<sval type="int" val="104" />
 					<sval type="int" val="12" />
 					<sval type="int" val="5" />
 					<sval type="int" val="5" />
-					<sval type="string" val="Architect cannot build 2nd Research Station in " />
+					<sval type="string" val="Architect cannot build a 2nd Research Station in " />
 					<sval type="int" val="131074" />
 					<sval type="int" val="22" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
-					<sval type="string" val=". Moved to end of queue." />
+					<sval type="string" val=". Removed order." />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
@@ -5644,34 +5522,9 @@
 					<sval type="int" val="100" />
 					<sval type="int" val="19" />
 				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="225" />
-				</sval>
-				<sval type="array" size="8">
-					<sval type="int" val="1083" />
-					<sval type="int" val="19" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="13" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="15" />
-					<sval type="int" val="4" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="5">
-					<sval type="int" val="136" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="13" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="19" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="100" />
-					<sval type="int" val="19" />
-				</sval>
 				<sval type="array" size="25">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610551549" />
+					<sval type="int" val="-1610553341" />
 					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="14" />
@@ -5698,7 +5551,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="43" />
+					<sval type="int" val="42" />
 					<sval type="int" val="1" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
@@ -5716,7 +5569,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610553597" />
+					<sval type="int" val="-1610555389" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="14" />
@@ -5731,7 +5584,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="43" />
+					<sval type="int" val="42" />
 					<sval type="int" val="1" />
 					<sval type="int" val="9" />
 					<sval type="int" val="983040" />
@@ -5740,11 +5593,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="233" />
+					<sval type="int" val="226" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610553083" />
+					<sval type="int" val="-1610554875" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="14" />
@@ -5759,7 +5612,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="43" />
+					<sval type="int" val="42" />
 					<sval type="int" val="1" />
 					<sval type="int" val="9" />
 					<sval type="int" val="983041" />
@@ -5776,11 +5629,11 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="22" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="43" />
+					<sval type="int" val="42" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610551549" />
+					<sval type="int" val="-1610553341" />
 					<sval type="int" val="2" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="3" />
@@ -5804,7 +5657,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="Architect cannot find " />
 					<sval type="int" val="131074" />
-					<sval type="int" val="43" />
+					<sval type="int" val="42" />
 					<sval type="int" val="15" />
 					<sval type="int" val="11" />
 					<sval type="int" val="5" />
@@ -5860,7 +5713,7 @@
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="-536808953" />
+					<sval type="int" val="-536810745" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="20" />
 				</sval>
@@ -5870,7 +5723,7 @@
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="44" />
+					<sval type="int" val="43" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="20" />
 					<sval type="int" val="4" />
@@ -5878,10 +5731,10 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536808185" />
+					<sval type="int" val="-536809977" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="44" />
+					<sval type="int" val="43" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="14" />
 					<sval type="int" val="15" />
@@ -5900,7 +5753,7 @@
 				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="96">
+			<sval type="array" size="92">
 				<sval type="array" size="3">
 					<sval type="int" val="0" />
 					<sval type="int" val="1" />
@@ -6260,56 +6113,38 @@
 					<sval type="int" val="1" />
 					<sval type="string" val="only 1 allowed per sector" />
 				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="216" />
-					<sval type="int" val="1" />
-					<sval type="string" val="move any duplicate Research Station to the end of the Architect order queue" />
-				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="222" />
-					<sval type="int" val="5" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="222" />
-					<sval type="int" val="1" />
-					<sval type="string" val="if it was the only remaining order remove the client Outpost for now" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="225" />
+					<sval type="int" val="218" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="225" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="225" />
+					<sval type="int" val="218" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="226" />
+					<sval type="int" val="219" />
 					<sval type="int" val="1" />
 					<sval type="string" val="required asteroid available?" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="233" />
+					<sval type="int" val="226" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="235" />
+					<sval type="int" val="228" />
 					<sval type="int" val="1" />
 					<sval type="string" val="if we don't have a matching asteroid we remove the order. There is a way to spawn new asteroids later with a generic mission, but this is just too rare." />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="239" />
+					<sval type="int" val="232" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="239" />
+					<sval type="int" val="232" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="239" />
+					<sval type="int" val="232" />
 					<sval type="int" val="1" />
 					<sval type="string" val="in between we need to check if the player has modified the Architect order queue" />
 				</sval>
